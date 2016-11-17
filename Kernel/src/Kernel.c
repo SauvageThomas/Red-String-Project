@@ -1,17 +1,30 @@
 /*
  ============================================================================
  Name        : Kernel.c
- Author      : 
+ Author      : Thomas
  Version     :
- Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+ Description : Launches the search engine
  ============================================================================
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "Data/constant.h"
+#include "Test/test.h"
+
+//This is the only main which will be used in this project
 int main(void) {
-	puts("!!!Hello World!!!"); /* prints !!!Hello World!!! */
+	if (DEBUG) {
+		puts("Debug is ON");
+	}
+	if (!PROD) {
+		puts("Prod is OFF");
+	}
+	//launch test
+	if(TEST){
+		launch_all_test();
+	}
+
 	return EXIT_SUCCESS;
 }
