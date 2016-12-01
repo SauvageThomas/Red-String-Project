@@ -8,6 +8,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *read_data_from_file(char *path){
+char *read_string_from_file(char *path) {
 	return "a";
+}
+
+void write_string_in_file(char *path, char *string) {
+	// TODO
 }

@@ -8,6 +8,7 @@
 #ifndef TOOLS_TOOLS_H_
 #define TOOLS_TOOLS_H_
 
-char *read_data_from_file(char *path);
+char *read_string_from_file(char *path);
+void write_string_in_file(char *path, char *string);
 
 #endif /* TOOLS_TOOLS_H_ */
