@@ -1,6 +1,6 @@
 /*
  ============================================================================
- Name        : Kernel.c
+ Name        : main.c
  Author      : Thomas
  Version     :
  Description : Launches the search engine
@@ -19,7 +19,11 @@
 
 #include "Tools/tools.h"
 
-//This is the only main which will be used in this project
+/*
+ * Description	: This is the only main which will be used in this project
+ * Parameters	: None
+ * Returns		: EXIT_SUCCES or EXIT_FAILURE
+ */
 int main(void) {
 
 	char src[50], dest[50];
@@ -31,13 +35,13 @@ int main(void) {
 
 	printf("Final destination string : |%s|", dest);
 
-
 	if (DEBUG) {
 		puts("Debug is ON");
 	}
 	if (!PROD) {
 		puts("Prod is OFF");
 	}
+
 	//launch test
 	if (TEST) {
 		puts("Running tests ...\n");
