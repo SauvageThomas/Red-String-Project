@@ -10,7 +10,7 @@
 
 #define DEBUG 1
 #define PROD 0
-#define TEST 0
+#define TEST 1
 
 
 #endif /* DATA_CONSTANT_H_ */
