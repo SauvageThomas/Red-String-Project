@@ -8,6 +8,7 @@
  */
 
 #include <stdio.h>
+#include "search_engine.h"
 
 void launch_search_engine(){
 	puts("SEARCH ENGINE : LAUNCH");
@@ -21,5 +22,5 @@ void init_search_engine(){
 
 void run_search_engine(){
 	puts("SEARCH ENGINE : RUN");
-	scanf();
+	//scanf();
 }
