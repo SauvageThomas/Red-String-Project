@@ -5,4 +5,6 @@
  *      Author: twarz
  */
 
-
+int read_descriptor(){
+	return 1;
+}
