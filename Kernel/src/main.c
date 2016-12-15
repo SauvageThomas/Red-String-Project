@@ -18,6 +18,7 @@
 #include "Test/minunit.h"
 
 #include "Tools/data_handler.h"
+#include "search_engine.h"
 
 /*
  * Description	: This is the only main which will be used in this project
@@ -32,9 +33,13 @@ int main(void) {
 	if (!PROD) {
 		puts("Prod is OFF");
 	}
+	else {
+		puts("Prod is ON");
+		launch_search_engine();
+	}
 
 	//launch test
-	if (TEST) {
+	if (TEST){
 		puts("Running tests ...\n");
 		run_all_tests();
 		puts("test done");
