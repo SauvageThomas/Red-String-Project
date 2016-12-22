@@ -27,6 +27,13 @@
  */
 int main(void) {
 
+	//launch test
+	if (TEST){
+		puts("Running tests ...\n");
+		run_all_tests();
+		puts("test done");
+	}
+
 	if (DEBUG) {
 		puts("Debug is ON");
 	}
@@ -36,13 +43,6 @@ int main(void) {
 	else {
 		puts("Prod is ON");
 		launch_search_engine();
-	}
-
-	//launch test
-	if (TEST){
-		puts("Running tests ...\n");
-		run_all_tests();
-		puts("test done");
 	}
 
 	return EXIT_SUCCESS;

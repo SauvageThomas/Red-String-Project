@@ -5,4 +5,6 @@
  *      Author: THOMAS
  */
 
-
+void generate_descriptor(){
+	puts("DESCRIPTOR GENERATION\n");
+}

@@ -24,7 +24,7 @@ void init_search_engine(){
 
 void run_search_engine(){
 	puts("SEARCH ENGINE : RUN");
-	char* file_path;
+	char file_path[100];
 	puts("Please, enter a file path : ");
 	scanf("%s", file_path);
 	printf("file to treat : %s\n", file_path);

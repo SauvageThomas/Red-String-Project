@@ -12,76 +12,80 @@
 #include "../Tools/data_handler.h"
 
 char msg[50];
-char *expected;
-char *path;
-char *result;
+char *TEST_WRITE_FILE_PATH = "Data/Test/test_write_string_from_file";
+
 
 void test_setup() {
-	strcpy(msg, "Should be : ");
+	puts("\n\n---------------------------- TEST ----------------------------");
+	strcpy(msg, "EXPECTED : ");
 }
 
 void test_teardown() {
-	/* Nothing */
+	puts("\n---------------------------- DONE ----------------------------\n");
 }
 
-MU_TEST(test_read_file) {
-
-	expected = "This is a test ! \n";
-	path = "Data/Test/test_read_string_from_file_1";
-	result = read_string_from_file(path);
-
+void assert_equals_str(char* expected, char* result){
+	printf("EXPECTED LENGTH : %d\n", strlen(expected));
+	printf("EXPECTED VALUE  : %s\n\n", expected);
+	printf("RESULT LENGTH   : %d\n", strlen(result));
+	printf("RESULT VALUE    : %s\n", result);
 	mu_assert(strcmp(expected, result) == 0, strcat(msg, expected));
-
-	expected = "Bla bla bla watch out about \\n \\t \\r";
-	path = "Data/Test/test_read_string_from_file_2";
-	result = read_string_from_file(path);
-
-	mu_assert(strcmp(expected, result) == 0, strcat(msg, expected));
-
-	expected = "This is     a       ><<<> \\ test ! ";
-	path = "Data/Test/test_read_string_from_file_3";
-	result = read_string_from_file(path);
-
-	mu_assert(strcmp(expected, result) == 0, strcat(msg, expected));
-
 }
 
-MU_TEST(test_write_file) {
+MU_TEST(test_read_file_1) {
+	char* expected = "This is a test ! \n";
+	char* path = "Data/Test/test_read_data_from_file_1";
+	char* result = read_string_from_file(path);
+	assert_equals_str(expected, result);
+}
 
-	expected = "This is a test ! \n";
-	path = "Data/Test/test_write_string_from_file";
+MU_TEST(test_read_file_2) {
+	char *expected = "Bla bla bla watch out about \\n \\t \\r";
+	char *path = "Data/Test/test_read_data_from_file_2";
+	char *result = read_string_from_file(path);
+	assert_equals_str(expected, result);
+}
 
-	write_string_in_file(path, expected);
-	result = read_string_from_file(path);
+MU_TEST(test_read_file_3) {
+	char *expected = "This is     a       ><<<> \\ test !";
+	char *path = "Data/Test/test_read_data_from_file_3";
+	char *result = read_string_from_file(path);
+	assert_equals_str(expected, result);
+}
 
+MU_TEST(test_write_file_1) {
+	char *expected = "This is a test ! \n";
+	write_string_in_file(TEST_WRITE_FILE_PATH, expected);
+	char *result = read_string_from_file(TEST_WRITE_FILE_PATH);
+	assert_equals_str(expected, result);
+}
 
-	mu_assert(strcmp(expected, result) == 0, strcat(msg, expected));
+MU_TEST(test_write_file_2) {
+	char *expected = "Bla bla bla watch out about \\n \\t \\r";
+	write_string_in_file(TEST_WRITE_FILE_PATH, expected);
+	char *result = read_string_from_file(TEST_WRITE_FILE_PATH);
+	assert_equals_str(expected, result);
+}
 
-	expected = "Bla bla bla watch out about \\n \\t \\r";
-
-	write_string_in_file(path, expected);
-	result = read_string_from_file(path);
-
-	mu_assert(strcmp(expected, result) == 0, strcat(msg, expected));
-
-	expected = "This is     a       ><<<> \\ test ! ";
-
-	write_string_in_file(path, expected);
-	result = read_string_from_file(path);
-
-	mu_assert(strcmp(expected, result) == 0, strcat(msg, expected));
-
+MU_TEST(test_write_file_3) {
+	char *expected = "This is     a       ><<<> \\ test ! ";
+	write_string_in_file(TEST_WRITE_FILE_PATH, expected);
+	char *result = read_string_from_file(TEST_WRITE_FILE_PATH);
+	assert_equals_str(expected, result);
 }
 
 MU_TEST_SUITE(test_suite) {
 	MU_SUITE_CONFIGURE(&test_setup, &test_teardown);
 
-	MU_RUN_TEST(test_read_file);
-	MU_RUN_TEST(test_write_file);
+	MU_RUN_TEST(test_read_file_1);
+	MU_RUN_TEST(test_read_file_2);
+	MU_RUN_TEST(test_read_file_3);
+	MU_RUN_TEST(test_write_file_1);
+	MU_RUN_TEST(test_write_file_2);
+	MU_RUN_TEST(test_write_file_3);
 }
 
 void run_all_tests() {
 	MU_RUN_SUITE(test_suite);
-	MU_REPORT()
-	;
+	MU_REPORT();
 }
