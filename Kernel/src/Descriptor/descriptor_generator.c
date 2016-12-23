@@ -5,6 +5,9 @@
  *      Author: THOMAS
  */
 
-void generate_descriptor(){
-	puts("DESCRIPTOR GENERATION\n");
+#include "descriptor_generator.h"
+
+int check_descriptors(){
+	puts("DESCRIPTOR CHECK \n");
+	return 0;
 }

@@ -9,23 +9,61 @@
 
 #include <stdio.h>
 #include "search_engine.h"
+#include "Descriptor/descriptor_generator.h"
+#include "Descriptor/index_generator.h"
+#include "Search/data_finder.h"
+#include "Tools/report.h"
 
 void launch_search_engine(){
+
+	/*
+	* MANAGE ALL THE SOFTWARE PROCESS
+	*/
+
 	puts("SEARCH ENGINE : LAUNCH");
 	init_search_engine();
 	run_search_engine();
+	close_search_engine();
 }
 
 void init_search_engine(){
-	puts("SEARCH ENGINE : INIT");
-	puts("\t - check descriptors");
-	puts("\t - check index");
+
+	/*
+	* UPDATE DESCRIPTORS AND INDEX IF NEEDED
+	*/
+
+	puts("SEARCH ENGINE : INITITIALIZATION");
+	puts("-> checking descriptors...");
+	int updated = check_descriptors();
+	if (updated){
+		puts("Index is already up to date.");
+	}
+	else{
+		puts("-> updating index...");
+		update_index();
+	}
 }
 
 void run_search_engine(){
+
+	/*
+	* RUN THE RESEARCH FROM A FILE PATH 
+	*/
+
 	puts("SEARCH ENGINE : RUN");
-	char file_path[100];
+	char file_path[200];
 	puts("Please, enter a file path : ");
 	scanf("%s", file_path);
-	printf("file to treat : %s\n", file_path);
+	
+	int res = search_data(file_path);
+	show_search_report(res);
+}
+
+void close_search_engine(){
+
+	/*
+	* free resources if needed ? 
+	*/
+
+	puts("SEARCH ENGINE : CLOSE");
 }

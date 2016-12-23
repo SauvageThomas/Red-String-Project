@@ -5,4 +5,4 @@
  *      Author: THOMAS
  */
 
-
+int check_descriptors();

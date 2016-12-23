@@ -1,13 +1,18 @@
 /*
  ============================================================================
- Name        : search_engine.h
+ Name        : index_generator.c
  Author      : Kévin
  Version     :
- Description : Search Engine
+ Description : Generate index file
  ============================================================================
  */
 
-void launch_search_engine();
-void init_search_engine();
-void run_search_engine();
-void close_search_engine();
+#include "index_generator.h"
+
+void update_index(){
+	/*
+	* UPDATE THE INDEX FILE
+	*/
+	puts("INDEX FILE UPDATED.");
+}
+

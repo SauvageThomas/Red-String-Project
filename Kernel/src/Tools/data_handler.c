@@ -7,7 +7,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 	
-int file_length_retriever( char* path){
+
+int is_empty_file(char* path){
+	return (file_length_retriever(path) == 0);
+} 
+int file_length_retriever(char* path){
 	int size;
 	FILE * file= NULL;
 	file=fopen (path, "r");

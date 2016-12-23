@@ -1,13 +1,14 @@
 /*
  ============================================================================
- Name        : search_engine.h
+ Name        : report.h
  Author      : Kévin
  Version     :
- Description : Search Engine
+ Description : manage all the reports of the software
  ============================================================================
  */
 
-void launch_search_engine();
-void init_search_engine();
-void run_search_engine();
-void close_search_engine();
+#define SUCCESS 0
+#define FILE_NOT_FOUND 1
+#define EMPTY 2
+
+void show_search_report(int res);
