@@ -20,6 +20,7 @@ DataFile init_data_file(char* path);
 int is_existing_file(DataFile data_file);
 int is_empty_file(DataFile data_file);
 void set_data_file_length(DataFile* data_file);
+int get_data_file_extension(DataFile data_file);
 char* read_string_from_file(DataFile data_file);
 void write_string_in_file(DataFile data_file, char *string);
 void close_data_file(DataFile data_file);

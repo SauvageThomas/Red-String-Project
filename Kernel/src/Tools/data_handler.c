@@ -6,6 +6,7 @@
  */
 
 #include <stdlib.h>
+#include <string.h>
 #include <sys/stat.h>
 #include "data_handler.h"
 	
@@ -35,6 +36,18 @@ void set_data_file_length(DataFile* data_file){
 	data_file->length = s.st_size;
 }
 
+int get_data_file_extension(DataFile data_file){
+	char* ext = strrchr(data_file.path, '.') + 1;
+	if (strcmp(ext, "xml") == 0){
+    	return 1;
+	} 
+	if (strcmp(ext, "txt") == 0){
+		//TODO: separate image and found possibility
+    	return 2;
+	}
+	return -1;
+}
+
 char* read_string_from_file(DataFile data_file){
 	set_data_file_length(&data_file);
 	data_file.file = fopen(data_file.path, "r+");
@@ -42,8 +55,6 @@ char* read_string_from_file(DataFile data_file){
 	char* string_in_file = (char *) malloc(sizeof(char) * data_file.length);
 	for (int i = 0; i < data_file.length; i++){
 		char tmp = fgetc(data_file.file);
-		if (tmp == EOF)
-			break;
 		string_in_file[i] = tmp;
 	}
 	fclose(data_file.file);

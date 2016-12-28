@@ -43,6 +43,7 @@ int main(void) {
 	else {
 		puts("Prod is ON");
 		launch_search_engine();
+		// exemple of path : ../res/FICHIER_PROJET/Textes/03-Des_chercheurs_parviennent_à_régénérer.xml
 	}
 
 	return EXIT_SUCCESS;

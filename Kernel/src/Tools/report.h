@@ -9,6 +9,7 @@
 
 #define SUCCESS 0
 #define FILE_NOT_FOUND 1
-#define EMPTY 2
+#define EMPTY 2 
+#define FILE_TYPE_NOT_SUPPORTED 3
 
 void show_search_report(int res);

@@ -23,6 +23,10 @@ void show_search_report(int res){
 		 	puts("Search aborted : file not found !");
 		break;
 
+		case FILE_TYPE_NOT_SUPPORTED : 
+		 	puts("Search aborted : data type not supported !");
+		break;
+
 		default :
 			puts("Search aborted : unexpected error !");
 		break;
