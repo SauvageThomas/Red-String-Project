@@ -4,50 +4,63 @@
  *  Created on: 30 nov. 2016
  *      Author: THOMAS
  */
-#include <stdio.h>
+
 #include <stdlib.h>
+#include <sys/stat.h>
+#include "data_handler.h"
 	
-
-int is_empty_file(char* path){
-	return (file_length_retriever(path) == 0);
-} 
-int file_length_retriever(char* path){
-	int size;
-	FILE * file= NULL;
-	file=fopen (path, "r");
-	if (file!=NULL){
-		fseek(file, 0, SEEK_END);
-		size= ftell(file);
-		fseek(file, 0, SEEK_SET);
-		fclose(file);}
-	else 
-		printf("the file  %s can't be opened or doesn't exist !\n", path);
-	return size;
-}
-
-char* read_string_from_file(char *path){
-	FILE* file = fopen(path, "r");
-	if (file != NULL){
-		int size_file = file_length_retriever(path);
-		char* string_in_file = (char *) malloc(sizeof(char) * size_file);
-		for (int i = 0; i < size_file; i++){
-			 string_in_file[i] = fgetc(file);
-		}
-		fclose(file);
-		return string_in_file;
+DataFile init_data_file(char* path){
+	DataFile data_file;
+	data_file.path = path;
+	if (is_existing_file(data_file)){
+		set_data_file_length(&data_file);
 	}
-	else
-		printf("the file  %s can't be opened or doesn't exist !\n", path);
-	return "empty !";
+	return data_file;
+}
+
+int is_existing_file(DataFile data_file){
+	data_file.file = fopen(data_file.path, "r");
+	int res = (data_file.file != NULL);
+	fclose(data_file.file);
+	return res;
+}
+
+int is_empty_file(DataFile data_file){
+	return (data_file.length == 0);
+} 
+
+void set_data_file_length(DataFile* data_file){
+	struct stat s;
+	stat(data_file->path, &s);
+	data_file->length = s.st_size;
+}
+
+char* read_string_from_file(DataFile data_file){
+	set_data_file_length(&data_file);
+	data_file.file = fopen(data_file.path, "r+");
+	printf("%d\n", data_file.length);
+	char* string_in_file = (char *) malloc(sizeof(char) * data_file.length);
+	for (int i = 0; i < data_file.length; i++){
+		char tmp = fgetc(data_file.file);
+		if (tmp == EOF)
+			break;
+		string_in_file[i] = tmp;
+	}
+	fclose(data_file.file);
+	return string_in_file;
 }
 
 
-void write_string_in_file(char *path, char *string) {
-	FILE * file= NULL;
-	file=fopen (path, "w+");// if we want to update, else just w
-	if (file!=NULL){
-		fputs( string, file);}
-	else
-		printf("the file %s can't be created or we can't add text!\n", path);
-	fclose(file);
+void write_string_in_file(DataFile data_file, char *string) {
+	data_file.file = fopen(data_file.path, "w");
+	fputs(string, data_file.file);
+	fclose(data_file.file);
+}
+
+void open_data_file(DataFile* data_file, char* option){
+	//data_file->file = fopen(data_file->path, option);
+}
+
+void close_data_file(DataFile data_file){
+	//fclose(data_file.file);
 }

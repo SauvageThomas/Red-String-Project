@@ -15,15 +15,13 @@
 
 int search_data(char* file_path){
 
-	FILE* file = fopen(file_path, "r");
-
-
-	if (file == NULL){
+	DataFile df = init_data_file(file_path);
+	
+	if (!is_existing_file(df)){
 		return FILE_NOT_FOUND;
 	}
 
-	if (is_empty_file(file_path)){
-		fclose(file);
+	if (is_empty_file(df)){
 		return EMPTY;
 	}
 
