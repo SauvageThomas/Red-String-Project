@@ -1,0 +1,19 @@
+Kernel
+	-Data
+		-User
+			-Text
+				-Descriptor
+				-Data
+			-Image
+				-Descriptor
+				-Data
+			-Sound
+				-Descriptor
+				-Data
+		-Test
+			-Text
+			-Image
+			-Sound
+			
+	-Src
+		-TODO:
