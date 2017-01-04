@@ -37,13 +37,3 @@ void displayMap(HashMap map){
 	}
 }
 
-int main(){
-	HashMap map;
-	init(&map);
-	addValue(&map, "manger", 1);
-	addValue(&map, "Kebab", 4);
-	addValue(&map, "Kebab", 4);
-	displayMap(map);
-}
-
-
