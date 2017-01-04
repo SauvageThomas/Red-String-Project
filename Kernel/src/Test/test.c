@@ -34,12 +34,12 @@ void assert_equals_str(char* expected, char* result){
 	mu_assert(strcmp(expected, result) == 0, strcat(msg, expected));
 }
 
+
 MU_TEST(test_read_file_1) {
 	char* expected = "This is a test ! \n";
 	char* path = "Data/Test/test_read_data_from_file_1";
 	DataFile df = init_data_file(path);
 	char* result = read_string_from_file(df);
-	printf("%d\n", df.length);
 	assert_equals_str(expected, result);
 }
 

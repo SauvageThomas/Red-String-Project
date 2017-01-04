@@ -11,7 +11,7 @@
 #include "search_engine.h"
 #include "Descriptor/descriptor_generator.h"
 #include "Descriptor/index_generator.h"
-#include "Search/data_finder.h"
+#include "Search/data_manager.h"
 #include "Tools/report.h"
 
 void launch_search_engine(){
