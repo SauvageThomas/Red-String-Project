@@ -1,3 +1,7 @@
+.PHONY: clean, mrproper
+
+all: descriptor_generator.o index_generator.o data_finder.o report.o search_engine.o test.o data_handler.o main.o 
+	gcc main.o report.o index_generator.o descriptor_generator.o data_finder.o test.o search_engine.o data_handler.o -o SearchEngine.exe
 descriptor_generator.o : Descriptor/descriptor_generator.c Descriptor/descriptor_generator.h
 	gcc -c -w -Wall Descriptor/descriptor_generator.c
 
@@ -21,8 +25,9 @@ data_handler.o : Tools/data_handler.c Tools/data_handler.h
 
 main.o : main.c Test/test.h Test/minunit.h search_engine.h Data/constant.h 
 	gcc -c -w -Wall main.c
-
-SearchEngine.exe : main.o report.o index_generator.o descriptor_generator.o data_finder.o test.o search_engine.o data_handler.o
-	gcc main.o report.o index_generator.o descriptor_generator.o data_finder.o test.o search_engine.o data_handler.o -o SearchEngine.exe
 	
+clean:
+	rm -rf *.o
 
+mrproper: clean
+	rm -rf *.exe
