@@ -8,7 +8,6 @@ void init(HashMap* map){
 }
 
 CellHashMap* findValue(CellHashMap* cell, char* key){
-
 	if(cell == NULL)
 		return NULL;
 	if(cell->key == key)
