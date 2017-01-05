@@ -10,30 +10,31 @@
 #include <string.h>
 
 #include "../Tools/data_handler.h"
+#include "../Tools/hash_map.h"
 
 char msg[50];
 char *TEST_WRITE_FILE_PATH = "Data/Test/test_write_string_from_file";
 int test_num = 1;
 
-
 void test_setup() {
-	printf("\n\n-------------------------- TEST %d ----------------------------\n", test_num);
+	printf(
+			"\n\n-------------------------- TEST %d ----------------------------\n",
+			test_num);
 	strcpy(msg, "EXPECTED : ");
 }
 
 void test_teardown() {
 	puts("\n-------------------------- DONE -------------------------------\n");
-	test_num ++;
+	test_num++;
 }
 
-void assert_equals_str(char* expected, char* result){
+void assert_equals_str(char* expected, char* result) {
 	printf("EXPECTED LENGTH : %d\n", strlen(expected));
 	printf("EXPECTED VALUE  : %s\n\n", expected);
 	printf("RESULT LENGTH   : %d\n", strlen(result));
 	printf("RESULT VALUE    : %s\n", result);
 	mu_assert(strcmp(expected, result) == 0, strcat(msg, expected));
 }
-
 
 MU_TEST(test_read_file_1) {
 	char* expected = "This is a test ! \n";
@@ -83,6 +84,14 @@ MU_TEST(test_write_file_3) {
 	assert_equals_str(expected, result);
 }
 
+MU_TEST(test_hash_map_1) {
+	HashMap map = malloc(sizeof(HashMap));
+	init(&map);
+	addValue(&map, "Test", 2);
+	//TODO pas assez de méthode pour tester la fonctionnalité
+
+}
+
 MU_TEST_SUITE(test_suite) {
 	MU_SUITE_CONFIGURE(&test_setup, &test_teardown);
 
@@ -92,9 +101,11 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_write_file_1);
 	MU_RUN_TEST(test_write_file_2);
 	MU_RUN_TEST(test_write_file_3);
+	MU_RUN_TEST(test_hash_map_1);
 }
 
 void run_all_tests() {
 	MU_RUN_SUITE(test_suite);
-	MU_REPORT();
+	MU_REPORT()
+	;
 }
