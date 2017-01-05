@@ -39,11 +39,11 @@ void set_data_file_length(DataFile* data_file){
 int get_data_file_extension(DataFile data_file){
 	char* ext = strrchr(data_file.path, '.') + 1;
 	if (strcmp(ext, "xml") == 0){
-    	return 1;
+    	return TEXT;
 	} 
 	if (strcmp(ext, "txt") == 0){
 		//TODO: separate image and found possibility
-    	return 2;
+    	return IMAGE;
 	}
 	return -1;
 }
