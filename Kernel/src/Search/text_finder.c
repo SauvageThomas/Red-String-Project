@@ -61,7 +61,7 @@ char* remove_punctuation(char* content){
 }
 
 char* remove_words(char* content){
-	char ** 
+	//char **
 	return content;
 }
 
