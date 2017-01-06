@@ -75,3 +75,10 @@ void open_data_file(DataFile* data_file, char* option){
 void close_data_file(DataFile data_file){
 	//fclose(data_file.file);
 }
+
+void purge_buffer() {
+	int c = 0;
+	while (c != '\n' && c != EOF) {
+		c = getchar();
+	}
+}

@@ -8,6 +8,7 @@
 #ifndef GUI_GUI_H_
 #define GUI_GUI_H_
 
+#define PASSLEN 20
 void start_gui();
 
 #endif /* GUI_GUI_H_ */

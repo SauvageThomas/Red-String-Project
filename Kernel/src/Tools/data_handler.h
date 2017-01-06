@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include "../Search/data_manager.h"
+
 #ifndef TOOLS_DATA_HANDLER_H_
 #define TOOLS_DATA_HANDLER_H_
 
@@ -25,5 +26,6 @@ char* read_string_from_file(DataFile data_file);
 void write_string_in_file(DataFile data_file, char *string);
 void close_data_file(DataFile data_file);
 void open_data_file(DataFile* data_file, char* option);
+void purge_buffer();
 
 #endif /* TOOLS_DATA_HANDLER_H_ */

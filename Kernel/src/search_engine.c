@@ -13,6 +13,7 @@
 #include "Descriptor/index_generator.h"
 #include "Search/data_manager.h"
 #include "Tools/report.h"
+#include "Tools/data_handler.h"
 
 void launch_search_engine() {
 
@@ -50,13 +51,14 @@ void run_search_engine() {
 	 */
 
 	puts("SEARCH ENGINE : RUN");
-	char file_path[200];
+	char file_path[255]; //255 is the max size limit on most used file systems
 	puts("Please, enter a file path : ");
 
-	if (fgets(file_path, sizeof(file_path), stdin)) {
+	if (fgets(file_path, sizeof(file_path) + 1, stdin)) {
 		int res = search_data(file_path);
+		purge_buffer(); //If the input's length is > to 255 it will stay in the buffer
 		show_search_report(res);
-	}else{
+	} else {
 		//Handle the error ?
 	}
 	//scanf("%s", file_path);
