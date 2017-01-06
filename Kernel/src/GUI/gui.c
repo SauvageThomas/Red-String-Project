@@ -32,10 +32,7 @@ void start_gui() {
 		}
 
 		purge_buffer();
-		printf("<%s>\n", buffer);
 
-		//strtok(buffer, "\n");
-		printf("<%d>\n", action);
 		switch (action) {
 		case 0:
 			exit(EXIT_SUCCESS);
