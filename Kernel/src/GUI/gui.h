@@ -10,5 +10,6 @@
 
 #define PASSLEN 20
 void start_gui();
+void modif_config();
 
 #endif /* GUI_GUI_H_ */

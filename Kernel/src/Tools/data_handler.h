@@ -27,5 +27,6 @@ void write_string_in_file(DataFile data_file, char *string);
 void close_data_file(DataFile data_file);
 void open_data_file(DataFile* data_file, char* option);
 void purge_buffer();
+int get_secure_input(char* buffer, size_t size);
 
 #endif /* TOOLS_DATA_HANDLER_H_ */
