@@ -8,10 +8,6 @@
 #ifndef GUI_FUNCTIONS_H_
 #define GUI_FUNCTIONS_H_
 
-#define PASSLEN 20
-#define SIZE 255
-#define SIZEMOT 24
-
 typedef struct {
 	char** config;
 	size_t size;

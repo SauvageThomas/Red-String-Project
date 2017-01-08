@@ -13,4 +13,8 @@
 #define TEST 0
 
 
+#define KPASSLEN 20
+#define KSIZE 255
+#define KSIZEWORD 24
+
 #endif /* DATA_CONSTANT_H_ */

@@ -10,6 +10,7 @@
 #include <stdlib.h>
 
 #include "functions.h"
+#include "../Data/constant.h"
 #include "../Tools/report.h"
 #include "../Tools/data_handler.h"
 #include "../Search/data_manager.h"
@@ -21,8 +22,8 @@ const int pass_key[] = { 22, 53, 44, 71, 66, 177, 253, 122, 9548, 1215, 48421,
 		629, 314, 4784, 5102, 914, 213, 316, 145, 78 };
 
 void search_by_file(char* path) {
-	char file[SIZE]; //255 is the max size limit on most used file systems
-	char file_path[SIZE * 2];
+	char file[KSIZE]; //255 is the max size limit on most used file systems
+	char file_path[KSIZE * 2];
 	strcpy(file_path, path);
 
 	puts("Please, enter a file path : ");
@@ -30,6 +31,8 @@ void search_by_file(char* path) {
 
 	if (get_secure_input(file, sizeof(file))) {
 		strcat(file_path, file);
+		printf("%s\n", file_path);
+
 
 		int res = search_data(file_path);
 		show_search_report(res);
@@ -83,11 +86,11 @@ Config load_config() {
 	Config configuration;
 	char** config_array = malloc(i);
 	for (int i = 0; i < i; i += 1) {
-		config_array[i] = malloc(SIZEMOT);
+		config_array[i] = malloc(KSIZEWORD);
 	}
 	configuration.config = config_array;
 	configuration.size = 0;
-	configuration.size_word = SIZEMOT;
+	configuration.size_word = KSIZEWORD;
 
 	char* key = strtok(config, token);
 	char* value = strtok(NULL, token);
@@ -122,7 +125,7 @@ char* get_value_of(Config config, const char* value) {
 }
 
 int login() {
-	char pass[PASSLEN];
+	char pass[KPASSLEN];
 	puts("What is the password ?");
 	if (get_secure_input(pass, sizeof(pass))) {
 		//
@@ -159,7 +162,7 @@ void input_error(char *input) {
 }
 
 void xor_crypt(char *password) {
-	for (int i = 0; i < PASSLEN; i += 1) {
+	for (int i = 0; i < KPASSLEN; i += 1) {
 		password[i] ^= pass_key[i];
 	}
 }

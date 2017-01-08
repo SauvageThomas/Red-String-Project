@@ -13,7 +13,7 @@
 #include "GUI/functions.h"
 
 void launch_search_engine(Config config);
-void init_search_engine();
+void init_search_engine(Config config);
 void run_search_engine();
 void close_search_engine();
 

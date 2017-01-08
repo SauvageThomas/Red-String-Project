@@ -22,7 +22,10 @@ DataFile init_data_file(char* path) {
 int is_existing_file(DataFile data_file) {
 	data_file.file = fopen(data_file.path, "r");
 	int res = (data_file.file != NULL);
-	fclose(data_file.file);
+	if (res) {
+
+		fclose(data_file.file);
+	}
 	return res;
 }
 
