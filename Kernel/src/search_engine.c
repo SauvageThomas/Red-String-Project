@@ -16,6 +16,7 @@
 #include "Search/data_manager.h"
 #include "Tools/report.h"
 #include "Tools/data_handler.h"
+#include "Gui/gui.h"
 
 void launch_search_engine() {
 
@@ -49,22 +50,11 @@ void init_search_engine() {
 void run_search_engine() {
 
 	/*
-	 * RUN THE RESEARCH FROM A FILE PATH
+	 * RUN THE RESEARCH
 	 */
 
 	puts("SEARCH ENGINE : RUN");
-	char file_path[SIZE]; //255 is the max size limit on most used file systems
-	puts("Please, enter a file path : ");
-
-	if (get_secure_input(file_path, sizeof(file_path))) {
-		int res = search_data(file_path);
-		show_search_report(res);
-	} else {
-		puts("error");
-		//Handle the error ?
-	}
-	//scanf("%s", file_path);
-
+	search_gui();
 }
 
 void close_search_engine() {

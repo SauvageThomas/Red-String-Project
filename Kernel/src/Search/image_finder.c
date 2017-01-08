@@ -1,6 +1,5 @@
 
 #include "image_finder.h"
-#include "../Tools/data_handler.h"
 
 void find_image(DataFile df){
 	printf("IMAGE FILE\n");

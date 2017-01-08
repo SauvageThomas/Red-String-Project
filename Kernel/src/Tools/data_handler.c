@@ -38,10 +38,12 @@ void set_data_file_length(DataFile* data_file) {
 
 int get_data_file_extension(DataFile data_file) {
 	char* ext = strrchr(data_file.path, '.') + 1;
-	if (strcmp(ext, "xml") == 0) {
+	if (!strcmp(ext, "xml") || !strcmp(ext, "txt")) {
 		return TEXT;
-	}
-	if (strcmp(ext, "txt") == 0) {
+	} else if (!strcmp(ext, "bin") || !strcmp(ext, "wav")) {
+		//TODO: separate image and found possibility
+		return SOUND;
+	} else if (!strcmp(ext, "jpg") || !strcmp(ext, "bmp")) {
 		//TODO: separate image and found possibility
 		return IMAGE;
 	}

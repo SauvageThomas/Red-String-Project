@@ -39,7 +39,7 @@ int main(void) {
 		puts("Prod is OFF");
 	} else {
 		puts("Prod is ON");
-		// exemple of path : ../res/FICHIER_PROJET/Textes/03-Des_chercheurs_parviennent_à_régénérer.xml
+		// exemple of path : 03-Des_chercheurs_parviennent_à_régénérer.xml
 	}
 
 	start_gui();
