@@ -10,10 +10,23 @@
 
 #define PASSLEN 20
 #define SIZE 255
+#define SIZEMOT 24
 
-const int key[] = { 22, 53, 44, 71, 66, 177, 253, 122, 9548, 1215,
-		48421, 629, 314, 4784, 5102, 914, 213, 316, 145, 78 };
+typedef struct {
+	char** config;
+	size_t size;
+	size_t size_word;
+} Config;
 
 void xor_crypt(char *password);
+char* get_value_of(Config config, const char* value);
+Config load_config();
+void wip();
+void input_error(char *input);
+int login();
+void get_input(char* buffer, int* action);
+void search_by_keyword();
+void search_by_file();
+void modif_config();
 
 #endif /* GUI_FUNCTIONS_H_ */

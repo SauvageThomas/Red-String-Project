@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #include "functions.h"
 #include "../Tools/report.h"
@@ -16,18 +17,19 @@
 #include "../Search/image_finder.h"
 #include "../Search/sound_finder.h"
 
-void search_by_file() {
+const int pass_key[] = { 22, 53, 44, 71, 66, 177, 253, 122, 9548, 1215, 48421,
+		629, 314, 4784, 5102, 914, 213, 316, 145, 78 };
+
+void search_by_file(char* path) {
 	char file[SIZE]; //255 is the max size limit on most used file systems
 	char file_path[SIZE * 2];
-	strcpy(file_path, "res/FICHIER_PROJET/Textes/");
+	strcpy(file_path, path);
 
 	puts("Please, enter a file path : ");
 	printf(">>");
 
 	if (get_secure_input(file, sizeof(file))) {
 		strcat(file_path, file);
-
-		printf("%s", file_path);
 
 		int res = search_data(file_path);
 		show_search_report(res);
@@ -63,30 +65,60 @@ void modif_config() {
 	puts("WIP !");
 }
 
-void load_config() {
+Config load_config() {
+
 	const char token[] = " \n";
 
 	DataFile data_file = init_data_file(".config");
 
 	char* config = read_string_from_file(data_file);
+	char* tmp = config;
+
+	int i = 0;
+	//Count number of occurence of '\n' in string
+	for (i = 0; tmp[i]; tmp[i] == '\n' ? i++ : *tmp++)
+		;
+	i = (i + 1) * 2;
+
+	Config configuration;
+	char** config_array = malloc(i);
+	for (int i = 0; i < i; i += 1) {
+		config_array[i] = malloc(SIZEMOT);
+	}
+	configuration.config = config_array;
+	configuration.size = 0;
+	configuration.size_word = SIZEMOT;
 
 	char* key = strtok(config, token);
 	char* value = strtok(NULL, token);
 
-	int i = 0;
 	while (key != NULL && value != NULL) {
 		printf("%s => %s\n", key, value);
-		// TODO asign the values somewhere
+
+		config_array[configuration.size] = key;
+		config_array[configuration.size + 1] = value;
+
 		if (value == NULL) {
 			puts(
 					"Le fichier de configuration n'est pas conforme, utilisation du fichier par défaut.");
-			return;
+			//TODO faire un fichier pa défaut et le charger à la place de NULL
+			return configuration;
 		}
 		key = strtok(NULL, token);
 		value = strtok(NULL, token);
 
-		i += 1;
+		configuration.size += 2;
 	}
+	return configuration;
+}
+
+char* get_value_of(Config config, const char* value) {
+	for (int i = 0; i < config.size; i += 2) {
+		if (!strcmp(config.config[i], value)) {
+			return config.config[i + 1];
+		}
+	}
+	return NULL;
 }
 
 int login() {
@@ -118,7 +150,6 @@ int login() {
 
 }
 
-
 void wip() {
 	puts("WIP !");
 }
@@ -129,7 +160,7 @@ void input_error(char *input) {
 
 void xor_crypt(char *password) {
 	for (int i = 0; i < PASSLEN; i += 1) {
-		password[i] ^= key[i];
+		password[i] ^= pass_key[i];
 	}
 }
 
@@ -153,5 +184,4 @@ void get_input(char* buffer, int* action) {
 		}
 	}
 }
-
 

@@ -18,7 +18,7 @@
 #include "Tools/data_handler.h"
 #include "Gui/gui.h"
 
-void launch_search_engine() {
+void launch_search_engine(Config config) {
 
 	/*
 	 * MANAGE ALL THE SOFTWARE PROCESS
@@ -26,7 +26,7 @@ void launch_search_engine() {
 
 	puts("SEARCH ENGINE : LAUNCH");
 	init_search_engine();
-	run_search_engine();
+	run_search_engine(config);
 	close_search_engine();
 }
 
@@ -47,14 +47,14 @@ void init_search_engine() {
 	}
 }
 
-void run_search_engine() {
+void run_search_engine(Config config) {
 
 	/*
 	 * RUN THE RESEARCH
 	 */
 
 	puts("SEARCH ENGINE : RUN");
-	search_gui();
+	search_gui(config);
 }
 
 void close_search_engine() {

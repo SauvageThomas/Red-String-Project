@@ -10,5 +10,6 @@
 
 void start_gui();
 void search_gui();
+void config_gui();
 
 #endif /* GUI_GUI_H_ */

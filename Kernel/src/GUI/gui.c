@@ -11,6 +11,8 @@
 #include <unistd.h>
 
 #include "gui.h"
+#include "functions.h"
+#include "../search_engine.h"
 
 void start_gui() {
 
@@ -18,7 +20,7 @@ void start_gui() {
 	char buffer[2];
 	int admin = 0;
 
-	load_config();
+	Config config = load_config();
 
 	puts("Bienvenue sur le moteur de recherche !");
 
@@ -57,7 +59,7 @@ void start_gui() {
 			puts("Au revoir !");
 			exit(EXIT_SUCCESS);
 		case 1:
-			launch_search_engine();
+			launch_search_engine(config);
 			break;
 		case 2:
 			wip();
@@ -90,7 +92,7 @@ void start_gui() {
 	}
 }
 
-void search_gui() {
+void search_gui(Config config) {
 	int action;
 	char buffer[2];
 
@@ -111,7 +113,7 @@ void search_gui() {
 			search_by_keyword();
 			break;
 		case 2:
-			search_by_file();
+			search_by_file(get_value_of(config, "path"));
 			break;
 		default:
 			input_error(buffer);
