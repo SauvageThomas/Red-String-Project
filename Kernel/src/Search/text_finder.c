@@ -14,7 +14,7 @@ void find_text(DataFile df){
 
 char * remove_xml(char* content){
 	char* shortened = (char *) malloc(sizeof(char) * (int)strlen(content));
-	char* new_content;
+	char* newContent;
 	int check = 1;
 	for (size_t i = 0; i < strlen(content); i++) {
 		char tmp = content[i];

@@ -1,8 +1,5 @@
 #include "hash_map.h"
-
 #include <malloc.h>
-
-
 
 void init(HashMap* map){
 	*map = NULL;
@@ -36,4 +33,3 @@ void displayMap(HashMap map){
 		displayMap((HashMap)((CellHashMap*)map)->next);
 	}
 }
-
