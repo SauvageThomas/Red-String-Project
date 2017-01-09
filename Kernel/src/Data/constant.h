@@ -9,8 +9,12 @@
 #define DATA_CONSTANT_H_
 
 #define DEBUG 0
-#define PROD 0
-#define TEST 1
+#define PROD 1
+#define TEST 0
 
+
+#define KPASSLEN 20
+#define KSIZE 255
+#define KSIZEWORD 24
 
 #endif /* DATA_CONSTANT_H_ */

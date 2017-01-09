@@ -19,6 +19,7 @@
 
 #include "Tools/data_handler.h"
 #include "search_engine.h"
+#include "GUI/gui.h"
 
 /*
  * Description	: This is the only main which will be used in this project
@@ -27,23 +28,27 @@
  */
 int main(void) {
 
-	//launch test
-	if (TEST){
-		puts("Running tests ...\n");
-		run_all_tests();
-		puts("test done");
-	}
+	setvbuf(stdout, NULL, _IONBF, 0);
+	setvbuf(stderr, NULL, _IONBF, 0);
+	setvbuf(stdin, NULL, _IONBF, 0);
 
 	if (DEBUG) {
 		puts("Debug is ON");
 	}
 	if (!PROD) {
 		puts("Prod is OFF");
-	}
-	else {
+	} else {
 		puts("Prod is ON");
-		launch_search_engine();
-		// exemple of path : ../res/FICHIER_PROJET/Textes/03-Des_chercheurs_parviennent_à_régénérer.xml
+		// exemple of path : 03-Des_chercheurs_parviennent_à_régénérer.xml
+	}
+
+	start_gui();
+
+	//launch test
+	if (TEST) {
+		puts("Running tests ...\n");
+		run_all_tests();
+		puts("test done");
 	}
 
 	return EXIT_SUCCESS;

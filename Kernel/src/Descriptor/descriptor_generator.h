@@ -1,8 +1,13 @@
 /*
  * descriptor_generator.h
  *
- *  Created on: 5 déc. 2016
- *      Author: THOMAS
+ *  Created on: 8 janv. 2017
+ *      Author: Thomas
  */
 
-int check_descriptors();
+#ifndef DESCRIPTOR_DESCRIPTOR_GENERATOR_H_
+#define DESCRIPTOR_DESCRIPTOR_GENERATOR_H_
+
+int check_descriptors(char* path);
+
+#endif /* DESCRIPTOR_DESCRIPTOR_GENERATOR_H_ */

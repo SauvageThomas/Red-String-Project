@@ -1,59 +1,105 @@
-
+#include <string.h>
+#include <stdlib.h>
 #include "text_finder.h"
-#include "../Tools/data_handler.h"
 
-void find_text(DataFile df){
+void find_text(DataFile df) {
+	int matrix_length = 0;
 	printf("XML FILE\n");
 	char* content = read_string_from_file(df);
 	content = remove_xml(content); //TODO: remove "<...>", ".?!...", word < 3char
 	content = remove_punctuation(content);
-	content = remove_words(content);
-
+	char **matrix_of_words = malloc((int) strlen(content) * sizeof(char*));
+	matrix_of_words = remove_words(content, &matrix_length);
+	//	printf("%s", content);
+	//for (int i=0; i<matrix_length; i++)   /* test loop*/
+	//printf("%s\n", matrix_of_words[i]);
 	//TODO: compare with index and get the similar files
 }
 
-char * remove_xml(char* content){
-	char* shortened = (char *) malloc(sizeof(char) * (int)strlen(content));
-	char* newContent;
-	int check = 1;
+char * remove_xml(char* content) {
+	char* working_content = malloc(sizeof(char) * (int) strlen(content));
+	char* final_content;
+	int cpt = 0, check = 1;
 	for (size_t i = 0; i < strlen(content); i++) {
 		char tmp = content[i];
 		if (tmp == '<') {
 			check = 0;
 		} else if (check) {
-			strncat(shortened, &tmp, 1);
-		} else if (tmp == '>'){
+
+			working_content[cpt] = tmp;
+			cpt++;
+		} else if (tmp == '>') {
 			check = 1;
 		}
 	}
-	newContent = (char *) malloc(sizeof(char) * (int)strlen(shortened));
-	strcpy(newContent, shortened);
-	free(shortened);
-	return newContent;
+	final_content = malloc(sizeof(char) * cpt);
+	for (size_t i = 0; i < cpt; i++)
+		final_content[i] = working_content[i];
+	//free(working_content);
+	return final_content;
 }
 
-char* remove_punctuation(char* content){
-	char punctuation[6] = ",;.:!?";
-	char* shortened = (char *) malloc(sizeof(char) * (int)strlen(content));
-	char* newContent;
+char* remove_punctuation(char* content) {
+	char punctuation[10] = "/,;.:!?()\n";
+	char* working_content = malloc(sizeof(char) * (int) strlen(content));
+	char* final_content;
 	int check;
+	char tmp;
 	for (size_t i = 0; i < strlen(content); i++) {
-		char tmp = content[i];
-    check = 1;
+		tmp = content[i];
+		check = 1;
 		for (size_t j = 0; j < strlen(punctuation); j++) {
-			if (tmp == punctuation[j]) check = 0;
+			if (tmp == punctuation[j] || tmp == 34) {	// remove the "
+				working_content[i] = ' ';
+				check = 0;
+			}
 		}
 		if (check) {
-			strncat(shortened, &tmp, 1);
+			strncat(working_content, &tmp, 1);
 		}
 	}
-	newContent = (char *) malloc(sizeof(char) * (int)strlen(shortened));
-	strcpy(newContent, shortened);
-	free(shortened);
-	return newContent;
+	final_content = malloc(sizeof(char) * (int) strlen(working_content));
+	strcpy(final_content, working_content);
+	//free(working_content);
+	return final_content;
 }
 
-char* remove_words(char* content){
-
-	return content;
+char** remove_words(char* content, int *matrix_length) {
+	// maximum length of a french word is 24 and a word may have at least 3 letters within 
+	char ** matrix_of_words = malloc(strlen(content) * sizeof(char*));
+	for (int i = 0; i < strlen(content); i++)
+		matrix_of_words[i] = calloc(24, sizeof(char));
+	size_t cpt = 0, cpt1 = 0, cpt2 = 0;
+	char tmp = content[cpt];
+	while (tmp != '\0') {
+		if (tmp != ' ') {
+			if (tmp == 39)	// remove the '
+				cpt2 = 0;
+			else {
+				if (tmp >= 65 && tmp <= 90)	//MAJ -> min
+					tmp += 32;
+				else if (tmp == -55 || (tmp >= -24 && tmp <= -22))//è, é, ë, É -> e
+					tmp = 101;
+				else if (tmp == -25)	//ç ->c
+					tmp = 99;
+				else if (tmp == -18)	//î ->i
+					tmp = 105;
+				else if (tmp == -12)	//ô ->o
+					tmp = 111;
+				else if (tmp == -32 || tmp == -30)	//â, à ->a
+					tmp = 97;
+				matrix_of_words[cpt1][cpt2] = tmp;
+				cpt2++;
+			}
+		} else {
+			if (cpt2 > 3)
+				cpt1++;
+			cpt2 = 0;
+		}
+		cpt++;
+		tmp = content[cpt];
+	}
+	*matrix_length = cpt1;
+	return matrix_of_words;
 }
+

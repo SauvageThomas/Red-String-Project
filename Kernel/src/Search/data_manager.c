@@ -6,7 +6,7 @@
  */
 
 #include <stdio.h>
-#include "data_manager.h"
+//#include "data_manager.h"
 #include "text_finder.h"
 #include "image_finder.h"
 #include "sound_finder.h"
