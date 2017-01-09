@@ -30,13 +30,13 @@ void search_by_file(char* path) {
 	puts("Please, enter a file path : ");
 	printf(">>");
 
-	if (get_secure_input(file_name, sizeof(file_name))) {
+	if (get_secure_input(file_name, KSIZE)) {
 		char* full_path = malloc(strlen(file_path) + strlen(file_name));
 
 		strcpy(full_path, file_path);
 		strcat(full_path, file_name);
+		printf("input : %s\n", file_name);
 		printf("full_path : %s\n", full_path);
-		
 
 		int res = search_data(full_path);
 		show_search_report(res);
