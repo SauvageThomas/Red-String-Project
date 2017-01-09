@@ -51,7 +51,7 @@ int check_descriptors(char* path) {
 	DataFile df_video = init_data_file(video_path);
 
 
-	if (is_existing_file(df_text) && is_existing_file(df_audio) && is_existing_file(df_video)) {
+	if (is_existing_file(df_text) && is_existing_file(df_audio) && is_existing_file(df_video))
 		return EXIT_SUCCESS;
 	
 	return EXIT_FAILURE;
@@ -59,7 +59,7 @@ int check_descriptors(char* path) {
 	//TODO: Complete the other cases
 }
 
-
+/*
 void generate_descriptor(TextFile tf){
 	HashMap word_occurences;
 	init_hash_map(word_occurences);
@@ -71,4 +71,4 @@ void generate_descriptor(TextFile tf){
 	print_hash_map(word_occurences);
 
 	//TODO: create new file with same name + "descriptor" and print map in 
-}
+}*/

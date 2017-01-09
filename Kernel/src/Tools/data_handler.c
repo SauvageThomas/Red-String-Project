@@ -13,6 +13,7 @@
 DataFile init_data_file(char* path) {
 	DataFile data_file;
 	data_file.path = path;
+
 	if (is_existing_file(data_file)) {
 		set_data_file_length(&data_file);
 	}
@@ -23,7 +24,6 @@ int is_existing_file(DataFile data_file) {
 	data_file.file = fopen(data_file.path, "r");
 	int res = (data_file.file != NULL);
 	if (res) {
-
 		fclose(data_file.file);
 	}
 	return res;
@@ -56,7 +56,6 @@ int get_data_file_extension(DataFile data_file) {
 char* read_string_from_file(DataFile data_file) {
 	set_data_file_length(&data_file);
 	data_file.file = fopen(data_file.path, "r+");
-	printf("%d\n", data_file.length);
 	char* string_in_file = (char *) malloc(sizeof(char) * data_file.length);
 
 	int i = 0;

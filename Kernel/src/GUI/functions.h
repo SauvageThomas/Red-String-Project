@@ -8,6 +8,8 @@
 #ifndef GUI_FUNCTIONS_H_
 #define GUI_FUNCTIONS_H_
 
+#include <stdlib.h>
+
 typedef struct {
 	char** config;
 	size_t size;

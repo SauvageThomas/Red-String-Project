@@ -1,0 +1,6 @@
+!/bin/bash
+clear
+cd src
+make
+cd ..
+./SearchEngine.exe

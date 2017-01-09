@@ -22,44 +22,29 @@ const int pass_key[] = { 22, 53, 44, 71, 66, 177, 253, 122, 9548, 1215, 48421,
 		629, 314, 4784, 5102, 914, 213, 316, 145, 78 };
 
 void search_by_file(char* path) {
-	char file[KSIZE]; //255 is the max size limit on most used file systems
-	char file_path[KSIZE * 2];
+	char* file_name = malloc(KSIZE);
+	char* file_path = malloc(strlen(path) + KSIZE);
+
 	strcpy(file_path, path);
 
 	puts("Please, enter a file path : ");
 	printf(">>");
 
-	if (get_secure_input(file, sizeof(file))) {
-		strcat(file_path, file);
-		printf("%s\n", file_path);
+	if (get_secure_input(file_name, sizeof(file_name))) {
+		char* full_path = malloc(strlen(file_path) + strlen(file_name));
 
+		strcpy(full_path, file_path);
+		strcat(full_path, file_name);
+		printf("full_path : %s\n", full_path);
+		
 
-		int res = search_data(file_path);
+		int res = search_data(full_path);
 		show_search_report(res);
-		if (!res) {
-			DataFile data_file = init_data_file(file_path);
-			switch (get_data_file_extension(data_file)) {
-			case TEXT:
-				find_text(data_file);
-				break;
-			case IMAGE:
-				find_image(data_file);
-				break;
-			case SOUND:
-				find_sound(data_file);
-				break;
-			default:
-				break;
-			}
-		}
-	} else {
-		puts("error");
-		//Handle the error ?
 	}
 }
 
 void search_by_keyword() {
-
+	wip();
 }
 
 void modif_config() {
@@ -84,8 +69,8 @@ Config load_config() {
 	i = (i + 1) * 2;
 
 	Config configuration;
-	char** config_array = malloc(i);
-	for (int i = 0; i < i; i += 1) {
+	char** config_array = malloc(sizeof(char*)*i);
+	for (int j = 0; j < i; j += 1) {
 		config_array[i] = malloc(KSIZEWORD);
 	}
 	configuration.config = config_array;
@@ -125,6 +110,7 @@ char* get_value_of(Config config, const char* value) {
 }
 
 int login() {
+
 	char pass[KPASSLEN];
 	puts("What is the password ?");
 	if (get_secure_input(pass, sizeof(pass))) {
@@ -134,11 +120,10 @@ int login() {
 	}
 
 	DataFile data_file = init_data_file(".pass");
-	set_data_file_length(&data_file);
 
-//xor_crypt(pass);
-//write_string_in_file(data_file, pass);
-
+	//xor_crypt(pass);
+	//write_string_in_file(data_file, pass);
+	
 	char* compare = read_string_from_file(data_file);
 
 	xor_crypt(compare);
