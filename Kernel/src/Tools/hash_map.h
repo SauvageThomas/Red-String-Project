@@ -10,8 +10,11 @@ typedef struct cell{
 
 typedef CellHashMap* HashMap; 
 
-void init(HashMap* map);
-void addValue(HashMap* map, char* key, int nbOccurence);
-void displayMap(HashMap map);
+void init_hashmap(HashMap* map);
+void add_value(HashMap* map, char* key);
+char* display_map(HashMap map);
+int find_nb_occurence(HashMap map,char* key);
+CellHashMap pop(HashMap* map);
+void multiplay_val_of_cell(HashMap* map, char* key, int multiplier);
 
 
