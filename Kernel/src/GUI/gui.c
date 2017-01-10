@@ -16,7 +16,7 @@
 
 void start_gui() {
 
-	int action;
+	int action; 
 	char buffer[2];
 	int admin = 0;
 
@@ -126,7 +126,7 @@ void config_gui() {
 
 	int action;
 	char buffer[2];
-
+ 	
 	puts("Bienvenue sur dans la configuration du programme !");
 
 	while (action != 0) {

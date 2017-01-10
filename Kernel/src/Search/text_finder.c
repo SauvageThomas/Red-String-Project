@@ -5,11 +5,12 @@
 void find_text(DataFile df) {
 	int matrix_length = 0;
 	printf("XML FILE\n");
+
 	char* content = read_string_from_file(df);
 	content = remove_xml(content); //TODO: remove "<...>", ".?!...", word < 3char
 	content = remove_punctuation(content);
-	char **matrix_of_words = malloc((int) strlen(content) * sizeof(char*));
-	matrix_of_words = remove_words(content, &matrix_length);
+
+	char **matrix_of_words = remove_words(content, &matrix_length);
 	//	printf("%s", content);
 	//for (int i=0; i<matrix_length; i++)   /* test loop*/
 	//printf("%s\n", matrix_of_words[i]);
@@ -69,6 +70,7 @@ char** remove_words(char* content, int *matrix_length) {
 	char ** matrix_of_words = malloc(strlen(content) * sizeof(char*));
 	for (int i = 0; i < strlen(content); i++)
 		matrix_of_words[i] = calloc(24, sizeof(char));
+
 	size_t cpt = 0, cpt1 = 0, cpt2 = 0;
 	char tmp = content[cpt];
 	while (tmp != '\0') {
@@ -99,6 +101,7 @@ char** remove_words(char* content, int *matrix_length) {
 		cpt++;
 		tmp = content[cpt];
 	}
+
 	*matrix_length = cpt1;
 	return matrix_of_words;
 }

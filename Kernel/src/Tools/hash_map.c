@@ -1,14 +1,11 @@
 #include "hash_map.h"
 #include <malloc.h>
 
-
-
 void init_hashmap(HashMap* map){
 	*map = NULL;
 }
 
 CellHashMap* find_value(CellHashMap* cell, char* key){
-
 	if(cell == NULL)
 		return NULL;
 	if(cell->key == key)
@@ -102,7 +99,7 @@ char* display_map(HashMap map){
 }
 
 
-/*
+
 int main(){
 	HashMap map;
 	init_hashmap(&map);
@@ -125,4 +122,4 @@ int main(){
 	multiplay_val_of_cell(&map,"chien",10);
 	multiplay_val_of_cell(&map,"chat",2);
 	printf("%s",display_map(map));
-}*/
+}

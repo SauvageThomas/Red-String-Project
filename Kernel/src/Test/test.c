@@ -85,9 +85,9 @@ MU_TEST(test_write_file_3) {
 }
 
 MU_TEST(test_hash_map_1) {
-	HashMap map = malloc(sizeof(HashMap));
-	init(&map);
-	addValue(&map, "Test", 2);
+	//HashMap map = malloc(sizeof(HashMap));
+	//init(&map);
+	//addValue(&map, "Test", 2);
 	//TODO pas assez de méthode pour tester la fonctionnalité
 
 }

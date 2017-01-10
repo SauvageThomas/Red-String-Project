@@ -17,7 +17,7 @@
 #include "Search/data_manager.h"
 #include "Tools/report.h"
 #include "Tools/data_handler.h"
-#include "Gui/gui.h"
+#include "GUI/gui.h"
 
 void launch_search_engine(Config config) {
 
