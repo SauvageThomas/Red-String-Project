@@ -108,7 +108,7 @@ void search_gui(Config config) {
 			search_by_keyword();
 			break;
 		case 2:
-			search_by_file(get_value_of(config, "path"));
+			search_by_file(config);
 			break;
 		default:
 			input_error(buffer);

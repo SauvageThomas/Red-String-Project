@@ -21,11 +21,12 @@
 const int pass_key[] = { 22, 53, 44, 71, 66, 177, 253, 122, 9548, 1215, 48421,
 		629, 314, 4784, 5102, 914, 213, 316, 145, 78 };
 
-void search_by_file(char* path) {
-	char* file_name = malloc(KSIZE);
-	char* file_path = malloc(strlen(path) + KSIZE);
+void search_by_file(Config config) {
 
-	strcpy(file_path, path);
+	char* file_name = malloc(KSIZE);
+	char* file_path = malloc(KSIZE * 2);
+
+	strcpy(file_path, get_value_of(config, "path"));
 
 	puts("Please, enter a file path : ");
 	printf(">>");
@@ -36,7 +37,7 @@ void search_by_file(char* path) {
 		printf("input : %s\n", file_name);
 		printf("file_path : %s\n", file_path);
 
-		int res = search_data(file_path);
+		int res = search_data(config, file_path);
 		show_search_report(res);
 	}
 }
@@ -67,7 +68,7 @@ Config load_config() {
 	i = (i + 1) * 2;
 
 	Config configuration;
-	char** config_array = malloc(sizeof(char*)*i);
+	char** config_array = malloc(sizeof(char*) * i);
 	for (int j = 0; j < i; j += 1) {
 		config_array[i] = malloc(KSIZEWORD);
 	}
@@ -83,8 +84,9 @@ Config load_config() {
 		config_array[configuration.size + 1] = value;
 
 		if (value == NULL) {
-			puts("Le fichier de configuration n'est pas conforme, utilisation du fichier par défaut.");
-			//TODO: faire un fichier pa défaut et le charger à la place de NULL
+			puts(
+					"Le fichier de configuration n'est pas conforme, utilisation du fichier par défaut.");
+			//TODO: faire un fichier par défaut et le charger à la place de NULL
 			return configuration;
 		}
 		key = strtok(NULL, token);
@@ -119,7 +121,7 @@ int login() {
 
 	//xor_crypt(pass);
 	//write_string_in_file(data_file, pass);
-	
+
 	char* compare = read_string_from_file(data_file);
 
 	xor_crypt(compare);

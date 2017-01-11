@@ -10,6 +10,4 @@
 
 #include "../Tools/data_handler.h"
 
-void find_sound(DataFile df);
-
 #endif /* SEARCH_SOUND_FINDER_H_ */

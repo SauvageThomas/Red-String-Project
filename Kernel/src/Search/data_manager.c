@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 //#include "data_manager.h"
+#include "data_manager.h"
 #include "text_finder.h"
 #include "image_finder.h"
 #include "sound_finder.h"
@@ -15,7 +16,8 @@
 #include "../Data/constant.h"
 
 
-int search_data( const char* file_path){
+
+int search_data(Config config, const char* file_path){
 	DataFile df = init_data_file(file_path);
 
 	if (!is_existing_file(df)){
@@ -34,9 +36,8 @@ int search_data( const char* file_path){
 		break;
 
 		case IMAGE:
-			find_image(df);
+			find_image(get_value_of(config, "quantification"), df);
 		break;
-
 		case SOUND:
 			find_sound(df);
 		break;
