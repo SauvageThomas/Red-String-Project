@@ -14,6 +14,6 @@ enum FileType {
 	TEXT, IMAGE, SOUND
 };
 
-int search_data(char* file_path);
+int search_data( const char* file_path);
 
 #endif

@@ -1,7 +1,7 @@
 /*
  * data_manager.c
  *
- *  Created on: 5 déc. 2016
+ *  Created on: 5 déc. 2016	
  *      Author: THOMAS
  */
 
@@ -12,12 +12,18 @@
 #include "sound_finder.h"
 #include "../Tools/report.h"
 #include "../Tools/data_handler.h"
+#include "../Data/constant.h"
 
 
-int search_data(char* file_path){
-
+int search_data( const char* file_path){
+	printf("path  1  : %s\n", file_path);
+	EMBED_BREAKPOINT;
 	DataFile df = init_data_file(file_path);
+	EMBED_BREAKPOINT;
+	printf("path  2  : %s\n", file_path);	
+
 	if (!is_existing_file(df)){
+		printf("not found : %s\n", file_path);
 		return FILE_NOT_FOUND;
 	}
 	if (is_empty_file(df)){

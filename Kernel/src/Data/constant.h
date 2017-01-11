@@ -12,6 +12,12 @@
 #define PROD 1
 #define TEST 0
 
+#define EMBED_BREAKPOINT \
+    asm("0:"                              \
+        ".pushsection embed-breakpoints;" \
+        ".quad 0b;"                       \
+        ".popsection;")
+
 
 #define KPASSLEN 20
 #define KSIZE 255
