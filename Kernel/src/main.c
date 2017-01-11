@@ -34,12 +34,12 @@ int main(void) {
 	setvbuf(stdin, NULL, _IONBF, 0);
 
 	if (DEBUG) {
-		puts("Debug is ON");
+		puts("DEBUG : ON");
 	}
 	if (!PROD) {
-		puts("Prod is OFF");
+		puts("PROD  : OFF");
 	} else {
-		puts("Prod is ON");
+		puts("PROD  : ON");
 		// exemple of path : 03-Des_chercheurs_parviennent_à_régénérer.xml
 	}
 
@@ -49,7 +49,7 @@ int main(void) {
 	if (TEST) {
 		puts("Running tests ...\n");
 		run_all_tests();
-		puts("test done");
+		puts("tests done");
 	}
 
 	return EXIT_SUCCESS;

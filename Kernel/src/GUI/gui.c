@@ -22,37 +22,28 @@ void start_gui() {
 
 	Config config = load_config();
 
-	puts("Bienvenue sur le moteur de recherche !");
+	puts("\nBienvenue sur le moteur de recherche !");
 
 	while (action != 0) {
-		puts("1 - Démarrer une recherche");
-		puts("2 - Voir les fichiers présents dans la base de données");
-		if (!admin) {
-			puts("3 - Se connecter en tant qu'administrateur");
-		} else {
-			puts("3 - Modifier la configuration du programme");
-			puts("4 - Voir les statistiques de performance");
-			puts("5 - Changer le mot de passe");
-		}
-		puts("0 - Quitter");
-		printf(">>");
+		puts("\n================================================================");
+		puts("=     *         *          MAIN  MENU          *         *     =");
+		puts("================================================================");
+		puts("|  1 - Demarrer une recherche                                  |"); 
+		puts("|  2 - Voir les fichiers presents dans la base de donnees      |");
+		puts("|  3 - Modifier la configuration du programme                  |");
 
-		/*
-		 while (1) { //While the input is not correct
-		 if (fgets(buffer, sizeof(buffer), stdin)) {
-		 if (sscanf(buffer, "%d", &action) == 1) {
-		 break; //The input is correct
-		 } else {
-		 purge_buffer();
-		 puts("Erreur, il ne faut entrer qu'un seul chiffre.");
-		 }
-		 }
-		 }*/
+		if (!admin) {
+			puts("|  3 - Se connecter en tant qu'administrateur                  |");
+		} else {
+			puts("|  3 - Modifier la configuration du programme                  |");
+			puts("|  4 - Voir les statistiques de performance                    |");
+			puts("|  5 - Changer le mot de passe                                 |");
+		}
+		puts("|--------------------------------------------------------------|");
+		puts("|  0 - Quitter                                                 |");
+		puts("================================================================");
+
 		get_input(buffer, &action);
-		//puts("a");
-		//purge_buffer();
-		//puts("d");
-		//printf("Correct : <%s> et : %d", buffer, action);
 
 		switch (action) {
 		case 0:
@@ -99,11 +90,15 @@ void search_gui(Config config) {
 	puts("Veuillez choisir le mode de recherche");
 
 	while (action != 0) {
-		puts("1 - Par mot-clé");
-		puts("2 - Par fichier équivalent");
-		puts("0 - Retour");
-		printf(">>");
-
+		puts("\n================================================================");
+		puts("=     *         *       SEARCH SELECTION       *         *     =");
+		puts("================================================================");
+		puts("|  1 - Par mot-cle                                             |");
+		puts("|  2 - Par fichier equivalent                                  |");
+		puts("|--------------------------------------------------------------|");
+		puts("|  0 - Retour                                                  |");
+		puts("================================================================");
+		
 		get_input(buffer, &action);
 
 		switch (action) {
@@ -137,18 +132,6 @@ void config_gui() {
 
 		get_input(buffer, &action);
 
-		/*
-		 while (1) { //While the input is not correct
-		 if (fgets(buffer, sizeof(buffer), stdin)) {
-		 if (sscanf(buffer, "%d", &action) == 1) {
-		 break; //The input is correct
-		 } else {
-		 purge_buffer();
-		 puts("Erreur, il ne faut entrer qu'un seul chiffre.");
-		 }
-		 }
-		 }*/
-		//purge_buffer();
 		switch (action) {
 		case 0:
 			break;

@@ -13,13 +13,8 @@
 
 DataFile init_data_file( const char* path) {
 	DataFile data_file;
-	data_file.path=malloc(KSIZE*sizeof(char*));
-	data_file.path=calloc(KSIZE, sizeof(char));
 	data_file.path = path;
-	printf("data_file.path yolo :%s, %d\n ", data_file.path, strlen(data_file.path));
-	printf("path  yolo   : %s, %d\n", path, strlen(path));
-	for (int i=0; i<strlen(data_file.path); i++)
-		printf("%d,", data_file.path[i]);
+
 	if (is_existing_file(data_file)) {
 		set_data_file_length(&data_file);
 	}
@@ -27,11 +22,8 @@ DataFile init_data_file( const char* path) {
 }
 
 int is_existing_file(DataFile data_file) {
-	printf("data_file.path ief:%s\n ", data_file.path);
 	data_file.file = fopen(data_file.path, "r");
-		printf("data_file.path ief:%s\n ", data_file.path);
 	int res = (data_file.file != NULL);
-		printf("data_file.path ief:%s\n ", data_file.path);
 	if (res) {
 		fclose(data_file.file);
 	}

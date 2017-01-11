@@ -11,7 +11,7 @@ void find_text(DataFile df) {
 	content = remove_punctuation(content);
 
 	char **matrix_of_words = remove_words(content, &matrix_length);
-	//	printf("%s", content);
+	//printf("%s\n", content);
 	//for (int i=0; i<matrix_length; i++)   /* test loop*/
 	//printf("%s\n", matrix_of_words[i]);
 	//TODO: compare with index and get the similar files

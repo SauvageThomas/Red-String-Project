@@ -16,11 +16,9 @@
 
 
 int search_data( const char* file_path){
-	printf("path  1  : %s\n", file_path);
 	EMBED_BREAKPOINT;
 	DataFile df = init_data_file(file_path);
-	EMBED_BREAKPOINT;
-	printf("path  2  : %s\n", file_path);	
+	EMBED_BREAKPOINT;	
 
 	if (!is_existing_file(df)){
 		printf("not found : %s\n", file_path);

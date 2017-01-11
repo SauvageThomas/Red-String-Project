@@ -79,15 +79,12 @@ Config load_config() {
 	char* value = strtok(NULL, token);
 
 	while (key != NULL && value != NULL) {
-		printf("%s => %s\n", key, value);
-
 		config_array[configuration.size] = key;
 		config_array[configuration.size + 1] = value;
 
 		if (value == NULL) {
-			puts(
-					"Le fichier de configuration n'est pas conforme, utilisation du fichier par défaut.");
-			//TODO faire un fichier pa défaut et le charger à la place de NULL
+			puts("Le fichier de configuration n'est pas conforme, utilisation du fichier par défaut.");
+			//TODO: faire un fichier pa défaut et le charger à la place de NULL
 			return configuration;
 		}
 		key = strtok(NULL, token);
@@ -95,6 +92,7 @@ Config load_config() {
 
 		configuration.size += 2;
 	}
+	puts("Configuration succesfully done !");
 	return configuration;
 }
 
@@ -137,7 +135,7 @@ int login() {
 }
 
 void wip() {
-	puts("WIP !");
+	puts("Work in progress : not yet implemented !");
 }
 
 void input_error(char *input) {
@@ -151,8 +149,8 @@ void xor_crypt(char *password) {
 }
 
 void get_input(char* buffer, int* action) {
-	while (1) { //While the input is not correct
-		//printf("<%s>", buffer);
+	printf(">> ");
+	while (1) { //TODO: pas beau
 		if (fgets(buffer, sizeof(buffer) - 1, stdin)) {
 			strtok(buffer, "\n");
 
