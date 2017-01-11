@@ -13,12 +13,17 @@
 #include "gui.h"
 #include "functions.h"
 #include "../search_engine.h"
+#include "../Data/constant.h"
+#include "../Tools/data_handler.h"
 
 void start_gui() {
 
 	int action; 
 	char buffer[2];
 	int admin = 0;
+
+	DataFile df = init_data_file("a.txt");
+	printf("length %d\n", df.length);
 
 	Config config = load_config();
 

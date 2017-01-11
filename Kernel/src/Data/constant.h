@@ -12,6 +12,11 @@
 #define PROD 1
 #define TEST 0
 
+typedef struct {
+	char** config;
+	size_t size;
+	size_t size_word;
+} Config;
 
 #define KPASSLEN 20
 #define KSIZE 255
