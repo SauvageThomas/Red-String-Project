@@ -1,3 +1,12 @@
+/*
+ ============================================================================
+ Name        : hash_map.c
+ Author      : Pierre
+ Version     :
+ Description : the implementation of a specific HashMap
+ ============================================================================
+ */
+
 #include <stdio.h>
 #include <string.h>
 

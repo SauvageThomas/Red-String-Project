@@ -1,3 +1,11 @@
+/*
+ ============================================================================
+ Name        : hash_map.c
+ Author      : Pierre
+ Version     :
+ Description : the implementation of a specific HashMap
+ ============================================================================
+ */
 #include "hash_map.h"
 #include <malloc.h>
 
