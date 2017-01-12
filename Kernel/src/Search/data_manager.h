@@ -9,7 +9,7 @@
 #ifndef DESCRIPTOR_DATA_MANAGER_H_
 #define DESCRIPTOR_DATA_MANAGER_H_
 
-#include "../GUI/functions.h"
+#include "../Data/constant.h"
 
 enum FileType {
 	TEXT, IMAGE, SOUND

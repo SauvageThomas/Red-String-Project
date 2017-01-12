@@ -57,6 +57,9 @@ Config load_config() {
 	const char token[] = " \n";
 
 	DataFile data_file = init_data_file(".config");
+	if(data_file.length==0){
+		//TODO: Create the file according to the backup file
+	}
 
 	char* config = read_string_from_file(data_file);
 	char* tmp = config;
@@ -111,16 +114,20 @@ int login() {
 
 	char pass[KPASSLEN];
 	puts("What is the password ?");
-	if (get_secure_input(pass, sizeof(pass))) {
-		//
-	} else {
+	if (!get_secure_input(pass, sizeof(pass))) {
 		return 0;
 	}
 
 	DataFile data_file = init_data_file(".pass");
+	printf("length %d\n", data_file.length);
 
-	//xor_crypt(pass);
-	//write_string_in_file(data_file, pass);
+	if (data_file.length == 0) { //The file is empty or does not exist
+		strcpy(pass, "admin");
+		xor_crypt(pass);
+		write_string_in_file(data_file, pass);
+		puts("Aucun mot de passe détecté, remise à zéro du fichier.");
+		return 0;
+	}
 
 	char* compare = read_string_from_file(data_file);
 
