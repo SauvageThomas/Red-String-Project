@@ -7,7 +7,7 @@
 .PHONY: clean, mrproper
 
 CC=gcc
-CFLAGS=-c -w -Wall -g
+CFLAGS=-c -w -Wall -g -std=gnu99
 LDFLAGS=
 EXEC=SearchEngine.exe
 

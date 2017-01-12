@@ -11,5 +11,4 @@
 #include "../Tools/data_handler.h"
 
 void find_sound(DataFile df, char * taille_fenetre, char * nb_barres);
-
 #endif /* SEARCH_SOUND_FINDER_H_ */

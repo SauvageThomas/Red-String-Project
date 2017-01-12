@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 //#include "data_manager.h"
+#include "data_manager.h"
 #include "text_finder.h"
 #include "image_finder.h"
 #include "sound_finder.h"
@@ -16,12 +17,8 @@
 #include "../GUI/functions.h"
 
 
-int search_data( const char* file_path, Config config){
-	printf("path  1  : %s\n", file_path);
-	EMBED_BREAKPOINT;
+int search_data(Config config, const char* file_path){
 	DataFile df = init_data_file(file_path);
-	EMBED_BREAKPOINT;
-	printf("path  2  : %s\n", file_path);	
 
 	if (!is_existing_file(df)){
 		printf("not found : %s\n", file_path);
@@ -39,9 +36,8 @@ int search_data( const char* file_path, Config config){
 		break;
 
 		case IMAGE:
-			find_image(df);
+			find_image(get_value_of(config, "quantification"), df);
 		break;
-
 		case SOUND:
 			find_sound(df, get_value_of(config, "taille_des_fenetres"), get_value_of(config, "nombre_de_barre"));
 		break;

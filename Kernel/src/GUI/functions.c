@@ -21,22 +21,17 @@
 const int pass_key[] = { 22, 53, 44, 71, 66, 177, 253, 122, 9548, 1215, 48421,
 		629, 314, 4784, 5102, 914, 213, 316, 145, 78 };
 
-void search_by_file(char* path, Config config) {
+void search_by_file(Config config) {
 	char* file_name = malloc(KSIZE);
-	char* file_path = malloc(strlen(path) + KSIZE);
-
-	strcpy(file_path, path);
-
+	char* file_path = malloc(KSIZE * 2);
+	strcpy(file_path, get_value_of(config, "path"));
 	puts("Please, enter a file path : ");
 	printf(">>");
-
 	if (get_secure_input(file_name, KSIZE)) {
-
 		strcat(file_path, file_name);
 		printf("input : %s\n", file_name);
 		printf("file_path : %s\n", file_path);
-
-		int res = search_data(file_path, config );
+		int res = search_data(config, file_path);
 		show_search_report(res);
 	}
 }
@@ -56,6 +51,9 @@ Config load_config() {
 	const char token[] = " \n";
 
 	DataFile data_file = init_data_file(".config");
+	if(data_file.length==0){
+		//TODO: Create the file according to the backup file
+	}
 
 	char* config = read_string_from_file(data_file);
 	char* tmp = config;
@@ -67,7 +65,7 @@ Config load_config() {
 	i = (i + 1) * 2;
 
 	Config configuration;
-	char** config_array = malloc(sizeof(char*)*i);
+	char** config_array = malloc(sizeof(char*) * i);
 	for (int j = 0; j < i; j += 1) {
 		config_array[i] = malloc(KSIZEWORD);
 	}
@@ -79,15 +77,13 @@ Config load_config() {
 	char* value = strtok(NULL, token);
 
 	while (key != NULL && value != NULL) {
-		printf("%s => %s\n", key, value);
-
 		config_array[configuration.size] = key;
 		config_array[configuration.size + 1] = value;
 
 		if (value == NULL) {
 			puts(
 					"Le fichier de configuration n'est pas conforme, utilisation du fichier par défaut.");
-			//TODO faire un fichier pa défaut et le charger à la place de NULL
+			//TODO: faire un fichier par défaut et le charger à la place de NULL
 			return configuration;
 		}
 		key = strtok(NULL, token);
@@ -95,6 +91,7 @@ Config load_config() {
 
 		configuration.size += 2;
 	}
+	puts("Configuration succesfully done !");
 	return configuration;
 }
 
@@ -111,17 +108,21 @@ int login() {
 
 	char pass[KPASSLEN];
 	puts("What is the password ?");
-	if (get_secure_input(pass, sizeof(pass))) {
-		//
-	} else {
+	if (!get_secure_input(pass, sizeof(pass))) {
 		return 0;
 	}
 
 	DataFile data_file = init_data_file(".pass");
+	printf("length %d\n", data_file.length);
 
-	//xor_crypt(pass);
-	//write_string_in_file(data_file, pass);
-	
+	if (data_file.length == 0) { //The file is empty or does not exist
+		strcpy(pass, "admin");
+		xor_crypt(pass);
+		write_string_in_file(data_file, pass);
+		puts("Aucun mot de passe détecté, remise à zéro du fichier.");
+		return 0;
+	}
+
 	char* compare = read_string_from_file(data_file);
 
 	xor_crypt(compare);
@@ -137,7 +138,7 @@ int login() {
 }
 
 void wip() {
-	puts("WIP !");
+	puts("Work in progress : not yet implemented !");
 }
 
 void input_error(char *input) {
@@ -151,8 +152,8 @@ void xor_crypt(char *password) {
 }
 
 void get_input(char* buffer, int* action) {
-	while (1) { //While the input is not correct
-		//printf("<%s>", buffer);
+	printf(">> ");
+	while (1) { //TODO: pas beau
 		if (fgets(buffer, sizeof(buffer) - 1, stdin)) {
 			strtok(buffer, "\n");
 

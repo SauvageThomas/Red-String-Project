@@ -12,12 +12,11 @@
 #define PROD 1
 #define TEST 0
 
-#define EMBED_BREAKPOINT \
-    asm("0:"                              \
-        ".pushsection embed-breakpoints;" \
-        ".quad 0b;"                       \
-        ".popsection;")
-
+typedef struct {
+	char** config;
+	size_t size;
+	size_t size_word;
+} Config;
 
 #define KPASSLEN 20
 #define KSIZE 255
