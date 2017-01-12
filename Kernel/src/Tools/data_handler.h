@@ -17,7 +17,7 @@ typedef struct etDataFile{
 	int length;
 }DataFile;
 
-DataFile init_data_file( const char* path);
+DataFile init_data_file(char* path);
 int is_existing_file(DataFile data_file);
 int is_empty_file(DataFile data_file);
 void set_data_file_length(DataFile* data_file);

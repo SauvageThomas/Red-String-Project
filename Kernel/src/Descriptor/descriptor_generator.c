@@ -33,37 +33,42 @@ int check_descriptors(){
 	return updated;
 */
 
+int check_descriptor(char* path, char* file_name){
+	char* full_path = malloc(KSIZE);
+	sprintf(full_path, "%s%s", path, file_name);
+	DataFile df = init_data_file(full_path);
+	if (!is_existing_file(df)){
+		//TODO: generate desc
+		puts("no descriptor found !");
+	}
+	else{
+		//TODO: check every file last modification date
+		puts("Have to check every file...");
+	}
+	return 1;
+}
+
 int check_descriptors(char* path) {
-	puts("DESCRIPTOR CHECK \n");
+	puts("CHECKING DESCRIPTORS...\n");
 
-	char text_path[KSIZE];
-	char audio_path[KSIZE];
-	char image_path[KSIZE];
-
-	strcpy(text_path, path);
-	strcpy(audio_path, path);
-	strcpy(image_path, path);
-
-	strcat(text_path, "text_descriptors");
-	strcat(audio_path, "audio_descriptors");
-	strcat(image_path, "video_descriptors");
-
-	printf("%s", text_path);
-	DataFile df_text = init_data_file(text_path);
-	DataFile df_audio = init_data_file(audio_path);
-	DataFile df_image = init_data_file(image_path);
-
-	if (is_existing_file(df_text) && is_existing_file(df_audio) && is_existing_file(df_image)){
+	check_descriptor(path, "text_descriptors");
+	check_descriptor(path, "image_descriptors");
+	check_descriptor(path, "sound_descriptors");
+	
+	// condition with res value
+	if (0){
 		return EXIT_SUCCESS;
 	}
-	DataFile text_descriptor = init_data_file("res/descriptors/text_descriptor.txt");
 
+	// For each file :
+	/*
 	DataFile test = init_data_file("res/FICHIER_PROJET/03-Mimer_un_signal_nerveux_pour.xml");
-
 	char* words = generate_descriptor(test);
 	printf("OK\n");
-	write_string_in_file(text_descriptor, words);
-
+	write_string_in_file(df_text, words);
+	printf("File descriptor SUCCESS : %s\n", test.path);
+	*/
+	
 	return EXIT_FAILURE;
 
 	//TODO: Complete the other cases
@@ -81,7 +86,7 @@ char* generate_descriptor(DataFile df){
 	content = remove_xml(content);
 	content = remove_punctuation(content);
 	char** words = remove_words(content, &matrix_length);
-	
+
 	
 	for (int i=0; i<matrix_length; i++){
 		add_value_hash_map(&word_occurences, words[i]);
@@ -94,7 +99,6 @@ char* generate_descriptor(DataFile df){
 	while(word_occurences != NULL){
 		strcat(result, pop_value_hash_map(&word_occurences));
 	}
-	printf("%s", result);
 	return result;
 	//TODO: create new file with same name + "descriptor" and print map in 
 }

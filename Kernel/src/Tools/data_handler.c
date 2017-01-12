@@ -11,7 +11,7 @@
 #include "data_handler.h"
 #include "../Data/constant.h"
 
-DataFile init_data_file( const char* path) {
+DataFile init_data_file(char* path) {
 	DataFile data_file;
 	data_file.path = path;
 	data_file.length = 0; //Init if the file does not exist
