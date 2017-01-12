@@ -7,7 +7,7 @@ void find_text(DataFile df) {
 	printf("XML FILE\n");
 
 	char* content = read_string_from_file(df);
-	content = remove_xml(content); //TODO: remove "<...>", ".?!...", word < 3char
+	content = remove_xml(content);
 	content = remove_punctuation(content);
 
 	char **matrix_of_words = remove_words(content, &matrix_length);

@@ -26,5 +26,6 @@ void get_input(char* buffer, int* action);
 void search_by_keyword();
 void search_by_file();
 void modif_config();
+void clear_console();
 
 #endif /* GUI_FUNCTIONS_H_ */

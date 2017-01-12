@@ -38,7 +38,6 @@ void set_data_file_length(DataFile* data_file) {
 	struct stat s;
 	stat(data_file->path, &s);
 	data_file->length = s.st_size;
-	printf("data_file.path sdf :%s\n ", data_file->path);
 }
 
 int get_data_file_extension(DataFile data_file) {
@@ -81,16 +80,9 @@ char* read_string_from_file(DataFile data_file) {
 
 void write_string_in_file(DataFile data_file, char *string) {
 	data_file.file = fopen(data_file.path, "w");
+	printf("%d\n", data_file.file == NULL);
 	fputs(string, data_file.file);
 	fclose(data_file.file);
-}
-
-void open_data_file(DataFile* data_file, char* option) {
-	//data_file->file = fopen(data_file->path, option);
-}
-
-void close_data_file(DataFile data_file) {
-	//fclose(data_file.file);
 }
 
 void purge_buffer() {
@@ -101,6 +93,7 @@ void purge_buffer() {
 }
 
 int get_secure_input(char* buffer, size_t size) {
+	printf(">> ");
 	if (fgets(buffer, size, stdin)) {
 		if (strlen(buffer) == size - 1) { //If the input's length is > to 255 it will stay in the buffer
 			purge_buffer();

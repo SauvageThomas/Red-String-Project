@@ -18,8 +18,7 @@
 #include "../Search/image_finder.h"
 #include "../Search/sound_finder.h"
 
-const int pass_key[] = { 22, 53, 44, 71, 66, 177, 253, 122, 9548, 1215, 48421,
-		629, 314, 4784, 5102, 914, 213, 316, 145, 78 };
+const int pass_key[] = { 22, 53, 44, 71, 66, 177, 253, 122, 9548, 1215, 48421, 629, 314, 4784, 5102, 914, 213, 316, 145, 78 };
 
 void search_by_file(char* path) {
 	char* file_name = malloc(KSIZE);
@@ -27,14 +26,11 @@ void search_by_file(char* path) {
 
 	strcpy(file_path, path);
 
-	puts("Please, enter a file path : ");
-	printf(">>");
+	puts("Please, enter a file path :");
 
 	if (get_secure_input(file_name, KSIZE)) {
 
 		strcat(file_path, file_name);
-		printf("input : %s\n", file_name);
-		printf("file_path : %s\n", file_path);
 
 		int res = search_data(file_path);
 		show_search_report(res);
@@ -46,9 +42,11 @@ void search_by_keyword() {
 }
 
 void modif_config() {
+	/*
 	char* str = "!!";
 	DataFile data_file = init_data_file(".config");
-	puts("WIP !");
+	*/
+	wip();
 }
 
 Config load_config() {
@@ -82,6 +80,7 @@ Config load_config() {
 		config_array[configuration.size] = key;
 		config_array[configuration.size + 1] = value;
 
+		// DEAD CODE ???
 		if (value == NULL) {
 			puts("Le fichier de configuration n'est pas conforme, utilisation du fichier par défaut.");
 			//TODO: faire un fichier pa défaut et le charger à la place de NULL
@@ -108,29 +107,24 @@ char* get_value_of(Config config, const char* value) {
 int login() {
 
 	char pass[KPASSLEN];
-	puts("What is the password ?");
-	if (get_secure_input(pass, sizeof(pass))) {
-		//
-	} else {
+	puts("Please, enter the password :");
+	if (!get_secure_input(pass, sizeof(pass))) {
 		return 0;
 	}
 
 	DataFile data_file = init_data_file(".pass");
-
-	//xor_crypt(pass);
-	//write_string_in_file(data_file, pass);
 	
 	char* compare = read_string_from_file(data_file);
 
 	xor_crypt(compare);
 
 	if (!strcmp(compare, pass)) {
-		puts("Vous êtes identifié en tant qu'admin !");
+		puts("You are now connected as admin !");
 		return 1;
 	} else {
-		puts("Identification refusée.");
+		puts("wrong password : access forbidden !");
 		return 0;
-	}
+	} 
 
 }
 
@@ -139,7 +133,7 @@ void wip() {
 }
 
 void input_error(char *input) {
-	printf("\"%s\" n'existe pas. Veuillez reessayer.\n", input);
+	printf("command not found : %s ! Please, try again.\n", input);
 }
 
 void xor_crypt(char *password) {
@@ -149,23 +143,25 @@ void xor_crypt(char *password) {
 }
 
 void get_input(char* buffer, int* action) {
-	printf(">> ");
 	while (1) { //TODO: pas beau
+		printf(">> ");
 		if (fgets(buffer, sizeof(buffer) - 1, stdin)) {
 			strtok(buffer, "\n");
 
 			if (buffer[1] != '\0') { //If the input's length is > to 255 it will stay in the buffer
-				//puts("Overflow");
 				purge_buffer();
 			}
 
-			//printf("<%s>", buffer);
 			if (sscanf(buffer, "%d", action) == 1) {
 				break; //The input is correct
 			} else {
-				puts("Erreur, il ne faut entrer qu'un seul chiffre.");
+				puts("format error : 1 digit expected !");
 			}
 		}
 	}
+}
+
+void clear_console(){
+	printf("\033[H\033[J\n");
 }
 

@@ -1,21 +1,21 @@
 #include "hash_map.h"
 #include <malloc.h>
 
-void init_hashmap(HashMap* map){
+void init_hash_map(HashMap* map){
 	*map = NULL;
 }
 
 CellHashMap* find_value(CellHashMap* cell, char* key){
 	if(cell == NULL)
 		return NULL;
-	if(cell->key == key)
+	if(strcmp(cell->key, key) == 0)
 		return cell;
 	return find_value(cell->next, key);
 }
 
 //if the map don't yet contain the "key", this "key" is add with 1 occurrence
 //else the nombre od occurrence is incremented by one 
-void add_value(HashMap* map, char* key){
+void add_value_hash_map(HashMap* map, char* key){
 	CellHashMap* cellTmp = find_value(*map,key);
 	if(cellTmp == NULL){
 		HashMap map2 = (HashMap)malloc(sizeof(CellHashMap));
@@ -47,16 +47,22 @@ void remove_cell_hashmap(HashMap* map, char* key){
 }
 
 //return the cell which contain most occurrence, this method remove this cell of the map in the same time 
-CellHashMap pop(HashMap* map){
+char* pop_value_hash_map(HashMap* map){
 	CellHashMap* cellTmp = *map;
-	CellHashMap result = **map;
+	CellHashMap* max_occurences = *map;
+	int max = cellTmp->nbOccurence;
 	while(cellTmp!= NULL){
-		if(cellTmp->nbOccurence > result.nbOccurence)
-			result = *cellTmp;
+		if(cellTmp->nbOccurence > max){
+			max_occurences = cellTmp;
+			max = max_occurences->nbOccurence;
+		}
 		cellTmp = cellTmp->next;
 	}
+	char* result = malloc(strlen(max_occurences->key) + sizeof(int) + 5);
+	char* pattern = "%s %d\n";
+	sprintf(result, pattern, max_occurences->key, max_occurences->nbOccurence);
 	if(*map!=NULL)
-		remove_cell_hashmap(map,result.key);
+		remove_cell_hashmap(map,max_occurences->key);
 	return result;
 }
 
@@ -72,7 +78,8 @@ void multiplay_val_of_cell(HashMap* map, char* key, int multiplier){
 //		chat 2
 //		poisson 5
 
-char* display_map(HashMap map){
+char* print_hash_map(HashMap map){
+	puts("heeeeeeeeeey");
 	char* result ="";
 	char nb_occurence[4];
 	char* tmp;
@@ -99,21 +106,21 @@ char* display_map(HashMap map){
 }
 
 
-
+/*
 int main(){
 	HashMap map;
-	init_hashmap(&map);
-	add_value(&map,"chien");
-	add_value(&map,"chat");
-	add_value(&map,"chien");
-	add_value(&map,"chat");
-	add_value(&map,"chien");
-	add_value(&map,"kebab");
-	add_value(&map,"kebab");
-	add_value(&map,"kebab");
-	add_value(&map,"chat");
-	add_value(&map,"chien");
-	add_value(&map,"chien");
+	init_hash_map(&map);
+	add_value_hash_map(&map,"chien");
+	add_value_hash_map(&map,"chat");
+	add_value_hash_map(&map,"chien");
+	add_value_hash_map(&map,"chat");
+	add_value_hash_map(&map,"chien");
+	add_value_hash_map(&map,"kebab");
+	add_value_hash_map(&map,"kebab");
+	add_value_hash_map(&map,"kebab");
+	add_value_hash_map(&map,"chat");
+	add_value_hash_map(&map,"chien");
+	add_value_hash_map(&map,"chien");
 	//printf("Il y a %d chien(s)\n",find_nb_occurence(map, "chien"));
 	//printf("Il y a %d chat(s)\n",find_nb_occurence(map, "chat"));
 	//printf("Il y a %d pigeon(s)\n",find_nb_occurence(map, "pigeon"));
@@ -121,5 +128,6 @@ int main(){
 	//printf("Element enlevé est : %s\n",pop(&map).key);
 	multiplay_val_of_cell(&map,"chien",10);
 	multiplay_val_of_cell(&map,"chat",2);
-	printf("%s",display_map(map));
-}
+	printf("%s",print_hash_map(map));
+	return 0;
+}*/

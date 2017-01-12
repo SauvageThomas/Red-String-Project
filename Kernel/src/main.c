@@ -18,16 +18,17 @@
 #include "Test/minunit.h"
 
 #include "Tools/data_handler.h"
+#include "Tools/hash_map.h"
 #include "search_engine.h"
 #include "GUI/gui.h"
 
 /*
  * Description	: This is the only main which will be used in this project
  * Parameters	: None
- * Returns		: EXIT_SUCCES or EXIT_FAILURE
+ * Returns		: EXIT_SUCCESS or EXIT_FAILURE
  */
 int main(void) {
-
+	
 	// Resolve error for windows execution
 	setvbuf(stdout, NULL, _IONBF, 0);
 	setvbuf(stderr, NULL, _IONBF, 0);
@@ -43,13 +44,13 @@ int main(void) {
 		// exemple of path : 03-Des_chercheurs_parviennent_à_régénérer.xml
 	}
 
-	start_gui();
+	if (PROD){
+		start_gui();
+	}
 
 	//launch test
 	if (TEST) {
-		puts("Running tests ...\n");
 		run_all_tests();
-		puts("tests done");
 	}
 
 	return EXIT_SUCCESS;

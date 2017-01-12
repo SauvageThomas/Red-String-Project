@@ -17,9 +17,7 @@ char *TEST_WRITE_FILE_PATH = "Data/Test/test_write_string_from_file";
 int test_num = 1;
 
 void test_setup() {
-	printf(
-			"\n\n-------------------------- TEST %d ----------------------------\n",
-			test_num);
+	printf("\n\n-------------------------- TEST %d ----------------------------\n",	test_num);
 	strcpy(msg, "EXPECTED : ");
 }
 
@@ -105,7 +103,8 @@ MU_TEST_SUITE(test_suite) {
 }
 
 void run_all_tests() {
+	puts("Running tests ...\n");
 	MU_RUN_SUITE(test_suite);
-	MU_REPORT()
-	;
+	MU_REPORT();
+	puts("tests done !");
 }

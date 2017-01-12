@@ -1,7 +1,7 @@
 /*
  * descriptor_generator.c
  *
- *  Created on: 5 déc. 2016
+ *  Created on: 5 dÃ©c. 2016
  *      Author: THOMAS
  */ 	 
 
@@ -13,6 +13,8 @@
 #include "descriptor_generator.h"
 #include "../Data/constant.h"
 #include "../Tools/data_handler.h"
+#include "../Tools/hash_map.h"
+#include "../Search/text_finder.h"
 
 /*
 int check_descriptors(){
@@ -36,39 +38,65 @@ int check_descriptors(char* path) {
 
 	char text_path[KSIZE];
 	char audio_path[KSIZE];
-	char video_path[KSIZE];
+	char image_path[KSIZE];
 
 	strcpy(text_path, path);
 	strcpy(audio_path, path);
-	strcpy(video_path, path);
+	strcpy(image_path, path);
 
 	strcat(text_path, "text_descriptors");
 	strcat(audio_path, "audio_descriptors");
-	strcat(video_path, "video_descriptors");
+	strcat(image_path, "video_descriptors");
 
+	printf("%s", text_path);
 	DataFile df_text = init_data_file(text_path);
 	DataFile df_audio = init_data_file(audio_path);
-	DataFile df_video = init_data_file(video_path);
+	DataFile df_image = init_data_file(image_path);
 
-
-	if (is_existing_file(df_text) && is_existing_file(df_audio) && is_existing_file(df_video))
+	if (is_existing_file(df_text) && is_existing_file(df_audio) && is_existing_file(df_image)){
 		return EXIT_SUCCESS;
-	
+	}
+	DataFile text_descriptor = init_data_file("res/descriptors/text_descriptor.txt");
+
+	DataFile test = init_data_file("res/FICHIER_PROJET/03-Mimer_un_signal_nerveux_pour.xml");
+
+	char* words = generate_descriptor(test);
+	printf("OK\n");
+	write_string_in_file(text_descriptor, words);
+
 	return EXIT_FAILURE;
 
 	//TODO: Complete the other cases
 }
 
-/*
-void generate_descriptor(TextFile tf){
-	HashMap word_occurences;
-	init_hash_map(word_occurences);
 
-	for (i=0; i<tf.nb_word; i++){
-		add_value_hash_map(&word_occurences, tf.words[i]);
+char* generate_descriptor(DataFile df){
+	HashMap word_occurences;
+	init_hash_map(&word_occurences);
+	int matrix_length = 0;
+	printf("GENERATE DESCRIPTOR :\n");
+
+	//TODO: extract common method !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	char* content = read_string_from_file(df);
+	content = remove_xml(content);
+	content = remove_punctuation(content);
+
+	char** words = remove_words(content, &matrix_length);
+	
+	for (int i=0; i<matrix_length; i++){
+		add_value_hash_map(&word_occurences, words[i]);
 	}
 
-	print_hash_map(word_occurences);
-
+	//print_hash_map(word_occurences);
+	char* result = malloc(1000);
+	strcpy(result, "\n> ");
+	strcat(result, df.path);
+	strcat(result, "\n");
+	while(word_occurences != NULL){
+		strcat(result, "\n");
+		strcat(result, pop_value_hash_map(&word_occurences));
+	}
+	printf("%s", result);
+	return result;
 	//TODO: create new file with same name + "descriptor" and print map in 
-}*/
+}

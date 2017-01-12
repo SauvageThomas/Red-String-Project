@@ -13,7 +13,7 @@ EXEC=SearchEngine.exe
 
 all: $(EXEC)
 
-SearchEngine.exe: descriptor_generator.o index_generator.o data_manager.o report.o search_engine.o test.o data_handler.o main.o text_finder.o image_finder.o sound_finder.o gui.o functions.o
+SearchEngine.exe: hash_map.o descriptor_generator.o index_generator.o data_manager.o report.o search_engine.o test.o data_handler.o main.o text_finder.o image_finder.o sound_finder.o gui.o functions.o
 	$(CC)   $^ -o ../$@ 
 
 descriptor_generator.o : Descriptor/descriptor_generator.c Descriptor/descriptor_generator.h
@@ -47,6 +47,9 @@ data_handler.o : Tools/data_handler.c Tools/data_handler.h
 	$(CC) $(CFLAGS) $< 
 
 gui.o : GUI/gui.c GUI/gui.h
+	$(CC) $(CFLAGS) $< 
+
+hash_map.o : Tools/hash_map.c Tools/hash_map.h
 	$(CC) $(CFLAGS) $< 
 
 functions.o : GUI/functions.c GUI/functions.h Data/constant.h Tools/report.h Tools/data_handler.h Search/data_manager.h Search/text_finder.h Search/image_finder.h Search/sound_finder.h
