@@ -13,9 +13,10 @@
 #include "../Tools/report.h"
 #include "../Tools/data_handler.h"
 #include "../Data/constant.h"
+#include "../GUI/functions.h"
 
 
-int search_data( const char* file_path){
+int search_data( const char* file_path, Config config){
 	printf("path  1  : %s\n", file_path);
 	EMBED_BREAKPOINT;
 	DataFile df = init_data_file(file_path);
@@ -42,7 +43,7 @@ int search_data( const char* file_path){
 		break;
 
 		case SOUND:
-			find_sound(df);
+			find_sound(df, get_value_of(config, "taille_des_fenetres"), get_value_of(config, "nombre_de_barre"));
 		break;
 
 		default : 

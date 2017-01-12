@@ -21,7 +21,7 @@
 const int pass_key[] = { 22, 53, 44, 71, 66, 177, 253, 122, 9548, 1215, 48421,
 		629, 314, 4784, 5102, 914, 213, 316, 145, 78 };
 
-void search_by_file(char* path) {
+void search_by_file(char* path, Config config) {
 	char* file_name = malloc(KSIZE);
 	char* file_path = malloc(strlen(path) + KSIZE);
 
@@ -36,7 +36,7 @@ void search_by_file(char* path) {
 		printf("input : %s\n", file_name);
 		printf("file_path : %s\n", file_path);
 
-		int res = search_data(file_path);
+		int res = search_data(file_path, config );
 		show_search_report(res);
 	}
 }
