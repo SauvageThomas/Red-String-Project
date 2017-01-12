@@ -21,7 +21,7 @@ void update_index(){
 	//       si première occurence : l'ajouter dans la map avec le mot en clé et 1 en valeur
 	//		 else : incrémenter la valeur d'occurence	
 
-descripteur_test
+
 
 
 	  
