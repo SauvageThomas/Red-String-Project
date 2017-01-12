@@ -80,20 +80,18 @@ char* generate_descriptor(DataFile df){
 	char* content = read_string_from_file(df);
 	content = remove_xml(content);
 	content = remove_punctuation(content);
-
 	char** words = remove_words(content, &matrix_length);
+	
 	
 	for (int i=0; i<matrix_length; i++){
 		add_value_hash_map(&word_occurences, words[i]);
 	}
 
-	//print_hash_map(word_occurences);
 	char* result = malloc(1000);
 	strcpy(result, "\n> ");
 	strcat(result, df.path);
 	strcat(result, "\n");
 	while(word_occurences != NULL){
-		strcat(result, "\n");
 		strcat(result, pop_value_hash_map(&word_occurences));
 	}
 	printf("%s", result);

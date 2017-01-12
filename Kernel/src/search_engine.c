@@ -18,6 +18,7 @@
 #include "Tools/report.h"
 #include "Tools/data_handler.h"
 #include "GUI/gui.h"
+#include "Data/constant.h"
 
 void launch_search_engine(Config config) {
 

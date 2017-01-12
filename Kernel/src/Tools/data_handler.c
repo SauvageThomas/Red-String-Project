@@ -14,6 +14,7 @@
 DataFile init_data_file( const char* path) {
 	DataFile data_file;
 	data_file.path = path;
+	data_file.length = 0; //Init if the file does not exist
 
 	if (is_existing_file(data_file)) {
 		set_data_file_length(&data_file);
@@ -67,12 +68,6 @@ char* read_string_from_file(DataFile data_file) {
 		i += 1;
 	}
 	string_in_file[i] = '\0';
-
-	/* Old code keep in case ?
-	 for (int i = 0; i < data_file.length; i++) {
-	 char tmp = fgetc(data_file.file);
-	 string_in_file[i] = tmp;
-	 }*/
 
 	fclose(data_file.file);
 	return string_in_file;

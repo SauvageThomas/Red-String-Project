@@ -14,6 +14,7 @@
 #include "functions.h"
 #include "../search_engine.h"
 #include "../Data/constant.h"
+#include "../Tools/data_handler.h"
 
 void start_gui() {
 	if (!DEBUG){
@@ -23,6 +24,9 @@ void start_gui() {
 	int action = 1; 
 	char buffer[2];
 	int admin = 0;
+
+	DataFile df = init_data_file("a.txt");
+	printf("length %d\n", df.length);
 
 	Config config = load_config();
 
@@ -101,7 +105,7 @@ void search_gui(Config config) {
 			search_by_keyword();
 			break;
 		case 2:
-			search_by_file(get_value_of(config, "path"));
+			search_by_file(config);
 			break;
 		default:
 			input_error(buffer);

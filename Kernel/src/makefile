@@ -14,7 +14,7 @@ EXEC=SearchEngine.exe
 all: $(EXEC)
 
 SearchEngine.exe: hash_map.o descriptor_generator.o index_generator.o data_manager.o report.o search_engine.o test.o data_handler.o main.o text_finder.o image_finder.o sound_finder.o gui.o functions.o
-	$(CC)   $^ -o ../$@ 
+	$(CC)   $^ -lm -o ../$@ 
 
 descriptor_generator.o : Descriptor/descriptor_generator.c Descriptor/descriptor_generator.h
 	$(CC) $(CFLAGS) $< 

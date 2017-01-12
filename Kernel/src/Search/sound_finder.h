@@ -9,7 +9,6 @@
 #define SEARCH_SOUND_FINDER_H_
 
 #include "../Tools/data_handler.h"
-
-void find_sound(DataFile df);
-
+double ** file_content ( DataFile df, int n, int k);
+void find_sound(DataFile df, char *taille_fenetre, char *nb_barres);
 #endif /* SEARCH_SOUND_FINDER_H_ */

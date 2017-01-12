@@ -10,11 +10,7 @@
 
 #include <stdlib.h>
 
-typedef struct {
-	char** config;
-	size_t size;
-	size_t size_word;
-} Config;
+#include "../Data/constant.h"
 
 void xor_crypt(char *password);
 char* get_value_of(Config config, const char* value);
