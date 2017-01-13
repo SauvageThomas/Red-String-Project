@@ -2,9 +2,13 @@
 #include <math.h>
 
 #include "image_finder.h"
+#include "../GUI/functions.h"
 
 void find_image(char *quantif, DataFile df) {
-	int n = (int) strtol(quantif, (char **) NULL, 10);
+	if (quantif == NULL) {
+		error_config_file();
+	}
+	size_t n = (size_t) strtol(quantif, (char **) NULL, 10);
 
 	size_t size = 2;
 	Pixel *pixels = malloc(sizeof(Pixel) * size);
@@ -32,10 +36,15 @@ void int_to_bin_digit(uint8_t in, uint8_t count, uint8_t* out) {
 	//puts("");
 }
 
-int exposant(uint8_t *tmp, int *i) {
+int exposant(uint8_t *tmp, int *i, int n) {
 	//printf("%d %d\n", tmp[0], tmp[1]);
-	*i -= 2;
-	return tmp[0] * pow(2, *i + 2) + tmp[1] * pow(2, *i + 1);
+	int somme = 0;
+	for (int cpt = 0; cpt < n; cpt += 1) {
+		somme += tmp[cpt] * pow(2, *i);
+		*i -= 1;
+	}
+
+	return somme;
 }
 
 int quantification(Pixel pixel, int n) {
@@ -44,13 +53,13 @@ int quantification(Pixel pixel, int n) {
 	int res = 0;
 
 	int_to_bin_digit(pixel.red, 8, tmp);
-	res += exposant(tmp, &i);
+	res += exposant(tmp, &i, n);
 
 	int_to_bin_digit(pixel.green, 8, tmp);
-	res += exposant(tmp, &i);
+	res += exposant(tmp, &i, n);
 
 	int_to_bin_digit(pixel.blue, 8, tmp);
-	res += exposant(tmp, &i);
+	res += exposant(tmp, &i, n);
 
 	return res;
 }

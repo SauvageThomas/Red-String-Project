@@ -34,7 +34,6 @@ int search_data(Config config, const char* file_path){
 		case TEXT:
 			find_text(df);
 		break;
-
 		case IMAGE:
 			find_image(get_value_of(config, "quantification"), df);
 		break;

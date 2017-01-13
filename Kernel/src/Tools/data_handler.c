@@ -88,13 +88,22 @@ void purge_buffer() {
 }
 
 int get_secure_input(char* buffer, size_t size) {
-	printf(">> ");
-	if (fgets(buffer, size, stdin)) {
-		if (strlen(buffer) == size - 1) { //If the input's length is > to 255 it will stay in the buffer
-			purge_buffer();
+	printf(">>");
+	int res = 1;
+
+	int c = getchar();
+	int i = 0;
+	while (c != '\n' && c != EOF) {
+		if (i < size - 1) {
+			buffer[i] = c;
+			i += 1;
+		} else {
+			res = 0;
 		}
-		strtok(buffer, "\n");
-		return 1;
+		c = getchar();
+
 	}
-	return 0;
+	buffer[i] = '\0';
+	printf("RES : %d\n", res);
+	return res;
 }
