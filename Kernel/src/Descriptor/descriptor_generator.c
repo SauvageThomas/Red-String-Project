@@ -63,7 +63,7 @@ int check_descriptors(char* path) {
 	// For each file :
 	/*
 	DataFile test = init_data_file("res/FICHIER_PROJET/03-Mimer_un_signal_nerveux_pour.xml");
-	char* words = generate_descriptor(test);
+	char* words = generate_one_file_descriptor(test);
 	printf("OK\n");
 	write_string_in_file(df_text, words);
 	printf("File descriptor SUCCESS : %s\n", test.path);
@@ -75,7 +75,7 @@ int check_descriptors(char* path) {
 }
 
 
-char* generate_descriptor(DataFile df){
+char* generate_one_file_descriptor(DataFile df){
 	HashMap word_occurences;
 	init_hash_map(&word_occurences);
 	int matrix_length = 0;
