@@ -18,8 +18,9 @@ typedef struct {
 } Pixel;
 
 void int_to_bin_digit(uint8_t in, uint8_t count, uint8_t* out);
-int exposant(uint8_t *tmp, int *i);
-int quantification(Pixel pixel, int n);
+int exposant(uint8_t *tmp, int *i, int n);
+size_t quantification(Pixel pixel, int n);
 void find_image(char *quantification, DataFile df);
+size_t *quantify_file(size_t n, DataFile df, size_t *size);
 
 #endif /* SEARCH_IMAGE_FINDER_H_ */

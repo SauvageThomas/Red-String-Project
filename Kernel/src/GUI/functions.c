@@ -18,29 +18,42 @@
 #include "../Search/image_finder.h"
 #include "../Search/sound_finder.h"
 
-const int pass_key[] = { 22, 53, 44, 71, 66, 177, 253, 122, 9548, 1215, 48421, 629, 314, 4784, 5102, 914, 213, 316, 145, 78 };
+const int pass_key[] = { 22, 53, 44, 71, 66, 177, 253, 122, 9548, 1215, 48421,
+		629, 314, 4784, 5102, 914, 213, 316, 145, 78 };
 
 void search_by_file(Config config) {
+	char* tmp = get_value_of(config, "path");
+	if (tmp == NULL) {
+		error_config_file();
+	}
 	char* file_name = malloc(KSIZE);
 	char* file_path = malloc(KSIZE * 2);
-	strcpy(file_path, get_value_of(config, "path"));
+
+	strcpy(file_path, tmp);
+
 	puts("Please, enter a file path : ");
 	if (get_secure_input(file_name, KSIZE)) {
+		puts("aaa");
 		strcat(file_path, file_name);
 		int res = search_data(config, file_path);
 		show_search_report(res);
 	}
 }
 
+void error_config_file() {
+	//TODO: Rempalce by backup file
+	puts("Error on config file");
+	exit(EXIT_FAILURE);
+}
 void search_by_keyword() {
 	wip();
 }
 
 void modif_config() {
 	/*
-	char* str = "!!";
-	DataFile data_file = init_data_file(".config");
-	*/
+	 char* str = "!!";
+	 DataFile data_file = init_data_file(".config");
+	 */
 	wip();
 }
 
@@ -49,10 +62,13 @@ Config load_config() {
 	const char token[] = " \n";
 
 	DataFile data_file = init_data_file(".config");
-	if(data_file.length==0){
+	if (data_file.length == 0) {
 		//TODO: Create the file according to the backup file
 	}
-
+	printf("%d\n", data_file.length);
+	printf("%d\n", data_file.length);
+	printf("%d\n", data_file.length);
+	printf("%d\n", data_file.length);
 	char* config = read_string_from_file(data_file);
 	char* tmp = config;
 
@@ -67,6 +83,9 @@ Config load_config() {
 	for (int j = 0; j < i; j += 1) {
 		config_array[i] = malloc(KSIZEWORD);
 	}
+
+	printf("%d\n", data_file.length);
+
 	configuration.config = config_array;
 	configuration.size = 0;
 	configuration.size_word = KSIZEWORD;
@@ -74,11 +93,11 @@ Config load_config() {
 	char* key = strtok(config, token);
 	char* value = strtok(NULL, token);
 
+	printf("%d\n", data_file.length);
 	while (key != NULL && value != NULL) {
 		config_array[configuration.size] = key;
 		config_array[configuration.size + 1] = value;
 
-		// DEAD CODE ???
 		if (value == NULL) {
 			puts(
 					"Le fichier de configuration n'est pas conforme, utilisation du fichier par défaut.");
@@ -133,7 +152,7 @@ int login() {
 	} else {
 		puts("wrong password : access forbidden !");
 		return 0;
-	} 
+	}
 
 }
 
@@ -151,25 +170,19 @@ void xor_crypt(char *password) {
 	}
 }
 
-void get_input(char* buffer, int* action) {
-	while (1) { //TODO: pas beau
-		printf(">> ");
-		if (fgets(buffer, sizeof(buffer) - 1, stdin)) {
-			strtok(buffer, "\n");
-
-			if (buffer[1] != '\0') { //If the input's length is > to 255 it will stay in the buffer
-				purge_buffer();
-			}
-
-			if (sscanf(buffer, "%d", action) == 1) {
-				break; //The input is correct
-			} else {
-				puts("format error : 1 digit expected !");
-			}
-		}
+void get_input(char* buffer) {
+	while (get_secure_input(buffer, 2) != 1) {
+		puts("Veuillez entrer un seul chiffre.");
 	}
 }
 
-void clear_console(){
+void clear_console() {
 	printf("\033[H\033[J\n");
+}
+
+time_t chrono() {
+	static time_t prev_time;
+	time_t res = time(NULL) - prev_time;
+	prev_time = time(NULL);
+	return res;
 }
