@@ -179,3 +179,10 @@ void get_input(char* buffer) {
 void clear_console() {
 	printf("\033[H\033[J\n");
 }
+
+time_t chrono() {
+	static time_t prev_time;
+	time_t res = time(NULL) - prev_time;
+	prev_time = time(NULL);
+	return res;
+}

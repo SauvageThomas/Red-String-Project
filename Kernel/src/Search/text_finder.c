@@ -1,24 +1,29 @@
 #include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
+
 #include "text_finder.h"
 
 void find_text(DataFile df) {
 	int matrix_length = 0;
 	printf("XML FILE\n");
-/*
-	char* content = read_string_from_file(df);
-	content = remove_xml(content);
-	content = remove_punctuation(content);
+	/*
+	 char* content = read_string_from_file(df);
+	 content = remove_xml(content);
+	 content = remove_punctuation(content);
 
-	char **matrix_of_words = remove_words(content, &matrix_length);
-	//printf("%s\n", content);
-	//for (int i=0; i<matrix_length; i++)   /* test loop*/
+	 char **matrix_of_words = remove_words(content, &matrix_length);
+	 //printf("%s\n", content);
+	 //for (int i=0; i<matrix_length; i++)   /* test loop*/
 	//printf("%s\n", matrix_of_words[i]);
 	//TODO: compare with index and get the similar files
 }
 
 char *remove_xml(char* content) {
 	char* working_content = malloc(sizeof(char) * (int) strlen(content));
+	if (working_content == NULL) {
+		fprintf(stderr, "Malloc failed %s\n", strerror(errno));
+	}
 	char* final_content;
 	int cpt = 0, check = 1;
 	for (size_t i = 0; i < strlen(content); i++) {
@@ -84,14 +89,15 @@ char** remove_words(char* content, int *matrix_length) {
 	//printf("%s\n", content);
 
 	char ** matrix_of_words = malloc(strlen(content) * sizeof(char*));
-
+	if (matrix_of_words == NULL) {
+		fprintf(stderr, "Malloc failed %s\n", strerror(errno));
+	}
 	for (int i = 0; i < strlen(content); i++)
 		//matrix_of_words[i] = calloc(KSIZEWORD, sizeof(char));
 		matrix_of_words[i] = malloc(KSIZEWORD * sizeof(char));
 
 	size_t cpt = 0, cpt1 = 0, cpt2 = 0;
 	char tmp = content[cpt];
-	puts("cc");
 	while (tmp != '\0') {
 		//putchar(tmp);
 		if (tmp != ' ') {

@@ -46,7 +46,13 @@ void init_search_engine(Config config) {
 		puts("Index is already up to date.");
 	} else {
 		puts("-> updating index...");
-		generate_descriptors(path, get_value_of(config, "path"));
+		chrono();
+
+		char *quant = get_value_of(config, "quantification");
+		size_t n = (size_t) strtol(quant, (char **) NULL, 10);
+
+		generate_descriptors(path, get_value_of(config, "path"), n);
+		printf("Generating descriptors took %ds\n", chrono());
 		update_index();
 	}
 }

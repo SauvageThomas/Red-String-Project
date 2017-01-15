@@ -14,6 +14,9 @@
 DataFile init_data_file(char* path) {
 	DataFile data_file;
 	data_file.path = malloc(strlen(path) + 1);
+	if (data_file.path == NULL) {
+		fprintf(stderr, "Malloc in init_data_file failed %s\n", strerror(errno));
+	}
 	strcpy(data_file.path, path);
 	data_file.length = 0; //Init if the file does not exist
 
@@ -110,7 +113,6 @@ int get_secure_input(char* buffer, size_t size) {
 			res = 0;
 		}
 		c = getchar();
-
 	}
 	buffer[i] = '\0';
 	return res;

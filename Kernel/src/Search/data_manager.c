@@ -33,15 +33,13 @@ int search_data(Config config, char* file_path) {
 
 	switch (file_type) {
 	case TEXT:
-		return 0;
 		find_text(df);
 		break;
 	case IMAGE:
-		return 1;
+		//return 1;
 		find_image(get_value_of(config, "quantification"), df);
 		break;
 	case SOUND:
-		return 2;
 		//find_sound(df, get_value_of(config, "taille_des_fenetres"), get_value_of(config, "nombre_de_barre"));
 		break;
 
@@ -109,14 +107,22 @@ Directory get_all_files(char *path) {
 			case TEXT:
 				dir.txt_size += 1;
 				dir.txt_files[dir.txt_size] = init_data_file(full_path);
+				dir.txt_files[dir.txt_size].type = malloc(strlen("text") + 1);
+				strcpy(dir.txt_files[dir.txt_size].type, "text");
 				break;
 			case IMAGE:
 				dir.image_size += 1;
 				dir.image_files[dir.image_size] = init_data_file(full_path);
+				dir.image_files[dir.image_size].type = malloc(
+						strlen("image") + 1);
+				strcpy(dir.image_files[dir.image_size].type, "image");
 				break;
 			case SOUND:
 				dir.audio_size += 1;
 				dir.audio_files[dir.audio_size] = init_data_file(full_path);
+				dir.audio_files[dir.audio_size].type = malloc(
+						strlen("audio") + 1);
+				strcpy(dir.audio_files[dir.audio_size].type, "audio");
 				break;
 			default:
 				break;
