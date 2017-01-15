@@ -66,6 +66,9 @@ Config load_config() {
 		//TODO: Create the file according to the backup file
 	}
 	printf("%d\n", data_file.length);
+	printf("%d\n", data_file.length);
+	printf("%d\n", data_file.length);
+	printf("%d\n", data_file.length);
 	char* config = read_string_from_file(data_file);
 	char* tmp = config;
 

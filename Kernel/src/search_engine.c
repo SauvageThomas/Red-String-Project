@@ -40,11 +40,13 @@ void init_search_engine(Config config) {
 	puts("------------------------------------------------------------------");
 	puts("*   *   *   SEARCH ENGINE : INITITIALIZATION");
 	//puts("-> checking descriptors...");
-	int updated = check_descriptors(get_value_of(config, "descriptors"));
+	char *path = get_value_of(config, "descriptors");
+	int updated = check_descriptors(path);
 	if (updated == EXIT_SUCCESS){
 		puts("Index is already up to date.");
 	} else {
 		puts("-> updating index...");
+		generate_descriptors(path, get_value_of(config, "path"));
 		update_index();
 	}
 }

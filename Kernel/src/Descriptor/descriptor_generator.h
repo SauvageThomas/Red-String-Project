@@ -6,12 +6,14 @@
  */
 
 #include "../Tools/data_handler.h"
+#include "../Data/constant.h"
 
 #ifndef DESCRIPTOR_DESCRIPTOR_GENERATOR_H_
 #define DESCRIPTOR_DESCRIPTOR_GENERATOR_H_
 
 int check_descriptors(char* path);
-char* generate_descriptor(DataFile df);
+Descriptor generate_descriptor(DataFile df);
+void descriptor_to_file(Descriptor descriptor, DataFile df);
 
 #endif /* DESCRIPTOR_DESCRIPTOR_GENERATOR_H_ */
 

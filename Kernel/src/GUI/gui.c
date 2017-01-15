@@ -26,6 +26,9 @@ void start_gui() {
 
 	DataFile df = init_data_file("a.txt");
 	printf("length %d\n", df.length);
+	printf("length %d\n", df.length);
+	printf("length %d\n", df.length);
+	printf("length %d\n", df.length);
 
 	Config config = load_config();
 	printf("length %d\n", df.length);
