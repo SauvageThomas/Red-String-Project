@@ -10,6 +10,9 @@
 #include "index_generator.h"
 
 void update_index(){
+
+
+
 	/*
 	* UPDATE THE INDEX FILE
 	*/
