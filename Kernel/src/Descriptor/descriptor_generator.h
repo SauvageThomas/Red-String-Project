@@ -11,10 +11,12 @@
 #ifndef DESCRIPTOR_DESCRIPTOR_GENERATOR_H_
 #define DESCRIPTOR_DESCRIPTOR_GENERATOR_H_
 
-int check_descriptors(char* path);
+int check_descriptors(DataFile df);
 Descriptor generate_descriptor(DataFile df, int quant);
 void descriptor_to_file(Descriptor descriptor, DataFile df);
-void generate_descriptors(char *desc_path, char *files_path, int quant);
+void generate_text_descriptors(DataFile df, Directory dir);
+void generate_image_descriptors(DataFile df, Directory dir, int quant);
+void generate_sound_descriptors(DataFile df, Directory dir);
 
 #endif /* DESCRIPTOR_DESCRIPTOR_GENERATOR_H_ */
 
