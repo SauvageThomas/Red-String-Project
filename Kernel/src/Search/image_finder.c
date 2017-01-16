@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <math.h>
+#include <errno.h>
 
 #include "image_finder.h"
 #include "../GUI/functions.h"

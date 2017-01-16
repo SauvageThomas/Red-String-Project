@@ -78,18 +78,15 @@ Directory get_all_files(char *path) {
 
 			if (dir.txt_size >= max_size_text - 1) {
 				max_size_text *= 2;
-				dir.txt_files = realloc(dir.txt_files,
-						sizeof(DataFile) * max_size_text);
+				dir.txt_files = realloc(dir.txt_files,sizeof(DataFile) * max_size_text);
 			}
 			if (dir.audio_size >= max_size_audio - 1) {
 				max_size_audio *= 2;
-				dir.audio_files = realloc(dir.audio_files,
-						sizeof(DataFile) * max_size_audio);
+				dir.audio_files = realloc(dir.audio_files,sizeof(DataFile) * max_size_audio);
 			}
 			if (dir.image_size >= max_size_image - 1) {
 				max_size_image *= 2;
-				dir.image_files = realloc(dir.image_files,
-						sizeof(DataFile) * max_size_image);
+				dir.image_files = realloc(dir.image_files,sizeof(DataFile) * max_size_image);
 			}
 
 			strcat(full_path, ep->d_name);
@@ -113,15 +110,13 @@ Directory get_all_files(char *path) {
 			case IMAGE:
 				dir.image_size += 1;
 				dir.image_files[dir.image_size] = init_data_file(full_path);
-				dir.image_files[dir.image_size].type = malloc(
-						strlen("image") + 1);
+				dir.image_files[dir.image_size].type = malloc(strlen("image") + 1);
 				strcpy(dir.image_files[dir.image_size].type, "image");
 				break;
 			case SOUND:
 				dir.audio_size += 1;
 				dir.audio_files[dir.audio_size] = init_data_file(full_path);
-				dir.audio_files[dir.audio_size].type = malloc(
-						strlen("audio") + 1);
+				dir.audio_files[dir.audio_size].type = malloc(strlen("audio") + 1);
 				strcpy(dir.audio_files[dir.audio_size].type, "audio");
 				break;
 			default:
