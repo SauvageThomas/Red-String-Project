@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-double ** file_content ( DataFile df, int n, int k){
+/*double ** file_content ( DataFile df, int n, int k){
 	df.file=fopen(df.path, "r");
 	double ** file_content =(double **)malloc ((df.length/n +1) * sizeof(double*));
 	for (int i =0; i< (df.length/n +1); i++) file_content[i] = (double *)calloc(n, sizeof(double));
@@ -15,6 +15,20 @@ double ** file_content ( DataFile df, int n, int k){
 				file_content[cpt1][cpt]=tmp;
 				cpt++;
 				fscanf( df.file, "%le", &tmp);
+			}
+			fclose(df.file);
+		}
+		else printf("Impossible d'ouvrir le fichier ! ");
+	return file_content;
+}*/
+
+double ** file_content (DataFile df, int n){
+	df.file=fopen(df.path, "rb");
+	double ** file_content =(double **)malloc ((df.length/n +1) * sizeof(double*));
+	for (int i =0; i< (df.length/n +1); i++) file_content[i] = (double *)calloc(n, sizeof(double));
+		if (df.file!=NULL){
+			for (size_t i = 0; i < df.length/sizeof(double); i++){
+				fread(&file_content[i/n][i%n],sizeof(double),1,df.file);
 			}
 			fclose(df.file);
 		}
@@ -33,10 +47,10 @@ void find_sound(DataFile df, char *taille_fenetre, char *nb_barres){
 	//for (int i =0; i< (df.length/n+1); i++)
 	//	for (int j=0; j<n; j++) printf("%le\n", values[i][j]);
 	//TODO: regroup and count all pixels
-	//TODO: compare with index and get the similar files 
+	//TODO: compare with index and get the similar files
 }
 
-/*	
+/*
 int main(){
 	DataFile df;
 	df.path="res/FICHIER_PROJET/jingle_m6.txt";
@@ -45,4 +59,3 @@ int main(){
 	return 0;
 }
 */
-
