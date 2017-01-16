@@ -24,7 +24,7 @@ void generate_sound_descriptors(DataFile df, Directory dir);
 
 
 /*
-pu abs class El <T > implements Comparable<El<T>>{
+pu abs class El <T> implements Comparable<El<T>>{
 	private T value;
 
 	El(T value){
@@ -50,4 +50,24 @@ pu class ElInt extends El<Integer> {
 
 pu class ElChaine extends El<String> {
 
-}*/
+}
+
+public static class ElementFactory {
+	
+	public static Element<?> generate(TypeElement element){
+		if (element == TypeElment.INT)
+			return new ElInt();
+		return new ElChaine();
+	}
+}
+
+public abstract class Trieur<T extends Comparable<T>> extends Observable{
+	protected List<T> stockage;
+	long debut, fin;
+}
+
+public Trieur(){
+	super();
+}
+
+*/
