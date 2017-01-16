@@ -34,39 +34,38 @@ void launch_search_engine(Config config) {
 
 char* strcat_path(char* path, char* file_name) {
 	/*
-	* Return concat path + filename
-	*/
+	 * Return concat path + filename
+	 */
 	char* full_path = malloc(KSIZE);
 	sprintf(full_path, "%s%s", path, file_name);
 	return full_path;
 }
 
-void check_text_descriptor(char* path, Directory dir){
+void check_text_descriptor(char* path, Directory dir) {
 	char* full_path = strcat_path(path, "text_descriptors");
 	DataFile df = init_data_file(full_path);
 	int updated = check_descriptor(df);
-	if (updated){
-		printf("HEYYY\n");
+	if (updated) {
 		generate_text_descriptors(df, dir);
 		update_index();
 	}
 }
 
-void check_image_descriptor(char* path, Directory dir, int n){
+void check_image_descriptor(char* path, Directory dir, int n) {
 	char* full_path = strcat_path(path, "image_descriptors");
 	DataFile df = init_data_file(full_path);
 	int updated = check_descriptor(df);
-	if (updated){
+	if (updated) {
 		generate_image_descriptors(df, dir, n);
 		update_index();
 	}
 }
 
-void check_sound_descriptor(char* path, Directory dir){
+void check_sound_descriptor(char* path, Directory dir) {
 	char* full_path = strcat_path(path, "sound_descriptors");
 	DataFile df = init_data_file(full_path);
 	int updated = check_descriptor(df);
-	if (updated){
+	if (updated) {
 		generate_sound_descriptors(df, dir);
 	}
 }
@@ -77,25 +76,28 @@ void init_search_engine(Config config) {
 	 */
 	puts("------------------------------------------------------------------");
 	puts("*   *   *   SEARCH ENGINE : INITITIALIZATION");
-	
 
 	//puts("-> checking descriptors...");
 	char *path = get_value_of(config, "descriptors");
 
 	chrono();
-	
+
 	Directory dir = get_all_files(get_value_of(config, "path"));
 
 	check_text_descriptor(path, dir);
 
 	char *quant = get_value_of(config, "quantification");
+	if (quant == NULL) {
+		error_config_file();
+	}
+
 	size_t n = (size_t) strtol(quant, (char **) NULL, 10);
 	check_image_descriptor(path, dir, n);
 
 	check_sound_descriptor(path, dir);
 
 	printf("Generating descriptors took %ds\n", chrono());
-	
+
 	puts("Search Engine is ready !!");
 }
 

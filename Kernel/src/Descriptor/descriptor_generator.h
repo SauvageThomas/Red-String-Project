@@ -17,6 +17,7 @@ void descriptor_to_file(Descriptor descriptor, DataFile df);
 void generate_text_descriptors(DataFile df, Directory dir);
 void generate_image_descriptors(DataFile df, Directory dir, int quant);
 void generate_sound_descriptors(DataFile df, Directory dir);
+Descriptor init_descriptor(char* path);
 
 #endif /* DESCRIPTOR_DESCRIPTOR_GENERATOR_H_ */
 

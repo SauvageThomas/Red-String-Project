@@ -53,7 +53,6 @@ void descriptor_to_file(Descriptor descriptor, DataFile df) {
 	//puts("Saving the descriptor ...");
 
 	char *result = malloc(descriptor.size);
-	printf("malloc size : %u\n", descriptor.size);
 	if (result == NULL) {
 		fprintf(stderr, "Malloc failed %s\n", strerror(errno));
 	}

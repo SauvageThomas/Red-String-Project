@@ -65,10 +65,7 @@ Config load_config() {
 	if (data_file.length == 0) {
 		//TODO: Create the file according to the backup file
 	}
-	printf("%d\n", data_file.length);
-	printf("%d\n", data_file.length);
-	printf("%d\n", data_file.length);
-	printf("%d\n", data_file.length);
+
 	char* config = read_string_from_file(data_file);
 	char* tmp = config;
 
@@ -80,8 +77,16 @@ Config load_config() {
 
 	Config configuration;
 	char** config_array = malloc(sizeof(char*) * i);
+	if (config_array == NULL) {
+		fprintf(stderr, "Malloc in load config failed %s\n", strerror(errno));
+	}
+
 	for (int j = 0; j < i; j += 1) {
 		config_array[i] = malloc(KSIZEWORD);
+		if (config_array[i] == NULL) {
+			fprintf(stderr, "Malloc in loop of load config failed %s\n",
+					strerror(errno));
+		}
 	}
 
 	printf("%d\n", data_file.length);
@@ -93,7 +98,7 @@ Config load_config() {
 	char* key = strtok(config, token);
 	char* value = strtok(NULL, token);
 
-	printf("%d\n", data_file.length);
+	puts("start loop");
 	while (key != NULL && value != NULL) {
 		config_array[configuration.size] = key;
 		config_array[configuration.size + 1] = value;
@@ -109,7 +114,7 @@ Config load_config() {
 
 		configuration.size += 2;
 	}
-	puts("Configuration succesfully done !");
+	puts("Configuration succesfully loaded !");
 	return configuration;
 }
 

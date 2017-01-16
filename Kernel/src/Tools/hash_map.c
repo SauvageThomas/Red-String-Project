@@ -38,6 +38,7 @@ void add_value_hash_map(HashMap* map, char* key) {
 	if (cellTmp == NULL) {
 		HashMap map2 = malloc(sizeof(CellHashMap));
 
+		printf("New key : %s\n", key);
 		((CellHashMap*) map2)->key = malloc(strlen(key) + 1);
 		strcpy(((CellHashMap*) map2)->key, key);
 
@@ -46,7 +47,9 @@ void add_value_hash_map(HashMap* map, char* key) {
 		((CellHashMap*) map2)->next = *map;
 		*map = map2;
 	} else {
+
 		cellTmp->nbOccurence += 1;
+		printf("Alredy got : %s => %d\n", key, cellTmp->nbOccurence);
 	}
 }
 

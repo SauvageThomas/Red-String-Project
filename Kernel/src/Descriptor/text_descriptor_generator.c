@@ -1,4 +1,6 @@
 #include "../Tools/data_handler.h"
+#include "descriptor_generator.h"
+#include "../Data/constant.h"
 
 Descriptor generate_text_descriptor(DataFile df){
 	int matrix_length = 0;
@@ -25,6 +27,6 @@ void generate_text_descriptors(DataFile df, Directory dir){
 	for (int i = 0; i < dir.txt_size; i += 1) {
 		Descriptor desc = generate_text_descriptor(dir.txt_files[i]);
 		descriptor_to_file(desc, df);
-		printf("[%d] File descriptor SUCCESS : %s\n", (i+1), dir.txt_files[i].path);
+		//printf("[%d] File descriptor SUCCESS : %s\n", (i+1), dir.txt_files[i].path);
 	}
 }

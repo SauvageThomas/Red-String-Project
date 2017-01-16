@@ -24,14 +24,8 @@ void start_gui() {
 	char buffer[2] = { ' ', '\0' };
 	int admin = 0;
 
-	DataFile df = init_data_file("a.txt");
-	printf("length %d\n", df.length);
-	printf("length %d\n", df.length);
-	printf("length %d\n", df.length);
-	printf("length %d\n", df.length);
 
 	Config config = load_config();
-	printf("length %d\n", df.length);
 
 	while (buffer[0] != '0') {
 		//clear_console();
