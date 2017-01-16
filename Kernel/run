@@ -2,5 +2,12 @@
 clear
 cd src
 make
-cd ..
-./SearchEngine.exe
+RETVAL=$?
+
+if [ $RETVAL -eq 0 ]
+then
+	cd ..
+	./SearchEngine.exe
+fi
+
+

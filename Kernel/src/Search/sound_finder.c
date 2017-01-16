@@ -42,8 +42,9 @@ void find_sound(DataFile df, char *taille_fenetre, char *nb_barres){
 	int k = (int)strtol(nb_barres, (char**) NULL, 10);
 	printf(" %d et %d\n", n, k);
 	double ** values =(double **)malloc ((df.length/n+1) * sizeof(double*));
-	for (int i =0; i< (df.length/n+1); i++) values[i] = (double *)calloc(n, sizeof(double));
-	values = file_content(df, n, k);
+	for (int i =0; i< (df.length/n+1); i++) 
+		values[i] = (double *)calloc(n, sizeof(double));
+	values = file_content(df, n);
 	//for (int i =0; i< (df.length/n+1); i++)
 	//	for (int j=0; j<n; j++) printf("%le\n", values[i][j]);
 	//TODO: regroup and count all pixels

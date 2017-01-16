@@ -1,4 +1,4 @@
->res/FICHIER_PROJET/15-Lille_s_incline_dans_les.xml?Mon Jan 16 08:59:42 2017
+>res/FICHIER_PROJET/15-Lille_s_incline_dans_les.xml?Mon Jan 16 13:19:26 2017
 dans 8
 groupe 7
 nous 6
@@ -286,18 +286,18 @@ aucune 1
 reserve 1
 mercredix 1
 lisbonnex 1
-facew 1
+faceP 1
 secondesx 1
 dernieres 1
-dansw 1
+dansP 1
 incline 1
 lille 1
 reuters 1
-avecw 1
+avecP 1
 prevel 1
 mathieu 1
-2005w 1
->res/FICHIER_PROJET/17-Anouk_Aimée_et_Philippe_Noiret.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/17-Anouk_Aimée_et_Philippe_Noiret.xml?Mon Jan 16 13:19:26 2017
 plus 8
 sont 7
 dans 5
@@ -501,40 +501,40 @@ enfants 1
 paris 1
 dumas 1
 sandrinex 1
-lovew 1
+loveP 1
 magnifient 1
 philippex 1
 aimee 1
 anouk 1
 cournot 1
 michel 1
-2005w 1
->res/FICHIER_PROJET/18-L_équipe_de_France_de_tennis.xml?Mon Jan 16 08:59:42 2017
-pourw 3
+2005P 1
+>res/FICHIER_PROJET/18-L_équipe_de_France_de_tennis.xml?Mon Jan 16 13:19:26 2017
+pourP 3
 frames 2
 affiche 2
 navigateur 2
 avoir 2
-fautw 2
-deskw 2
+fautP 2
+deskP 2
 visualiser 2
-information w 1
-plusw 1
+informationLP 1
+plusP 1
 article 1
-integralite w 1
+integraliteLP 1
 lisez 1
 russie 1
-avecw 1
+avecP 1
 epique 1
-duelw 1
+duelP 1
 terme 1
 finale 1
 battue 1
 tennis 1
 france 1
 equipe 1
-2005w 1
->res/FICHIER_PROJET/11-La_troposphère_paie,_au_prix.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/11-La_troposphère_paie,_au_prix.xml?Mon Jan 16 13:19:26 2017
 pour 7
 dans 7
 granier 6
@@ -792,20 +792,20 @@ epaisse 1
 entre 1
 trop 1
 beaucoup� 1
-tropw 1
-augmentationw 1
+tropP 1
+augmentationP 1
 forte 1
-directement w 1
+directementLP 1
 chinoisex 1
 chine 1
-fortw 1
-prixw 1
-paiew 1
-troposphere w 1
+fortP 1
+prixP 1
+paieP 1
+troposphereLP 1
 foucart 1
 stephanex 1
-2005w 1
->res/FICHIER_PROJET/15-La_mort_de_Robert_Wise,.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/15-La_mort_de_Robert_Wise,.xml?Mon Jan 16 13:19:26 2017
 robert 15
 film 13
 avec 13
@@ -814,7 +814,7 @@ wise 11
 succes 7
 dans 5
 plus 5
-avecw 5
+avecP 5
 scene 4
 deux 4
 welles 4
@@ -883,11 +883,11 @@ festivalx 2
 moment 2
 cineastex 2
 story 2
-sidew 2
-westw 2
-realisateur w 2
-wisew 2
-mortw 2
+sideP 2
+westP 2
+realisateurLP 2
+wiseP 2
+mortP 2
 rooftops 1
 realise 1
 1979 1
@@ -1142,36 +1142,36 @@ harris 1
 johnson 1
 richard 1
 video 1
-homew 1
+homeP 1
 warner 1
-chezw 1
-ryanw 1
-soirw 1
+chezP 1
+ryanP 1
+soirP 1
 gagne 1
 avons 1
-nousw 1
+nousP 1
 simon 1
 simone 1
-fifiw 1
-mademoisellew 1
+fifiP 1
+mademoiselleP 1
 tierney 1
 lawrencex 1
 trevor 1
 claire 1
-tuerw 1
-pourw 1
-montparnassew 1
+tuerP 1
+pourP 1
+montparnasseP 1
 editionsx 1
 dvdaux 1
 films 1
 selection 1
 absence 1
-filmw 1
+filmP 1
 espagnolx 1
-rendez-vous w 1
+rendez-vousLP 1
 grand 1
-memew 1
-jourw 1
+memeP 1
+jourP 1
 mercredix 1
 appris 1
 ouverture 1
@@ -1184,8 +1184,8 @@ americain 1
 eclectique 1
 sotinel 1
 thomas 1
-2005w 1
->res/FICHIER_PROJET/22-Sursaut_des_Monégasques_après_le.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/22-Sursaut_des_Monégasques_après_le.xml?Mon Jan 16 13:19:26 2017
 leur 3
 dans 3
 sont 3
@@ -1324,12 +1324,12 @@ plus 1
 article 1
 integralite 1
 lisez 1
-leurw 1
+leurP 1
 apres 1
-monegasques w 1
+monegasquesLP 1
 lopez 1
-2005w 1
->res/FICHIER_PROJET/26-Jazz___Manu_Katché,_haut.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/26-Jazz___Manu_Katché,_haut.xml?Mon Jan 16 13:19:26 2017
 katche 7
 jazz 6
 sans 4
@@ -1337,7 +1337,7 @@ avec 4
 disque 4
 manu 3
 neighbourhood 3
-pourw 3
+pourP 3
 batteur 3
 part 2
 garbarek 2
@@ -1347,7 +1347,7 @@ parcours 2
 aurait 2
 star 2
 pour 2
-starw 2
+starP 2
 recherche 2
 norvegien 2
 musiciens 2
@@ -1355,8 +1355,8 @@ allemande 2
 phonographique 2
 compagnie 2
 enregistre 2
-manuw 2
-jazzw 2
+manuP 2
+jazzP 2
 music 1
 universal 1
 rentre-dedans 1
@@ -1495,20 +1495,20 @@ equivalent 1
 nouvellex 1
 television 1
 emissionx 1
-juryw 1
+juryP 1
 membre 1
 polonaisx 1
 trois 1
-avecw 1
+avecP 1
 neighbourhood 1
-compositeur w 1
+compositeurLP 1
 pianistex 1
 gamme 1
-hautw 1
+hautP 1
 siclier 1
 sylvain 1
-2005w 1
->res/FICHIER_PROJET/05-Jean-Christophe_Bette_a_dû_attendre.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/05-Jean-Christophe_Bette_a_dû_attendre.xml?Mon Jan 16 13:19:26 2017
 pour 7
 jean-christophe 6
 dans 5
@@ -1526,7 +1526,7 @@ rameurs 3
 comme 3
 sydney 3
 olympique 3
-pourw 3
+pourP 3
 appelle 2
 legers 2
 poids 2
@@ -1796,39 +1796,39 @@ annees 1
 voguait 1
 titre 1
 remportant 1
-2000w 1
+2000P 1
 pinacle 1
 portee 1
 avait 1
-embarcation w 1
+embarcationLP 1
 cette 1
 moribondx 1
 donne 1
 etait 1
 leger 1
 poids 1
-sansw 1
-deuxw 1
+sansP 1
+deuxP 1
 destinees 1
 etrangesx 1
 parfois 1
-suitw 1
+suitP 1
 route 1
-leurw 1
+leurP 1
 hommes 1
 comme 1
 bateaux 1
-information w 1
-plusw 1
+informationLP 1
+plusP 1
 article 1
-integralite w 1
+integraliteLP 1
 lisez 1
 attendrex 1
 bette 1
 miquel 1
-paulw 1
-2005w 1
->res/FICHIER_PROJET/28-_Œdipe_à_Colone_,_la_rage.xml?Mon Jan 16 08:59:42 2017
+paulP 1
+2005P 1
+>res/FICHIER_PROJET/28-_Œdipe_à_Colone_,_la_rage.xml?Mon Jan 16 13:19:26 2017
 �dipe 11
 colone 9
 dans 8
@@ -1880,11 +1880,11 @@ theatre 2
 teatro 2
 mario 2
 octobre 2
-plusw 2
+plusP 2
 theatresx 2
 union 2
 festivalx 2
-romew 2
+romeP 2
 sophoclex 2
 intacte 2
 festivalteatrodiroma 1
@@ -2092,41 +2092,41 @@ magnifique 1
 dotee 1
 capitalex 1
 premierex 1
-romaw 1
-2000w 1
-1999w 1
+romaP 1
+2000P 1
+1999P 1
 dirige 1
 ecrivainx 1
 cineastex 1
 napolitain 1
 peninsule 1
 fortes 1
-artistiques w 1
+artistiquesLP 1
 personnalites 1
 signee 1
 italienne 1
 production 1
 lavaudant 1
 georges 1
-benew 1
+beneP 1
 carmelo 1
-shakespeare w 1
+shakespeareLP 1
 apres 1
 hache 1
-etlaw 1
-rosew 1
+etlaP 1
+roseP 1
 planchonx 1
 roger 1
 tchekhovx 1
 laforet 1
 genie 1
 francaisx 1
-deuxw 1
-dontw 1
+deuxP 1
+dontP 1
 dix-septx 1
 presentex 1
 tient 1
-1990w 1
+1990P 1
 strehlerx 1
 giorgio 1
 creee 1
@@ -2139,12 +2139,12 @@ piece 1
 parce 1
 condamnex 1
 homme 1
-ragew 1
+rageP 1
 affiche 1
 pratiques 1
-informationsw 1
-2005w 1
->res/FICHIER_PROJET/13-L_inattendue_lévitation_de_la_goutte.xml?Mon Jan 16 08:59:42 2017
+informationsP 1
+2005P 1
+>res/FICHIER_PROJET/13-L_inattendue_lévitation_de_la_goutte.xml?Mon Jan 16 13:19:26 2017
 goutte 5
 comme 3
 phenomene 3
@@ -2161,7 +2161,7 @@ couder 2
 yves 2
 physique 2
 surface 2
-plusw 2
+plusP 2
 secrets 1
 tous 1
 livre 1
@@ -2268,39 +2268,39 @@ septembre 1
 jeudi 1
 nature 1
 revue 1
-dansw 1
-observationsw 1
+dansP 1
+observationsP 1
 publie 1
 paris-vix 1
-cnrsw 1
+cnrsP 1
 francaisx 1
 groupe 1
 realise 1
 ambiantex 1
-temperature w 1
-bainw 1
+temperatureLP 1
+bainP 1
 course 1
 suivre 1
 etonnantx 1
-maisw 1
+maisP 1
 vapeur 1
 portee 1
 electrique 1
 plaque 1
 glisser 1
-dejaw 1
+dejaP 1
 chacun 1
-information w 1
-pourw 1
+informationLP 1
+pourP 1
 article 1
-integralite w 1
+integraliteLP 1
 lisez 1
 levitation 1
 inattendue 1
 morin 1
 herve 1
-2005w 1
->res/FICHIER_PROJET/13-Ligue_des_champions____Si.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/13-Ligue_des_champions____Si.xml?Mon Jan 16 13:19:26 2017
 nous 11
 pour 8
 club 7
@@ -2332,7 +2332,7 @@ plus 3
 notre 3
 image 3
 dans 3
-realw 3
+realP 3
 gerland 2
 sans 2
 entreprise 2
@@ -2361,14 +2361,14 @@ construction 2
 quand 2
 racines 2
 inscrit 2
-durew 2
+dureP 2
 niveau 2
-hautw 2
+hautP 2
 footballx 2
 symbole 2
-clubw 2
-vousw 2
-pourw 2
+clubP 2
+vousP 2
+pourP 2
 represente 2
 olympique 2
 multinationale 2
@@ -2608,8 +2608,8 @@ visez 1
 duree 1
 performance 1
 image 1
-performance w 1
-dansw 1
+performanceLP 1
+dansP 1
 start-upx 1
 lyonnaisx 1
 champions 1
@@ -2618,8 +2618,8 @@ causse 1
 bruno 1
 recueillis 1
 propos 1
-2005w 1
->res/FICHIER_PROJET/21-Matières_plastiques_et_pesticides_pourraient.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/21-Matières_plastiques_et_pesticides_pourraient.xml?Mon Jan 16 13:19:26 2017
 dans 10
 sont 7
 exposition 6
@@ -2807,22 +2807,22 @@ date 1
 question 1
 quels 1
 debattuex 1
-datew 1
+dateP 1
 questionx 1
-alimentationw 1
+alimentationP 1
 environnement 1
-dansw 1
+dansP 1
 presentsx 1
 doses 1
-sontw 1
+sontP 1
 quels 1
 alterer 1
 pourraient 1
 matieresx 1
 foucart 1
 stephanex 1
-2005w 1
->res/FICHIER_PROJET/17-De_la_difficulté_d_anticiper_les.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/17-De_la_difficulté_d_anticiper_les.xml?Mon Jan 16 13:19:26 2017
 france 9
 prevision 9
 pour 6
@@ -2876,7 +2876,7 @@ episode 2
 rouge 2
 orange 2
 vigilance 2
-inondations w 2
+inondationsLP 2
 difficulte 2
 lieu 1
 apres 1
@@ -3076,37 +3076,37 @@ lisible 1
 forcement 1
 distinguo 1
 favorise� 1
-avant-veillew 1
+avant-veilleP 1
 tombees 1
 gorges 1
-dejaw 1
-solsw 1
-maisw 1
+dejaP 1
+solsP 1
+maisP 1
 passage 1
 seuil 1
-millimetres w 1
+millimetresLP 1
 atteint 1
 cumul 1
 jour-la 1
-sous-estime w 1
+sous-estimeLP 1
 avoir 1
 defend 1
 etaient 1
 journee 1
-estimations w 1
-pourw 1
+estimationsLP 1
+pourP 1
 cause 1
-misew 1
+miseP 1
 meteo 1
 violentsx 1
 raison 1
 touche 1
-foisw 1
+foisP 1
 nouvellex 1
-gardw 1
+gardP 1
 vulnerable 1
 inondable 1
-zonew 1
+zoneP 1
 vivent 1
 personnes 1
 millionsx 1
@@ -3115,13 +3115,13 @@ prevenirx 1
 prevoir 1
 mieux 1
 peut-on 1
-reorganisentw 1
+reorganisentP 1
 servicesx 1
 anticiper 1
 morin 1
 herve 1
-2005w 1
->res/FICHIER_PROJET/15-Un_quasar_solitaire_bouleverse_les.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/15-Un_quasar_solitaire_bouleverse_les.xml?Mon Jan 16 13:19:26 2017
 comme 8
 quasar 7
 sans 6
@@ -3347,7 +3347,7 @@ premiere 1
 repere 1
 internationale 1
 pres 1
-presw 1
+presP 1
 massifs 1
 noirs 1
 trous 1
@@ -3356,8 +3356,8 @@ bouleverse 1
 solitaire 1
 fenogliox 1
 jerome 1
-2005w 1
->res/FICHIER_PROJET/12-Agassi_plie_face_au_meilleur.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/12-Agassi_plie_face_au_meilleur.xml?Mon Jan 16 13:19:26 2017
 federer 11
 agassi 10
 roger 9
@@ -3403,7 +3403,7 @@ lors 3
 premiere 3
 sets 3
 suisse 3
-facew 3
+faceP 3
 seul 2
 demi-finales 2
 manque 2
@@ -3442,14 +3442,14 @@ aussi 2
 autre 2
 fois 2
 pierce 2
-maryw 2
+maryP 2
 grand 2
 envoler 2
 septembre 2
 affilee 2
 imposer 2
 vient 2
-pourw 2
+pourP 2
 1969 1
 differentes 1
 surfaces 1
@@ -3675,12 +3675,12 @@ belge 1
 piercelax 1
 impose 1
 neuviemex 1
-revew 1
-voirw 1
+reveP 1
+voirP 1
 ferme 1
 visage 1
 andre 1
-yorkw 1
+yorkP 1
 dimanchex 1
 meadow 1
 flushingx 1
@@ -3688,21 +3688,21 @@ ciment 1
 annee 1
 deuxiemex 1
 numero 1
-joiew 1
+joieP 1
 saute 1
 roger 1
-information w 1
-plusw 1
+informationLP 1
+plusP 1
 article 1
-integralite w 1
+integraliteLP 1
 lisez 1
 affrontex 1
 meilleurx 1
-pliew 1
+plieP 1
 cordon 1
 adeline 1
-2005w 1
->res/FICHIER_PROJET/22-Ted_Stanger,_l_Américain_de_service.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/22-Ted_Stanger,_l_Américain_de_service.xml?Mon Jan 16 13:19:26 2017
 france 13
 dans 9
 americain 9
@@ -3711,7 +3711,7 @@ avec 8
 paris 5
 stanger 5
 tout 4
-avecw 4
+avecP 4
 americains 3
 seul 3
 cours 3
@@ -3758,14 +3758,14 @@ sacres 2
 bureau 2
 universite 2
 parents 2
-paysw 2
-dansw 2
+paysP 2
+dansP 2
 francaisx 2
-ohiow 2
+ohioP 2
 picardiex 2
 aventures 2
 parisienx 2
-2005w 2
+2005P 2
 outrance 1
 mauvaise 1
 excelle 1
@@ -4097,19 +4097,19 @@ arrondissement 1
 quartierx 1
 osmose 1
 gamme 1
-hautw 1
-toutw 1
-decontracte w 1
-chicw 1
-lookw 1
+hautP 1
+toutP 1
+decontracteLP 1
+chicP 1
+lookP 1
 pourtantx 1
 blanchesx 1
-chaussettes w 1
+chaussettesLP 1
 bonheur 1
-ostentation w 1
+ostentationLP 1
 autant 1
 portent 1
-garsw 1
+garsP 1
 celle 1
 profondex 1
 ameriquex 1
@@ -4118,33 +4118,33 @@ editionsx 1
 roman 1
 paris 1
 newsweekx 1
-hebdomadairew 1
-chefw 1
-1992w 1
+hebdomadaireP 1
+chefP 1
+1992P 1
 sorbonnex 1
 inscrit 1
 princeton 1
 diplome 1
-1966w 1
+1966P 1
 intallent 1
-1949w 1
+1949P 1
 grece 1
 athenes 1
 naissance 1
 biographie1944 1
 vivre 1
-pourw 1
+pourP 1
 mange 1
 orange 1
 jaune 1
 sortes 1
-deuxw 1
+deuxP 1
 fromagesx 1
 puent 1
 denrees 1
 connait 1
 adorent 1
-yorkw 1
+yorkP 1
 peuplentx 1
 allen 1
 woody 1
@@ -4152,13 +4152,13 @@ genre 1
 etrangesx 1
 etres 1
 commun 1
-rienw 1
-authentique w 1
+rienP 1
+authentiqueLP 1
 statut 1
 revanchex 1
 revendique 1
-fauxw 1
-celaw 1
+fauxP 1
+celaP 1
 huron 1
 voire 1
 pequenotx 1
@@ -4168,20 +4168,20 @@ selon 1
 legende 1
 propagerx 1
 laisse 1
-restructurerw 1
+restructurerP 1
 charge 1
 texan 1
 cadre 1
-desopilantesw 1
+desopilantesP 1
 critiquex 1
 commercex 1
 fonds 1
-faitw 1
+faitP 1
 essayiste 1
-journaliste w 1
+journalisteLP 1
 abellardx 1
 alain 1
->res/FICHIER_PROJET/24-Canicules_et_sécheresses_menacent_de.xml?Mon Jan 16 08:59:42 2017
+>res/FICHIER_PROJET/24-Canicules_et_sécheresses_menacent_de.xml?Mon Jan 16 13:19:26 2017
 dans 10
 effet 7
 carbone 5
@@ -4537,11 +4537,11 @@ serre 1
 effet 1
 booster 1
 menacentx 1
-secheresses w 1
+secheressesLP 1
 canicules 1
 pierre 1
-2005w 1
->res/FICHIER_PROJET/18-Battue_par_la_Slovénie,_l_équipe.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/18-Battue_par_la_Slovénie,_l_équipe.xml?Mon Jan 16 13:19:26 2017
 france 8
 pour 7
 deuxieme 6
@@ -4755,25 +4755,25 @@ novi 1
 lieu 1
 aura 1
 rencontre 1
-championnat w 1
+championnatLP 1
 match 1
 domicilex 1
 tache 1
-rudew 1
-auraw 1
-tourw 1
+rudeP 1
+auraP 1
+tourP 1
 premier 1
-decuw 1
-foisw 1
+decuP 1
+foisP 1
 nouvellex 1
-tonyw 1
+tonyP 1
 equipiers 1
 condamnee 1
 sloveniex 1
 reuters 1
-avecw 1
-2005w 1
->res/FICHIER_PROJET/15-Danse___Preljocaj_emmène_l_Opéra.xml?Mon Jan 16 08:59:42 2017
+avecP 1
+2005P 1
+>res/FICHIER_PROJET/15-Danse___Preljocaj_emmène_l_Opéra.xml?Mon Jan 16 13:19:26 2017
 preljocaj 5
 ballet 4
 aussi 3
@@ -4968,19 +4968,19 @@ amoureuse 1
 passion 1
 meandres 1
 information 1
-pourw 1
+pourP 1
 article 1
-integralite w 1
+integraliteLP 1
 lisez 1
-parcw 1
+parcP 1
 paris 1
 opera 1
 emmene 1
 danse 1
 boisseau� 1
 rosita 1
-2005w 1
->res/FICHIER_PROJET/05-Rock___l_Illinois_magique_de.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/05-Rock___l_Illinois_magique_de.xml?Mon Jan 16 13:19:26 2017
 plus 7
 stevens 5
 sufjan 5
@@ -4991,7 +4991,7 @@ illinois 3
 illinoise 3
 come 3
 album 3
-nousw 3
+nousP 3
 oeuvre 3
 meme 2
 pense 2
@@ -5014,7 +5014,7 @@ highland 2
 chanson 2
 suivre 2
 douter 2
-sansw 2
+sansP 2
 chevet 2
 pressentx 2
 notes 2
@@ -5267,32 +5267,32 @@ intitule 1
 cinquieme 1
 premierex 1
 etrange 1
-versw 1
+versP 1
 attirer 1
 histoirex 1
 confier 1
-pourw 1
-mainw 1
+pourP 1
+mainP 1
 prend 1
 fl�te 1
-accompagnee w 1
+accompagneeLP 1
 angelot 1
-voixw 1
+voixP 1
 guide 1
 evanescent 1
 piano 1
-revew 1
+reveP 1
 paysage 1
 doucement 1
 ouvrant 1
 porte 1
 comme 1
 illinoisx 1
-rockw 1
+rockP 1
 davet 1
 stephanex 1
-2005w 1
->res/FICHIER_PROJET/17-La_voix_envoûtante_de_Girija.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/17-La_voix_envoûtante_de_Girija.xml?Mon Jan 16 13:19:26 2017
 girija 9
 devi 8
 pour 7
@@ -5328,7 +5328,7 @@ mais 2
 beaute 2
 ouverture 2
 formes 2
-sansw 2
+sansP 2
 programme 2
 ville 2
 indiennex 2
@@ -5546,16 +5546,16 @@ venue 1
 vendredi 1
 donc 1
 meconnu 1
-dansw 1
+dansP 1
 profondeur 1
 ailleursx 1
-transportentw 1
+transportentP 1
 elles 1
-bienw 1
-fontw 1
+bienP 1
+fontP 1
 soirees 1
 proposant 1
-toutw 1
+toutP 1
 indien 1
 sous-continent 1
 sante 1
@@ -5567,7 +5567,7 @@ chaque 1
 paris 1
 faiblir 1
 appliquex 1
-quoiw 1
+quoiP 1
 montrer 1
 defendrex 1
 convientx 1
@@ -5575,43 +5575,43 @@ perses 1
 musulmanes 1
 musicales 1
 poetiques 1
-nordw 1
-indew 1
+nordP 1
+indeP 1
 enrichi 1
 hindouiste 1
-civilisationw 1
-aubew 1
-faitw 1
+civilisationP 1
+aubeP 1
+faitP 1
 humanitex 1
 immateriel 1
 patrimoine 1
-affecterait w 1
-disparition w 1
-dontw 1
+affecteraitLP 1
+disparitionLP 1
+dontP 1
 raffinesx 1
 savants 1
-plusw 1
-etrew 1
+plusP 1
+etreP 1
 continuex 1
 compris 1
-jazzw 1
+jazzP 1
 contemporaines 1
 musiquesx 1
-considerablew 1
+considerableP 1
 apport 1
 parler 1
 menace 1
 consacres 1
 concertsx 1
 serie 1
-divaw 1
-deviw 1
+divaP 1
+deviP 1
 envo�tante 1
-voixw 1
+voixP 1
 mortaigne 1
 veronique 1
-2005w 1
->res/FICHIER_PROJET/05-Au_stade_d_Abidjan,_la_défaite.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/05-Au_stade_d_Abidjan,_la_défaite.xml?Mon Jan 16 13:19:26 2017
 dans 6
 pour 5
 victoire 5
@@ -5800,25 +5800,25 @@ nord 1
 separation 1
 paix 1
 oublie 1
-toutw 1
-cotew 1
+toutP 1
+coteP 1
 jours 1
 quelquesx 1
 pendant 1
-information w 1
-plusw 1
-pourw 1
+informationLP 1
+plusP 1
+pourP 1
 article 1
-integralite w 1
+integraliteLP 1
 lisez 1
 ivoirienx 1
-revew 1
+reveP 1
 defaite 1
 stade 1
-remyw 1
+remyP 1
 jean-philippe 1
-2005w 1
->res/FICHIER_PROJET/29-Ligue_des_champions___Lyon.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/29-Ligue_des_champions___Lyon.xml?Mon Jan 16 13:19:26 2017
 frames 2
 affiche 2
 navigateur 2
@@ -5827,17 +5827,17 @@ faut 2
 desk 2
 visualiser 2
 pour 2
-lyonw 2
+lyonP 2
 champions 2
 ligue 2
 monde 1
 ventre 1
-crisw 1
+crisP 1
 bresilien 1
 defenseur 1
 grace 1
 rosenborg 1
-facew 1
+faceP 1
 norvege 1
 imposantx 1
 depart 1
@@ -5845,16 +5845,16 @@ excellent 1
 confirmex 1
 domicilex 1
 madrid 1
-realw 1
+realP 1
 battu 1
 avoir 1
 apres 1
 semainesx 1
-deuxw 1
-voiew 1
+deuxP 1
+voieP 1
 bonne 1
-2005w 1
->res/FICHIER_PROJET/22-Danse___quarante_jeunes_de.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/22-Danse___quarante_jeunes_de.xml?Mon Jan 16 13:19:26 2017
 dans 6
 paulo 6
 sont 5
@@ -6147,24 +6147,24 @@ decouvrir 1
 gamins 1
 quarante 1
 repetition 1
-lorsw 1
+lorsP 1
 visite 1
-avecw 1
+avecP 1
 spectacle 1
 etonnantx 1
 presentex 1
 bertazzox 1
 bresilien 1
-choregraphe w 1
-cartoucheriew 1
+choregrapheLP 1
+cartoucherieP 1
 rythmentx 1
 paulo 1
 quarantex 1
 danse 1
 mortaigne 1
 veronique 1
-2005w 1
->res/FICHIER_PROJET/15-Capturer_et_emprisonner_le_CO2,.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/15-Capturer_et_emprisonner_le_CO2,.xml?Mon Jan 16 13:19:26 2017
 dans 16
 pour 6
 plus 6
@@ -6523,8 +6523,8 @@ importance 1
 evaluer 1
 charge 1
 anglais 1
-ipccw 1
-giecw 1
+ipccP 1
+giecP 1
 evolution 1
 intergouvernemental 1
 groupe 1
@@ -6533,38 +6533,38 @@ cette 1
 evaluentx 1
 humaine 1
 origine 1
-versw 1
+versP 1
 emettentx 1
-combustiblesw 1
+combustiblesP 1
 rechauffement 1
 impact 1
 evoluer 1
-sensiblementw 1
-actuellementw 1
+sensiblementP 1
+actuellementP 1
 etablit 1
 fossilesx 1
 energiesx 1
-partw 1
+partP 1
 internationale 1
 selon 1
 croitre 1
 mondialex 1
 demande 1
-2030w 1
+2030P 1
 avances 1
-tresw 1
-dejaw 1
-sontw 1
-typew 1
+tresP 1
+dejaP 1
+sontP 1
+typeP 1
 projets 1
 certainsx 1
 lutte 1
 moyen 1
 inclut 1
 kyoto 1
-memew 1
-geologiques w 1
-dansw 1
+memeP 1
+geologiquesLP 1
+dansP 1
 humainesx 1
 activites 1
 rejete 1
@@ -6573,15 +6573,15 @@ stocker 1
 consistex 1
 contre 1
 lutter 1
-pourw 1
+pourP 1
 suivre 1
 piste 1
-emprisonner w 1
+emprisonnerLP 1
 capturerx 1
 morin 1
 herve 1
-2005w 1
->res/FICHIER_PROJET/17-Une_équipe_française_a_réussi.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/17-Une_équipe_française_a_réussi.xml?Mon Jan 16 13:19:26 2017
 cellules 23
 souches 16
 cardiaque 12
@@ -6600,7 +6600,7 @@ dans 4
 menasche 4
 leur 4
 privilege 4
-etrew 4
+etreP 4
 pourraient 4
 amelioration 3
 controle 3
@@ -6623,7 +6623,7 @@ differenciation 3
 animal 3
 muscle 3
 embryonnaires 3
-chezw 3
+chezP 3
 francaise 3
 passer 2
 immunologique 2
@@ -6678,7 +6678,7 @@ donnent 2
 travaux 2
 especes 2
 aussi 2
-dansw 2
+dansP 2
 etape 2
 cardio-vasculaires 2
 regenerer 2
@@ -6931,43 +6931,43 @@ expliquer 1
 hypotheses 1
 plusieurs 1
 absence 1
-memew 1
-differentes w 1
+memeP 1
+differentesLP 1
 animalesx 1
 entre 1
-lorsw 1
+lorsP 1
 rejeteesx 1
 immunologique 1
 possederaient 1
 penser 1
 menaschex 1
 philippex 1
-hotew 1
+hoteP 1
 greffon 1
 rejet 1
 eviter 1
-pourw 1
+pourP 1
 indispensable 1
-soitw 1
+soitP 1
 expliquent 1
 individuelles 1
-specificitesw 1
+specificitesP 1
 immunologiqueil 1
 lignee 1
-versw 1
+versP 1
 orientees 1
 prealablement 1
 grace 1
-endommagees w 1
+endommageesLP 1
 coeur 1
 possiblex 1
 myocardex 1
 apres 1
-lesew 1
+leseP 1
 essentiels 1
 tissus 1
 reparation 1
-utilisation w 1
+utilisationLP 1
 franchiex 1
 vient 1
 nouvellex 1
@@ -6975,13 +6975,13 @@ experimentale 1
 singe 1
 prochaine 1
 ovins 1
-sontw 1
+sontP 1
 ellesrd 1
 obtenuesx 1
-dejaw 1
+dejaP 1
 restaurations 1
 telles 1
-reparatricesw 1
+reparatricesP 1
 techniques 1
 disposait 1
 prevenusx 1
@@ -6991,9 +6991,9 @@ nombre 1
 tissu 1
 reussi 1
 benkimoun 1
-paulw 1
-2005w 1
->res/FICHIER_PROJET/27-A_Lens,_le_Louvre_sera.xml?Mon Jan 16 08:59:42 2017
+paulP 1
+2005P 1
+>res/FICHIER_PROJET/27-A_Lens,_le_Louvre_sera.xml?Mon Jan 16 13:19:26 2017
 lens 9
 louvre 9
 dans 8
@@ -7357,19 +7357,19 @@ etaient 1
 leur 1
 parmi 1
 lundi 1
-elusw 1
+elusP 1
 japonaisx 1
-architectes w 1
+architectesLP 1
 construit 1
-seraw 1
-lensw 1
-rouxw 1
+seraP 1
+lensP 1
+rouxP 1
 emmanuelx 1
-2005w 1
->res/FICHIER_PROJET/05-Photographie___Philip_Blenkinsop_a.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/05-Photographie___Philip_Blenkinsop_a.xml?Mon Jan 16 13:19:26 2017
 pour 5
-visaw 5
-pourw 4
+visaP 5
+pourP 4
 comme 3
 prix 3
 reportage 3
@@ -7388,17 +7388,17 @@ internationale 2
 presse 2
 magazinex 2
 grarup 2
-hillw 2
+hillP 2
 james 2
 image 2
 festivalx 2
 tsunami 2
 travail 2
-newsw 2
-recuw 2
+newsP 2
+recuP 2
 blenkinsop 2
 philip 2
-photographiew 2
+photographieP 2
 durent 1
 dityvon 1
 claude 1
@@ -7514,12 +7514,12 @@ otages 1
 prise 1
 suites 1
 times 1
-yorkw 1
+yorkP 1
 attribuex 1
-asiew 1
+asieP 1
 salue 1
 tha�lande 1
-photographe w 1
+photographeLP 1
 laquellex 1
 cours 1
 projection 1
@@ -7527,15 +7527,15 @@ soiree 1
 achevee 1
 professionnelle 1
 semaine 1
-quotidienne w 1
+quotidienneLP 1
 celui 1
-prixw 1
+prixP 1
 respectivement 1
 acheve 1
 guillot 1
 claire 1
-2005w 1
->res/FICHIER_PROJET/12-Succès_sur_les_tatamis,_polémique.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/12-Succès_sur_les_tatamis,_polémique.xml?Mon Jan 16 13:19:26 2017
 plus 6
 equipe 6
 traineau 4
@@ -7789,41 +7789,41 @@ remporte� 1
 bleusau 1
 bilans 1
 meilleurs 1
-explicationsw 1
+explicationsP 1
 trouver 1
 capable 1
 vraimentx 1
-soitw 1
-encadrement w 1
-sansw 1
+soitP 1
+encadrementLP 1
+sansP 1
 dimanchex 1
 acheves 1
-sontw 1
+sontP 1
 monde 1
-championnatsw 1
+championnatsP 1
 occasionx 1
-redressementw 1
+redressementP 1
 spectaculaire 1
 opere 1
 francaisx 1
 judokas 1
 medaillex 1
-jeuxw 1
+jeuxP 1
 echec 1
 apres 1
-information w 1
-plusw 1
-pourw 1
+informationLP 1
+plusP 1
+pourP 1
 article 1
-integralite w 1
+integraliteLP 1
 lisez 1
 coulisses 1
-dansw 1
+dansP 1
 polemique 1
 tatamis 1
 succes 1
-2005w 1
->res/FICHIER_PROJET/26-Grippe_aviaire___une_sixième.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/26-Grippe_aviaire___une_sixième.xml?Mon Jan 16 13:19:26 2017
 aviaire 5
 grippe 5
 homme 3
@@ -7844,7 +7844,7 @@ elle 2
 revele 2
 annonce 2
 heures 2
-mortw 2
+mortP 2
 semaine 2
 urgence 2
 indonesien 2
@@ -7954,10 +7954,10 @@ morte 1
 etait 1
 medical 1
 djakarta� 1
-dansw 1
+dansP 1
 mercredix 1
 decedee 1
-ageew 1
+ageeP 1
 fillettex 1
 cinquieme 1
 avoir 1
@@ -7965,15 +7965,15 @@ apres 1
 quelquesx 1
 suites 1
 homme 1
-chezw 1
+chezP 1
 septembre 1
 lundi 1
 confirmex 1
-etatw 1
+etatP 1
 instaurex 1
-gouvernementw 1
-2005w 1
->res/FICHIER_PROJET/15-Le_Théâtre_des_Champs-Elysées_s_offre.xml?Mon Jan 16 08:59:42 2017
+gouvernementP 1
+2005P 1
+>res/FICHIER_PROJET/15-Le_Théâtre_des_Champs-Elysées_s_offre.xml?Mon Jan 16 13:19:26 2017
 theatre 7
 acoustique 6
 etre 5
@@ -8010,7 +8010,7 @@ lors 2
 secheresse 2
 concertsx 2
 pendant 2
-2005w 2
+2005P 2
 mieux 1
 entendraient 1
 musiciens 1
@@ -8175,20 +8175,20 @@ fermeture 1
 2005 1
 effectues 1
 preparatoires 1
-acoustiques w 1
+acoustiquesLP 1
 etudes 1
 avril 1
-2003w 1
+2003P 1
 entre 1
 procederx 1
-faitw 1
-symphonique w 1
+faitP 1
+symphoniqueLP 1
 musique 1
 dirigentx 1
 orchestre 1
 chefs 1
 notamment 1
-pourw 1
+pourP 1
 critiquex 1
 longtemps 1
 parisienne 1
@@ -8199,7 +8199,7 @@ lifting 1
 offre 1
 machart 1
 renaud 1
->res/FICHIER_PROJET/08-Théâtre___l_échappée_belle,_peu.xml?Mon Jan 16 08:59:42 2017
+>res/FICHIER_PROJET/08-Théâtre___l_échappée_belle,_peu.xml?Mon Jan 16 13:19:26 2017
 comme 5
 mais 4
 scene 4
@@ -8236,12 +8236,12 @@ deux 2
 aussi 2
 petite 2
 demande 2
-pourw 2
+pourP 2
 hopital 2
 hommes 2
 portee 2
 piece 2
-deuxw 2
+deuxP 2
 dimanche 1
 mardi 1
 08-92-70-77-05 1
@@ -8372,19 +8372,19 @@ part 1
 attendre 1
 pourrait 1
 drole 1
-faitw 1
+faitP 1
 alors 1
-rirew 1
+rireP 1
 beaucoupx 1
 faire 1
 ecrit 1
 soigneusement 1
-faux-fuyant w 1
+faux-fuyantLP 1
 fictifs 1
-fantaisistesw 1
+fantaisistesP 1
 echangesx 1
 pluie 1
-etrew 1
+etreP 1
 cette 1
 patient 1
 brusque 1
@@ -8399,17 +8399,17 @@ quinze 1
 jules 1
 repond 1
 semaine 1
-paulw 1
+paulP 1
 devant 1
 temps 1
 combien 1
 passage 1
 brillants 1
 chambre 1
-dansw 1
+dansP 1
 couches 1
 vieux 1
-trintignant w 1
+trintignantLP 1
 excellent 1
 moins 1
 vieillards 1
@@ -8418,8 +8418,8 @@ belle 1
 echappeex 1
 cournot 1
 michel 1
-2005w 1
->res/FICHIER_PROJET/03-Des_chercheurs_parviennent_à_régénérer.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/03-Des_chercheurs_parviennent_à_régénérer.xml?Mon Jan 16 13:19:26 2017
 cellules 19
 souches 10
 dans 6
@@ -8461,8 +8461,8 @@ montarras 2
 groupe 2
 fibres 2
 myopathie 2
-musculaires w 2
-chezw 2
+musculairesLP 2
+chezP 2
 pasteur 2
 equipe 2
 muscles 2
@@ -8629,21 +8629,21 @@ considerable 1
 temoigne 1
 outre 1
 pasteur-cnrs 1
-moleculaire w 1
+moleculaireLP 1
 genetique 1
 unite 1
 didier 1
 diriges 1
-biologistes w 1
+biologistesLP 1
 science 1
 americaine 1
 revue 1
-sitew 1
+siteP 1
 septembre 1
 jeudi 1
 publie 1
 resultatx 1
-regenerationw 1
+regenerationP 1
 animal 1
 obtenir 1
 permis 1
@@ -8660,32 +8660,32 @@ parvenuex 1
 paris 1
 institutx 1
 greffes 1
-utilisation w 1
-dansw 1
+utilisationLP 1
+dansP 1
 avancee 1
 nouvellex 1
 myopathes 1
 regenerer 1
-parviennent w 1
+parviennentLP 1
 jean-yves 1
-2005w 1
->res/FICHIER_PROJET/08-US_Open___Pierce_élimine.xml?Mon Jan 16 08:59:42 2017
-pourw 3
+2005P 1
+>res/FICHIER_PROJET/08-US_Open___Pierce_élimine.xml?Mon Jan 16 13:19:26 2017
+pourP 3
 frames 2
 affiche 2
 navigateur 2
-fautw 2
-deskw 2
+fautP 2
+deskP 2
 visualiser 2
-demi-finale w 2
+demi-finaleLP 2
 agassi 2
 mauresmox 2
 pierce 2
-openw 2
+openP 2
 avoir 1
 avoir 1
-setsw 1
-cinqw 1
+setsP 1
+cinqP 1
 haletantx 1
 match 1
 apres 1
@@ -8693,11 +8693,11 @@ finale 1
 quart 1
 blake 1
 james 1
-compatriote w 1
+compatrioteLP 1
 battu 1
 andre 1
 hommes 1
-cotew 1
+coteP 1
 mercredix 1
 amelie 1
 aisementx 1
@@ -8705,10 +8705,10 @@ battant 1
 tennis 1
 premiere 1
 qualifiee 1
-maryw 1
+maryP 1
 elimine 1
-2005w 1
->res/FICHIER_PROJET/27-Le_Stade_de_France_s_ouvre.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/27-Le_Stade_de_France_s_ouvre.xml?Mon Jan 16 13:19:26 2017
 pour 27
 stade 23
 france 16
@@ -9097,15 +9097,15 @@ mardi 1
 ligue 1
 lille 1
 trois 1
-saint-denis w 1
+saint-denisLP 1
 enceintex 1
 clubs 1
-competitionsw 1
+competitionsP 1
 ouvre 1
 prevel 1
 mathieu 1
-2005w 1
->res/FICHIER_PROJET/05-Edition___les_mots_et.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/05-Edition___les_mots_et.xml?Mon Jan 16 13:19:26 2017
 plus 7
 beau 3
 fait 3
@@ -9113,9 +9113,9 @@ dans 3
 hommes 3
 pour 3
 femmes 3
-pourw 3
+pourP 3
 etude 3
-motsw 3
+motsP 3
 esperanto 2
 lucette 2
 parmi 2
@@ -9257,10 +9257,10 @@ perception 1
 reconstitues 1
 etre 1
 ainsi 1
-quarantaine w 1
+quarantaineLP 1
 analyse 1
 faciliter 1
-afinw 1
+afinP 1
 theme 1
 regroupees 1
 reponsesx 1
@@ -9272,28 +9272,28 @@ repondrex 1
 utilisesx 1
 precise 1
 sondes 1
-citew 1
+citeP 1
 evocateur 1
 moins 1
 reponse 1
 premierex 1
-cinqw 1
+cinqP 1
 caracterisent 1
-expressions w 1
-vousw 1
-sontw 1
+expressionsLP 1
+vousP 1
+sontP 1
 quels 1
-ao�tw 1
+ao�tP 1
 mercredix 1
 publiee 1
 confirmex 1
 connu 1
-bienw 1
+bienP 1
 paradoxex 1
 realite 1
-avecw 1
-voirw 1
-grand-chose w 1
+avecP 1
+voirP 1
+grand-choseLP 1
 souvent 1
 sentiments 1
 reves 1
@@ -9302,12 +9302,12 @@ sondages� 1
 institutx 1
 francaisx 1
 preferesx 1
-ticsw 1
+ticsP 1
 edition 1
 mathieu 1
 benedicte 1
-2005w 1
->res/FICHIER_PROJET/13-Les_accidents_vasculaires_cérébraux,_à.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/13-Les_accidents_vasculaires_cérébraux,_à.xml?Mon Jan 16 13:19:26 2017
 troubles 8
 cerebrale 8
 sont 8
@@ -9407,7 +9407,7 @@ retard 2
 cardio-vasculaires 2
 cause 2
 traiter 2
-vasculaires w 2
+vasculairesLP 2
 soigneux 1
 neuropsychologique 1
 reprise 1
@@ -9684,23 +9684,23 @@ annuel 1
 nombre 1
 frequents 1
 moins 1
-doncw 1
-sontw 1
+doncP 1
+sontP 1
 entre 1
 annee 1
 chaque 1
 frappantx 1
 prise 1
-specialisee w 1
+specialiseeLP 1
 filiere 1
-dansw 1
-sansw 1
+dansP 1
+sansP 1
 admission 1
 imposantx 1
 medicalex 1
-constituent w 1
+constituentLP 1
 adulte 1
-chezw 1
+chezP 1
 acquis 1
 handicapx 1
 premierex 1
@@ -9716,19 +9716,19 @@ recente 1
 toute 1
 illustrex 1
 comme 1
-organisationw 1
+organisationP 1
 temps 1
 questionx 1
-information w 1
-plusw 1
-pourw 1
+informationLP 1
+plusP 1
+pourP 1
 article 1
-integralite w 1
+integraliteLP 1
 lisez 1
 benkimoun 1
-paulw 1
-2005w 1
->res/FICHIER_PROJET/27-Martin_Scorsese_inaugure_la_Cinémathèque.xml?Mon Jan 16 08:59:42 2017
+paulP 1
+2005P 1
+>res/FICHIER_PROJET/27-Martin_Scorsese_inaugure_la_Cinémathèque.xml?Mon Jan 16 13:19:26 2017
 film 3
 cinematheque 3
 scorsesex 3
@@ -9751,7 +9751,7 @@ millier 2
 accueilli 2
 bercy 2
 francaise 2
-cinemathequew 2
+cinemathequeP 2
 jacques 2
 grace 1
 restaure 1
@@ -9849,8 +9849,8 @@ pour 1
 collegues 1
 quelques� 1
 fondee 1
-institution w 1
-filmw 1
+institutionLP 1
+filmP 1
 internationale 1
 branche 1
 lancement 1
@@ -9858,25 +9858,25 @@ annonce 1
 lui-memex 1
 conclu 1
 cinematographique 1
-preservationw 1
+preservationP 1
 gloire 1
 cineastex 1
-beauw 1
+beauP 1
 moins 1
 fallait 1
 batiments 1
 nouveauxx 1
-dansw 1
+dansP 1
 officielle 1
-inaugurationw 1
+inaugurationP 1
 succes 1
 couronner 1
-pourw 1
+pourP 1
 ministrex 1
 inaugurex 1
 mandelbaum 1
-2005w 1
->res/FICHIER_PROJET/28-A_Hossegor,_Kelly_Slater_peut.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/28-A_Hossegor,_Kelly_Slater_peut.xml?Mon Jan 16 13:19:26 2017
 avait 7
 etait 6
 avant 5
@@ -10103,16 +10103,16 @@ scenario 1
 cinq 1
 surf 1
 champion 1
-surfw 1
+surfP 1
 monde 1
 championx 1
 titre 1
 sacre 1
-peutw 1
+peutP 1
 connan 1
 fanny 1
-2005w 1
->res/FICHIER_PROJET/08-Carlos_do_Carmo____Le.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/08-Carlos_do_Carmo____Le.xml?Mon Jan 16 13:19:26 2017
 fado 25
 sans 5
 avec 5
@@ -10135,7 +10135,7 @@ camane 3
 1974 3
 portugais 3
 ouvert 3
-fadow 3
+fadoP 3
 pays 2
 trop 2
 sentiment 2
@@ -10471,7 +10471,7 @@ liens 1
 dementir 1
 vertu 1
 premierex 1
-pourw 1
+pourP 1
 communiste 1
 parti 1
 proche 1
@@ -10482,42 +10482,42 @@ carrierex 1
 quarante-deux 1
 annee 1
 cette 1
-fetew 1
-1947w 1
+feteP 1
+1947P 1
 creee 1
 familiale 1
 maison 1
-faiaw 1
+faiaP 1
 direction 1
-pritw 1
-1962w 1
+pritP 1
+1962P 1
 geneve 1
 hotelieres 1
 etudes 1
-altow 1
+altoP 1
 bairro 1
 flancs 1
-bicaw 1
+bicaP 1
 quartierx 1
 celebre 1
 lucilia 1
-filsw 1
-1939w 1
+filsP 1
+1939P 1
 lisbonnex 1
 paris 1
 moderne 1
 inconteste 1
 maitre 1
-rarew 1
-tresw 1
+rareP 1
+tresP 1
 chanteurx 1
 parle 1
 mortaigne 1
 veronique 1
 recueillis 1
 propos 1
-2005w 1
->res/FICHIER_PROJET/22-Des_laboureurs,_des_OGM..._et.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/22-Des_laboureurs,_des_OGM..._et.xml?Mon Jan 16 13:19:26 2017
 pour 9
 mais 7
 leur 6
@@ -10551,7 +10551,7 @@ meme 3
 pendant 3
 nonette 3
 champ 3
-memew 3
+memeP 3
 annees 2
 metier 2
 hectares 2
@@ -10592,7 +10592,7 @@ leurs 2
 annee 2
 plusieurs 2
 nord 2
-volontaires w 2
+volontairesLP 2
 ombre 2
 autre 2
 temps 2
@@ -10905,12 +10905,12 @@ fois 1
 recommence 1
 marsat 1
 departement 1
-transgeniquew 1
+transgeniqueP 1
 selon 1
 neutralise 1
 saccage 1
-2004w 1
-ao�tw 1
+2004P 1
+ao�tP 1
 essais 1
 attaquent 1
 repousser 1
@@ -10921,8 +10921,8 @@ vrombit 1
 thermique 1
 camera 1
 equipe 1
-helicoptere w 1
-nuitw 1
+helicoptereLP 1
+nuitP 1
 regulierement 1
 alentourx 1
 chemins 1
@@ -10933,16 +10933,16 @@ escouadex 1
 arriere 1
 front 1
 garde 1
-gendarmerie w 1
-jeepw 1
-cotew 1
-loinw 1
-plusw 1
-inquisiteursw 1
-parfaitementw 1
+gendarmerieLP 1
+jeepP 1
+coteP 1
+loinP 1
+plusP 1
+inquisiteursP 1
+parfaitementP 1
 mobiles 1
 gendarmes 1
-ma�sw 1
+ma�sP 1
 piece 1
 belle 1
 longeantx 1
@@ -10957,17 +10957,17 @@ ondulantx 1
 collinesx 1
 descend 1
 flaneur 1
-puy-de-dome w 1
-dansw 1
+puy-de-domeLP 1
+dansP 1
 modifie 1
 organisme 1
-destruction w 1
+destructionLP 1
 eviter 1
-veutw 1
+veutP 1
 present 1
 terre 1
 pomme 1
-representee w 1
+representeeLP 1
 agricolex 1
 innovation 1
 empecherx 1
@@ -10976,7 +10976,7 @@ epoque 1
 change 1
 garder 1
 armes 1
-gensw 1
+gensP 1
 xviiie 1
 parmentier 1
 monsieurx 1
@@ -10985,20 +10985,20 @@ avait 1
 fauchentx 1
 modifiesx 1
 organismes 1
-pourw 1
+pourP 1
 militentx 1
 itineraire 1
-exploitationw 1
+exploitationP 1
 surface 1
 profil 1
-presw 1
+presP 1
 laboureurs 1
-2003w 1
-1995w 1
+2003P 1
+1995P 1
 entre 1
 evolution 1
-2005w 1
->res/FICHIER_PROJET/09-Miracle___le_cricket_est.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/09-Miracle___le_cricket_est.xml?Mon Jan 16 13:19:26 2017
 angleterre 5
 pour 4
 dans 4
@@ -11203,23 +11203,23 @@ atteste 1
 comme 1
 partie 1
 apres 1
-soitw 1
+soitP 1
 faitesd 1
 mourir 1
-doisw 1
-dieuw 1
-information w 1
-plusw 1
-pourw 1
+doisP 1
+dieuP 1
+informationLP 1
+plusP 1
+pourP 1
 article 1
-integralite w 1
+integraliteLP 1
 lisez 1
-po-pu-lai-rew 1
+po-pu-lai-reP 1
 miracle 1
 roche 1
-marcw 1
-2005w 1
->res/FICHIER_PROJET/15-_Si_on_veut_aller_trop.xml?Mon Jan 16 08:59:42 2017
+marcP 1
+2005P 1
+>res/FICHIER_PROJET/15-_Si_on_veut_aller_trop.xml?Mon Jan 16 13:19:26 2017
 nous 13
 dans 9
 equipe 9
@@ -11278,12 +11278,12 @@ monde 2
 champion 2
 septembre 2
 qualifier 2
-pourw 2
+pourP 2
 europe 2
 selectionneur 2
 bergeaudx 2
 claude 2
-2005w 2
+2005P 2
 affaire 1
 engendree 1
 polemique 1
@@ -11511,55 +11511,55 @@ attendez-vous 1
 titres 1
 trois 1
 decrochex 1
-2003w 1
-1998w 1
+2003P 1
+1998P 1
 entre 1
 pau-orthez 1
-tetew 1
-proaw 1
-villeurbannew 1
-clubw 1
+teteP 1
+proaP 1
+villeurbanneP 1
+clubP 1
 entraineur 1
 nomme 1
 egalement 1
-juinw 1
-2004w 1
-2006w 1
+juinP 1
+2004P 1
+2006P 1
 mondial 1
-championnat w 1
+championnatLP 1
 premiersx 1
-dansw 1
+dansP 1
 termine 1
 groupe 1
 souhaitex 1
-basket-ball w 1
-desillusion w 1
+basket-ballLP 1
+desillusionLP 1
 courronsx 1
-nousw 1
-vitew 1
-tropw 1
+nousP 1
+viteP 1
+tropP 1
 aller 1
-veutw 1
+veutP 1
 laine 1
 guillaume 1
 recueillis 1
 propos 1
->res/FICHIER_PROJET/1.xml?Mon Jan 16 08:59:42 2017
-pourw 3
+>res/FICHIER_PROJET/1.xml?Mon Jan 16 13:19:26 2017
+pourP 3
 frames 2
 affiche 2
 navigateur 2
 avoir 2
-fautw 2
-deskw 2
+fautP 2
+deskP 2
 visualiser 2
-demi-finale w 2
+demi-finaleLP 2
 agassi 2
 mauresmox 2
 pierce 2
-openw 2
-setsw 1
-cinqw 1
+openP 2
+setsP 1
+cinqP 1
 haletantx 1
 match 1
 apres 1
@@ -11567,11 +11567,11 @@ finale 1
 quart 1
 blake 1
 james 1
-compatriote w 1
+compatrioteLP 1
 battu 1
 andre 1
 hommes 1
-cotew 1
+coteP 1
 mercredix 1
 amelie 1
 aisementx 1
@@ -11579,10 +11579,10 @@ battant 1
 tennis 1
 premiere( 1
 qualifiee 1
-maryw 1
+maryP 1
 elimine 1
-2005w 1
->res/FICHIER_PROJET/14-Grippe_aviaire___l_OMS_exhorte.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/14-Grippe_aviaire___l_OMS_exhorte.xml?Mon Jan 16 13:19:26 2017
 pays 8
 grippe 7
 docteur 5
@@ -11772,14 +11772,14 @@ sante 1
 mondiale 1
 organisation 1
 departement 1
-responsable w 1
+responsableLP 1
 stohr 1
 klaus 1
-information w 1
-plusw 1
-pourw 1
+informationLP 1
+plusP 1
+pourP 1
 article 1
-integralite w 1
+integraliteLP 1
 lisez 1
 pandemie� 1
 lutte 1
@@ -11788,8 +11788,8 @@ preparerx 1
 etats 1
 exhorte 1
 jean-yves 1
-2005w 1
->res/FICHIER_PROJET/22-Exposition___les_métamorphoses_picturales.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/22-Exposition___les_métamorphoses_picturales.xml?Mon Jan 16 13:19:26 2017
 girodet 16
 dans 11
 louvre 8
@@ -11870,7 +11870,7 @@ decembre 2
 atelier 2
 montargis 2
 trente 2
-sousw 2
+sousP 2
 exposition 2
 vendredi 1
 heures 1
@@ -12279,37 +12279,37 @@ orientalisme 1
 precurseur 1
 francais� 1
 romantique 1
-neoclassiquew 1
+neoclassiqueP 1
 est-il 1
 commencent 1
-difficultes w 1
+difficultesLP 1
 definition 1
 ajouter 1
-veutw 1
+veutP 1
 doute 1
 aucun 1
 avoir 1
-peutw 1
+peutP 1
 faits 1
 dates 1
 tient 1
-tantw 1
-1824w 1
-mortw 1
-restaurationw 1
+tantP 1
+1824P 1
+mortP 1
+restaurationP 1
 commandes 1
-recuw 1
+recuP 1
 italie 1
 sejournex 1
 david 1
 eleve 1
-1767w 1
+1767P 1
 anne-louis 1
 succedent 1
 peintresx 1
 multiples 1
-mainw 1
-memew 1
+mainP 1
+memeP 1
 consulatx 1
 connu 1
 retrospective 1
@@ -12319,8 +12319,8 @@ picturales 1
 metamorphoses 1
 dagen 1
 philippex 1
-2005w 1
->res/FICHIER_PROJET/22-Grippe_aviaire___la_course.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/22-Grippe_aviaire___la_course.xml?Mon Jan 16 13:19:26 2017
 virus 12
 contre 9
 pour 8
@@ -12709,16 +12709,16 @@ jamais 1
 industriels 1
 contrats 1
 importants 1
-paysw 1
-tousw 1
+paysP 1
+tousP 1
 malte 1
 invite 1
-pourw 1
+pourP 1
 mondialex 1
 course 1
 jean-yves 1
-2005w 1
->res/FICHIER_PROJET/05-Le_Colombien_Juan_Pablo_Montoya.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/05-Le_Colombien_Juan_Pablo_Montoya.xml?Mon Jan 16 13:19:26 2017
 pour 11
 renault 11
 points 9
@@ -12752,7 +12752,7 @@ alonso 4
 circuit 4
 italie 4
 pablo 4
-juanw 4
+juanP 4
 autre 3
 sans 3
 merite 3
@@ -12762,13 +12762,13 @@ place 3
 fernando 3
 seul 3
 prix 3
-kimiw 3
+kimiP 3
 fernandox 3
 septembre 3
 monde 3
 leader 3
 mclaren-mercedes 3
-prixw 3
+prixP 3
 grand 3
 colombien 3
 vont 2
@@ -12819,8 +12819,8 @@ trulli 2
 classement 2
 epreuvesx 2
 losange 2
-pourw 2
-championnat w 2
+pourP 2
+championnatLP 2
 equipe 2
 places 2
 italien 2
@@ -13100,7 +13100,7 @@ ralf 1
 jarno 1
 apres15 1
 moyenne 1
-tourw 1
+tourP 1
 meilleurx 1
 sauber 1
 massa 1
@@ -13108,7 +13108,7 @@ felipe 1
 williamsx 1
 pizzoniax 1
 antonio 1
-ralfw 1
+ralfP 1
 jarno 1
 positionx 1
 monzapole 1
@@ -13118,24 +13118,24 @@ marque 1
 autant 1
 gagnee 1
 partie 1
-maisw 1
+maisP 1
 celui 1
 titre 1
 concernex 1
-tantw 1
+tantP 1
 espagnolx 1
 dimanchex 1
 dispute 1
 issue 1
 continuex 1
 lutte 1
-championnatsw 1
+championnatsP 1
 place 1
 victoirex 1
-larrochelle w 1
-jean-jacquesw 1
-2005w 1
->res/FICHIER_PROJET/27-Voyager_1_s_aventure_dans_l_au-delà.xml?Mon Jan 16 08:59:42 2017
+larrochelleLP 1
+jean-jacquesP 1
+2005P 1
+>res/FICHIER_PROJET/27-Voyager_1_s_aventure_dans_l_au-delà.xml?Mon Jan 16 13:19:26 2017
 voyager 13
 plus 12
 solaire 10
@@ -13162,8 +13162,8 @@ distance 4
 pioneer 4
 cette 4
 atteindre 4
-auraw 4
-dansw 4
+auraP 4
+dansP 4
 doute 3
 aurait 3
 etait 3
@@ -13179,7 +13179,7 @@ passage 3
 septembre 3
 jamais 3
 avait 3
-plusw 3
+plusP 3
 encore 2
 nasa 2
 avait 2
@@ -13253,13 +13253,13 @@ contree 2
 desormais 2
 influence 2
 frontieres 2
-principales w 2
+principalesLP 2
 decembrex 2
-pourw 2
+pourP 2
 siecle 2
 americaine 2
 sonde 2
-1977w 2
+1977P 2
 au-dela 2
 observer 1
 homme 1
@@ -13608,25 +13608,25 @@ constellation 1
 ellesu 1
 avance 1
 elles 1
-deuxw 1
+deuxP 1
 auparavant 1
-presw 1
+presP 1
 emblee 1
 place 1
 laissee 1
 moins 1
 route 1
-maisw 1
-ao�tw 1
+maisP 1
+ao�tP 1
 jours 1
 quelquesx 1
 pourtantx 1
 soeur 1
-tetew 1
+teteP 1
 terminalx 1
-chocw 1
-americaines w 1
-concurrentesw 1
+chocP 1
+americainesLP 1
+concurrentesP 1
 double 1
 finalement 1
 positionx 1
@@ -13637,14 +13637,14 @@ quatre 1
 evenement 1
 definitive 1
 officialisation 1
-vautw 1
-concordants w 1
+vautP 1
+concordantsLP 1
 articlesx 1
 serie 1
 revue 1
-publication w 1
+publicationLP 1
 doutes 1
-foisw 1
+foisP 1
 public 1
 grand 1
 interet 1
@@ -13652,19 +13652,19 @@ perplexite 1
 voile 1
 exacte 1
 divergente 1
-participant w 1
+participantLP 1
 entre 1
 declenche 1
-anticipationw 1
+anticipationP 1
 effleurer 1
 faisait 1
 alors 1
-2002w 1
+2002P 1
 prematuree 1
 assourdix 1
-considerablew 1
+considerableP 1
 nouvellex 1
-echow 1
+echoP 1
 naviguerx 1
 creationx 1
 visitee 1
@@ -13672,14 +13672,14 @@ humain 1
 aucun 1
 lointaine 1
 explore 1
-ellew 1
+elleP 1
 sphere 1
 quart 1
 aventurex 1
 fenogliox 1
 jerome 1
-2005w 1
->res/FICHIER_PROJET/05-Le_théâtre_de_texte_confronté.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/05-Le_théâtre_de_texte_confronté.xml?Mon Jan 16 13:19:26 2017
 theatre 33
 dans 18
 public 15
@@ -13788,18 +13788,18 @@ moderne 2
 auteur 2
 demande 2
 dramatique 2
-observateur w 2
-tomew 2
+observateurLP 2
+tomeP 2
 actes 2
-chezw 2
-langw 2
-1988w 2
+chezP 2
+langP 2
+1988P 2
 prince 2
 deuxiemex 2
 publie 2
 critiquex 2
 polemiques 2
-deuxw 2
+deuxP 2
 succes 1
 morale 1
 seule 1
@@ -14110,7 +14110,7 @@ turbulences 1
 enjeux 1
 comprendre 1
 aider 1
-pourw 1
+pourP 1
 outil 1
 egalement 1
 evolutions 1
@@ -14120,7 +14120,7 @@ etudes 1
 ensemblex 1
 integralement 1
 reediteex 1
-etrew 1
+etreP 1
 vient 1
 decentralisation 1
 tomes 1
@@ -14128,7 +14128,7 @@ quatre 1
 somme 1
 indispensable 1
 gallimard 1
-dansw 1
+dansP 1
 personnage 1
 crise 1
 superieur 1
@@ -14136,13 +14136,13 @@ nationalx 1
 conservatoire 1
 professeur 1
 1992-1997 1
-partw 1
+partP 1
 leotard 1
 francoisx 1
-sousw 1
+sousP 1
 fonctionx 1
 reste 1
-jackw 1
+jackP 1
 nomme 1
 1981-1988 1
 nanterrex 1
@@ -14150,25 +14150,25 @@ paris-x 1
 belgiquex 1
 louvain 1
 montrealx 1
-caenw 1
+caenP 1
 carrierex 1
 1969-1999 1
 francaise 1
-litterature w 1
-cnrsw 1
+litteratureLP 1
+cnrsP 1
 chercheur 1
 nouvel 1
 litteraire 1
 1956-1967 1
-1956w 1
+1956P 1
 classiques 1
 lettres 1
 agregation 1
 obtient 1
-1948w 1
+1948P 1
 paris 1
 arrive 1
-1930w 1
+1930P 1
 liban 1
 francaisne 1
 reedite 1
@@ -14184,15 +14184,15 @@ analyse 1
 francaisx 1
 theatralx 1
 paysage 1
-observateursw 1
+observateursP 1
 meilleurs 1
 ecrivainx 1
-1980w 1
+1980P 1
 debut 1
 politique 1
 oeuvre 1
-1981w 1
-controverse w 1
+1981P 1
+controverseLP 1
 revient 1
 essai 1
 volume 1
@@ -14201,9 +14201,9 @@ vives 1
 provoquant 1
 festivalx 1
 affrontees 1
-sontw 1
+sontP 1
 scene 1
-conceptions w 1
+conceptionsLP 1
 celui 1
 confronte 1
 texte 1
@@ -14211,8 +14211,8 @@ darge 1
 fabiennex 1
 recueillis 1
 propos 1
-2005w 1
->res/FICHIER_PROJET/08-La_mission_Deep_Impact_permet.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/08-La_mission_Deep_Impact_permet.xml?Mon Jan 16 13:19:26 2017
 comete 11
 tempel 8
 impact 8
@@ -14287,13 +14287,13 @@ cuivre 2
 souffert 2
 rassurent 2
 astronomie 2
-dansw 2
+dansP 2
 violencex 2
 intrusion 2
 cette 2
 choques 2
 avaient 2
-ceuxw 2
+ceuxP 2
 permet 2
 mysteres 1
 devoile 1
@@ -14669,11 +14669,11 @@ longtemps 1
 inedit 1
 portraitx 1
 dresser 1
-deepw 1
+deepP 1
 fenogliox 1
 jerome 1
-2005w 1
->res/FICHIER_PROJET/08-Pavé,_tour_ou_silo,_cinq.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/08-Pavé,_tour_ou_silo,_cinq.xml?Mon Jan 16 13:19:26 2017
 dans 5
 paysagiste 5
 espaces 3
@@ -14681,8 +14681,8 @@ metres 3
 lecture 3
 palais 3
 archivesx 3
-pourw 3
-cinqw 3
+pourP 3
+cinqP 3
 septembre 2
 heures 2
 salles 2
@@ -14700,14 +14700,14 @@ aluminium 2
 pierrefitte-sur-seine 2
 nationales 2
 centre 2
-constructionw 2
+constructionP 2
 concourux 2
 projets 2
 presentex 2
 doree 2
 porte 2
-tourw 2
-pavew 2
+tourP 2
+paveP 2
 jeudi 1
 prevue 1
 avec 1
@@ -14849,13 +14849,13 @@ designerx 1
 difficulte 1
 percevoir 1
 concoursx 1
-jurew 1
+jureP 1
 imaginerx 1
-peutw 1
+peutP 1
 chacun 1
 divergent 1
 reponsesx 1
-tantw 1
+tantP 1
 interessantes 1
 maquettes 1
 panneauxx 1
@@ -14865,9 +14865,9 @@ capacitex 1
 seine-saint-denis 1
 nouveau 1
 provisoire 1
-dansw 1
-architecturew 1
-citew 1
+dansP 1
+architectureP 1
+citeP 1
 plissee 1
 blanche 1
 vague 1
@@ -14877,11 +14877,11 @@ futur 1
 archivesX 1
 architectures 1
 copies 1
-silow 1
+siloP 1
 programmation 1
 agenda 1
-2005w 1
->res/FICHIER_PROJET/15-Capturer_et_emprisonner_le_CO.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/15-Capturer_et_emprisonner_le_CO.xml?Mon Jan 16 13:19:26 2017
 dans 16
 pour 6
 plus 6
@@ -15251,32 +15251,32 @@ emettent 1
 combustibles 1
 impact 1
 evoluer 1
-sensiblementw 1
-actuellementw 1
+sensiblementP 1
+actuellementP 1
 etablit 1
 fossilesx 1
 energiesx 1
-partw 1
+partP 1
 internationale 1
 selon 1
 croitre 1
 mondialex 1
 demande 1
-2030w 1
+2030P 1
 avances 1
-tresw 1
-dejaw 1
-sontw 1
-typew 1
+tresP 1
+dejaP 1
+sontP 1
+typeP 1
 projets 1
 certainsx 1
 lutte 1
 moyen 1
 inclut 1
 kyoto 1
-memew 1
-geologiques w 1
-dansw 1
+memeP 1
+geologiquesLP 1
+dansP 1
 humainesx 1
 activites 1
 rejete 1
@@ -15287,15 +15287,15 @@ stocker 1
 consistex 1
 contre 1
 lutter 1
-pourw 1
+pourP 1
 suivre 1
 piste 1
-emprisonner w 1
+emprisonnerLP 1
 capturerx 1
 morin 1
 herve 1
-2005w 1
->res/FICHIER_PROJET/06-La_contamination_du_maïs_par.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/06-La_contamination_du_maïs_par.xml?Mon Jan 16 13:19:26 2017
 dans 10
 transgenes 6
 pour 6
@@ -15307,8 +15307,8 @@ plus 4
 quist 4
 lignees 4
 mexique 4
-dansw 4
-ma�sw 4
+dansP 4
+ma�sP 4
 etre 3
 grains 3
 partie 3
@@ -15326,8 +15326,8 @@ plantes 3
 avaient 3
 varietesx 3
 oaxaca 3
-2004w 3
-2003w 3
+2004P 3
+2003P 3
 trouver 2
 vraiment 2
 pouvaient 2
@@ -15362,7 +15362,7 @@ nature 2
 locales 2
 mexicaine 2
 peut-etre 2
-sontw 2
+sontP 2
 europeenx 2
 moratoire 2
 depuis 2
@@ -15605,58 +15605,58 @@ abrite 1
 ancetre 1
 teosintex 1
 originaire 1
-dontw 1
-zonew 1
+dontP 1
+zoneP 1
 retournees 1
-ohiow 1
-snoww 1
+ohioP 1
+snowP 1
 filieresx 1
-coexistence w 1
-2001w 1
+coexistenceLP 1
+2001P 1
 europeenne 1
 directive 1
 transposition 1
 accelerer 1
-celaw 1
+celaP 1
 legales 1
 culturesx 1
-revelations w 1
+revelationsLP 1
 surpris 1
-uippw 1
+uippP 1
 protection 1
 industries 1
 union 1
 bocquet 1
-jean-charlesw 1
+jean-charlesP 1
 catalogue 1
 inscrites 1
-declaration w 1
-sansw 1
+declarationLP 1
+sansP 1
 semer 1
-possibilite w 1
+possibiliteLP 1
 francaisx 1
-agriculteursw 1
+agriculteursP 1
 levee 1
 sud-ouest 1
 cultivesx 1
 seraientx 1
-commerciale w 1
+commercialeLP 1
 vocationx 1
-transgeniquew 1
+transgeniqueP 1
 hectaresx 1
 millier 1
-plusw 1
+plusP 1
 septembre 1
 mardi 1
 figaro 1
-franceselon w 1
-pnasw 1
+franceselonLP 1
+pnasP 1
 americaine 1
 sciencesx 1
 academiex 1
 rendus 1
 comptes 1
-ao�tw 1
+ao�tP 1
 publiee 1
 etude 1
 entendrex 1
@@ -15670,22 +15670,22 @@ comme 1
 consideree 1
 modifiees 1
 genetiquement 1
-avecw 1
+avecP 1
 croisement 1
 hauts 1
 montre 1
-echantillonsw 1
-2000w 1
+echantillonsP 1
+2000P 1
 pourtantx 1
 pollution 1
 conclut 1
 conduitex 1
 questionx 1
-1995w 1
+1995P 1
 entre 1
 evolution 1
-2005w 1
->res/FICHIER_PROJET/16-Une_sonde_japonaise_va_tenter.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/16-Une_sonde_japonaise_va_tenter.xml?Mon Jan 16 13:19:26 2017
 dans 11
 pour 9
 plus 8
@@ -15722,8 +15722,8 @@ plusieurs 3
 cometes 3
 americaine 3
 autres 3
-avecw 3
-plusw 3
+avecP 3
+plusP 3
 collision 3
 impact 3
 autour 3
@@ -15775,20 +15775,20 @@ retour 2
 2004 2
 entree 2
 etait 2
-nasaw 2
+nasaP 2
 promet 2
 premieres 2
 entre 2
-deepw 2
+deepP 2
 avaient 2
 faits 2
 hauts 2
 leurs 2
 communication 2
 apprendre 2
-toutw 2
+toutP 2
 japonaisx 2
-exploration w 2
+explorationLP 2
 debutants 2
 tenter 2
 sonde 2
@@ -16121,23 +16121,23 @@ stardust 1
 autre 1
 tempel 1
 retentissante 1
-dontw 1
+dontP 1
 visites 1
 objet 1
-etrew 1
-vontw 1
-faitw 1
+etreP 1
+vontP 1
+faitP 1
 glaces 1
 corps 1
 assigneex 1
 avait 1
-observation w 1
-2001w 1
-erosw 1
+observationLP 1
+2001P 1
+erosP 1
 douceur 1
 posee 1
-nearw 1
-agitw 1
+nearP 1
+agitP 1
 contact 1
 seule 1
 hayabusax 1
@@ -16146,25 +16146,25 @@ corpsavant 1
 petits 1
 contactsx 1
 organisex 1
-telescopage w 1
+telescopageLP 1
 scientifiques 1
 retombees 1
 spectacle 1
-bienw 1
+bienP 1
 etapes 1
-cachotterie w 1
+cachotterieLP 1
 confine 1
 discretion 1
 franchirx 1
 vient 1
-jaxaw 1
+jaxaP 1
 nippone 1
 agence 1
-tardw 1
-moisw 1
-deuxw 1
+tardP 1
+moisP 1
+deuxP 1
 humaine 1
-fabrication w 1
+fabricationLP 1
 boulet 1
 premierex 1
 mondialex 1
@@ -16172,13 +16172,13 @@ curiosite 1
 creer 1
 americains 1
 terre 1
-echantillonsw 1
+echantillonsP 1
 premiersx 1
 japonaise 1
 fenogliox 1
 jerome 1
-2005w 1
->res/FICHIER_PROJET/05-L_apnéiste_français_Guillaume_Néry_plonge.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/05-L_apnéiste_français_Guillaume_Néry_plonge.xml?Mon Jan 16 13:19:26 2017
 pour 12
 dans 7
 metres 7
@@ -16238,7 +16238,7 @@ surface 2
 flashs 2
 profond 2
 plonge 2
-neryw 2
+neryP 2
 profitent 1
 poissons 1
 repond 1
@@ -16503,7 +16503,7 @@ immersion 1
 secondes 1
 minutes 1
 parvenu 1
-foisw 1
+foisP 1
 circonstances 1
 pareilles 1
 habituellement 1
@@ -16512,21 +16512,21 @@ intensesx 1
 matinee 1
 septembre 1
 dimanchex 1
-profondeurs w 1
+profondeursLP 1
 remontant 1
-information w 1
-plusw 1
-pourw 1
+informationLP 1
+plusP 1
+pourP 1
 article 1
-integralite w 1
+integraliteLP 1
 lisez 1
 quete 1
 francaisx 1
 apneistex 1
 aragon 1
 jean-louis 1
-2005w 1
->res/FICHIER_PROJET/05-Prague_inaugure_les_Journées_européennes.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/05-Prague_inaugure_les_Journées_européennes.xml?Mon Jan 16 13:19:26 2017
 patrimoine 8
 palais 6
 tcheque 6
@@ -16543,9 +16543,9 @@ manifestation 3
 ambassade 3
 theme 3
 europe 3
-sontw 3
+sontP 3
 portes 3
-dansw 3
+dansP 3
 journeesx 3
 jardins 2
 decembre 2
@@ -16573,15 +16573,15 @@ mois 2
 journees 2
 europeenne 2
 quelquesx 2
-paysw 2
+paysP 2
 plupart 2
 public 2
-historiques w 2
+historiquesLP 2
 monuments 2
 seront 2
 edificesx 2
-moisw 2
-europeennes w 2
+moisP 2
+europeennesLP 2
 bras 1
 bout 1
 portee 1
@@ -16786,7 +16786,7 @@ culturelle 1
 convention 1
 etats 1
 autres 1
-vingt-trois w 1
+vingt-troisLP 1
 union 1
 membres 1
 vingt-cinq 1
@@ -16795,42 +16795,42 @@ entre 1
 jours 1
 heures 1
 espace 1
-accessibles w 1
+accessiblesLP 1
 amateursx 1
 caches 1
 ordinaire 1
 lieux 1
 centainex 1
-plusw 1
+plusP 1
 europeens 1
 leurs 1
 ouvriront 1
 fermes 1
-generalementw 1
+generalementP 1
 nombre 1
-dontw 1
+dontP 1
 quelque 1
 lorsque 1
 week-endx 1
-culmineront w 1
+culminerontLP 1
 elles 1
 dernierex 1
 annee 1
 entrees 1
 millionsx 1
 vingt 1
-avecw 1
+avecP 1
 travers 1
-plebisciteesw 1
+plebisciteesP 1
 desormais 1
 ouvertesx 1
-langw 1
-jackw 1
+langP 1
+jackP 1
 francaisx 1
 ministrex 1
 initiative 1
-1985w 1
-neesw 1
+1985P 1
+neesP 1
 vendredix 1
 inaugurees 1
 continent 1
@@ -16840,8 +16840,8 @@ ouverts 1
 inaugurex 1
 plichta 1
 martin 1
-2005w 1
->res/FICHIER_PROJET/10-Le_cyclone_Katrina_complique_le.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/10-Le_cyclone_Katrina_complique_le.xml?Mon Jan 16 13:19:26 2017
 dans 7
 navette 5
 avant 4
@@ -16857,7 +16857,7 @@ plus 3
 pour 3
 americains 3
 discovery 3
-2006w 3
+2006P 3
 spatialex 3
 cyclone 3
 peut 2
@@ -16901,7 +16901,7 @@ lancement 2
 nouvelle-orleans 2
 programme 2
 nouvelles 2
-marsw 2
+marsP 2
 pourraient 2
 degats 2
 retour 2
@@ -17106,24 +17106,24 @@ octobre 1
 discute 1
 planning 1
 internationale 1
-constructionw 1
+constructionP 1
 compromis 1
-partenaires w 1
+partenairesLP 1
 leurs 1
 avaler 1
 faire 1
 aider 1
 aussi 1
-peutw 1
+peutP 1
 dramatisation 1
 cette 1
 commencent 1
 soupconsx 1
-maisw 1
-memew 1
+maisP 1
+memeP 1
 agence 1
-notew 1
-volsw 1
+noteP 1
+volsP 1
 nouveau 1
 prevoyait 1
 comme 1
@@ -17137,19 +17137,19 @@ empechent 1
 deboiresx 1
 nouveauxx 1
 louisiane 1
-presw 1
+presP 1
 situes 1
 americain 1
-pourw 1
+pourP 1
 cruciauxx 1
 centres 1
-deuxw 1
+deuxP 1
 causes 1
 jours 1
 quelquesx 1
 depuis 1
 ajoutentx 1
-ao�tw 1
+ao�tP 1
 juillet 1
 durant 1
 apparuesx 1
@@ -17158,19 +17158,19 @@ suspect 1
 paraitrex 1
 presque 1
 finiraitx 1
-acharnement w 1
-avecw 1
+acharnementLP 1
+avecP 1
 abattentx 1
 mauvaises 1
 fenetre 1
 renoncerx 1
-nasaw 1
-contraindre w 1
+nasaP 1
+contraindreLP 1
 complique 1
 fenogliox 1
 jerome 1
-2005w 1
->res/FICHIER_PROJET/05-La_circoncision_pourrait_réduire_le.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/05-La_circoncision_pourrait_réduire_le.xml?Mon Jan 16 13:19:26 2017
 pour 10
 circoncis 9
 hommes 9
@@ -17190,7 +17190,7 @@ bertran 4
 mais 4
 comme 4
 protection 4
-sidaw 4
+sidaP 4
 chez 3
 soit 3
 controle 3
@@ -17208,7 +17208,7 @@ contre 3
 partielle 3
 virus 3
 troisieme 3
-circoncisionw 3
+circoncisionP 3
 vaccins 2
 seront 2
 avec 2
@@ -17245,13 +17245,13 @@ recommander 2
 groupes 2
 aleatoire 2
 maniere 2
-anrsw 2
+anrsP 2
 importante 2
-pourw 2
+pourP 2
 traitement 2
 mecanismes 2
 conference 2
-scientifiquew 2
+scientifiqueP 2
 evenement 2
 reduire 2
 annees 1
@@ -17543,34 +17543,34 @@ similaires 1
 attendent 1
 sante 1
 mondialex 1
-organisationw 1
+organisationP 1
 travaux 1
 interet 1
 grand 1
-manifestant w 1
-toutw 1
+manifestantLP 1
+toutP 1
 autre 1
 occasionx 1
 cette 1
 pratiquee 1
 etait 1
-deuxw 1
-dansw 1
+deuxP 1
+dansP 1
 repartisx 1
-seronegatifsw 1
+seronegatifsP 1
 jusque 1
-chezw 1
-tauxw 1
+chezP 1
+tauxP 1
 compare 1
 hepatites 1
 nationale 1
 agence 1
 promue 1
 etude 1
-1265w 1
+1265P 1
 baptiseex 1
-maisw 1
-permettrait w 1
+maisP 1
+permettraitLP 1
 adulte 1
 homme 1
 demontrex 1
@@ -17580,13 +17580,13 @@ presentex 1
 franco-sud-africain 1
 cliniquex 1
 essai 1
-foisw 1
+foisP 1
 premierex 1
 pourraitx 1
 benkimoun 1
-paulw 1
-2005w 1
->res/FICHIER_PROJET/23-Les_Bleus,_tombeurs_de_la.xml?Mon Jan 16 08:59:42 2017
+paulP 1
+2005P 1
+>res/FICHIER_PROJET/23-Les_Bleus,_tombeurs_de_la.xml?Mon Jan 16 13:19:26 2017
 points 6
 dans 5
 pour 5
@@ -17772,13 +17772,13 @@ qualification 1
 rencontrera 1
 battu 1
 basket 1
-eurow 1
-demi-finale w 1
+euroP 1
+demi-finaleLP 1
 jouerontx 1
 tombeursx 1
 bleus 1
-2005w 1
->res/FICHIER_PROJET/13-Des_astronomes_détectent_l_explosion_cosmique.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/13-Des_astronomes_détectent_l_explosion_cosmique.xml?Mon Jan 16 13:19:26 2017
 dans 6
 univers 6
 milliards 6
@@ -17793,7 +17793,7 @@ noir 3
 energie 3
 distance 3
 rayons 3
-plusw 3
+plusP 3
 etoiles 2
 fait 2
 telescopes 2
@@ -17816,7 +17816,7 @@ terre 2
 notre 2
 manifestations 2
 plusieurs 2
-ellew 2
+elleP 2
 annees-lumiere 2
 gamma 2
 observeex 2
@@ -18007,9 +18007,9 @@ annee-lumiere 1
 lieu 1
 assister� 1
 donne 1
-soitw 1
+soitP 1
 auxquelles 1
-energetiquesw 1
+energetiquesP 1
 sursaut 1
 detecte 1
 avoir 1
@@ -18023,17 +18023,17 @@ pourraitx 1
 enfance 1
 image 1
 cette 1
-agesw 1
+agesP 1
 premiersx 1
 ouvre 1
 terre 1
-lieuw 1
-deflagrationw 1
+lieuP 1
+deflagrationP 1
 detectent 1
 fenogliox 1
 jerome 1
-2005w 1
->res/FICHIER_PROJET/29-Forte_réduction_de_la_calotte.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/29-Forte_réduction_de_la_calotte.xml?Mon Jan 16 13:19:26 2017
 arctique 9
 plus 8
 superficie 8
@@ -18199,9 +18199,9 @@ rechauffement 1
 lesquels 1
 arctiquex 1
 forte 1
-avecw 1
-2005w 1
->res/FICHIER_PROJET/12-Musiques_du_monde___les.xml?Mon Jan 16 08:59:42 2017
+avecP 1
+2005P 1
+>res/FICHIER_PROJET/12-Musiques_du_monde___les.xml?Mon Jan 16 13:19:26 2017
 raman 7
 susheela 6
 avec 5
@@ -18234,17 +18234,17 @@ apres 2
 album 2
 films 2
 religieuse 2
-rockw 2
+rockP 2
 temps 2
-memew 2
+memeP 2
 possede 2
 australie 2
 grandi 2
 indiennex 2
-ellew 2
+elleP 2
 insoluble 2
 contradiction 2
-facew 2
+faceP 2
 virgin 1
 narada 1
 texte 1
@@ -18464,16 +18464,16 @@ arte-les 1
 indiennes 1
 sources 1
 kidel 1
-markw 1
+markP 1
 realise 1
-documentairew 1
+documentaireP 1
 extrait 1
-dansw 1
-quotidienne w 1
-viesw 1
+dansP 1
+quotidienneLP 1
+viesP 1
 complicex 1
 mills 1
-compositeur w 1
+compositeurLP 1
 guitariste 1
 declare 1
 usheela 1
@@ -18482,8 +18482,8 @@ monde 1
 musiquesx 1
 labesse 1
 patrick 1
-2005w 1
->res/FICHIER_PROJET/22-Les_clubs_de_football_anglais.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/22-Les_clubs_de_football_anglais.xml?Mon Jan 16 13:19:26 2017
 saison 12
 pour 11
 football 9
@@ -18552,11 +18552,11 @@ liberal-democrate 2
 depute 2
 foster 2
 selon 2
-britannique w 2
+britanniqueLP 2
 federation 2
 depuis 2
-leurw 2
-plusw 2
+leurP 2
+plusP 2
 anglais 2
 clubs 2
 times 2
@@ -18794,19 +18794,19 @@ olympiakos 1
 grece 1
 chaque 1
 premiersx 1
-deuxw 1
-chezw 1
+deuxP 1
+chezP 1
 possiblex 1
 chers 1
 moins 1
-abonnements w 1
+abonnementsLP 1
 partir 1
 realiseex 1
-comparaison w 1
+comparaisonLP 1
 importante 1
 europe 1
 reste 1
-dansw 1
+dansP 1
 pratiques 1
 tarifs 1
 entre 1
@@ -18815,11 +18815,11 @@ menee 1
 etude 1
 resultats 1
 parmi 1
-prixw 1
+prixP 1
 debut 1
 ordre 1
 frequentation 1
-emoiw 1
+emoiP 1
 administration 1
 conseilsx 1
 couloirsx 1
@@ -18827,20 +18827,20 @@ jours 1
 quelquesx 1
 agite 1
 questionx 1
-championnat w 1
-tournent-ilsw 1
-information w 1
-pourw 1
+championnatLP 1
+tournent-ilsP 1
+informationLP 1
+pourP 1
 article 1
-integralite w 1
+integraliteLP 1
 lisez 1
 bouder 1
-supporteurs w 1
+supporteursLP 1
 leurs 1
-voirw 1
+voirP 1
 inquietent 1
-2005w 1
->res/FICHIER_PROJET/21-La_France_se_réveille_pour.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/21-La_France_se_réveille_pour.xml?Mon Jan 16 13:19:26 2017
 pour 7
 champions 6
 tony 5
@@ -19062,25 +19062,25 @@ place 1
 belgrade 1
 jeudi 1
 retrouver 1
-doitw 1
-basket-ball w 1
-championnat w 1
+doitP 1
+basket-ballLP 1
+championnatLP 1
 barrage 1
 match 1
-noviw 1
+noviP 1
 mardi 1
 inattendue 1
 74-71 1
 victoirex 1
 jours 1
-deuxw 1
+deuxP 1
 battre 1
-pourw 1
+pourP 1
 reveillex 1
 friconnet 1
 fabien 1
-2005w 1
->res/FICHIER_PROJET/26-Lyon_prend_ses_aises_en.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/26-Lyon_prend_ses_aises_en.xml?Mon Jan 16 13:19:26 2017
 mais 6
 entraineur 4
 journee 4
@@ -19109,9 +19109,9 @@ france 2
 gardien 2
 septembre 2
 ligue 2
-tetew 2
+teteP 2
 aises 2
-lyonw 2
+lyonP 2
 leader 1
 sauve 1
 invincibilite 1
@@ -19265,11 +19265,11 @@ houllier 1
 gerard 1
 trois 1
 soir 1
-doitw 1
-deuxw 1
+doitP 1
+deuxP 1
 point 1
 carew 1
-johnw 1
+johnP 1
 norvegien 1
 felicitex 1
 monde 1
@@ -19284,40 +19284,40 @@ arrete 1
 avoir 1
 apres 1
 combats 1
-tousw 1
+tousP 1
 entreprenante 1
-tresw 1
+tresP 1
 equipe 1
-facew 1
-championnat w 1
+faceP 1
+championnatLP 1
 repris 1
 nantes 1
 sauvetages 1
 multiples 1
 grace 1
 effet 1
-lorsw 1
+lorsP 1
 dimanchex 1
-nantes-lyon w 1
+nantes-lyonLP 1
 rencontre 1
 issue 1
 honneur 1
-haiew 1
-faitw 1
+haieP 1
+faitP 1
 lyonnaisx 1
 olympique 1
 joueurs 1
-information w 1
-plusw 1
-pourw 1
+informationLP 1
+plusP 1
+pourP 1
 article 1
-integralite w 1
+integraliteLP 1
 lisez 1
 prend 1
 lepidi 1
 pierre 1
-2005w 1
->res/FICHIER_PROJET/28-Festival___Ososphère,_un_week-end.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/28-Festival___Ososphère,_un_week-end.xml?Mon Jan 16 13:19:26 2017
 ososphere 9
 octobre 6
 dans 5
@@ -19334,7 +19334,7 @@ concert 3
 quatre 3
 depuis 3
 annee 3
-electroniquew 3
+electroniqueP 3
 festivalx 3
 internet 2
 techno 2
@@ -19540,27 +19540,27 @@ integrer 1
 fort 1
 seulement 1
 mais 1
-toutw 1
+toutP 1
 avant 1
 musicalex 1
 decouverte 1
-lieuw 1
+lieuP 1
 devient 1
 durant 1
-concentrent w 1
+concentrentLP 1
 laquellex 1
 autour 1
 ruelle 1
 cette 1
 vendredix 1
 nuits 1
-deuxw 1
+deuxP 1
 pendant 1
 week-endx 1
-plasw 1
+plasP 1
 odile 1
-2005w 1
->res/FICHIER_PROJET/18-Les_22e_Journées_du_Patrimoine.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/18-Les_22e_Journées_du_Patrimoine.xml?Mon Jan 16 13:19:26 2017
 visiteurs 5
 francais 3
 pour 3
@@ -19574,7 +19574,7 @@ personnes 2
 cette 2
 vedette 2
 millionsx 2
-plusw 2
+plusP 2
 attire 2
 patrimoine 2
 journeesx 2
@@ -19638,7 +19638,7 @@ dans 1
 tient 1
 annuelle 1
 manifestation 1
-incontestee w 1
+incontesteeLP 1
 culture 1
 annonce 1
 occasionx 1
@@ -19650,18 +19650,18 @@ dimanchex 1
 investi 1
 dernier 1
 autant 1
-modow 1
+modoP 1
 grosso 1
-soitw 1
-recuw 1
-grand-palaisw 1
+soitP 1
+recuP 1
+grand-palaisP 1
 manifestation 1
-expositions w 1
+expositionsLP 1
 programme 1
 pratiques 1
-informationsw 1
-2005w 1
->res/FICHIER_PROJET/12-Fernando_Alonso_n_est_plus_qu_à.xml?Mon Jan 16 08:59:42 2017
+informationsP 1
+2005P 1
+>res/FICHIER_PROJET/12-Fernando_Alonso_n_est_plus_qu_à.xml?Mon Jan 16 13:19:26 2017
 pour 8
 michelin 6
 vraiment 4
@@ -19727,7 +19727,7 @@ fernando 2
 pilotes 2
 piste 2
 podium 2
-plusw 2
+plusP 2
 titre 1
 possible 1
 caracteristiques 1
@@ -19906,28 +19906,28 @@ tenu 1
 souvent 1
 comme 1
 belgiquex 1
-prixw 1
+prixP 1
 grand 1
-spa-francorchampsonsw 1
-2005w 1
+spa-francorchampsonsP 1
+2005P 1
  1
 dimanchex 1
 suspensex 1
 beaucoupx 1
 sorties 1
-depassementsw 1
+depassementsP 1
 gerbes 1
-information w 1
-pourw 1
+informationLP 1
+pourP 1
 article 1
-integralite w 1
+integraliteLP 1
 lisez 1
 titre 1
 fernandox 1
-larrochelle w 1
-jean-jacquesw 1
-2005w 1
->res/FICHIER_PROJET/05-Tours_d_honneur_pour_les_athlètes.xml?Mon Jan 16 08:59:42 2017
+larrochelleLP 1
+jean-jacquesP 1
+2005P 1
+>res/FICHIER_PROJET/05-Tours_d_honneur_pour_les_athlètes.xml?Mon Jan 16 13:19:26 2017
 pour 9
 nous 5
 athletes 5
@@ -19946,7 +19946,7 @@ lancer 3
 etre 3
 elle 3
 etaient 3
-dansw 3
+dansP 3
 tricolores 3
 presque 2
 marketing 2
@@ -19989,7 +19989,7 @@ league 2
 golden 2
 meeting 2
 leurs 2
-bienw 2
+bienP 2
 nombre 2
 russes 2
 charletyx 2
@@ -20211,19 +20211,19 @@ ao�t 1
 finlande 1
 monde 1
 resultats 1
-bonsw 1
-maisw 1
+bonsP 1
+maisP 1
 pensum 1
 comme 1
-vecuw 1
-etrew 1
+vecuP 1
+etreP 1
 risque 1
 prenait 1
 veille 1
 place 1
 charge 1
-dejaw 1
-competitionsw 1
+dejaP 1
+competitionsP 1
 calendrier 1
 ajoute 1
 repos 1
@@ -20242,7 +20242,7 @@ deroule 1
 quant 1
 retrouvex 1
 soleil 1
-sousw 1
+sousP 1
 finies 1
 elles 1
 croire 1
@@ -20257,18 +20257,18 @@ vacancesx 1
 parfum 1
 flottaitx 1
 enjeu 1
-sansw 1
+sansP 1
 premier 1
 francaisx 1
 devant 1
 gagnent 1
-pourw 1
+pourP 1
 honneur 1
 tours 1
-jaxel-truer w 1
+jaxel-truerLP 1
 pierre 1
-2005w 1
->res/FICHIER_PROJET/05-Musique_électronique___l_élan_collectif.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/05-Musique_électronique___l_élan_collectif.xml?Mon Jan 16 13:19:26 2017
 pour 7
 sacd 6
 dans 5
@@ -20305,7 +20305,7 @@ rendre 2
 permis 2
 albums 2
 reedition 2
-sacdw 2
+sacdP 2
 collectif 2
 labels-emi 1
 spoon-mute 1
@@ -20498,12 +20498,12 @@ premiersx 1
 audio 1
 super 1
 rendu 1
-elanw 1
-electroniquew 1
+elanP 1
+electroniqueP 1
 siclier 1
 sylvain 1
-2005w 1
->res/FICHIER_PROJET/12-Musique_classique___un__Oberon_.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/12-Musique_classique___un__Oberon_.xml?Mon Jan 16 13:19:26 2017
 oberon 7
 pour 4
 leur 3
@@ -20707,10 +20707,10 @@ londres 1
 cree 1
 historique 1
 classique 1
-rouxw 1
+rouxP 1
 marie-aude 1
-2005w 1
->res/FICHIER_PROJET/07-Un_député_UMP_lance_une.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/07-Un_député_UMP_lance_une.xml?Mon Jan 16 13:19:26 2017
 francis 7
 federation 7
 delattre 5
@@ -20754,10 +20754,10 @@ creationx 2
 nationale 2
 assemblee 2
 salle 2
-dansw 2
+dansP 2
 mardi 2
 oised 2
-franconvillew 2
+franconvilleP 2
 maire 2
 delattrex 2
 recuperer 1
@@ -20915,9 +20915,9 @@ accorde 1
 ao�t 1
 orgue 1
 point 1
-avecw 1
+avecP 1
 milieu 1
-moisw 1
+moisP 1
 quelquesx 1
 depuis 1
 secoue 1
@@ -20929,8 +20929,8 @@ nouvellex 1
 lance 1
 aragon 1
 jean-louis 1
-2005w 1
->res/FICHIER_PROJET/22-Dominique_Noël____Les_architectes.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/22-Dominique_Noël____Les_architectes.xml?Mon Jan 16 13:19:26 2017
 architectes 13
 dans 8
 architecture 7
@@ -20959,10 +20959,10 @@ annee 3
 reforme 3
 etudiants 3
 candidats 3
-architecturew 3
+architectureP 3
 metiers 3
 prendre 3
-no�lw 3
+no�lP 3
 salarie 2
 fait 2
 compte 2
@@ -21006,11 +21006,11 @@ chez 2
 travail 2
 formation 2
 secteur 2
-recrutement w 2
+recrutementLP 2
 societe 2
-dansw 2
+dansP 2
 dominique 2
-2005w 2
+2005P 2
 marche 1
 diplomes 1
 valent 1
@@ -21246,9 +21246,9 @@ chercher 1
 aller 1
 appelle 1
 juillet 1
-moisw 1
+moisP 1
 enterinee 1
-dontw 1
+dontP 1
 cursus 1
 opposentx 1
 culture 1
@@ -21258,14 +21258,14 @@ alors 1
 annee 1
 chaque 1
 places 1
-avecw 1
+avecP 1
 employeur 1
 premier 1
 devenue 1
 vingt 1
-fetew 1
+feteP 1
 domaine 1
-specialisee w 1
+specialiseeLP 1
 genre 1
 entreprise 1
 seule 1
@@ -21274,23 +21274,23 @@ interim 1
 presidente 1
 fondatrice 1
 repond 1
-fauxw 1
+fauxP 1
 commandes 1
 assez 1
 frequentx 1
-plusw 1
+plusP 1
 commun 1
-lieuw 1
+lieuP 1
 diversification 1
 forte 1
 observe 1
-entreprises w 1
-architectes w 1
+entreprisesLP 1
+architectesLP 1
 allix 1
 gregoirex 1
 recueillis 1
 propos 1
->res/FICHIER_PROJET/06-Les_mauvais_comptes_d_une_élimination.xml?Mon Jan 16 08:59:42 2017
+>res/FICHIER_PROJET/06-Les_mauvais_comptes_d_une_élimination.xml?Mon Jan 16 13:19:26 2017
 france 19
 pour 18
 equipe 10
@@ -21303,7 +21303,7 @@ matches 6
 groupe 6
 leur 5
 dans 5
-ellew 5
+elleP 5
 melero 4
 victoriano 4
 droits 4
@@ -21326,12 +21326,12 @@ elimination 3
 aura 3
 bleus 3
 suisse 3
-deuxw 3
+deuxP 3
 contre 3
 septembre 3
 qualifier 3
 zidane 3
-pourw 3
+pourP 3
 quotidien 2
 etait 2
 gagner 2
@@ -21389,8 +21389,8 @@ deuxiemex 2
 premierex 2
 terminerx 2
 rencontre 2
-facew 2
-2006w 2
+faceP 2
+2006P 2
 bleus 2
 comptes 2
 journal 1
@@ -21656,32 +21656,32 @@ supposer 1
 gagnant 1
 esperer 1
 toujoursx 1
-peutw 1
+peutP 1
 defaite 1
-memew 1
+memeP 1
 barragiste 1
 moins 1
-etrew 1
-s�rew 1
+etreP 1
+s�reP 1
 gagne 1
 obtient 1
 assuree 1
 trois 1
 remportex 1
 qualifiex 1
-tourw 1
+tourP 1
 dispute 1
 vainqueur 1
 autre 1
 disputerx 1
 acceder 1
-permettrait w 1
-eliminatoirew 1
+permettraitLP 1
+eliminatoireP 1
 place 1
-doitw 1
-directement w 1
-decisivepourw 1
-maisw 1
+doitP 1
+directementLP 1
+decisivepourP 1
+maisP 1
 importante 1
 dissipe 1
 encore 1
@@ -21694,22 +21694,22 @@ monde 1
 coupe 1
 parvenait 1
 dublin 1
-trebuchaientw 1
+trebuchaientP 1
 attendu 1
-tantw 1
+tantP 1
 sauveur 1
 etait 1
-information w 1
-plusw 1
+informationLP 1
+plusP 1
 article 1
-integralite w 1
+integraliteLP 1
 lisez 1
-elimination w 1
+eliminationLP 1
 mauvais 1
 mandard 1
 stephanex 1
-2005w 1
->res/FICHIER_PROJET/06-Sensibiliser_à_la_vaccination_grippale.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/06-Sensibiliser_à_la_vaccination_grippale.xml?Mon Jan 16 13:19:26 2017
 personnes 11
 pour 10
 virus 9
@@ -21718,7 +21718,7 @@ aviaire 8
 vaccinale 6
 couverture 6
 contre 6
-vaccination w 6
+vaccinationLP 6
 experts 5
 dans 5
 sante 5
@@ -21805,19 +21805,19 @@ charge 2
 chroniques 2
 certaines 2
 celles 2
-chezw 2
+chezP 2
 incitation 2
 menees 2
 grande 2
 premieres 2
-cnamw 2
+cnamP 2
 assurance-maladie 2
 automne 2
 cette 2
 beneficier 2
 seront 2
 souffrant 2
-plusw 2
+plusP 2
 septembre 2
 partir 2
 virus 2
@@ -22057,34 +22057,34 @@ mesures 1
 sensibiliser 1
 enjeu 1
 utiliser 1
-vontw 1
+vontP 1
 celui 1
 annuel 1
 monde 1
-initiatives w 1
+initiativesLP 1
 serie 1
-etatw 1
-chefw 1
+etatP 1
+chefP 1
 demande 1
 prendre 1
-gouvernementw 1
+gouvernementP 1
 incite 1
-h5n1w 1
+h5n1P 1
 internationale 1
-progression w 1
+progressionLP 1
 majeur 1
 emergence 1
-particulierew 1
+particuliereP 1
 toute 1
 dimension 1
 prendra 1
-antigrippalew 1
+antigrippaleP 1
 inclus 1
 campagnex 1
-2000w 1
+2000P 1
 frais 1
 avance 1
-sansw 1
+sansP 1
 prise 1
 emblee 1
 broncho-pulmonaires 1
@@ -22095,8 +22095,8 @@ agees 1
 campagnes 1
 lancer 1
 commencex 1
-1988w 1
-1980w 1
+1988P 1
+1980P 1
 milieu 1
 effet 1
 ampleur 1
@@ -22104,35 +22104,35 @@ experimentations 1
 nationale 1
 caisse 1
 vingtaine 1
-presw 1
+presP 1
 depuis 1
 chaque 1
 lancee 1
 annuellex 1
 operation 1
-gratuitementw 1
+gratuitementP 1
 presse 1
-voiew 1
+voieP 1
 incites 1
 duree 1
 longue 1
-ditew 1
+diteP 1
 affection 1
-agesw 1
+agesP 1
 francaisx 1
-tousw 1
+tousP 1
 hivernale 1
 lutte 1
-bouleverser w 1
+bouleverserLP 1
 vient 1
 peste 1
 nouvellex 1
-sensibiliserw 1
+sensibiliserP 1
 jean-yves 1
-2005w 1
->res/FICHIER_PROJET/03-Mimer_un_signal_nerveux_pour.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/03-Mimer_un_signal_nerveux_pour.xml?Mon Jan 16 13:19:26 2017
 dans 7
-pourw 4
+pourP 4
 sont 3
 proteines 3
 comportement 3
@@ -22309,20 +22309,20 @@ equipe 1
 moleculaire 1
 niveau 1
 analysee� 1
-etrew 1
+etreP 1
 vient 1
 nematomorphes 1
-versw 1
+versP 1
 employeex 1
 tactiquex 1
 dernierex 1
 cette 1
 ruisseaux 1
-dansw 1
+dansP 1
 cycle 1
 poursuivre 1
-afinw 1
-memew 1
+afinP 1
+memeP 1
 mesange 1
 appat 1
 serve 1
@@ -22332,14 +22332,14 @@ deformerx 1
 finale 1
 cible 1
 canard 1
-seraw 1
+seraP 1
 surface 1
 nager 1
 crustacex 1
 strategie 1
 autre 1
 animal 1
-foiew 1
+foieP 1
 ainsi 1
 parvenirx 1
 mouton 1
@@ -22350,28 +22350,28 @@ sommet 1
 fourmi 1
 grimper 1
 desseinsx 1
-hotew 1
+hoteP 1
 asservirx 1
 perfidiex 1
 aucune 1
 devant 1
 recule 1
 parasitex 1
-moleculaire w 1
+moleculaireLP 1
 dialoguex 1
 expliquex 1
 aberrantx 1
-comportementw 1
+comportementP 1
 noyade 1
-sauterelles w 1
+sauterellesLP 1
 signal 1
 mimer 1
 sofres 1
 sondage 1
 resultats 1
 analysesx 1
-2005w 1
->res/FICHIER_PROJET/26-Tom_Boonen_sacré_champion_du.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/26-Tom_Boonen_sacré_champion_du.xml?Mon Jan 16 13:19:26 2017
 tour 5
 avait 5
 pour 5
@@ -22566,8 +22566,8 @@ lisez 1
 sacre 1
 zilbertin 1
 olivier 1
-2005w 1
->res/FICHIER_PROJET/10-La_réalité_virtuelle_et_l_informatique.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/10-La_réalité_virtuelle_et_l_informatique.xml?Mon Jan 16 13:19:26 2017
 pour 6
 virtuelle 6
 realite 6
@@ -22634,8 +22634,8 @@ archeologique 2
 entre 2
 interface 2
 inedit 2
-lieuw 2
-veutw 2
+lieuP 2
+veutP 2
 bordelais 2
 universitaire 2
 campus 2
@@ -22896,14 +22896,14 @@ unite 1
 tutelle 1
 sous 1
 etablissement 1
-archeologie w 1
+archeologieLP 1
 service 1
 mettent 1
-informatiquew 1
+informatiqueP 1
 foucart 1
 stephanex 1
-2005w 1
->res/FICHIER_PROJET/08-L_équipe_de_France_victime_d_un.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/08-L_équipe_de_France_victime_d_un.xml?Mon Jan 16 13:19:26 2017
 france 6
 sujet 4
 pour 4
@@ -22914,7 +22914,7 @@ equipe 4
 trouve 3
 domenech 3
 pendant 3
-pourw 3
+pourP 3
 avait 2
 etait 2
 cette 2
@@ -22944,7 +22944,7 @@ contre 2
 rencontre 2
 dublin 2
 posent 2
-tousw 2
+tousP 2
 obtenu 2
 chirac 2
 jacques 2
@@ -23043,23 +23043,23 @@ soir 1
 mercredi 1
 marseillaise 1
 football 1
-eirew 1
-2006w 1
+eireP 1
+2006P 1
 monde 1
 coupe 1
 qualification 1
 avant 1
-soirw 1
+soirP 1
 mercredix 1
-marseillaisew 1
-c�urw 1
-mainw 1
-leurw 1
+marseillaiseP 1
+c�urP 1
+mainP 1
+leurP 1
 footballx 1
-telephoniquew 1
+telephoniqueP 1
 victime 1
-2005w 1
->res/FICHIER_PROJET/12-Jean-Marie_Sevestre,_libraire_et_PDG.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/12-Jean-Marie_Sevestre,_libraire_et_PDG.xml?Mon Jan 16 13:19:26 2017
 avec 10
 librairie 10
 jean-marie 10
@@ -23141,7 +23141,7 @@ presque 2
 centaines 2
 livres 2
 septembre 2
-sontw 2
+sontP 2
 nouveauxx 2
 culturel 1
 combat 1
@@ -23481,63 +23481,63 @@ aurons 1
 cette 1
 paraissent 1
 soixante-trois 1
-centw 1
+centP 1
 ouvragesx 1
 indexer 1
 ouvrir 1
-pourw 1
+pourP 1
 mobilisees 1
 personnes 1
 dizaine 1
 france 1
-independantew 1
+independanteP 1
 deuxiemex 1
 saurampsx 1
-chezw 1
-jourw 1
+chezP 1
+jourP 1
 arriventx 1
 cartons 1
-montpellier w 1
+montpellierLP 1
 debut 1
 salariesx 1
 defendusx 1
-etrew 1
+etreP 1
 prets 1
 rayon 1
 affairesx 1
 homme 1
 aussi 1
-litterature w 1
+litteratureLP 1
 passionne 1
 librairex 1
 sevestrex 1
 bedaridax 1
 catherine 1
-2005w 1
->res/FICHIER_PROJET/18-Ligue_1___Lyon_a.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/18-Ligue_1___Lyon_a.xml?Mon Jan 16 13:19:26 2017
 frames 2
 affiche 2
 navigateur 2
 avoir 2
-fautw 2
-deskw 2
+fautP 2
+deskP 2
 visualiser 2
-pourw 2
+pourP 2
 dopage 1
 problemex 1
 general 1
 sport 1
-organisationw 1
+organisationP 1
 sportives 1
-competitionsw 1
+competitionsP 1
 toutes 1
-commentairesw 1
+commentairesP 1
 donnez 1
 sports 1
 autres 1
-tousw 1
+tousP 1
 aussi 1
-maisw 1
+maisP 1
 qualification 1
 matchs 1
 derniersx 1
@@ -23548,18 +23548,18 @@ retour 1
 gironde 1
 conquis 1
 grace 1
-championnat w 1
+championnatLP 1
 leader 1
 reste 1
 saint-etienne 1
 coule 1
 bordeauxx 1
-rangw 1
+rangP 1
 defendu 1
-lyonw 1
+lyonP 1
 ligue 1
-2005w 1
->res/FICHIER_PROJET/06-US_Open___Mauresmo_et.xml?Mon Jan 16 08:59:42 2017
+2005P 1
+>res/FICHIER_PROJET/06-US_Open___Mauresmo_et.xml?Mon Jan 16 13:19:26 2017
 pour 3
 frames 2
 affiche 2
@@ -23578,9 +23578,9 @@ gasquet 1
 qualifiees 1
 pierce 1
 mauresmo 1
-openw 1
-2005w 1
->res/FICHIER_PROJET/28-Danse___Robyn_Orlin_et.xml?Mon Jan 16 08:59:42 2017
+openP 1
+2005P 1
+>res/FICHIER_PROJET/28-Danse___Robyn_Orlin_et.xml?Mon Jan 16 13:19:26 2017
 nous 9
 pour 8
 dans 7
@@ -23863,9 +23863,9 @@ seaux 1
 nouvellex 1
 commencex 1
 paris 1
-2002w 1
+2002P 1
 creee 1
-sidaw 1
+sidaP 1
 piece 1
 sud-africains 1
 danseurs� 1
@@ -23874,4 +23874,4 @@ robyn 1
 danse 1
 boisseaux 1
 rosita 1
-2005w 1
+2005P 1

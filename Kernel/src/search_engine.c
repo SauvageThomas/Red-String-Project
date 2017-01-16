@@ -33,6 +33,9 @@ void launch_search_engine(Config config) {
 }
 
 char* strcat_path(char* path, char* file_name) {
+	/*
+	* Return concat path + filename
+	*/
 	char* full_path = malloc(KSIZE);
 	sprintf(full_path, "%s%s", path, file_name);
 	return full_path;
