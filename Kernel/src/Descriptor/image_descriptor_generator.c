@@ -26,8 +26,8 @@ Descriptor generate_image_descriptor(DataFile df, int quant) {
 }
 
 void generate_image_descriptors(DataFile df, Directory dir, int quant) {
+	puts("Updating image descriptor...");
 	write_string_in_file(df, ""); //Reset the file
-	puts("Image files");
 	for (int i = 0; i < dir.image_size; i += 1) {
 		Descriptor desc = generate_image_descriptor(dir.image_files[i], quant);
 		descriptor_to_file(desc, df);

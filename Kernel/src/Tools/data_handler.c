@@ -74,7 +74,6 @@ char* read_string_from_file(DataFile data_file) {
 	}
 	int i = 0;
 	char c;
-	puts("YO");
 	do{
 		c = getc(data_file.file);
 		if (c != EOF){

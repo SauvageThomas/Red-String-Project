@@ -4,8 +4,7 @@
 Descriptor generate_text_descriptor(DataFile df){
 	int matrix_length = 0;
 	Descriptor descriptor = init_descriptor(df.path);
-
-
+	
 	char* content = read_string_from_file(df);
 	char* new_content = remove_xml(content);
 	remove_punctuation(new_content);

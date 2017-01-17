@@ -24,13 +24,11 @@ int check_files(){
 }
 
 int check_descriptor(DataFile df) {
-	if (is_existing_file(df) || is_empty_file(df)) {
-		puts("no descriptor found !");
-		puts("hey !!!!");
+	if (!is_existing_file(df) || is_empty_file(df)) {
+		printf("Descriptor not found : %s\n", df.path);
 		return 1;
 	}		
-	puts("Have to check every file...");
-	
+	printf("Descriptor is being checked : %s\n", df.path);
 	return check_files();
 }
 
@@ -44,11 +42,9 @@ Descriptor init_descriptor(char* path){
 
 //Appends the descriptor at the end of the file
 void descriptor_to_file(Descriptor descriptor, DataFile df) {
-	//puts("Desc to file");
 	if (descriptor.map == NULL) {
 		return;
 	}
-	//puts("Saving the descriptor ...");
 
 	char *result = malloc(descriptor.size);
 	if (result == NULL) {
@@ -61,7 +57,6 @@ void descriptor_to_file(Descriptor descriptor, DataFile df) {
 
 	while (descriptor.map != NULL) {
 		char *tmp = pop_value_hash_map(&(descriptor.map));
-		//printf("to file => %s\n", tmp);
 		strcat(result, tmp);
 	}
 	append_string_in_file(df, result);

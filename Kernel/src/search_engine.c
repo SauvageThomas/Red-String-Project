@@ -28,7 +28,7 @@ void launch_search_engine(Config config) {
 	 * MANAGE ALL THE SOFTWARE PROCESS
 	 */
 
-	puts("*   *   *   SEARCH ENGINE : LAUNCH");
+	puts("\n\n*   *   *   SEARCH ENGINE : LAUNCH");
 	init_search_engine(config);
 	run_search_engine(config);
 	close_search_engine();
