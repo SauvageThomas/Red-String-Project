@@ -9,6 +9,7 @@
 #define SEARCH_SOUND_FINDER_H_
 
 #include "../Tools/data_handler.h"
-double ** file_content (DataFile df, int n);
-void find_sound(DataFile df, char *taille_fenetre, char *nb_barres);
+HashMap file_content (DataFile df, int n, int nbBarres);
+CellHashMap histogramme(CellHashMap hist, double valeur, int nbBarres);
+//void find_sound(DataFile df, char *taille_fenetre, char *nb_barres);
 #endif /* SEARCH_SOUND_FINDER_H_ */
