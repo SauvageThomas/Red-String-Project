@@ -63,12 +63,12 @@ void check_image_descriptor(char* path, Directory dir, int n) {
 	}
 }
 
-void check_sound_descriptor(char* path, Directory dir) {
+void check_sound_descriptor(char* path, Directory dir, int k, int m) {
 	char* full_path = strcat_path(path, "sound_descriptors");
 	DataFile df = init_data_file(full_path);
 	int updated = check_descriptor(df);
 	if (updated) {
-		generate_sound_descriptors(df, dir);
+		generate_sound_descriptors(df, dir, k, m);
 	}
 }
 void init_search_engine(Config config) {
@@ -87,7 +87,7 @@ void init_search_engine(Config config) {
 	Directory dir = get_all_files(get_value_of(config, "path"));
 
 	check_text_descriptor(path, dir);
-	
+
 	char *quant = get_value_of(config, "quantification");
 	if (quant == NULL) {
 		error_config_file();
@@ -96,7 +96,15 @@ void init_search_engine(Config config) {
 	size_t n = (size_t) strtol(quant, (char **) NULL, 10);
 	check_image_descriptor(path, dir, n);
 
-	check_sound_descriptor(path, dir);
+	char *size_window = get_value_of(config, "taille_des_fenetres");
+	char *nb_intervalles = get_value_of(config, "nombre_de_barre");
+	if (size_window == NULL || nb_intervalles == NULL) {
+		error_config_file();
+	}
+	size_t k = (size_t) strtol(size_window, (char **) NULL, 10);
+	size_t m = (size_t) strtol(nb_intervalles, (char **) NULL, 10);
+	check_sound_descriptor(path, dir, k, m);
+
 	printf("Generating descriptors took %ds\n", chrono());
 
 	puts("Search Engine is ready !!");

@@ -27,7 +27,7 @@ int check_descriptor(DataFile df) {
 	if (!is_existing_file(df) || is_empty_file(df)) {
 		printf("Descriptor not found : %s\n", df.path);
 		return 1;
-	}		
+	}
 	printf("Descriptor is being checked : %s\n", df.path);
 	return check_files();
 }
@@ -65,4 +65,3 @@ void descriptor_to_file(Descriptor descriptor, DataFile df) {
 	free(result);
 	result = NULL;
 }
-
