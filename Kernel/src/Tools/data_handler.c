@@ -43,6 +43,7 @@ int is_empty_file(DataFile data_file) {
 void set_data_file_length(DataFile* data_file) {
 	struct stat s;
 	stat(data_file->path, &s);
+	data_file->date = s.st_mtime;
 	data_file->length = s.st_size;
 }
 

@@ -8,7 +8,10 @@
 #ifndef DESCRIPTOR_DESCRIPTOR_TOOLS_H_
 #define DESCRIPTOR_DESCRIPTOR_TOOLS_H_
 
+#include "../Data/constant.h"
+
 int compare_descriptors(Descriptor desc1, Descriptor desc2);
+Descriptor *extract_first_descriptor(char *content, int *size_desc);
 
 
 #endif /* DESCRIPTOR_DESCRIPTOR_TOOLS_H_ */

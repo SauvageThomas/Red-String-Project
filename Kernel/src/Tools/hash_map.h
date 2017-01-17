@@ -28,5 +28,6 @@ char* print_hash_map(HashMap map);
 int find_nb_occurence(HashMap map,char* key);
 char* pop_value_hash_map(HashMap* map);
 void multiplay_val_of_cell(HashMap* map, char* key, int multiplier);
+void add_nb_value_hash_map(HashMap* map, char* key, int n);
 
 #endif

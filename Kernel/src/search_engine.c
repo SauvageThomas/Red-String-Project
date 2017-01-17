@@ -11,6 +11,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include "GUI/functions.h"
 #include "search_engine.h"
 #include "Descriptor/text_descriptor_generator.h"
 #include "Descriptor/image_descriptor_generator.h"
@@ -46,7 +47,7 @@ char* strcat_path(char* path, char* file_name) {
 void check_text_descriptor(char* path, Directory dir) {
 	char* full_path = strcat_path(path, "text_descriptors");
 	DataFile df = init_data_file(full_path);
-	int updated = check_descriptor(df);
+	int updated = check_descriptor(df, &dir.txt_files, dir.txt_size);
 	if (updated) {
 		generate_text_descriptors(df, dir);
 		update_index();
@@ -56,7 +57,7 @@ void check_text_descriptor(char* path, Directory dir) {
 void check_image_descriptor(char* path, Directory dir, int n) {
 	char* full_path = strcat_path(path, "image_descriptors");
 	DataFile df = init_data_file(full_path);
-	int updated = check_descriptor(df);
+	int updated = check_descriptor(df, &dir.image_files, dir.image_size);
 	if (updated) {
 		generate_image_descriptors(df, dir, n);
 		update_index();
@@ -66,7 +67,7 @@ void check_image_descriptor(char* path, Directory dir, int n) {
 void check_sound_descriptor(char* path, Directory dir) {
 	char* full_path = strcat_path(path, "sound_descriptors");
 	DataFile df = init_data_file(full_path);
-	int updated = check_descriptor(df);
+	int updated = check_descriptor(df, &dir.audio_files, dir.audio_size);
 	if (updated) {
 		generate_sound_descriptors(df, dir);
 	}

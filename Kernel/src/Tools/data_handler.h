@@ -16,6 +16,7 @@ typedef struct etDataFile {
 	char* path;
 	int length;
 	char *type;
+	time_t date;
 } DataFile;
 
 typedef struct {
