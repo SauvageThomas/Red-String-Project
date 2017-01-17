@@ -5,7 +5,7 @@
  *      Author: THOMAS
  */
 
-#include <stdlib.h>
+#include <stdio.h>
 #include <errno.h>
 #include <string.h>
 #include <sys/stat.h>
@@ -15,6 +15,7 @@
 DataFile init_data_file(char* path) {
 	DataFile data_file;
 	data_file.path = malloc(strlen(path) + 1);
+
 	if (data_file.path == NULL) {
 		fprintf(stderr, "Malloc in init_data_file failed %s\n", strerror(errno));
 	}
@@ -68,15 +69,21 @@ char* read_string_from_file(DataFile data_file) {
 	set_data_file_length(&data_file);
 	data_file.file = fopen(data_file.path, "r+");
 	char* string_in_file = malloc(sizeof(char) * data_file.length + 2);
-
-	int i = 0;
-	int c;
-	while ((c = getc(data_file.file)) != EOF) {
-		string_in_file[i] = c;
-		i += 1;
+	if (string_in_file == NULL) {
+		fprintf(stderr, "Malloc in read_string_from_file failed %s\n", strerror(errno));
 	}
+	int i = 0;
+	char c;
+	puts("YO");
+	do{
+		c = getc(data_file.file);
+		if (c != EOF){
+			string_in_file[i] = c;
+			i ++;
+		}
+	}while(c != EOF);
+	
 	string_in_file[i] = '\0';
-
 	fclose(data_file.file);
 	return string_in_file;
 }

@@ -13,7 +13,7 @@
 #include "../Tools/hash_map.h"
 
 char msg[50];
-char *TEST_WRITE_FILE_PATH = "Data/Test/test_write_string_from_file";
+char *TEST_WRITE_FILE_PATH = "src/Data/Test/test_write_string_from_file";
 int test_num = 1;
 
 void test_setup() {
@@ -36,7 +36,7 @@ void assert_equals_str(char* expected, char* result) {
 
 MU_TEST(test_read_file_1) {
 	char* expected = "This is a test ! \n";
-	char* path = "Data/Test/test_read_data_from_file_1";
+	char* path = "src/Data/Test/test_read_data_from_file_1";
 	DataFile df = init_data_file(path);
 	char* result = read_string_from_file(df);
 	assert_equals_str(expected, result);
@@ -44,7 +44,7 @@ MU_TEST(test_read_file_1) {
 
 MU_TEST(test_read_file_2) {
 	char *expected = "Bla bla bla watch out about \\n \\t \\r";
-	char *path = "Data/Test/test_read_data_from_file_2";
+	char *path = "src/Data/Test/test_read_data_from_file_2";
 	DataFile df = init_data_file(path);
 	char* result = read_string_from_file(df);
 	assert_equals_str(expected, result);
@@ -52,7 +52,7 @@ MU_TEST(test_read_file_2) {
 
 MU_TEST(test_read_file_3) {
 	char *expected = "This is     a       ><<<> \\ test !";
-	char *path = "Data/Test/test_read_data_from_file_3";
+	char *path = "src/Data/Test/test_read_data_from_file_3";
 	DataFile df = init_data_file(path);
 	char* result = read_string_from_file(df);
 	assert_equals_str(expected, result);

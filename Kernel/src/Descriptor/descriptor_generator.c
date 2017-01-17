@@ -16,7 +16,6 @@
 #include "../Tools/data_handler.h"
 #include "../Tools/hash_map.h"
 
-#include "../Search/image_finder.h"
 
 
 int check_files(){
