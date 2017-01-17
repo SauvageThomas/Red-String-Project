@@ -12,7 +12,9 @@
 #include <stdlib.h>
 
 #include "search_engine.h"
-#include "Descriptor/descriptor_generator.h"
+#include "Descriptor/text_descriptor_generator.h"
+#include "Descriptor/image_descriptor_generator.h"
+#include "Descriptor/sound_descriptor_generator.h"
 #include "Descriptor/index_generator.h"
 #include "Search/data_manager.h"
 #include "Tools/report.h"
