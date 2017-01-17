@@ -22,7 +22,7 @@ Descriptor generate_text_descriptor(DataFile df){
 
 
 void generate_text_descriptors(DataFile df, Directory dir){
-	puts("Text files");
+	puts("Text filessssss");
 	write_string_in_file(df, ""); //Reset the file
 	for (int i = 0; i < dir.txt_size; i += 1) {
 		Descriptor desc = generate_text_descriptor(dir.txt_files[i]);
