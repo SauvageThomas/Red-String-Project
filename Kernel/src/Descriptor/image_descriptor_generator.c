@@ -4,6 +4,8 @@
 #include "../Data/constant.h"
 #include "descriptor_generator.h"
 
+#include "../Search/image_finder.h"
+
 Descriptor generate_image_descriptor(DataFile df, int quant) {
 	Descriptor descriptor = init_descriptor(df.path);
 	size_t size;

@@ -87,7 +87,7 @@ void init_search_engine(Config config) {
 	Directory dir = get_all_files(get_value_of(config, "path"));
 
 	check_text_descriptor(path, dir);
-
+	
 	char *quant = get_value_of(config, "quantification");
 	if (quant == NULL) {
 		error_config_file();
@@ -97,7 +97,6 @@ void init_search_engine(Config config) {
 	check_image_descriptor(path, dir, n);
 
 	check_sound_descriptor(path, dir);
-
 	printf("Generating descriptors took %ds\n", chrono());
 
 	puts("Search Engine is ready !!");

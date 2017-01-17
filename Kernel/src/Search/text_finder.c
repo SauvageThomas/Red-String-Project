@@ -5,20 +5,6 @@
 
 #include "text_finder.h"
 
-void find_text(DataFile df) {
-	int matrix_length = 0;
-	printf("XML FILE\n");
-	/*
-	 char* content = read_string_from_file(df);
-	 content = remove_xml(content);
-	 content = remove_punctuation(content);
-
-	 char **matrix_of_words = remove_words(content, &matrix_length);
-	 //printf("%s\n", content);
-	 //for (int i=0; i<matrix_length; i++)   /* test loop*/
-	//printf("%s\n", matrix_of_words[i]);
-	//TODO: compare with index and get the similar files
-}
 
 char *remove_xml(char* content) {
 	char* working_content = malloc(sizeof(char) * (int) strlen(content));
@@ -42,7 +28,6 @@ char *remove_xml(char* content) {
 	 final_content = malloc(sizeof(char) * cpt);
 	 for (size_t i = 0; i < cpt; i++)
 	 final_content[i] = working_content[i];
-
 	 final_content[cpt] = '\0';
 	 //free(working_content);
 	 puts("end");*/
@@ -56,7 +41,6 @@ void remove_punctuation(char* content) {
 	char* final_content;
 	int check;
 	char tmp;
-
 	for (size_t i = 0; i < strlen(content); i++) {
 		tmp = content[i];
 		check = 1;

@@ -1,6 +1,5 @@
-#include "../Tools/data_handler.h"
 #include "descriptor_generator.h"
-#include "../Data/constant.h"
+#include "../Search/text_finder.h"
 
 Descriptor generate_text_descriptor(DataFile df){
 	int matrix_length = 0;

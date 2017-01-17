@@ -33,7 +33,7 @@ int search_data(Config config, char* file_path) {
 
 	switch (file_type) {
 	case TEXT:
-		find_text(df);
+		//find_text(df);
 		break;
 	case IMAGE:
 		//return 1;
