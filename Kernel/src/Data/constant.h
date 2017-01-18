@@ -15,6 +15,15 @@
 #define PROD 1
 #define TEST 0
 
+#include <time.h>
+
+#include "../Tools/hash_map.h"
+
+
+#define KPASSLEN 20
+#define KSIZE 255
+#define KSIZEWORD 26
+
 typedef struct {
 	char** config;
 	size_t size;
@@ -23,13 +32,11 @@ typedef struct {
 
 typedef struct {
 	HashMap map;
-	char *file_name;
-	struct tm *time;
+	char file_name[KSIZE * 2];
+	time_t date;
 	size_t size;
 } Descriptor;
 
-#define KPASSLEN 20
-#define KSIZE 255
-#define KSIZEWORD 26
+
 
 #endif /* DATA_CONSTANT_H_ */

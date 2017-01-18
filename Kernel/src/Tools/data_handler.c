@@ -44,6 +44,7 @@ int is_empty_file(DataFile data_file) {
 void set_data_file_length(DataFile* data_file) {
 	struct stat s;
 	stat(data_file->path, &s);
+	data_file->date = s.st_mtime;
 	data_file->length = s.st_size;
 }
 
@@ -57,7 +58,7 @@ int get_data_file_extension(char *file_name) {
 
 	if (!strcmp(ext, "xml") /*|| !strcmp(ext, "txt")*/) {
 		return TEXT;
-	} else if (!strcmp(ext, "bin") || !strcmp(ext, "wav")) {
+	} else if (!strcmp(ext, "wav")) {
 		return SOUND;
 	} else if (!strcmp(ext, "jpg") || !strcmp(ext, "bmp")) {
 		return IMAGE;

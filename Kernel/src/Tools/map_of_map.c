@@ -6,16 +6,13 @@
  Description : the implementation of a map whose values are maps
  ============================================================================
  */
-
-
+/*
 #include <malloc.h>
 #include "map_of_map.h"
-
 
 void init_map_of_map(map_of_map* map) {
 	*map = NULL;
 }
-
 
 cell_map_of_map* find_value_map_of_map(cell_map_of_map* cell, char* key) {
 	if (cell == NULL)
@@ -25,24 +22,24 @@ cell_map_of_map* find_value_map_of_map(cell_map_of_map* cell, char* key) {
 	return find_value_map_of_map(cell->next, key);
 }
 
-
-
-void add_value_map_of_map(map_of_map* map, char* key, char* key_of_second_map, int nb_occurence) {
+void add_value_map_of_map(map_of_map* map, char* key, char* key_of_second_map,
+		int nb_occurence) {
 	cell_map_of_map* cellTmp = find_value_map_of_map(*map, key);
 	if (cellTmp == NULL) {
 		map_of_map map2 = malloc(sizeof(cell_map_of_map));
 
 		init_hash_map(&((cell_map_of_map*) map2)->map);
-		add_value_hash_map_with_value(&((cell_map_of_map*) map2)->map, key_of_second_map, nb_occurence);
-		
-		((cell_map_of_map*) map2)->key =  key;
+		add_value_hash_map_with_value(&((cell_map_of_map*) map2)->map,
+				key_of_second_map, nb_occurence);
+
+		((cell_map_of_map*) map2)->key = key;
 		((cell_map_of_map*) map2)->next = *map;
 		*map = map2;
 	} else {
-		add_value_hash_map_with_value(&cellTmp->map, key_of_second_map, nb_occurence);
+		add_value_hash_map_with_value(&cellTmp->map, key_of_second_map,
+				nb_occurence);
 	}
 }
-
 
 void remove_cell_map_of_map(map_of_map* map, char* key) {
 	if ((*map)->key == key) {
@@ -51,6 +48,8 @@ void remove_cell_map_of_map(map_of_map* map, char* key) {
 		remove_cell_map_of_map(&(*map)->next, key);
 
 }
+
+
 
 //return the first cell, it remove this cell of the map in the same time 
 char* pop_value_map_of_map(map_of_map* map) {
@@ -64,22 +63,22 @@ char* pop_value_map_of_map(map_of_map* map) {
 		}
 		cellTmp = cellTmp->next;
 	}
-	
-	char* result = malloc(strlen(first_cell_alphabetical_order->key) + sizeof(int) + size_of_map(first_cell_alphabetical_order->map)+ 5);
-	char* pattern = "%s \n";
-	sprintf(result, pattern,first_cell_alphabetical_order->key);
-	/*while(map!=NULL){
-		strcat(result, pop_value_hash_map(&first_cell_alphabetical_order->map));
-	}*/
 
-	for(int i = 0; i<=size_of_map(first_cell_alphabetical_order->map);i++){
+	char* result = malloc(
+			strlen(first_cell_alphabetical_order->key) + sizeof(int)
+					+ size_of_map(first_cell_alphabetical_order->map) + 5);
+	char* pattern = "%s \n";
+	sprintf(result, pattern, first_cell_alphabetical_order->key);
+	/*while(map!=NULL){
+	 strcat(result, pop_value_hash_map(&first_cell_alphabetical_order->map));
+	 }*/
+/*
+	for (int i = 0; i <= size_of_map(first_cell_alphabetical_order->map); i++) {
 		strcat(result, pop_value_hash_map(&first_cell_alphabetical_order->map));
 	}
-	
 
 	if (*map != NULL)
 		remove_cell_map_of_map(map, first_cell_alphabetical_order->key);
 	return result;
 }
-
-
+*/
