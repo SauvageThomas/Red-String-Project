@@ -90,7 +90,6 @@ Directory get_all_files(char *path) {
 			}
 
 			strcat(full_path, ep->d_name);
-
 			enum FileType file_type = get_data_file_extension(ep->d_name);
 
 			switch (file_type) {
