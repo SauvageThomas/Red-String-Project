@@ -33,25 +33,19 @@ int main(void) {
 	setvbuf(stdout, NULL, _IONBF, 0);
 	setvbuf(stderr, NULL, _IONBF, 0);
 	setvbuf(stdin, NULL, _IONBF, 0);
+	puts("\n\n");
 
-	if (DEBUG) {
-		puts("DEBUG : ON");
-	}
-	if (!PROD) {
-		puts("PROD  : OFF");
-	} else {
-		puts("PROD  : ON");
-		// exemple of path : 03-Des_chercheurs_parviennent_à_régénérer.xml
-	}
-
-	if (PROD){
-		start_gui();
-	}
 
 	//launch test
 	if (TEST) {
 		run_all_tests();
+		return EXIT_SUCCESS;
 	}
+
+	
+	if (DEBUG) puts("DEBUG MODE : ACTIVATED");
+
+	if (PROD) start_gui();
 
 	return EXIT_SUCCESS;
 }

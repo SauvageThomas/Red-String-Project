@@ -33,7 +33,7 @@ int search_data(Config config, char* file_path) {
 
 	switch (file_type) {
 	case TEXT:
-		find_text(df);
+		//find_text(df);
 		break;
 	case IMAGE:
 		//return 1;
@@ -90,14 +90,6 @@ Directory get_all_files(char *path) {
 			}
 
 			strcat(full_path, ep->d_name);
-			if (DEBUG) {
-				printf("text %d audio %d image %d\n", dir.txt_size,
-						dir.audio_size, dir.image_size);
-				printf("text %d audio %d image %d\n", max_size_text,
-						max_size_audio, max_size_image);
-			}
-
-			//puts(ep->d_name);
 			enum FileType file_type = get_data_file_extension(ep->d_name);
 
 			switch (file_type) {

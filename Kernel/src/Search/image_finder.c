@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <errno.h>
+#include <stdio.h>
 
 #include "image_finder.h"
 #include "../GUI/functions.h"
@@ -40,18 +41,19 @@ size_t *quantify_file(size_t n, DataFile df, size_t *size) {
 
 	*size = width * height;
 
-	printf("%d %d %d\n", height, width, code);
+//	printf("%d %d %d\n", height, width, code);
 
 	/*Pixel *pixels = malloc(sizeof(Pixel) * height * width);
-	if (pixels == NULL) {
-		fprintf(stderr, "Malloc failed %s\n", strerror(errno));
-	}*/
+	 if (pixels == NULL) {
+	 fprintf(stderr, "Malloc failed %s\n", strerror(errno));
+	 }*/
 
 	size_t *quant_array = malloc(sizeof(size_t) * height * width);
 	if (quant_array == NULL) {
 		fprintf(stderr, "Malloc failed %s\n", strerror(errno));
 	}
-	puts("loop");
+
+	//puts("loop");
 	for (int i = 0; i < height * width; i += 1) {
 		Pixel p;
 		fscanf(df.file, "%d", &p.red);
@@ -63,9 +65,10 @@ size_t *quantify_file(size_t n, DataFile df, size_t *size) {
 		quant_array[i] = q;
 		//printf("Quant : %d\n", q);
 	}
+
 	/*
-	puts("Free");
-	free(pixels);*/
+	 puts("Free");
+	 free(pixels);*/
 	return quant_array;
 
 	/* Exemple
@@ -87,7 +90,7 @@ void int_to_bin_digit(uint8_t in, uint8_t count, uint8_t* out) {
 	int i;
 	for (i = 0; i < count; i++) {
 		out[i] = (in & mask) ? 1 : 0;
-		//printf("%d",out[i]);
+		//printf("%d", out[i]);
 		in <<= 1;
 	}
 	//puts("");
@@ -106,7 +109,7 @@ int exposant(uint8_t *tmp, int *i, int n) {
 
 size_t quantification(Pixel pixel, int n) {
 	uint8_t tmp[8];
-	int i = 5;
+	int i = 3 * n - 1;
 	size_t res = 0;
 
 	int_to_bin_digit(pixel.red, 8, tmp);

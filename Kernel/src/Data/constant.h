@@ -8,13 +8,12 @@
 #ifndef DATA_CONSTANT_H_
 #define DATA_CONSTANT_H_
 
+#include <time.h>
+#include "../Tools/hash_map.h"
+
 #define DEBUG 1
 #define PROD 1
 #define TEST 0
-
-#include <time.h>
-
-#include "../Tools/hash_map.h"
 
 typedef struct {
 	char** config;

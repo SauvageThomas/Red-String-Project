@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <errno.h>
 
 #include "functions.h"
 #include "../Data/constant.h"
@@ -59,16 +60,13 @@ void modif_config() {
 
 Config load_config() {
 
-	const char token[] = " \n";
+	char token[] = " \n";
 
 	DataFile data_file = init_data_file(".config");
 	if (data_file.length == 0) {
 		//TODO: Create the file according to the backup file
 	}
-	printf("%d\n", data_file.length);
-	printf("%d\n", data_file.length);
-	printf("%d\n", data_file.length);
-	printf("%d\n", data_file.length);
+
 	char* config = read_string_from_file(data_file);
 	char* tmp = config;
 
@@ -79,24 +77,33 @@ Config load_config() {
 	i = (i + 1) * 2;
 
 	Config configuration;
-	char** config_array = malloc(sizeof(char*) * i);
-	for (int j = 0; j < i; j += 1) {
-		config_array[i] = malloc(KSIZEWORD);
-	}
-
-	printf("%d\n", data_file.length);
-
-	configuration.config = config_array;
 	configuration.size = 0;
 	configuration.size_word = KSIZEWORD;
+
+	puts("First malloc");
+	configuration.config = malloc(sizeof(char*) * i);
+	if (configuration.config == NULL) {
+		fprintf(stderr, "Malloc in load config failed %s\n", strerror(errno));
+	}
+
+	for (int j = 0; j < i; j += 1) {
+		configuration.config[i] = malloc(KSIZEWORD);
+		if (configuration.config[i] == NULL) {
+			fprintf(stderr, "Malloc in loop of load config failed %s\n",
+					strerror(errno));
+		}
+	}
+	puts("End malloc");
+
+	printf("%d\n", data_file.length);
 
 	char* key = strtok(config, token);
 	char* value = strtok(NULL, token);
 
-	printf("%d\n", data_file.length);
+	puts("start loop");
 	while (key != NULL && value != NULL) {
-		config_array[configuration.size] = key;
-		config_array[configuration.size + 1] = value;
+		configuration.config[configuration.size] = key;
+		configuration.config[configuration.size + 1] = value;
 
 		if (value == NULL) {
 			puts(
@@ -109,7 +116,7 @@ Config load_config() {
 
 		configuration.size += 2;
 	}
-	puts("Configuration succesfully done !");
+	puts("Configuration succesfully loaded !");
 	return configuration;
 }
 
