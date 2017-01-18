@@ -20,7 +20,7 @@ Descriptor generate_text_descriptor(DataFile df){
 
 
 void generate_text_descriptors(DataFile df, Directory dir){
-	puts("Updating text descriptor...");
+	puts(" -> Updating text descriptor...");
 	write_string_in_file(df, ""); //Reset the file
 	for (int i = 0; i < dir.txt_size; i += 1) {
 		Descriptor desc = generate_text_descriptor(dir.txt_files[i]);
@@ -28,5 +28,5 @@ void generate_text_descriptors(DataFile df, Directory dir){
 		if (DEBUG)
 			printf("[%d] Text descriptor updated : %s\n", (i+1), dir.txt_files[i].path);
 	}
-	printf("Done ! %d text descriptors updated !\n", dir.txt_size);
+	printf(" -> Done ! %d text descriptors updated !\n", dir.txt_size);
 }

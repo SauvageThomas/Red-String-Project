@@ -6,6 +6,12 @@
 #include "image_finder.h"
 #include "../GUI/functions.h"
 
+
+int compare_2_images(){
+	int score = 0;
+	return score;
+}
+
 void find_image(char *quantif, DataFile df) {
 	if (quantif == NULL) {
 		error_config_file();
@@ -41,19 +47,11 @@ size_t *quantify_file(size_t n, DataFile df, size_t *size) {
 
 	*size = width * height;
 
-//	printf("%d %d %d\n", height, width, code);
-
-	/*Pixel *pixels = malloc(sizeof(Pixel) * height * width);
-	 if (pixels == NULL) {
-	 fprintf(stderr, "Malloc failed %s\n", strerror(errno));
-	 }*/
-
 	size_t *quant_array = malloc(sizeof(size_t) * height * width);
 	if (quant_array == NULL) {
 		fprintf(stderr, "Malloc failed %s\n", strerror(errno));
 	}
 
-	//puts("loop");
 	for (int i = 0; i < height * width; i += 1) {
 		Pixel p;
 		fscanf(df.file, "%d", &p.red);
@@ -61,28 +59,10 @@ size_t *quantify_file(size_t n, DataFile df, size_t *size) {
 		fscanf(df.file, "%d", &p.blue);
 
 		size_t q = quantification(p, n);
-		//printf("r :%d\n", pixels[i].red);
 		quant_array[i] = q;
-		//printf("Quant : %d\n", q);
 	}
 
-	/*
-	 puts("Free");
-	 free(pixels);*/
 	return quant_array;
-
-	/* Exemple
-	 size_t size = 2;
-	 Pixel pixel = { 255, 128, 64 };
-	 pixels[0] = pixel;
-	 Pixel pixel2 = { 64, 234, 18 };
-	 pixels[1] = pixel2;
-
-
-	 for (int i = 0; i < size; i += 1) {
-	 int q = quantification(pixels[i], n);
-	 printf("La quantification donne : %d\n", q);
-	 }*/
 }
 
 void int_to_bin_digit(uint8_t in, uint8_t count, uint8_t* out) {
@@ -90,14 +70,11 @@ void int_to_bin_digit(uint8_t in, uint8_t count, uint8_t* out) {
 	int i;
 	for (i = 0; i < count; i++) {
 		out[i] = (in & mask) ? 1 : 0;
-		//printf("%d", out[i]);
 		in <<= 1;
 	}
-	//puts("");
 }
 
 int exposant(uint8_t *tmp, int *i, int n) {
-	//printf("%d %d\n", tmp[0], tmp[1]);
 	int somme = 0;
 	for (int cpt = 0; cpt < n; cpt += 1) {
 		somme += tmp[cpt] * pow(2, *i);

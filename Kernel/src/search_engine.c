@@ -44,6 +44,8 @@ char* strcat_path(char* path, char* file_name) {
 }
 
 void check_text_descriptor(char* path, Directory dir) {
+	puts("\n\n==================================================================");
+	puts(" >>>    TEXT DESCRIPTOR UPDATE\n");
 	char* full_path = strcat_path(path, "text_descriptors");
 	DataFile df = init_data_file(full_path);
 	int updated = check_descriptor(df);
@@ -54,6 +56,8 @@ void check_text_descriptor(char* path, Directory dir) {
 }
 
 void check_image_descriptor(char* path, Directory dir, int n) {
+	puts("\n\n==================================================================");
+	puts(" >>>    IMAGE DESCRIPTOR UPDATE\n");
 	char* full_path = strcat_path(path, "image_descriptors");
 	DataFile df = init_data_file(full_path);
 	int updated = check_descriptor(df);
@@ -64,6 +68,8 @@ void check_image_descriptor(char* path, Directory dir, int n) {
 }
 
 void check_sound_descriptor(char* path, Directory dir, int k, int m) {
+	puts("\n\n==================================================================");
+	puts(" >>>    SOUND DESCRIPTOR UPDATE\n");
 	char* full_path = strcat_path(path, "sound_descriptors");
 	DataFile df = init_data_file(full_path);
 	int updated = check_descriptor(df);
@@ -76,8 +82,8 @@ void init_search_engine(Config config) {
 	/*
 	 * UPDATE DESCRIPTORS AND INDEX IF NEEDED
 	 */
-	puts("------------------------------------------------------------------");
-	puts("*   *   *   SEARCH ENGINE : INITITIALIZATION");
+	puts("\n\n==================================================================");
+	puts(" >>>    SEARCH ENGINE : INITITIALIZATION");
 
 	//puts("-> checking descriptors...");
 	char *path = get_value_of(config, "descriptors");
@@ -105,9 +111,11 @@ void init_search_engine(Config config) {
 	size_t m = (size_t) strtol(nb_intervalles, (char **) NULL, 10);
 	check_sound_descriptor(path, dir, k, m);
 
-	printf("Generating descriptors took %ds\n", chrono());
-
-	puts("Search Engine is ready !!");
+	if(!DEBUG)
+		clear_console();
+	puts("\n==================================================================");
+	printf(" >>>    GENERATING DESCRIPTORS TIME : %ds\n", chrono());
+	puts(" >>>    SEARCH ENGINE : READY\n");
 }
 
 void run_search_engine(Config config) {
@@ -115,8 +123,6 @@ void run_search_engine(Config config) {
 	/*
 	 * RUN THE RESEARCH
 	 */
-
-	puts("*   *   *   SEARCH ENGINE : RUN");
 	search_gui(config);
 }
 
@@ -125,6 +131,6 @@ void close_search_engine() {
 	/*
 	 * free resources if needed ?
 	 */
-
-	puts("*	   *   *   SEARCH ENGINE : CLOSE");
+	puts("\n\n\n==================================================================");
+	puts(" >>>    SEARCH ENGINE : CLOSE\n\n");
 }

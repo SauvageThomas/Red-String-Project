@@ -11,7 +11,7 @@
 #include <time.h>
 #include "../Tools/hash_map.h"
 
-#define DEBUG 1
+#define DEBUG 0
 #define PROD 1
 #define TEST 0
 
