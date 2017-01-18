@@ -27,7 +27,7 @@ void generate_text_descriptors(DataFile df, Directory dir){
 	for (int i = 0; i < dir.txt_size; i += 1) {
 
 		Descriptor desc = generate_text_descriptor(dir.txt_files[i]);
-		printf("%d\n", i);
+		//printf("%d\n", i);
 		descriptor_to_file(desc, df);
 		//printf("[%d] File descriptor SUCCESS : %s\n", (i+1), dir.txt_files[i].path);
 	}
