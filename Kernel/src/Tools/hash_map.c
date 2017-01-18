@@ -72,6 +72,28 @@ void add_nb_value_hash_map(HashMap* map, char* key, int n) {
 	}
 }
 
+//if the map don't yet contain the "key", this "key" is add with nb_occurence occurrence
+//else the nombre od occurrence is incremented by one 
+void add_value_hash_map_with_value(HashMap* map, char* key, int nb_occurence) {
+	CellHashMap* cellTmp = find_value(*map, key);
+	if (cellTmp == NULL) {
+		HashMap map2 = malloc(sizeof(CellHashMap));
+
+		//printf("New key : %s\n", key);
+		((CellHashMap*) map2)->key = malloc(strlen(key) + 1);
+		strcpy(((CellHashMap*) map2)->key, key);
+
+		//((CellHashMap*) map2)->key = key;
+		map2->nbOccurence = nb_occurence;
+		((CellHashMap*) map2)->next = *map;
+		*map = map2;
+	} else {
+		cellTmp->nbOccurence += nb_occurence;
+		//printf("Alredy got : %s => %d\n", key, cellTmp->nbOccurence);
+	}
+}
+
+
 //return the number of occurrence of the "key"
 int find_nb_occurence(HashMap map, char* key) {
 	CellHashMap* cellTmp = find_value(map, key);
