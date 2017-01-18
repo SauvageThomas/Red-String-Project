@@ -18,11 +18,6 @@
 #include "../Tools/data_handler.h"
 #include "../Tools/hash_map.h"
 
-int check_files() {
-	//TODO: check every file last modification date
-	return 1;
-}
-
 int check_descriptor(DataFile df, DataFile *data_files, size_t size) {
 	if (df.length == 0) {
 		puts("no descriptor found !");
