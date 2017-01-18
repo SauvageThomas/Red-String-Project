@@ -11,14 +11,10 @@
 #include <stdlib.h>
 #include <errno.h>
 
-#include "../Descriptor/descriptor_tools.h"
 #include "descriptor_generator.h"
-#include "../Search/data_manager.h"
 #include "../Data/constant.h"
 #include "../Tools/data_handler.h"
 #include "../Tools/hash_map.h"
-#include "../Search/text_finder.h"
-#include "../Search/image_finder.h"
 
 int check_files() {
 	//TODO: check every file last modification date
