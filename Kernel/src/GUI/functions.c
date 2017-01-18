@@ -34,7 +34,6 @@ void search_by_file(Config config) {
 
 	puts("Please, enter a file path : ");
 	if (get_secure_input(file_name, KSIZE)) {
-		puts("aaa");
 		strcat(file_path, file_name);
 		int res = search_data(config, file_path);
 		show_search_report(res);

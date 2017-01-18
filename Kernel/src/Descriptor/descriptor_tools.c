@@ -12,13 +12,18 @@ int compare_descriptors(Descriptor desc1, Descriptor desc2) {
 	int common = 0;
 	while (map1 != NULL) {
 		while (map2 != NULL) {
+
 			if (!strcmp(map1->key, map2->key)) {
-				common += 1;
+				//printf("%s vs %s\n", map1->key, map2->key);
+				//puts("+1 !");
+				common += 1 + map1->nbOccurence;
 			}
 			map2 = map2->next;
 		}
+		map2 = desc2.map;
 		map1 = map1->next;
 	}
+	return common;
 }
 
 Descriptor *extract_all_descriptor(char *content, int *size_desc) {
@@ -31,9 +36,8 @@ Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 	for (i = 0; cpt < max; i += 1) {
 		//printf("%d\n", i);
 
-
 		//Remove the '>'
-		cpt +=1;
+		cpt += 1;
 		if (i >= size - 1) {
 			puts("realloc");
 			size *= 2;
@@ -45,7 +49,6 @@ Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 
 		descriptors[i].map = NULL;
 		descriptors[i].size = max;
-
 
 		//Read header
 		int tmp = 0;

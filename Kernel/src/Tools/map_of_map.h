@@ -16,13 +16,13 @@ typedef struct cell_map_of_map{
 	char* key;
 	HashMap map;
 	struct cell_map_of_map* next;
-	
-}cell_map_of_map;
 
-typedef cell_map_of_map* map_of_map; 
+}CellMapOfMap;
 
-void init_map_of_map(map_of_map* map);
-void add_value_map_of_map(map_of_map* map, char* key, char* key_of_second_map, int nb_occurence);
-char* pop_value_map_of_map(map_of_map* map);
-int is_map_of_map_empty(map_of_map map);
+typedef CellMapOfMap* MapOfMap;
+
+void init_map_of_map(MapOfMap* map);
+void add_value_map_of_map(MapOfMap* map, char* key, char* key_of_second_map, int nb_occurence);
+char* pop_value_map_of_map(MapOfMap* map);
+int is_map_of_map_empty(MapOfMap map);
 
