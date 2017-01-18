@@ -24,4 +24,5 @@ typedef cell_map_of_map* map_of_map;
 void init_map_of_map(map_of_map* map);
 void add_value_map_of_map(map_of_map* map, char* key, char* key_of_second_map, int nb_occurence);
 char* pop_value_map_of_map(map_of_map* map);
+int is_map_of_map_empty(map_of_map map);
 

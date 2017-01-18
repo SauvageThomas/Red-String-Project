@@ -14,7 +14,7 @@ EXEC=SearchEngine.exe
 all: $(EXEC)
 
 
-SearchEngine.exe: hash_map.o index_generator.o data_manager.o report.o search_engine.o test.o data_handler.o main.o text_finder.o image_finder.o sound_finder.o gui.o functions.o descriptor_generator.o text_descriptor_generator.o image_descriptor_generator.o sound_descriptor_generator.o map_of_map.o
+SearchEngine.exe: hash_map.o index_generator.o data_manager.o report.o search_engine.o test.o data_handler.o main.o text_finder.o image_finder.o sound_finder.o gui.o functions.o descriptor_generator.o text_descriptor_generator.o image_descriptor_generator.o sound_descriptor_generator.o map_of_map.o index_generator.o
 	$(CC)   $^ -lm -o ../$@ 
 
 descriptor_generator.o : Descriptor/descriptor_generator.c Descriptor/descriptor_generator.h
@@ -65,7 +65,10 @@ hash_map.o : Tools/hash_map.c Tools/hash_map.h
 functions.o : GUI/functions.c GUI/functions.h Data/constant.h Tools/report.h Tools/data_handler.h Search/data_manager.h Search/text_finder.h Search/image_finder.h Search/sound_finder.h
 	$(CC) $(CFLAGS) $<
 
-map_of_map.o : Tools/map_of_map.c Tools/data_handler.h Tools/map_of_map.h Tools/hash_map.h
+map_of_map.o : Tools/map_of_map.c  Tools/map_of_map.h Tools/hash_map.h
+	$(CC) $(CFLAGS) $<
+
+index_generator.o : Descriptor/index_generator.c Descriptor/index_generator.h Tools/data_handler.h Tools/map_of_map.h Tools/hash_map.h
 	$(CC) $(CFLAGS) $<
 
 main.o : main.c Test/test.h Test/minunit.h search_engine.h Data/constant.h GUI/gui.h

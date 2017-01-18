@@ -52,6 +52,12 @@ void remove_cell_map_of_map(map_of_map* map, char* key) {
 
 }
 
+int is_map_of_map_empty(map_of_map map){
+	if(map==NULL)
+		return 1;
+	return 0;
+}
+
 //return the first cell, it remove this cell of the map in the same time 
 char* pop_value_map_of_map(map_of_map* map) {
 	cell_map_of_map* cellTmp = *map;
@@ -66,16 +72,12 @@ char* pop_value_map_of_map(map_of_map* map) {
 	}
 	
 	char* result = malloc(strlen(first_cell_alphabetical_order->key) + sizeof(int) + size_of_map(first_cell_alphabetical_order->map)+ 5);
-	char* pattern = "%s \n";
+	char* pattern = ">%s \n";
 	sprintf(result, pattern,first_cell_alphabetical_order->key);
-	/*while(map!=NULL){
-		strcat(result, pop_value_hash_map(&first_cell_alphabetical_order->map));
-	}*/
 
-	for(int i = 0; i<=size_of_map(first_cell_alphabetical_order->map);i++){
+	while(size_of_map(first_cell_alphabetical_order->map)>0){
 		strcat(result, pop_value_hash_map(&first_cell_alphabetical_order->map));
 	}
-	
 
 	if (*map != NULL)
 		remove_cell_map_of_map(map, first_cell_alphabetical_order->key);
