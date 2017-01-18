@@ -4,7 +4,6 @@
 
 #include "../Tools/data_handler.h"
 
-void find_text(DataFile df);
 char *remove_xml(char* content);
 void remove_punctuation(char* content);
 char** remove_words(char* content, int* matrix_length);

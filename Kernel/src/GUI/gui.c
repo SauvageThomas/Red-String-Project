@@ -18,7 +18,7 @@
 
 void start_gui() {
 	if (!DEBUG) {
-		//clear_console();
+		clear_console();
 	}
 
 	char buffer[2] = { ' ', '\0' };
