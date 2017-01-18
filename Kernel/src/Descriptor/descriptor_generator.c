@@ -30,34 +30,43 @@ int check_descriptor(DataFile df, DataFile *data_files, size_t size) {
 		puts("no descriptor found !");
 		return 1;
 	}
+	//return 1;
 	puts("Have to check every file...");
 
 	char *content = read_string_from_file(df);
 
 	int size_desc;
 
-	Descriptor *desc = extract_first_descriptor(content, &size_desc);
+	Descriptor *desc = extract_all_descriptor(content, &size_desc);
 	printf("size desc : %d and nb files %u\n", size_desc, size);
 	if (size != size_desc) {
+		puts("size !=");
 		return 1;
 	}
+	puts("size ok");
 
+	//For each file
 	for (int i = 0; i < size; i += 1) {
-		//puts(content);
 
+		if (!strcmp(desc[0].file_name, data_files[i].path)) {
+			puts("wrong");
+			return 1;
+		}
 		DataFile ressource = init_data_file(desc[0].file_name);
-		exit(0);
-		//puts(content);
-
-		//puts(desc.file_name);
-		//printf("ressource %u -- desc %u\n", ressource.date, df.date);
 		if (ressource.date > df.date) {
 			puts("Not up2date");
-			exit(0);
+			return 1;
 		}
+		//puts(desc.file_name);
+		//printf("ressource %u -- desc %u\n", ressource.date, df.date);
+
 	}
 
-	return check_files();
+	puts("file ok");
+	free(desc);
+	free(content);
+
+	return 0;
 }
 
 Descriptor init_descriptor(char* path) {

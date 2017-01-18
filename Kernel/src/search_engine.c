@@ -49,6 +49,7 @@ void check_text_descriptor(char* path, Directory dir) {
 	DataFile df = init_data_file(full_path);
 	int updated = check_descriptor(df, &dir.txt_files, dir.txt_size);
 	if (updated) {
+		puts("upadting ...");
 		generate_text_descriptors(df, dir);
 		update_index();
 	}
@@ -59,6 +60,7 @@ void check_image_descriptor(char* path, Directory dir, int n) {
 	DataFile df = init_data_file(full_path);
 	int updated = check_descriptor(df, &dir.image_files, dir.image_size);
 	if (updated) {
+		puts("upadting ...");
 		generate_image_descriptors(df, dir, n);
 		update_index();
 	}
@@ -69,6 +71,7 @@ void check_sound_descriptor(char* path, Directory dir) {
 	DataFile df = init_data_file(full_path);
 	int updated = check_descriptor(df, &dir.audio_files, dir.audio_size);
 	if (updated) {
+		puts("upadting ...");
 		generate_sound_descriptors(df, dir);
 	}
 }

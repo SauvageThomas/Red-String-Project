@@ -11,7 +11,7 @@
 #include "../Data/constant.h"
 
 int compare_descriptors(Descriptor desc1, Descriptor desc2);
-Descriptor *extract_first_descriptor(char *content, int *size_desc);
+Descriptor *extract_all_descriptor(char *content, int *size_desc);
 
 
 #endif /* DESCRIPTOR_DESCRIPTOR_TOOLS_H_ */

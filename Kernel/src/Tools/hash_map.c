@@ -56,8 +56,9 @@ void add_nb_value_hash_map(HashMap* map, char* key, int n) {
 	CellHashMap* cellTmp = find_value(*map, key);
 	if (cellTmp == NULL) {
 		HashMap map2 = malloc(sizeof(CellHashMap));
-
-		//printf("New key : %s\n", key);
+		if(map2==NULL){
+			perror("malloc");
+		}
 		((CellHashMap*) map2)->key = malloc(strlen(key) + 1);
 		strcpy(((CellHashMap*) map2)->key, key);
 
