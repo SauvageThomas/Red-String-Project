@@ -23,23 +23,29 @@ int compare_descriptors(Descriptor desc1, Descriptor desc2) {
 
 Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 	int size = 150;
-	Descriptor *descriptors = malloc(sizeof(descriptors) * size);
+	Descriptor *descriptors = malloc(sizeof(Descriptor) * size);
 
 	int i;
-	int cpt = 1;
+	int cpt = 0;
 	size_t max = strlen(content);
 	for (i = 0; cpt < max; i += 1) {
 		//printf("%d\n", i);
 
+
+		//Remove the '>'
+		cpt +=1;
 		if (i >= size - 1) {
 			puts("realloc");
 			size *= 2;
 
 			descriptors = realloc(descriptors, sizeof(descriptors) * size);
 		}
+		//printf("max %d\n", max);
+		//printf("all %u 1 %u / %u\n", sizeof(descriptors), sizeof(descriptors[i]),  sizeof(Descriptor));
 
 		descriptors[i].map = NULL;
 		descriptors[i].size = max;
+
 
 		//Read header
 		int tmp = 0;
@@ -50,7 +56,7 @@ Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 			cpt += 1;
 		}
 		descriptors[i].file_name[tmp] = '\0';
-		printf("\nfile_name %s\n", descriptors[i].file_name);
+		//printf("file_name %s\n", descriptors[i].file_name);
 
 		//Remove the newline
 		cpt += 1;
@@ -71,7 +77,7 @@ Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 			cpt += 1;
 
 			//puts("before");
-			add_nb_value_hash_map(&descriptors[i].map, key, n);
+			add_nb_value_hash_map(&(descriptors[i].map), key, n);
 
 			//printf("cont %d\n", strlen(content));
 			//printf("[%d/%d]%s => %d\n", cpt, max, key, n);

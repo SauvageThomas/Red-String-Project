@@ -8,7 +8,7 @@
 #ifndef DATA_CONSTANT_H_
 #define DATA_CONSTANT_H_
 
-#define DEBUG 0
+#define DEBUG 1
 #define PROD 1
 #define TEST 0
 

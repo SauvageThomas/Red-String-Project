@@ -22,6 +22,7 @@ typedef struct cell{
 
 typedef CellHashMap* HashMap; 
 
+void free_map(HashMap map);
 void init_hash_map(HashMap* map);
 void add_value_hash_map(HashMap* map, char* key);
 char* print_hash_map(HashMap map);

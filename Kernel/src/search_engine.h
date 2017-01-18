@@ -19,6 +19,6 @@ void run_search_engine();
 void close_search_engine();
 void check_text_descriptor(char* path, Directory dir);
 void check_image_descriptor(char* path, Directory dir, int n);
-void check_sound_descriptor(char* path, Directory dir);
+void check_sound_descriptor(char* path, Directory dir, int k, int m);
 
 #endif

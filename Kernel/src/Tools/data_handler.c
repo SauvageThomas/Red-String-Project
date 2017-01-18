@@ -58,7 +58,7 @@ int get_data_file_extension(char *file_name) {
 
 	if (!strcmp(ext, "xml") /*|| !strcmp(ext, "txt")*/) {
 		return TEXT;
-	} else if (!strcmp(ext, "bin") || !strcmp(ext, "wav")) {
+	} else if (!strcmp(ext, "wav")) {
 		return SOUND;
 	} else if (!strcmp(ext, "jpg") || !strcmp(ext, "bmp")) {
 		return IMAGE;
