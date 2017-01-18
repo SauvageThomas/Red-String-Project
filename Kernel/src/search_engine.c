@@ -29,7 +29,7 @@ void launch_search_engine(Config config) {
 	 * MANAGE ALL THE SOFTWARE PROCESS
 	 */
 
-	puts("\n\n*   *   *   SEARCH ENGINE : LAUNCH");
+	puts("*   *   *   SEARCH ENGINE : LAUNCH");
 	init_search_engine(config);
 	run_search_engine(config);
 	close_search_engine();
@@ -69,14 +69,9 @@ void check_image_descriptor(char* path, Directory dir, int n) {
 void check_sound_descriptor(char* path, Directory dir, int k, int m) {
 	char* full_path = strcat_path(path, "sound_descriptors");
 	DataFile df = init_data_file(full_path);
-	int updated = check_descriptor(df, &dir.audio_files, dir.audio_size);
+	int updated = check_descriptor(df);
 	if (updated) {
-<<<<<<< HEAD
-		puts("upadting ...");
-		generate_sound_descriptors(df, dir);
-=======
 		generate_sound_descriptors(df, dir, k, m);
->>>>>>> branch 'dev' of https://github.com/SauvageThomas/Red-String-Project.git
 	}
 }
 void init_search_engine(Config config) {
