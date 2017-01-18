@@ -87,26 +87,69 @@ int search_data(Config config, char* file_path) {
 	if (i < max) {
 		max = i;
 	}
+
 	for (int i = 0; i < max; i += 1) {
 		char *tmp = pop_value_hash_map(&result);
-		char final_string[KSIZE + 15];
-		final_string[0] = '\0';
-		char c = tmp[0];
-		int j = 0;
+
 		//Change the content of the string
-		while (c != '\0') {
-			c = tmp[j];
-			strncat(final_string, &c, 1);
-			if (c == '/') {
-				final_string[0] = '\0';
-			} else if (c == ' ') {
-				strcat(final_string, "=> ");
-			}
-			j += 1;
+		char *final_string;
+		switch (file_type) {
+		case TEXT:
+			final_string = pretty_print_string(tmp);
+			break;
+		case IMAGE:
+			final_string = pretty_print_image(tmp);
+			break;
+		case SOUND:
+			final_string = pretty_print_sound(tmp);
+			break;
 		}
+
 		printf("%s\n", final_string);
 	}
 	return SUCCESS;
+}
+
+char *pretty_print_string(char *in) {
+	char *out = malloc(KSIZE + 15);
+	out[0] = '\0';
+
+	char c = in[0];
+	int j = 0;
+	while (c != '\0') {
+		c = in[j];
+		strncat(out, &c, 1);
+		if (c == '/') {
+			out[0] = '\0';
+		} else if (c == ' ') {
+			strcat(out, "=> ");
+		}
+		j += 1;
+	}
+	return out;
+}
+
+char *pretty_print_image(char *in) {
+	char *out = malloc(KSIZE + 15);
+	out[0] = '\0';
+
+	char c = in[0];
+	int j = 0;
+	while (c != '\0') {
+		c = in[j];
+		strncat(out, &c, 1);
+		if (c == '/') {
+			out[0] = '\0';
+		} else if (c == ' ') {
+			return out;
+		}
+		j += 1;
+	}
+	return NULL;
+}
+
+char *pretty_print_sound(char *in) {
+	return NULL;
 }
 
 Directory get_all_files(char *path) {

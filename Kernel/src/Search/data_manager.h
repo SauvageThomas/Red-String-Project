@@ -18,5 +18,8 @@ enum FileType {
 
 int search_data(Config config, char* file_path);
 Directory get_all_files(char *path);
+char *pretty_print_string(char *in);
+char *pretty_print_image(char *in);
+char *pretty_print_sound(char *in);
 
 #endif
