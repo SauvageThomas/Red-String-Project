@@ -11,6 +11,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include "Descriptor/descriptor_generator.h"
+#include "GUI/functions.h"
 #include "search_engine.h"
 #include "Descriptor/text_descriptor_generator.h"
 #include "Descriptor/image_descriptor_generator.h"
@@ -28,7 +30,7 @@ void launch_search_engine(Config config) {
 	 * MANAGE ALL THE SOFTWARE PROCESS
 	 */
 
-	puts("\n\n*   *   *   SEARCH ENGINE : LAUNCH");
+	puts("*   *   *   SEARCH ENGINE : LAUNCH");
 	init_search_engine(config);
 	run_search_engine(config);
 	close_search_engine();
@@ -44,29 +46,38 @@ char* strcat_path(char* path, char* file_name) {
 }
 
 void check_text_descriptor(char* path, Directory dir) {
+	puts("\n\n==================================================================");
+	puts(" >>>    TEXT DESCRIPTOR UPDATE\n");
 	char* full_path = strcat_path(path, "text_descriptors");
 	DataFile df = init_data_file(full_path);
-	int updated = check_descriptor(df);
+
+	int updated = check_descriptor(df, dir.txt_files, dir.txt_size);
 	if (updated) {
+		puts("upadting ...");
 		generate_text_descriptors(df, dir);
 		update_index();
 	}
 }
 
 void check_image_descriptor(char* path, Directory dir, int n) {
+	puts("\n\n==================================================================");
+	puts(" >>>    IMAGE DESCRIPTOR UPDATE\n");
 	char* full_path = strcat_path(path, "image_descriptors");
 	DataFile df = init_data_file(full_path);
-	int updated = check_descriptor(df);
+	int updated = check_descriptor(df, dir.image_files, dir.image_size);
 	if (updated) {
+		puts("upadting ...");
 		generate_image_descriptors(df, dir, n);
 		update_index();
 	}
 }
 
 void check_sound_descriptor(char* path, Directory dir, int k, int m) {
+	puts("\n\n==================================================================");
+	puts(" >>>    SOUND DESCRIPTOR UPDATE\n");
 	char* full_path = strcat_path(path, "sound_descriptors");
 	DataFile df = init_data_file(full_path);
-	int updated = check_descriptor(df);
+	int updated = check_descriptor(df, dir.audio_files, dir.audio_size);
 	if (updated) {
 		generate_sound_descriptors(df, dir, k, m);
 	}
@@ -76,8 +87,8 @@ void init_search_engine(Config config) {
 	/*
 	 * UPDATE DESCRIPTORS AND INDEX IF NEEDED
 	 */
-	puts("------------------------------------------------------------------");
-	puts("*   *   *   SEARCH ENGINE : INITITIALIZATION");
+	puts("\n\n==================================================================");
+	puts(" >>>    SEARCH ENGINE : INITITIALIZATION");
 
 	//puts("-> checking descriptors...");
 	char *path = get_value_of(config, "descriptors");
@@ -85,6 +96,10 @@ void init_search_engine(Config config) {
 	chrono();
 
 	Directory dir = get_all_files(get_value_of(config, "path"));
+
+	/*
+	 printf("%u textes, %u images et %u sons\n", dir.txt_size, dir.image_size,
+	 dir.audio_size);*/
 
 	check_text_descriptor(path, dir);
 
@@ -105,9 +120,11 @@ void init_search_engine(Config config) {
 	size_t m = (size_t) strtol(nb_intervalles, (char **) NULL, 10);
 	check_sound_descriptor(path, dir, k, m);
 
-	printf("Generating descriptors took %ds\n", chrono());
-
-	puts("Search Engine is ready !!");
+	if(!DEBUG)
+		clear_console();
+	puts("\n==================================================================");
+	printf(" >>>    GENERATING DESCRIPTORS TIME : %ds\n", chrono());
+	puts(" >>>    SEARCH ENGINE : READY\n");
 }
 
 void run_search_engine(Config config) {
@@ -115,8 +132,6 @@ void run_search_engine(Config config) {
 	/*
 	 * RUN THE RESEARCH
 	 */
-
-	puts("*   *   *   SEARCH ENGINE : RUN");
 	search_gui(config);
 }
 
@@ -125,6 +140,6 @@ void close_search_engine() {
 	/*
 	 * free resources if needed ?
 	 */
-
-	puts("*	   *   *   SEARCH ENGINE : CLOSE");
+	puts("\n\n\n==================================================================");
+	puts(" >>>    SEARCH ENGINE : CLOSE\n\n");
 }

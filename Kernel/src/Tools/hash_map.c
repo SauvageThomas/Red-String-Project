@@ -52,6 +52,26 @@ void add_value_hash_map(HashMap* map, char* key) {
 	}
 }
 
+void add_nb_value_hash_map(HashMap* map, char* key, int n) {
+	CellHashMap* cellTmp = find_value(*map, key);
+	if (cellTmp == NULL) {
+		HashMap map2 = malloc(sizeof(CellHashMap));
+		if(map2==NULL){
+			perror("malloc");
+		}
+		((CellHashMap*) map2)->key = malloc(strlen(key) + 1);
+		strcpy(((CellHashMap*) map2)->key, key);
+
+		//((CellHashMap*) map2)->key = key;
+		map2->nbOccurence = n;
+		((CellHashMap*) map2)->next = *map;
+		*map = map2;
+	} else {
+		cellTmp->nbOccurence += n;
+		//printf("Alredy got : %s => %d\n", key, cellTmp->nbOccurence);
+	}
+}
+
 //if the map don't yet contain the "key", this "key" is add with nb_occurence occurrence
 //else the nombre od occurrence is incremented by one 
 void add_value_hash_map_with_value(HashMap* map, char* key, int nb_occurence) {
@@ -72,6 +92,7 @@ void add_value_hash_map_with_value(HashMap* map, char* key, int nb_occurence) {
 		//printf("Alredy got : %s => %d\n", key, cellTmp->nbOccurence);
 	}
 }
+
 
 //return the number of occurrence of the "key"
 int find_nb_occurence(HashMap map, char* key) {
@@ -115,19 +136,6 @@ void multiplay_val_of_cell(HashMap* map, char* key, int multiplier) {
 	find_value(*map, key)->nbOccurence *= multiplier;
 }
 
-
-//return the size of the map
-int size_of_map(HashMap map){
-	if (map==NULL)
-		return 0;
-	int result = 0;
-	while (map!=NULL){
-		result ++;
-		map = map->next;
-	}
-	return result;
-}
-
 //return a string wich describe the map
 // ex : 
 //		chien 3
@@ -161,7 +169,6 @@ char* print_hash_map(HashMap map) {
 	return result;
 }
 
-
 /*
  int main(){
  HashMap map;
@@ -185,6 +192,5 @@ char* print_hash_map(HashMap map) {
  multiplay_val_of_cell(&map,"chien",10);
  multiplay_val_of_cell(&map,"chat",2);
  printf("%s",print_hash_map(map));
- printf("taille de la map : %d",size_of_map(map));
  return 0;
  }*/

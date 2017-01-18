@@ -58,9 +58,9 @@ Directory get_all_files(char *path) {
 
 	Directory dir;
 
-	dir.txt_size = -1;
-	dir.audio_size = -1;
-	dir.image_size = -1;
+	dir.txt_size = 0;
+	dir.audio_size = 0;
+	dir.image_size = 0;
 
 	dir.txt_files = malloc(sizeof(DataFile) * max_size_text);
 	dir.audio_files = malloc(sizeof(DataFile) * max_size_audio);
@@ -90,26 +90,34 @@ Directory get_all_files(char *path) {
 			}
 
 			strcat(full_path, ep->d_name);
+			if (DEBUG) {
+				printf("text %d audio %d image %d\n", dir.txt_size,
+						dir.audio_size, dir.image_size);/*
+				printf("text %d audio %d image %d\n", max_size_text,
+						max_size_audio, max_size_image);*/
+			}
+			//puts(ep->d_name);
+
 			enum FileType file_type = get_data_file_extension(ep->d_name);
 
 			switch (file_type) {
 			case TEXT:
-				dir.txt_size += 1;
 				dir.txt_files[dir.txt_size] = init_data_file(full_path);
 				dir.txt_files[dir.txt_size].type = malloc(strlen("text") + 1);
 				strcpy(dir.txt_files[dir.txt_size].type, "text");
+				dir.txt_size += 1;
 				break;
 			case IMAGE:
-				dir.image_size += 1;
 				dir.image_files[dir.image_size] = init_data_file(full_path);
 				dir.image_files[dir.image_size].type = malloc(strlen("image") + 1);
 				strcpy(dir.image_files[dir.image_size].type, "image");
+				dir.image_size += 1;
 				break;
 			case SOUND:
-				dir.audio_size += 1;
 				dir.audio_files[dir.audio_size] = init_data_file(full_path);
 				dir.audio_files[dir.audio_size].type = malloc(strlen("audio") + 1);
 				strcpy(dir.audio_files[dir.audio_size].type, "audio");
+				dir.audio_size += 1;
 				break;
 			default:
 				break;
