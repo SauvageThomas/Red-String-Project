@@ -1,6 +1,4 @@
 #include "sound_finder.h"
-#include <stdlib.h>
-#include <string.h>
 
 int compare_2_sounds(){
 	int score = 0;
