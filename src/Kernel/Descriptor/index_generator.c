@@ -18,11 +18,6 @@ void update_index(){
 	* UPDATE THE INDEX FILE
 	*/
 
-	//TODO: 
-	//pour chaque fichier
-	//	récupérer le nom
-	//	
-
 
 	char* path = "../../res/descriptors/text_descriptors";
 	DataFile file = init_data_file(path);
@@ -38,6 +33,7 @@ void update_index(){
 	
 	puts("INDEX FILE UPDATED.");
 }
+
 /*
 int main(){
 	puts("--> test index generator\n");

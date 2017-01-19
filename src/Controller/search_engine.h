@@ -15,17 +15,17 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "Descriptor/descriptor_generator.h"
+#include "../Kernel/Descriptor/descriptor_generator.h"
 #include "../Controller/functions.h"
-#include "Descriptor/text_descriptor_generator.h"
-#include "Descriptor/image_descriptor_generator.h"
-#include "Descriptor/sound_descriptor_generator.h"
-#include "Descriptor/index_generator.h"
-#include "Search/data_manager.h"
-#include "Tools/report.h"
-#include "Tools/data_handler.h"
+#include "../Kernel/Descriptor/text_descriptor_generator.h"
+#include "../Kernel/Descriptor/image_descriptor_generator.h"
+#include "../Kernel/Descriptor/sound_descriptor_generator.h"
+#include "../Kernel/Descriptor/index_generator.h"
+#include "../Kernel/Search/data_manager.h"
+#include "../Kernel/Tools/report.h"
+#include "../Kernel/Tools/data_handler.h"
 #include "../Console/gui.h"
-#include "Data/constant.h"
+#include "../Kernel/Data/constant.h"
 
 
 void launch_search_engine(Config config);

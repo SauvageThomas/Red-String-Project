@@ -122,9 +122,6 @@ $(R)$(t).o : $(TEST)$(t).c $(TEST)$(t).h $(TOOL)$(dh).h
 	$(CC) $(CFLAGS)
 
 
-$(R)$(se).o : $(M)$(se).c $(M)$(se).h $(TOOL)$(re).h $(SEARCH)$(dm).h $(DESC)$(igen).h $(DESC)$(gen).h
-	$(CC) $(CFLAGS) 
-
 
 
 ########
@@ -134,7 +131,8 @@ $(R)$(se).o : $(M)$(se).c $(M)$(se).h $(TOOL)$(re).h $(SEARCH)$(dm).h $(DESC)$(i
 $(R)gui.o : $(V)/gui.c $(V)/gui.h
 	$(CC) $(CFLAGS)
 
-$(R)main.o : $(M)main.c $(TEST)$(t).h $(TEST)minunit.h $(M)$(se).h $(DATA)constant.h $(V)gui.h
+$(R)main.o : $(V)main.c $(TEST)$(t).h $(TEST)minunit.h $(C)$(se).h $(DATA)constant.h $(V)gui.h
+	
 	$(CC) $(CFLAGS)
 
 
@@ -144,3 +142,6 @@ $(R)main.o : $(M)main.c $(TEST)$(t).h $(TEST)minunit.h $(M)$(se).h $(DATA)consta
 
 $(R)functions.o : $(C)functions.c $(C)functions.h $(DATA)constant.h $(TOOL)$(re).h $(TOOL)$(dh).h $(SEARCH)$(dm).h $(SEARCH)$(tf).h $(SEARCH)$(if).h $(SEARCH)$(sf).h
 	$(CC) $(CFLAGS)
+	
+$(R)$(se).o : $(C)$(se).c $(C)$(se).h $(TOOL)$(re).h $(SEARCH)$(dm).h $(DESC)$(igen).h $(DESC)$(gen).h
+	$(CC) $(CFLAGS) 
