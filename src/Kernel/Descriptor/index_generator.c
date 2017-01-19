@@ -13,6 +13,7 @@
 
 void update_index(){
 
+
 	/*
 	* UPDATE THE INDEX FILE
 	*/
@@ -37,24 +38,27 @@ void update_index(){
 	
 	puts("INDEX FILE UPDATED.");
 }
-/*
+
 int main(){
 	puts("--> test index generator\n");
-	update_index();
-	/*map_of_map map;
-	init_map_of_map(&map);
-	add_value_map_of_map(&map, "aa", "Fichier1", 11);
-	add_value_map_of_map(&map, "bb", "Fichier2", 22);
-	add_value_map_of_map(&map, "cc", "Fichier2", 33);
-	add_value_map_of_map(&map, "aa", "Fichier3", 111);
-	add_value_map_of_map(&map, "aa", "Fichier4", 12);
-	add_value_map_of_map(&map, "aa", "Fichier45", 777);
-	add_value_map_of_map(&map, "dd", "Fichier5", 4);
-	add_value_map_of_map(&map, "bb", "Fichier6", 222);
-	while(!is_map_of_map_empty(map)){
+	//update_index();
+	MapOfMap map;
+	init_MapOfMap(&map);
+	add_value_MapOfMap(&map, "aa", "Fichier1", 11);
+	add_value_MapOfMap(&map, "bb", "Fichier2", 22);
+	add_value_MapOfMap(&map, "cc", "Fichier2", 33);
+	add_value_MapOfMap(&map, "aa", "Fichier3", 111);
+	add_value_MapOfMap(&map, "aa", "Fichier4", 12);
+	add_value_MapOfMap(&map, "aa", "Fichier45",777);
+	add_value_MapOfMap(&map, "aa", "Fichier42",7897);
+	add_value_MapOfMap(&map, "dd", "Fichier5", 4);
+	add_value_MapOfMap(&map, "bb", "Fichier6", 222);
+	/*while(!is_map_of_map_empty(map)){
 		printf("%s\n",pop_value_map_of_map(&map)); 
-	}
-	*/
-//}
+	}	*/
+	HashMap hashMap = *get_hashMap_with_key(map, "aa");
+	//printf("Test ----> : %s\n", pop_value_hash_map(&hashMap));
+	//free_map_of_map(map);
+}
 
 

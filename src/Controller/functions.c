@@ -12,9 +12,7 @@ const int pass_key[] = { 22, 53, 44, 71, 66, 177, 253, 122, 9548, 1215, 48421,
 
 void search_by_file(Config config) {
 	char* tmp = get_value_of(config, "path");
-	if (tmp == NULL) {
-		error_config_file();
-	}
+
 	char* file_name = malloc(KSIZE);
 	char* file_path = malloc(KSIZE * 2);
 
@@ -29,20 +27,65 @@ void search_by_file(Config config) {
 }
 
 void error_config_file() {
-	//TODO: Rempalce by backup file
-	puts("Error on config file");
-	exit(EXIT_FAILURE);
+	reset_config();
+	puts("Error in the config file. It has been replaced by the backup file.");
 }
 void search_by_keyword() {
 	wip();
 }
 
 void modif_config() {
-	/*
-	 char* str = "!!";
-	 DataFile data_file = init_data_file(".config");
-	 */
-	wip();
+	if (OS == 1) {
+		system(".config");
+	} else {
+		system("gedit .config");
+	}
+}
+
+void generate_all_descriptors(Config config) {
+	char *path = get_value_of(config, "descriptors");
+
+	Directory dir = get_all_files(get_value_of(config, "path"));
+
+	char *quant = get_value_of(config, "quantification");
+
+	size_t n = (size_t) strtol(quant, (char **) NULL, 10);
+
+	char *size_window = get_value_of(config, "taille_des_fenetres");
+	char *nb_intervalles = get_value_of(config, "nombre_de_barre");
+
+	size_t k = (size_t) strtol(size_window, (char **) NULL, 10);
+	size_t m = (size_t) strtol(nb_intervalles, (char **) NULL, 10);
+
+	char *full_path[KSIZE + 15];
+
+	strcpy(full_path, path);
+	strcat(full_path, "text_descriptors");
+	DataFile df = init_data_file(full_path);
+	generate_text_descriptors(df, dir);
+
+	strcpy(full_path, path);
+	strcat(full_path, "image_descriptors");
+	df = init_data_file(full_path);
+	generate_image_descriptors(df, dir, n);
+
+	strcpy(full_path, path);
+	strcat(full_path, "sound_descriptors");
+	df = init_data_file(full_path);
+	generate_sound_descriptors(df, dir, k, m);
+}
+
+void reset_config() {
+	DataFile data_file = init_data_file(".backup");
+
+	if (data_file.length == 0) {
+		puts("Major error, no backup file. Quitting ...");
+		exit(1);
+	}
+
+	char* config = read_string_from_file(data_file);
+	data_file = init_data_file(".config");
+	write_string_in_file(data_file, config);
 }
 
 Config load_config() {
@@ -51,7 +94,7 @@ Config load_config() {
 
 	DataFile data_file = init_data_file(".config");
 	if (data_file.length == 0) {
-		//TODO: Create the file according to the backup file
+		reset_config();
 	}
 
 	char* config = read_string_from_file(data_file);
@@ -100,13 +143,62 @@ Config load_config() {
 	return configuration;
 }
 
+void display_data_base(char *path) {
+	Directory dir = get_all_files(path);
+
+	printf("Text Files :\n");
+	for (int i = 0; i < dir.txt_size; i += 1) {
+		printf("\t-%s\n", remove_path(dir.txt_files[i].path));
+	}
+
+	printf("\nImage Files :\n");
+	for (int i = 0; i < dir.image_size; i += 1) {
+		printf("\t-%s\n", remove_path(dir.image_files[i].path));
+	}
+
+	printf("\nAudio Files :\n");
+	for (int i = 0; i < dir.audio_size; i += 1) {
+		printf("\t-%s\n", remove_path(dir.audio_files[i].path));
+	}
+}
+
+char *remove_path(char *in) {
+	char *out = malloc(KSIZE);
+	out[0] = '\0';
+
+	char c = in[0];
+	int j = 0;
+	while (c != '\0') {
+		c = in[j];
+		strncat(out, &c, 1);
+		if (c == '/') {
+			out[0] = '\0';
+		}
+		j += 1;
+	}
+	return out;
+}
+
 char* get_value_of(Config config, const char* value) {
 	for (int i = 0; i < config.size; i += 2) {
 		if (!strcmp(config.config[i], value)) {
 			return config.config[i + 1];
 		}
 	}
-	return NULL;
+	error_config_file();
+	return get_value_of(config, value);
+}
+
+void change_password() {
+	char pass[KPASSLEN];
+	puts("Please, enter the password :");
+	get_secure_input(pass, sizeof(pass));
+
+	DataFile data_file = init_data_file(".pass");
+
+	xor_crypt(pass);
+	write_string_in_file(data_file, pass);
+	puts("Password correctly changed !");
 }
 
 int login() {
@@ -119,13 +211,12 @@ int login() {
 
 	DataFile data_file = init_data_file(".pass");
 
-	printf("length %d\n", data_file.length);
-
 	if (data_file.length == 0) { //The file is empty or does not exist
 		strcpy(pass, "admin");
 		xor_crypt(pass);
 		write_string_in_file(data_file, pass);
-		puts("No password saved, new password created.");
+		puts(
+				"The password file has not been detected. Password has been reset.");
 		return 0;
 	}
 
@@ -137,7 +228,7 @@ int login() {
 		puts("You are now connected as admin !");
 		return 1;
 	} else {
-		puts("wrong password : access forbidden !");
+		puts("Wrong password : access forbidden !");
 		return 0;
 	}
 

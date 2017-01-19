@@ -7,7 +7,6 @@
 
 #include <stdio.h>
 #include "../Search/data_manager.h"
-
 #ifndef TOOLS_DATA_HANDLER_H_
 #define TOOLS_DATA_HANDLER_H_
 
