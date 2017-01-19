@@ -12,7 +12,6 @@ int check_descriptor(DataFile df, DataFile *data_files, size_t size) {
 		puts("no descriptor found !");
 		return 1;
 	}
-	return 1;
 	puts("Have to check every file...");
 
 	char *content = read_string_from_file(df);
