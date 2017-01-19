@@ -18,6 +18,7 @@
 #include <time.h>
 
 #include "../Tools/hash_map.h"
+#include <stdio.h>
 
 
 #define KPASSLEN 20

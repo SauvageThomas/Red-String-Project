@@ -20,6 +20,9 @@
 #include "../Kernel/Search/text_finder.h"
 #include "../Kernel/Search/image_finder.h"
 #include "../Kernel/Search/sound_finder.h"
+#include "../Kernel/Descriptor/text_descriptor_generator.h"
+#include "../Kernel/Descriptor/image_descriptor_generator.h"
+#include "../Kernel/Descriptor/sound_descriptor_generator.h"
 
 void xor_crypt(char *password);
 char* get_value_of(Config config, const char* value);
@@ -32,5 +35,15 @@ void search_by_keyword();
 void search_by_file();
 void modif_config();
 void clear_console();
+void display_data_base(char *path);
+void error_config_file();
+char *remove_path(char *in);
+void generate_all_descriptors(Config config);
+
+#if (defined(_WIN32) || defined(_WIN64))
+#define OS 1
+#else
+#define OS 0
+#endif
 
 #endif /* GUI_FUNCTIONS_H_ */

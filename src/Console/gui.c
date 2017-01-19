@@ -15,7 +15,6 @@ void start_gui() {
 	char buffer[2] = { ' ', '\0' };
 	int admin = 0;
 
-
 	Config config = load_config();
 
 	while (buffer[0] != '0') {
@@ -42,9 +41,10 @@ void start_gui() {
 			puts(
 					" |  3 - Setup the configuration                                 |");
 			puts(
-					" |  4 - Show performances stats                                 |");
+					" |  4 - Change password                                         |");
 			puts(
-					" |  5 - Change password                                         |");
+					" |  5 - Index all files                                         |");
+
 		}
 		puts(
 				" |--------------------------------------------------------------|");
@@ -65,18 +65,19 @@ void start_gui() {
 			launch_search_engine(config);
 			break;
 		case '2':
-			wip();
+			display_data_base(get_value_of(config, "path"));
 			break;
 		case '3':
 			(admin == 0) ? admin = login() : config_gui();
 			break;
 		case '4':
-			(admin == 0) ? input_error(buffer) : wip();
+			(admin == 0) ? input_error(buffer) : change_password();
 			break;
 		case '5':
-			(admin == 0) ? input_error(buffer) : wip();
+			(admin == 0) ?
+					input_error(buffer) : generate_all_descriptors(config);
 			break;
-		default:
+			default:
 			input_error(buffer);
 			break;
 		}
@@ -94,13 +95,13 @@ void search_gui(Config config) {
 		puts(
 				" ================================================================");
 		puts(
-				" |  1 - with key-word                                           |");
+				" |  1 - With key-word                                           |");
 		puts(
-				" |  2 - with another file                                       |");
+				" |  2 - With another file                                       |");
 		puts(
 				" |--------------------------------------------------------------|");
 		puts(
-				" |  0 - Retour                                                  |");
+				" |  0 - Back                                                    |");
 		puts(
 				" ================================================================");
 
@@ -133,9 +134,9 @@ void config_gui() {
 		puts(
 				" ================================================================");
 		puts(
-				" |  1 - Modifier le fichier de configuration                    |");
+				" |  1 - Change the configuration                                |");
 		puts(
-				" |  2 - Remettre les parametres initiaux                        |");
+				" |  2 - Reset the configuration                                 |");
 		puts(
 				" |--------------------------------------------------------------|");
 		puts(
@@ -152,7 +153,7 @@ void config_gui() {
 			modif_config();
 			break;
 		case '2':
-			wip();
+			reset_config();
 			break;
 		default:
 			input_error(buffer);
