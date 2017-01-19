@@ -53,7 +53,7 @@ int search_data(Config config, char* file_path) {
 	int cpt = 0;
 
 	while (strcmp(desc[cpt].file_name, file_path)) {
-		//printf("%s and %s\n", desc[cpt].file_name, file_path);
+		//printf("%s and %s\n", desc[cpt].file_name, file_path) ;
 		cpt += 1;
 	}
 
