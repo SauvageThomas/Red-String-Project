@@ -122,14 +122,14 @@ int compare_descriptors(Descriptor desc1, Descriptor desc2) {
 }
 
 Descriptor *extract_all_descriptor(char *content, int *size_desc) {
-	int size = 150;
+	int size = 350;
 	Descriptor *descriptors = malloc(sizeof(Descriptor) * size);
 
 	int i;
 	int cpt = 0;
 	size_t max = strlen(content);
 	for (i = 0; cpt < max; i += 1) {
-		//printf("%d\n", i);
+		//printf("%d %d/%d\n", i, cpt, max);
 
 		//Remove the '>'
 		cpt += 1;
@@ -161,8 +161,7 @@ Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 
 		//Add data to the map
 		char *key = malloc(KSIZEWORD);
-		while (content[cpt] != '>' && cpt <= max) {
-
+		while (content[cpt] != '>' && cpt < max) {
 			int n;
 			//printf("line %s\n", line);
 			sscanf(&content[cpt], "%s %d", key, &n);
@@ -176,13 +175,14 @@ Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 
 			//puts("before");
 			add_nb_value_hash_map(&(descriptors[i].map), key, n);
+			//puts("after");
 
 			//printf("cont %d\n", strlen(content));
 			//printf("[%d/%d]%s => %d\n", cpt, max, key, n);
 		}
 		size += 1;
 	}
-
+	//puts("almost");
 	*size_desc = i;
 	return descriptors;
 }
