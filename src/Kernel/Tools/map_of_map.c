@@ -1,39 +1,50 @@
 /*
- * ============================================================================
- * Name        : map_of_map.c
- * Author      : Pierre
- * Version     :
- * Description : the implementation of a map whose values are maps
+ ============================================================================
+ Name        : map_of_map.c
+ Author      : Pierre
+ Version     :
+ Description : the implementation of a map whose values are maps
  ============================================================================
  */
-/*
+
 #include <malloc.h>
+#include <assert.h>
 #include "map_of_map.h"
 
-void init_map_of_map(MapOfMap* map) {
+void init_MapOfMap(MapOfMap* map) {
 	*map = NULL;
 }
 
-CellMapOfMap* find_value_map_of_map(MapOfMap* cell, char* key) {
-	if (cell == NULL)
-		return NULL;
-	if (strcmp(((CellMapOfMap*) cell)->key, key) == 0)
-		return cell;
-	return find_value_map_of_map(((CellMapOfMap*) cell)->next, key);
+void free_MapOfMap(MapOfMap map) {
+	while (map != NULL) {
+		MapOfMap  old = map;
+		map = (MapOfMap ) ((cellMapOfMap*) map)->next;
+		free(old->key);
+		free(old);
+	}
+	//free(map);
 }
 
-void add_value_map_of_map(MapOfMap* map, char* key, char* key_of_second_map,
-		int nb_occurence) {
-	CellMapOfMap* cellTmp = find_value_map_of_map(*map, key);
-	if (cellTmp == NULL) {
-		MapOfMap map2 = malloc(sizeof(CellMapOfMap));
+cellMapOfMap* find_value_MapOfMap(cellMapOfMap* cell, char* key) {
+	if (cell == NULL)
+		return NULL;
+	if (strcmp(cell->key, key) == 0)
+		return cell;
+	return find_value_MapOfMap(cell->next, key);
+}
 
-		init_hash_map(&((CellMapOfMap*) map2)->map);
-		add_value_hash_map_with_value(&((CellMapOfMap*) map2)->map,
+void add_value_MapOfMap(MapOfMap* map, char* key, char* key_of_second_map,
+		int nb_occurence) {
+	cellMapOfMap* cellTmp = find_value_MapOfMap(*map, key);
+	if (cellTmp == NULL) {
+		MapOfMap map2 = malloc(sizeof(cellMapOfMap));
+
+		init_hash_map(&((cellMapOfMap*) map2)->map);
+		add_value_hash_map_with_value(&((cellMapOfMap*) map2)->map,
 				key_of_second_map, nb_occurence);
 
-		((CellMapOfMap*) map2)->key = key;
-		((CellMapOfMap*) map2)->next = *map;
+		((cellMapOfMap*) map2)->key = key;
+		((cellMapOfMap*) map2)->next = *map;
 		*map = map2;
 	} else {
 		add_value_hash_map_with_value(&cellTmp->map, key_of_second_map,
@@ -41,24 +52,38 @@ void add_value_map_of_map(MapOfMap* map, char* key, char* key_of_second_map,
 	}
 }
 
-void remove_cell_map_of_map(MapOfMap* map, char* key) {
+void remove_cellMapOfMap(MapOfMap* map, char* key) {
 	if ((*map)->key == key) {
 		(*map) = (*map)->next;
 	} else
-		remove_cell_map_of_map(&(*map)->next, key);
+		remove_cellMapOfMap(&(*map)->next, key);
 
 }
 
-int is_map_of_map_empty(MapOfMap map) {
-	if (map == NULL)
+
+int is_MapOfMap_empty(MapOfMap map){
+	if(map==NULL)
 		return 1;
 	return 0;
 }
 
+HashMap* get_hashMap_with_key(MapOfMap map, char* key){
+
+	while (map != NULL) {
+		if (strcmp(map->key, key) == 0) {
+			return &map->map;
+		}
+		map = map->next;
+	}	
+	assert(map==NULL);
+
+}	
+
+
 //return the first cell, it remove this cell of the map in the same time 
-char* pop_value_map_of_map(MapOfMap* map) {
-	CellMapOfMap* cellTmp = *map;
-	CellMapOfMap* first_cell_alphabetical_order = *map;
+char* pop_value_MapOfMap(MapOfMap* map) {
+	cellMapOfMap* cellTmp = *map;
+	cellMapOfMap* first_cell_alphabetical_order = *map;
 	char* first_key_alphabetical_order = cellTmp->key;
 	while (cellTmp != NULL) {
 		if (strcmp(cellTmp->key, first_key_alphabetical_order) < 0) {
@@ -71,14 +96,14 @@ char* pop_value_map_of_map(MapOfMap* map) {
 	char* result = malloc(
 			strlen(first_cell_alphabetical_order->key) + sizeof(int)
 					+ size_of_map(first_cell_alphabetical_order->map) + 5);
-	char* pattern = "%s \n";
-
-	for (int i = 0; i <= size_of_map(first_cell_alphabetical_order->map); i++) {
+	char* pattern = "%c%s \n";
+	sprintf(result,pattern,'>',first_cell_alphabetical_order->key);
+	while(size_of_map(first_cell_alphabetical_order->map)>0) {
 		strcat(result, pop_value_hash_map(&first_cell_alphabetical_order->map));
 	}
 
 	if (*map != NULL)
-		remove_cell_map_of_map(map, first_cell_alphabetical_order->key);
+		remove_cellMapOfMap(map, first_cell_alphabetical_order->key);
 	return result;
 }
-*/
+

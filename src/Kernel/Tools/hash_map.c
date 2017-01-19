@@ -136,6 +136,17 @@ void multiplay_val_of_cell(HashMap* map, char* key, int multiplier) {
 	find_value(*map, key)->nbOccurence *= multiplier;
 }
 
+int size_of_map(HashMap map){
+	if(map==NULL)
+		return 0;
+	int result=0;
+	while(map!=NULL){
+		result++;
+		map = map->next;
+	}	
+	return result;
+}
+
 //return a string wich describe the map
 // ex : 
 //		chien 3

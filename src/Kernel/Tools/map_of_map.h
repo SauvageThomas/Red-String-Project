@@ -12,17 +12,19 @@
 #include "hash_map.h"
 
 
-typedef struct cell_map_of_map{
+typedef struct cellMapOfMapEt{
 	char* key;
 	HashMap map;
-	struct cell_map_of_map* next;
+	struct cellMapOfMapEt* next;
 
-}CellMapOfMap;
+}cellMapOfMap;
 
-typedef CellMapOfMap* MapOfMap;
+typedef cellMapOfMap* MapOfMap;
 
-void init_map_of_map(MapOfMap* map);
-void add_value_map_of_map(MapOfMap* map, char* key, char* key_of_second_map, int nb_occurence);
-char* pop_value_map_of_map(MapOfMap* map);
-int is_map_of_map_empty(MapOfMap map);
+void init_MapOfMap(MapOfMap* map);
+void add_value_MapOfMap(MapOfMap* map, char* key, char* key_of_second_map, int nb_occurence);
+char* pop_value_MapOfMap(MapOfMap* map);
+int is_MapOfMap_empty(MapOfMap map);
+HashMap* get_hashMap_with_key(MapOfMap map, char* key);
+void free_MapOfMap(MapOfMap map);
 
