@@ -10,15 +10,17 @@ MapOfMap file_content (DataFile df, int size_window, int nb_intervalles, size_t 
 	init_MapOfMap(&soundMap);
 	*count_maps = (df.length/sizeof(double) + (size_window-1)) / size_window;
 	df.file=fopen(df.path, "rb");
-		if (df.file!=NULL){
+	if (df.file!=NULL){
 		double value;
-			for (int i = 0; i < df.length/sizeof(double); i++){
-				fread(&value,sizeof(double),1,df.file);
-				histogramme(&soundMap, (int)floor((i+1)/(double)size_window), value, nb_intervalles);
-			}
-			fclose(df.file);
+		for (int i = 0; i < df.length/sizeof(double); i++){
+			fread(&value,sizeof(double),1,df.file);
+			printf("%d\n", value);
+			histogramme(&soundMap, (int)floor((i+1)/(double)size_window), value, nb_intervalles);
 		}
-		else printf("Impossible d'ouvrir le fichier ! ");
+		puts("OK");
+		fclose(df.file);
+	}
+	else printf("Impossible d'ouvrir le fichier ! ");
 
 	return soundMap;
 }
@@ -30,6 +32,7 @@ void histogramme(MapOfMap* hist, int fenetre, double valeur, int nb_intervalles)
 		char str2[10];
 		sprintf(str2, "%d", fenetre);
 		while (check == 0) {
+			puts("OK");
 			if (valeur < -1+(2/(double)nb_intervalles)*count) {
 				sprintf(str, "%d", count);
 				add_value_MapOfMap(hist, str2, str, 1);
