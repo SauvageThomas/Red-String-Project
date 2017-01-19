@@ -29,12 +29,11 @@ int search_data(Config config, char* file_path) {
 	switch (file_type) {
 	case TEXT:
 		strcat(full_path, "text_descriptors");
-
 		break;
 	case IMAGE:
 		strcat(full_path, "image_descriptors");
-		puts("hey");
-		find_image(get_value_of(config, "quantification"), df);
+		//puts("hey");
+		//find_image(get_value_of(config, "quantification"), df);
 		break;
 	case SOUND:
 		strcat(full_path, "sound_descriptors");

@@ -5,7 +5,7 @@
 
 #include "image_finder.h"
 
-int compare_2_images(){
+int compare_2_images() {
 	int score = 0;
 	return score;
 }
@@ -54,10 +54,10 @@ size_t *quantify_file(size_t n, DataFile df, size_t *size) {
 		Pixel p;
 		fscanf(df.file, "%d", &p.red);
 
-		if(code == 1){
+		if (code == 1) {
 			p.green = p.red;
 			p.blue = p.red;
-		}else{
+		} else {
 			fscanf(df.file, "%d", &p.green);
 			fscanf(df.file, "%d", &p.blue);
 		}
