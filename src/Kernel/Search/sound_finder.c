@@ -23,11 +23,14 @@ MapOfMap file_content(DataFile df, int size_window, int nb_intervalles,
 	df.path[len - 2] = 'i';
 	df.path[len - 3] = 'b';
 
+	puts(df.path);
+
 	df.file = fopen(df.path, "rb");
 	if (df.file != NULL) {
 		double value;
 		for (int i = 0; i < df.length / sizeof(double); i++) {
 			fread(&value, sizeof(double), 1, df.file);
+			//printf("[%d/%d] %f\n", i, df.length / sizeof(double), value);
 			histogramme(&soundMap, (int) floor((i + 1) / (double) size_window),
 					value, nb_intervalles);
 		}
@@ -39,6 +42,7 @@ MapOfMap file_content(DataFile df, int size_window, int nb_intervalles,
 }
 
 void histogramme(MapOfMap* hist, int fenetre, double valeur, int nb_intervalles) {
+	static int cpt = 0;
 	size_t check = 0;
 	int count = 0;
 	char str[10];
@@ -46,6 +50,9 @@ void histogramme(MapOfMap* hist, int fenetre, double valeur, int nb_intervalles)
 	sprintf(str2, "%d", fenetre);
 	while (check == 0) {
 		if (valeur < -1 + (2 / (double) nb_intervalles) * count) {
+			if (cpt % 10000 == 0) {
+				printf("<%d> <%f>\n", cpt, valeur);
+			}
 			sprintf(str, "%d", count);
 			add_value_MapOfMap(hist, str2, str, 1);
 			check = 1;
@@ -53,4 +60,5 @@ void histogramme(MapOfMap* hist, int fenetre, double valeur, int nb_intervalles)
 			count += 1;
 		}
 	}
+	cpt += 1;
 }
