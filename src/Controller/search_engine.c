@@ -62,7 +62,7 @@ void check_sound_descriptor(char* path, Directory dir, int k, int m) {
 	DataFile df = init_data_file(full_path);
 	int updated = check_descriptor(df, dir.audio_files, dir.audio_size);
 	if (updated) {
-		//generate_sound_descriptors(df, dir, k, m);
+		generate_sound_descriptors(df, dir, k, m);
 	}
 }
 void init_search_engine(Config config) {

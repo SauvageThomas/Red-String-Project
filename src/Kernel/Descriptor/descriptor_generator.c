@@ -12,7 +12,6 @@ int check_descriptor(DataFile df, DataFile *data_files, size_t size) {
 		puts("no descriptor found !");
 		return 1;
 	}
-	return 1;
 	puts("Have to check every file...");
 
 	char *content = read_string_from_file(df);
@@ -47,7 +46,7 @@ int check_descriptor(DataFile df, DataFile *data_files, size_t size) {
 			free(content);
 			return 1;
 		}
-		free_map(desc[i].map);
+		//free_map_of_map(desc[i].map);
 	}
 
 	puts("All the files are up-to-date in descriptor !");
@@ -83,13 +82,17 @@ void descriptor_to_file(Descriptor descriptor, DataFile df) {
 	strcat(result, "\n");
 	strcat(result, "\n");
 
-	while (descriptor.map != NULL) {
-		char *tmp = pop_value_hash_map(&(descriptor.map));
-		strcat(result, tmp);
+	for (size_t i = 0; i < descriptor.nb_maps; i++) {
+	char currentKey[5];
+	sprintf(currentKey, "%zu", i);
+		while (*get_hashMap_with_key(descriptor.map, currentKey) != NULL) {
+			char *tmp = pop_value_hash_map((get_hashMap_with_key(descriptor.map, currentKey)));
+			strcat(result, tmp);
+		}
+		append_string_in_file(df, result);
 	}
-	append_string_in_file(df, result);
 
-	free_map(descriptor.map);
+	//free_map_of_map(descriptor.map);
 	free(result);
 	result = NULL;
 }
@@ -118,14 +121,14 @@ int compare_descriptors(Descriptor desc1, Descriptor desc2) {
 }
 
 Descriptor *extract_all_descriptor(char *content, int *size_desc) {
-	int size = 150;
+	int size = 350;
 	Descriptor *descriptors = malloc(sizeof(Descriptor) * size);
 
 	int i;
 	int cpt = 0;
 	size_t max = strlen(content);
 	for (i = 0; cpt < max; i += 1) {
-		//printf("%d\n", i);
+		//printf("%d %d/%d\n", i, cpt, max);
 
 		//Remove the '>'
 		cpt += 1;
@@ -157,8 +160,7 @@ Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 
 		//Add data to the map
 		char *key = malloc(KSIZEWORD);
-		while (content[cpt] != '>' && cpt <= max) {
-
+		while (content[cpt] != '>' && cpt < max) {
 			int n;
 			//printf("line %s\n", line);
 			sscanf(&content[cpt], "%s %d", key, &n);
@@ -172,13 +174,14 @@ Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 
 			//puts("before");
 			add_nb_value_hash_map(&(descriptors[i].map), key, n);
+			//puts("after");
 
 			//printf("cont %d\n", strlen(content));
 			//printf("[%d/%d]%s => %d\n", cpt, max, key, n);
 		}
 		size += 1;
 	}
-
+	//puts("almost");
 	*size_desc = i;
 	return descriptors;
 }

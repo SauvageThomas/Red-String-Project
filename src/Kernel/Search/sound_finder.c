@@ -5,34 +5,31 @@ int compare_2_sounds(){
 	return score;
 }
 
-HashMap file_content (DataFile df, int size_window, int nb_intervalles){
-	HashMap soundMap = malloc(sizeof(CellHashMap) * size_window);
+int *file_content (DataFile df, int size_window, int nb_intervalles, size_t *count_maps){
+	*count_maps = (df.length/sizeof(double) + (size_window-1)) / size_window;
+
+	int* sound_values = malloc((df.length/sizeof(double))*sizeof(int));
 	df.file=fopen(df.path, "rb");
 		if (df.file!=NULL){
 		double value;
-			for (size_t i = 0; i < df.length/sizeof(double); i++){
+			for (int i = 0; i < df.length/sizeof(double); i++){
 				fread(&value,sizeof(double),1,df.file);
-				init_hash_map(&soundMap[i/size_window]);
-				histogramme(soundMap[i/size_window], value, nb_intervalles);
+				sound_values[i] = histogramme(value, nb_intervalles);
 			}
 			fclose(df.file);
 		}
 		else printf("Impossible d'ouvrir le fichier ! ");
-	return soundMap;
+
+	return sound_values;
 }
 
-CellHashMap histogramme(CellHashMap hist, double valeur, int nb_intervalles){
-		size_t check = 0;
+int histogramme(double valeur, int nb_intervalles){
 		int count = 0;
-		char str[4];
-		while (check == 0) {
+		while (1) {
 			if (valeur < -1+(2/(double)nb_intervalles)*count) {
-				sprintf(str, "%d", count);
-				add_value_hash_map(&hist, str);
-				check = 1;
+				return count;
 			} else {
 				count += 1;
 			}
 		}
-	return hist;
 }

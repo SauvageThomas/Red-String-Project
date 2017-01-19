@@ -10,8 +10,9 @@
 
 #include <time.h>
 #include "../Tools/hash_map.h"
+#include "../Tools/map_of_map.h"
 
-#define DEBUG 1
+#define DEBUG 0
 #define PROD 1
 #define TEST 0
 
@@ -32,10 +33,11 @@ typedef struct {
 } Config;
 
 typedef struct {
-	HashMap map;
+	MapOfMap map;
 	char file_name[KSIZE * 2];
 	time_t date;
 	size_t size;
+	size_t nb_maps;
 } Descriptor;
 
 
