@@ -31,7 +31,7 @@ char* strcat_path(char* path, char* file_name) {
 }
 
 void check_text_descriptor(char* path, Directory dir) {
-	puts("\n\n==================================================================");
+	puts("\n\n ==================================================================");
 	puts(" >>>    TEXT DESCRIPTOR UPDATE\n");
 	char* full_path = strcat_path(path, "text_descriptors");
 	DataFile df = init_data_file(full_path);
@@ -44,7 +44,7 @@ void check_text_descriptor(char* path, Directory dir) {
 }
 
 void check_image_descriptor(char* path, Directory dir, int n) {
-	puts("\n\n==================================================================");
+	puts("\n\n ==================================================================");
 	puts(" >>>    IMAGE DESCRIPTOR UPDATE\n");
 	char* full_path = strcat_path(path, "image_descriptors");
 	DataFile df = init_data_file(full_path);
@@ -56,7 +56,7 @@ void check_image_descriptor(char* path, Directory dir, int n) {
 }
 
 void check_sound_descriptor(char* path, Directory dir, int k, int m) {
-	puts("\n\n==================================================================");
+	puts("\n\n ==================================================================");
 	puts(" >>>    SOUND DESCRIPTOR UPDATE\n");
 	char* full_path = strcat_path(path, "sound_descriptors");
 	DataFile df = init_data_file(full_path);
@@ -70,7 +70,7 @@ void init_search_engine(Config config) {
 	/*
 	 * UPDATE DESCRIPTORS AND INDEX IF NEEDED
 	 */
-	puts("\n\n==================================================================");
+	puts("\n\n ==================================================================");
 	puts(" >>>    SEARCH ENGINE : INITITIALIZATION");
 
 	puts("-> checking descriptors...");
@@ -101,8 +101,7 @@ void init_search_engine(Config config) {
 
 	if(!DEBUG)
 		clear_console();
-	puts("\n==================================================================");
-	printf(" >>>    GENERATING DESCRIPTORS TIME : %ds\n", chrono());
+	printf("\n >>>    GENERATING DESCRIPTORS TIME : %ds\n", chrono());
 	puts(" >>>    SEARCH ENGINE : READY\n");
 }
 
@@ -119,6 +118,6 @@ void close_search_engine() {
 	/*
 	 * free resources if needed ?
 	 */
-	puts("\n\n\n==================================================================");
+	puts("\n\n\n ==================================================================");
 	puts(" >>>    SEARCH ENGINE : CLOSE\n\n");
 }
