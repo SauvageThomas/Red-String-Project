@@ -1,6 +1,4 @@
-#include "../Tools/data_handler.h"
-#include "descriptor_generator.h"
-#include "../Data/constant.h"
+#include "sound_descriptor_generator.h"
 
 Descriptor generate_sound_descriptor(DataFile df, int size_window, int nb_intervalles){
 	Descriptor descriptor = init_descriptor(df.path);

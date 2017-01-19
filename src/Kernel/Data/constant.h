@@ -12,7 +12,7 @@
 #include "../Tools/hash_map.h"
 #include "../Tools/map_of_map.h"
 
-#define DEBUG 0
+#define DEBUG 1
 #define PROD 1
 #define TEST 0
 
