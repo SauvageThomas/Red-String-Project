@@ -38,7 +38,7 @@ void update_index(){
 	
 	puts("INDEX FILE UPDATED.");
 }
-
+/*
 int main(){
 	puts("--> test index generator\n");
 	//update_index();
@@ -56,9 +56,9 @@ int main(){
 	/*while(!is_map_of_map_empty(map)){
 		printf("%s\n",pop_value_map_of_map(&map)); 
 	}	*/
-	HashMap hashMap = *get_hashMap_with_key(map, "aa");
+	//HashMap hashMap = *get_hashMap_with_key(map, "aa");
 	//printf("Test ----> : %s\n", pop_value_hash_map(&hashMap));
 	//free_map_of_map(map);
-}
+//}
 
 
