@@ -12,10 +12,10 @@ Descriptor generate_text_descriptor(DataFile df){
 	remove_punctuation(new_content);
 	char** words = remove_words(new_content, &matrix_length);
 
-
+	descriptor.nb_maps = 1;
 	descriptor.size = strlen(new_content);
 	for (int i = 0; i < matrix_length; i++) {
-		add_value_hash_map(&(descriptor.map), words[i]);
+		add_value_MapOfMap(&(descriptor.map), "0", words[i], 1);
 	}
 	return descriptor;
 }
