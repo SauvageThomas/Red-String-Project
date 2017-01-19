@@ -19,11 +19,6 @@ void update_index(){
 	* UPDATE THE INDEX FILE
 	*/
 
-	//TODO: 
-	//pour chaque fichier
-	//	récupérer le nom
-	//	
-
 
 	char* path = "../../res/descriptors/text_descriptors";
 	DataFile file = init_data_file(path);
@@ -98,6 +93,7 @@ void update_index(){
 	
 	puts("INDEX FILE UPDATED.");
 }
+
 /*
 int main(){
 	puts("--> test index generator\n");
@@ -115,11 +111,11 @@ int main(){
 	add_value_MapOfMap(&map, "bb", "Fichier6", 222);
 	/*while(!is_map_of_map_empty(map)){
 		printf("%s\n",pop_value_map_of_map(&map)); 
-	}	
-	HashMap hashMap = *get_hashMap_with_key(map, "aa");
+
+	}	*/
+	//HashMap hashMap = *get_hashMap_with_key(map, "aa");
 	//printf("Test ----> : %s\n", pop_value_hash_map(&hashMap));
 	//free_map_of_map(map);
-
-}*/
+//}
 
 

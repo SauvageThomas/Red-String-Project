@@ -11,10 +11,10 @@
 #include <stdlib.h>
 
 // Include all data
-#include "Data/constant.h"
+#include "../Kernel/Data/constant.h"
 
 // Include tests files
-#include "Test/test.h"
+#include "../Kernel/Test/test.h"
 #include "../Console/gui.h"
 
 /*

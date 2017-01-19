@@ -106,7 +106,7 @@ int compare_descriptors(Descriptor desc1, Descriptor desc2) {
 			if (!strcmp(map1->key, map2->key)) {
 				//printf("%s vs %s\n", map1->key, map2->key);
 				//puts("+1 !");
-				common += (map1->nbOccurence * 2 + map2->nbOccurence);
+				common += (map1->nbOccurence * 10 + map2->nbOccurence);
 				//common += 1 + map1->nbOccurence;
 			}
 			map2 = map2->next;

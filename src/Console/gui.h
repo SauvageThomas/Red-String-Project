@@ -14,11 +14,11 @@
 #include <unistd.h>
 
 #include "../Controller/functions.h"
-#include "../Kernel/search_engine.h"
+#include "../Controller/search_engine.h"
 #include "../Kernel/Data/constant.h"
 #include "../Kernel/Tools/data_handler.h"
 
-void start_gui();
+void start_gui();	
 void search_gui();
 void config_gui();
 
