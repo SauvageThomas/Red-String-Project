@@ -47,7 +47,7 @@ int check_descriptor(DataFile df, DataFile *data_files, size_t size) {
 			free(content);
 			return 1;
 		}
-		free_map(desc[i].map);
+		//free_map_of_map(desc[i].map);
 	}
 
 	puts("All the files are up-to-date in descriptor !");
@@ -83,13 +83,18 @@ void descriptor_to_file(Descriptor descriptor, DataFile df) {
 	strcat(result, "\n");
 	strcat(result, "\n");
 
-	while (descriptor.map != NULL) {
-		char *tmp = pop_value_hash_map(&(descriptor.map));
-		strcat(result, tmp);
+	for (size_t i = 0; i < descriptor.nb_maps; i++) {
+	char currentKey[5];
+	sprintf(currentKey, "%zu", i);
+	printf("%s\n", currentKey);
+		while (*get_hashMap_with_key(descriptor.map, currentKey) != NULL) {
+			char *tmp = pop_value_hash_map((get_hashMap_with_key(descriptor.map, currentKey)));
+			strcat(result, tmp);
+		}
+		append_string_in_file(df, result);
 	}
-	append_string_in_file(df, result);
 
-	free_map(descriptor.map);
+	//free_map_of_map(descriptor.map);
 	free(result);
 	result = NULL;
 }
