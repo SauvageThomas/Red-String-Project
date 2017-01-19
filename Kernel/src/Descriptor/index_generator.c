@@ -13,15 +13,12 @@
 
 void update_index(){
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 78025de775c8833039924626a5c5e1cea0914cec
 	/*
 	* UPDATE THE INDEX FILE
 	*/
 
-<<<<<<< HEAD
+
 	//TODO: 
 	//pour chaque fichier
 	//	récupérer le nom
@@ -40,10 +37,8 @@ void update_index(){
 
 	  
 	
-	puts("INDEX FILE UPDATED.");
-=======
+
 	puts(" -> INDEX FILE UPDATED.");
->>>>>>> 78025de775c8833039924626a5c5e1cea0914cec
 }
 
 int main(){

@@ -1,11 +1,11 @@
-
+/*
  ============================================================================
  Name        : map_of_map.c
  Author      : Pierre
  Version     :
  Description : the implementation of a map whose values are maps
  ============================================================================
- 
+ */
 
 #include <malloc.h>
 #include "map_of_map.h"

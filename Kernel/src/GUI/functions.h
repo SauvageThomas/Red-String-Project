@@ -9,6 +9,7 @@
 #define GUI_FUNCTIONS_H_
 
 #include <stdlib.h>
+#include <errno.h>
 
 #include "../Data/constant.h"
 
