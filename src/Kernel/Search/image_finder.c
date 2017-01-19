@@ -53,8 +53,14 @@ size_t *quantify_file(size_t n, DataFile df, size_t *size) {
 	for (int i = 0; i < height * width; i += 1) {
 		Pixel p;
 		fscanf(df.file, "%d", &p.red);
-		fscanf(df.file, "%d", &p.green);
-		fscanf(df.file, "%d", &p.blue);
+
+		if(code == 1){
+			p.green = p.red;
+			p.blue = p.red;
+		}else{
+			fscanf(df.file, "%d", &p.green);
+			fscanf(df.file, "%d", &p.blue);
+		}
 
 		size_t q = quantification(p, n);
 		quant_array[i] = q;

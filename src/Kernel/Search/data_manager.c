@@ -33,6 +33,7 @@ int search_data(Config config, char* file_path) {
 		break;
 	case IMAGE:
 		strcat(full_path, "image_descriptors");
+		puts("hey");
 		find_image(get_value_of(config, "quantification"), df);
 		break;
 	case SOUND:
@@ -66,7 +67,7 @@ int search_data(Config config, char* file_path) {
 		if (i != cpt) {
 			int common = compare_descriptors(descriptor, desc[i]);
 			add_nb_value_hash_map(&result, desc[i].file_name, common);
-			//printf("result => %d\n", common);
+			printf("%s => %d\n",desc[i].file_name, common);
 		}
 		//exit(0);
 

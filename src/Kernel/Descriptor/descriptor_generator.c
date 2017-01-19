@@ -5,24 +5,14 @@
  *      Author: THOMAS
  */
 
-#include <dirent.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <errno.h>
-
-#include "../Tools/hash_map.h"
 #include "descriptor_generator.h"
-#include "../Data/constant.h"
-#include "../Tools/data_handler.h"
-#include "../Tools/hash_map.h"
 
 int check_descriptor(DataFile df, DataFile *data_files, size_t size) {
 	if (df.length == 0) {
 		puts("no descriptor found !");
 		return 1;
 	}
-	//return 1;
+	return 1;
 	puts("Have to check every file...");
 
 	char *content = read_string_from_file(df);
@@ -112,13 +102,19 @@ int compare_descriptors(Descriptor desc1, Descriptor desc2) {
 	int common = 0;
 	while (map1 != NULL) {
 		while (map2 != NULL) {
+
 			if (!strcmp(map1->key, map2->key)) {
-				common += 1;
+				//printf("%s vs %s\n", map1->key, map2->key);
+				//puts("+1 !");
+				common += (map1->nbOccurence * 2 + map2->nbOccurence);
+				//common += 1 + map1->nbOccurence;
 			}
 			map2 = map2->next;
 		}
+		map2 = desc2.map;
 		map1 = map1->next;
 	}
+	return common;
 }
 
 Descriptor *extract_all_descriptor(char *content, int *size_desc) {
@@ -131,9 +127,8 @@ Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 	for (i = 0; cpt < max; i += 1) {
 		//printf("%d\n", i);
 
-
 		//Remove the '>'
-		cpt +=1;
+		cpt += 1;
 		if (i >= size - 1) {
 			puts("realloc");
 			size *= 2;
@@ -145,7 +140,6 @@ Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 
 		descriptors[i].map = NULL;
 		descriptors[i].size = max;
-
 
 		//Read header
 		int tmp = 0;
@@ -188,4 +182,3 @@ Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 	*size_desc = i;
 	return descriptors;
 }
-

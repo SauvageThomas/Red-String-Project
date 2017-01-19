@@ -27,6 +27,7 @@
 #include "../Console/gui.h"
 #include "Data/constant.h"
 
+
 void launch_search_engine(Config config);
 void init_search_engine(Config config);
 void run_search_engine();
