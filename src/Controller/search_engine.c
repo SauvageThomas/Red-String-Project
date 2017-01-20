@@ -51,7 +51,6 @@ void check_image_descriptor(char* path, Directory dir, int n) {
 	int updated = check_descriptor(df, dir.image_files, dir.image_size);
 	if (updated) {
 		generate_image_descriptors(df, dir, n);
-		//update_index();
 	}
 }
 
@@ -62,7 +61,7 @@ void check_sound_descriptor(char* path, Directory dir, int k, int m) {
 	DataFile df = init_data_file(full_path);
 	int updated = check_descriptor(df, dir.audio_files, dir.audio_size);
 	if (updated) {
-		generate_sound_descriptors(df, dir, k, m);
+		//generate_sound_descriptors(df, dir, k, m);
 	}
 }
 void init_search_engine(Config config) {
@@ -97,7 +96,7 @@ void init_search_engine(Config config) {
 	}
 	size_t k = (size_t) strtol(size_window, (char **) NULL, 10);
 	size_t m = (size_t) strtol(nb_intervalles, (char **) NULL, 10);
-	//+++check_sound_descriptor(path, dir, k, m);
+	check_sound_descriptor(path, dir, k, m);
 
 	if(!DEBUG)
 		clear_console();
