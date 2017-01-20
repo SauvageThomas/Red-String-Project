@@ -89,14 +89,19 @@ void descriptor_to_file(Descriptor descriptor, DataFile df) {
 		while (*get_hashMap_with_key(descriptor.map, currentKey) != NULL) {
 			puts("OK!!!");
 			char *tmp = pop_value_hash_map((get_hashMap_with_key(descriptor.map, currentKey)));
+			//printf("%s\n", (**get_hashMap_with_key(descriptor.map, currentKey)).key);
 			strcat(result, tmp);
 		}
+		strcat(result, "\n");
 		append_string_in_file(df, result);
+		if (i < 2) {
+			printf("%s\n", result);
+		}
+		result = malloc(descriptor.size);
 	}
 
 	//free_map_of_map(descriptor.map);
 	free(result);
-	//result = NULL;
 }
 
 //Right now only work for image and text (not tested yet, waiting for descriptor_extractor)
