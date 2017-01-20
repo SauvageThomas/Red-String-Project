@@ -1,0 +1,1979 @@
+Le script a débuté sur ven. 20 janv. 2017 13:48:00 CET
+]0;michael@michael-Aspire-V3-371: ~/Documents/Red-String-Project[01;32mmichael@michael-Aspire-V3-371[00m:[01;34m~/Documents/Red-String-Project[00m$ bash run
+run: ligne 1: !/bin/bash: Aucun fichier ou dossier de ce type
+[3;J[H[2Jrm -rf release/*.o
+rm -rf release/SearchEngine.exe
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/descriptor_generator.c -o release/descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/index_generator.c -o release/index_generator.o 
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/text_descriptor_generator.c -o release/text_descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/image_descriptor_generator.c -o release/image_descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/sound_descriptor_generator.c -o release/sound_descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/data_manager.c -o release/data_manager.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/text_finder.c -o release/text_finder.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/image_finder.c -o release/image_finder.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/sound_finder.c -o release/sound_finder.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/data_handler.c -o release/data_handler.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/map_of_map.c -o release/map_of_map.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/hash_map.c -o release/hash_map.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/report.c -o release/report.o 
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Test/test.c -o release/test.o
+gcc -c -w -Wall -g -std=gnu99 src/Controller/search_engine.c -o release/search_engine.o 
+gcc -c -w -Wall -g -std=gnu99 src/Console/main.c -o release/main.o
+gcc -c -w -Wall -g -std=gnu99 src/Console//gui.c -o release/gui.o
+gcc -c -w -Wall -g -std=gnu99 src/Controller/functions.c -o release/functions.o
+gcc   release/descriptor_generator.o release/index_generator.o release/text_descriptor_generator.o release/image_descriptor_generator.o release/sound_descriptor_generator.o release/data_manager.o release/text_finder.o release/image_finder.o release/sound_finder.o release/data_handler.o release/map_of_map.o release/hash_map.o release/report.o release/test.o release/search_engine.o release/main.o release/gui.o release/functions.o -lm -o release/SearchEngine.exe 
+
+
+
+[H[J
+Configuration succesfully loaded !
+ ================================================================
+ |     *         *          MAIN  MENU          *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Connect as admin                                        |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>2
+Text Files :
+	-06-US_Open___Mauresmo_et.xml
+	-17-La_voix_envoûtante_de_Girija.xml
+	-27-Martin_Scorsese_inaugure_la_Cinémathèque.xml
+	-26-Tom_Boonen_sacré_champion_du.xml
+	-06-Sensibiliser_à_la_vaccination_grippale.xml
+	-08-US_Open___Pierce_élimine.xml
+	-03-Des_chercheurs_parviennent_à_régénérer.xml
+	-22-Ted_Stanger,_l_Américain_de_service.xml
+	-05-Musique_électronique___l_élan_collectif.xml
+	-03-Mimer_un_signal_nerveux_pour.xml
+	-22-Dominique_Noël____Les_architectes.xml
+	-21-La_France_se_réveille_pour.xml
+	-28-_Œdipe_à_Colone_,_la_rage.xml
+	-05-Tours_d_honneur_pour_les_athlètes.xml
+	-17-Une_équipe_française_a_réussi.xml
+	-27-A_Lens,_le_Louvre_sera.xml
+	-28-Festival___Ososphère,_un_week-end.xml
+	-18-Les_22e_Journées_du_Patrimoine.xml
+	-22-Les_clubs_de_football_anglais.xml
+	-09-Miracle___le_cricket_est.xml
+	-18-Ligue_1___Lyon_a.xml
+	-27-Voyager_1_s_aventure_dans_l_au-delà.xml
+	-12-Fernando_Alonso_n_est_plus_qu_à.xml
+	-05-Edition___les_mots_et.xml
+	-12-Jean-Marie_Sevestre,_libraire_et_PDG.xml
+	-08-Pavé,_tour_ou_silo,_cinq.xml
+	-27-Le_Stade_de_France_s_ouvre.xml
+	-06-La_contamination_du_maïs_par.xml
+	-18-Battue_par_la_Slovénie,_l_équipe.xml
+	-10-La_réalité_virtuelle_et_l_informatique.xml
+	-16-Une_sonde_japonaise_va_tenter.xml
+	-05-L_apnéiste_français_Guillaume_Néry_plonge.xml
+	-05-Rock___l_Illinois_magique_de.xml
+	-22-Grippe_aviaire___la_course.xml
+	-22-Danse___quarante_jeunes_de.xml
+	-15-_Si_on_veut_aller_trop.xml
+	-24-Canicules_et_sécheresses_menacent_de.xml
+	-05-Photographie___Philip_Blenkinsop_a.xml
+	-08-La_mission_Deep_Impact_permet.xml
+	-21-Matières_plastiques_et_pesticides_pourraient.xml
+	-26-Grippe_aviaire___une_sixième.xml
+	-29-Ligue_des_champions___Lyon.xml
+	-15-Un_quasar_solitaire_bouleverse_les.xml
+	-1.xml
+	-12-Musique_classique___un__Oberon_.xml
+	-12-Succès_sur_les_tatamis,_polémique.xml
+	-26-Jazz___Manu_Katché,_haut.xml
+	-08-Théâtre___l_échappée_belle,_peu.xml
+	-11-La_troposphère_paie,_au_prix.xml
+	-13-Ligue_des_champions____Si.xml
+	-17-Anouk_Aimée_et_Philippe_Noiret.xml
+	-05-Jean-Christophe_Bette_a_dû_attendre.xml
+	-28-A_Hossegor,_Kelly_Slater_peut.xml
+	-15-Capturer_et_emprisonner_le_CO.xml
+	-18-L_équipe_de_France_de_tennis.xml
+	-06-Les_mauvais_comptes_d_une_élimination.xml
+	-13-L_inattendue_lévitation_de_la_goutte.xml
+	-15-La_mort_de_Robert_Wise,.xml
+	-08-Carlos_do_Carmo____Le.xml
+	-17-De_la_difficulté_d_anticiper_les.xml
+	-15-Lille_s_incline_dans_les.xml
+	-05-Au_stade_d_Abidjan,_la_défaite.xml
+	-08-L_équipe_de_France_victime_d_un.xml
+	-14-Grippe_aviaire___l_OMS_exhorte.xml
+	-15-Danse___Preljocaj_emmène_l_Opéra.xml
+	-07-Un_député_UMP_lance_une.xml
+	-12-Musiques_du_monde___les.xml
+	-12-Agassi_plie_face_au_meilleur.xml
+	-28-Danse___Robyn_Orlin_et.xml
+	-26-Lyon_prend_ses_aises_en.xml
+	-05-Le_Colombien_Juan_Pablo_Montoya.xml
+	-22-Exposition___les_métamorphoses_picturales.xml
+	-05-Prague_inaugure_les_Journées_européennes.xml
+	-10-Le_cyclone_Katrina_complique_le.xml
+	-29-Forte_réduction_de_la_calotte.xml
+	-15-Le_Théâtre_des_Champs-Elysées_s_offre.xml
+	-05-La_circoncision_pourrait_réduire_le.xml
+	-13-Les_accidents_vasculaires_cérébraux,_à.xml
+	-05-Le_théâtre_de_texte_confronté.xml
+	-22-Sursaut_des_Monégasques_après_le.xml
+	-22-Des_laboureurs,_des_OGM..._et.xml
+	-08-Sous_l_effet_du_réchauffement,_les.xml
+	-15-Capturer_et_emprisonner_le_CO2,.xml
+	-13-Des_astronomes_détectent_l_explosion_cosmique.xml
+	-23-Les_Bleus,_tombeurs_de_la.xml
+
+Image Files :
+	-41.jpg
+	-52.bmp
+	-21.jpg
+	-51.bmp
+	-62.bmp
+	-32.jpg
+	-02.jpg
+	-12.jpg
+	-61.bmp
+	-01.jpg
+	-42.jpg
+	-31.jpg
+	-11.jpg
+	-22.jpg
+
+Audio Files :
+ ================================================================
+ |     *         *          MAIN  MENU          *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Connect as admin                                        |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>1
+
+
+==================================================================
+ >>>    SEARCH ENGINE : INITITIALIZATION
+-> checking descriptors...
+
+
+==================================================================
+ >>>    TEXT DESCRIPTOR UPDATE
+
+ -> Updating text descriptor...
+file reset
+ -> Done ! 85 text descriptors updated !
+
+
+==================================================================
+ >>>    IMAGE DESCRIPTOR UPDATE
+
+ -> Updating image descriptor...
+
+
+==================================================================
+ >>>    SOUND DESCRIPTOR UPDATE
+
+no descriptor found !
+[H[J
+
+==================================================================
+ >>>    GENERATING DESCRIPTORS TIME : 1s
+ >>>    SEARCH ENGINE : READY
+
+
+ ================================================================
+ =     *         *       SEARCH SELECTION       *         *     =
+ ================================================================
+ |  1 - With key-word                                           |
+ |  2 - With another file                                       |
+ |--------------------------------------------------------------|
+ |  0 - Back                                                    |
+ ================================================================
+>>2
+Please, enter a file path : 
+>>01.jpn g
+
+
+Fichiers �quivalents :
+
+data/FICHIER_PROJET/41.jpg => 580302
+data/FICHIER_PROJET/52.bmp => 69878
+data/FICHIER_PROJET/21.jpg => 578670
+data/FICHIER_PROJET/51.bmp => 69826
+data/FICHIER_PROJET/62.bmp => 99945
+data/FICHIER_PROJET/32.jpg => 577056
+data/FICHIER_PROJET/02.jpg => 574347
+data/FICHIER_PROJET/12.jpg => 572946
+data/FICHIER_PROJET/61.bmp => 289349
+data/FICHIER_PROJET/42.jpg => 572561
+data/FICHIER_PROJET/31.jpg => 578250
+data/FICHIER_PROJET/11.jpg => 572904
+data/FICHIER_PROJET/22.jpg => 575965
+data/FICHIER_PROJET/41.jpg 
+41.jpg 
+21.jpg 
+31.jpg 
+32.jpg 
+22.jpg 
+Search done successfully !
+
+ ================================================================
+ =     *         *       SEARCH SELECTION       *         *     =
+ ================================================================
+ |  1 - With key-word                                           |
+ |  2 - With another file                                       |
+ |--------------------------------------------------------------|
+ |  0 - Back                                                    |
+ ================================================================
+>>OO.jpg
+1 digit was expected, please try again !
+>>2
+Please, enter a file path : 
+>>OO.jpg
+Search aborted : file not found !
+
+ ================================================================
+ =     *         *       SEARCH SELECTION       *         *     =
+ ================================================================
+ |  1 - With key-word                                           |
+ |  2 - With another file                                       |
+ |--------------------------------------------------------------|
+ |  0 - Back                                                    |
+ ================================================================
+>>dg  2
+Please, enter a file path : 
+>>fgfngdbfd
+Search aborted : file not found !
+
+ ================================================================
+ =     *         *       SEARCH SELECTION       *         *     =
+ ================================================================
+ |  1 - With key-word                                           |
+ |  2 - With another file                                       |
+ |--------------------------------------------------------------|
+ |  0 - Back                                                    |
+ ================================================================
+>>2
+Please, enter a file path : 
+>>1.xml^[[D^[[D         l     03-Des_chercheurs_parviennent_à_régénérer.xml
+
+
+Fichiers �quivalents :
+
+data/FICHIER_PROJET/06-US_Open___Mauresmo_et.xml => 57
+data/FICHIER_PROJET/17-La_voix_envoûtante_de_Girija.xml => 331
+data/FICHIER_PROJET/27-Martin_Scorsese_inaugure_la_Cinémathèque.xml => 170
+data/FICHIER_PROJET/26-Tom_Boonen_sacré_champion_du.xml => 399
+data/FICHIER_PROJET/06-Sensibiliser_à_la_vaccination_grippale.xml => 957
+data/FICHIER_PROJET/08-US_Open___Pierce_élimine.xml => 57
+data/FICHIER_PROJET/22-Ted_Stanger,_l_Américain_de_service.xml => 609
+data/FICHIER_PROJET/05-Musique_électronique___l_élan_collectif.xml => 348
+data/FICHIER_PROJET/03-Mimer_un_signal_nerveux_pour.xml => 699
+data/FICHIER_PROJET/22-Dominique_Noël____Les_architectes.xml => 649
+data/FICHIER_PROJET/21-La_France_se_réveille_pour.xml => 536
+data/FICHIER_PROJET/28-_Œdipe_à_Colone_,_la_rage.xml => 472
+data/FICHIER_PROJET/05-Tours_d_honneur_pour_les_athlètes.xml => 663
+data/FICHIER_PROJET/17-Une_équipe_française_a_réussi.xml => 2044
+data/FICHIER_PROJET/27-A_Lens,_le_Louvre_sera.xml => 674
+data/FICHIER_PROJET/28-Festival___Ososphère,_un_week-end.xml => 390
+data/FICHIER_PROJET/18-Les_22e_Journées_du_Patrimoine.xml => 207
+data/FICHIER_PROJET/22-Les_clubs_de_football_anglais.xml => 635
+data/FICHIER_PROJET/09-Miracle___le_cricket_est.xml => 325
+data/FICHIER_PROJET/18-Ligue_1___Lyon_a.xml => 117
+data/FICHIER_PROJET/27-Voyager_1_s_aventure_dans_l_au-delà.xml => 767
+data/FICHIER_PROJET/12-Fernando_Alonso_n_est_plus_qu_à.xml => 425
+data/FICHIER_PROJET/05-Edition___les_mots_et.xml => 472
+data/FICHIER_PROJET/12-Jean-Marie_Sevestre,_libraire_et_PDG.xml => 786
+data/FICHIER_PROJET/08-Pavé,_tour_ou_silo,_cinq.xml => 311
+data/FICHIER_PROJET/27-Le_Stade_de_France_s_ouvre.xml => 616
+data/FICHIER_PROJET/06-La_contamination_du_maïs_par.xml => 868
+data/FICHIER_PROJET/18-Battue_par_la_Slovénie,_l_équipe.xml => 520
+data/FICHIER_PROJET/10-La_réalité_virtuelle_et_l_informatique.xml => 788
+data/FICHIER_PROJET/16-Une_sonde_japonaise_va_tenter.xml => 728
+data/FICHIER_PROJET/05-L_apnéiste_français_Guillaume_Néry_plonge.xml => 628
+data/FICHIER_PROJET/05-Rock___l_Illinois_magique_de.xml => 429
+data/FICHIER_PROJET/22-Grippe_aviaire___la_course.xml => 1163
+data/FICHIER_PROJET/22-Danse___quarante_jeunes_de.xml => 334
+data/FICHIER_PROJET/15-_Si_on_veut_aller_trop.xml => 699
+data/FICHIER_PROJET/24-Canicules_et_sécheresses_menacent_de.xml => 773
+data/FICHIER_PROJET/05-Photographie___Philip_Blenkinsop_a.xml => 359
+data/FICHIER_PROJET/08-La_mission_Deep_Impact_permet.xml => 726
+data/FICHIER_PROJET/21-Matières_plastiques_et_pesticides_pourraient.xml => 466
+data/FICHIER_PROJET/26-Grippe_aviaire___une_sixième.xml => 421
+data/FICHIER_PROJET/29-Ligue_des_champions___Lyon.xml => 75
+data/FICHIER_PROJET/15-Un_quasar_solitaire_bouleverse_les.xml => 548
+data/FICHIER_PROJET/1.xml => 57
+data/FICHIER_PROJET/12-Musique_classique___un__Oberon_.xml => 324
+data/FICHIER_PROJET/12-Succès_sur_les_tatamis,_polémique.xml => 529
+data/FICHIER_PROJET/26-Jazz___Manu_Katché,_haut.xml => 344
+data/FICHIER_PROJET/08-Théâtre___l_échappée_belle,_peu.xml => 450
+data/FICHIER_PROJET/11-La_troposphère_paie,_au_prix.xml => 520
+data/FICHIER_PROJET/13-Ligue_des_champions____Si.xml => 555
+data/FICHIER_PROJET/17-Anouk_Aimée_et_Philippe_Noiret.xml => 440
+data/FICHIER_PROJET/05-Jean-Christophe_Bette_a_dû_attendre.xml => 657
+data/FICHIER_PROJET/28-A_Hossegor,_Kelly_Slater_peut.xml => 502
+data/FICHIER_PROJET/15-Capturer_et_emprisonner_le_CO.xml => 618
+data/FICHIER_PROJET/18-L_équipe_de_France_de_tennis.xml => 99
+data/FICHIER_PROJET/06-Les_mauvais_comptes_d_une_élimination.xml => 748
+data/FICHIER_PROJET/13-L_inattendue_lévitation_de_la_goutte.xml => 334
+data/FICHIER_PROJET/15-La_mort_de_Robert_Wise,.xml => 457
+data/FICHIER_PROJET/08-Carlos_do_Carmo____Le.xml => 635
+data/FICHIER_PROJET/17-De_la_difficulté_d_anticiper_les.xml => 580
+data/FICHIER_PROJET/15-Lille_s_incline_dans_les.xml => 533
+data/FICHIER_PROJET/05-Au_stade_d_Abidjan,_la_défaite.xml => 410
+data/FICHIER_PROJET/08-L_équipe_de_France_victime_d_un.xml => 344
+data/FICHIER_PROJET/14-Grippe_aviaire___l_OMS_exhorte.xml => 542
+data/FICHIER_PROJET/15-Danse___Preljocaj_emmène_l_Opéra.xml => 334
+data/FICHIER_PROJET/07-Un_député_UMP_lance_une.xml => 480
+data/FICHIER_PROJET/12-Musiques_du_monde___les.xml => 287
+data/FICHIER_PROJET/12-Agassi_plie_face_au_meilleur.xml => 402
+data/FICHIER_PROJET/28-Danse___Robyn_Orlin_et.xml => 628
+data/FICHIER_PROJET/26-Lyon_prend_ses_aises_en.xml => 459
+data/FICHIER_PROJET/05-Le_Colombien_Juan_Pablo_Montoya.xml => 735
+data/FICHIER_PROJET/22-Exposition___les_métamorphoses_picturales.xml => 423
+data/FICHIER_PROJET/05-Prague_inaugure_les_Journées_européennes.xml => 465
+data/FICHIER_PROJET/10-Le_cyclone_Katrina_complique_le.xml => 540
+data/FICHIER_PROJET/29-Forte_réduction_de_la_calotte.xml => 391
+data/FICHIER_PROJET/15-Le_Théâtre_des_Champs-Elysées_s_offre.xml => 408
+data/FICHIER_PROJET/05-La_circoncision_pourrait_réduire_le.xml => 1478
+data/FICHIER_PROJET/13-Les_accidents_vasculaires_cérébraux,_à.xml => 737
+data/FICHIER_PROJET/05-Le_théâtre_de_texte_confronté.xml => 731
+data/FICHIER_PROJET/22-Sursaut_des_Monégasques_après_le.xml => 336
+data/FICHIER_PROJET/22-Des_laboureurs,_des_OGM..._et.xml => 685
+data/FICHIER_PROJET/08-Sous_l_effet_du_réchauffement,_les.xml => 763
+data/FICHIER_PROJET/15-Capturer_et_emprisonner_le_CO2,.xml => 618
+data/FICHIER_PROJET/13-Des_astronomes_détectent_l_explosion_cosmique.xml => 495
+data/FICHIER_PROJET/23-Les_Bleus,_tombeurs_de_la.xml => 465
+data/FICHIER_PROJET/17-Une_équipe_française_a_réussi.xml 
+17-Une_équipe_française_a_réussi.xml => 2044
+
+05-La_circoncision_pourrait_réduire_le.xml => 1478
+
+22-Grippe_aviaire___la_course.xml => 1163
+
+06-Sensibiliser_à_la_vaccination_grippale.xml => 957
+
+06-La_contamination_du_maïs_par.xml => 868
+
+Search done successfully !
+
+ ================================================================
+ =     *         *       SEARCH SELECTION       *         *     =
+ ================================================================
+ |  1 - With key-word                                           |
+ |  2 - With another file                                       |
+ |--------------------------------------------------------------|
+ |  0 - Back                                                    |
+ ================================================================
+>>2
+Please, enter a file path : 
+>>17-Une_équipe_française_a_réussi.xml
+
+
+Fichiers �quivalents :
+
+data/FICHIER_PROJET/06-US_Open___Mauresmo_et.xml => 171
+data/FICHIER_PROJET/17-La_voix_envoûtante_de_Girija.xml => 783
+data/FICHIER_PROJET/27-Martin_Scorsese_inaugure_la_Cinémathèque.xml => 298
+data/FICHIER_PROJET/26-Tom_Boonen_sacré_champion_du.xml => 734
+data/FICHIER_PROJET/06-Sensibiliser_à_la_vaccination_grippale.xml => 1487
+data/FICHIER_PROJET/08-US_Open___Pierce_élimine.xml => 100
+data/FICHIER_PROJET/03-Des_chercheurs_parviennent_à_régénérer.xml => 2521
+data/FICHIER_PROJET/22-Ted_Stanger,_l_Américain_de_service.xml => 1108
+data/FICHIER_PROJET/05-Musique_électronique___l_élan_collectif.xml => 556
+data/FICHIER_PROJET/03-Mimer_un_signal_nerveux_pour.xml => 1050
+data/FICHIER_PROJET/22-Dominique_Noël____Les_architectes.xml => 1106
+data/FICHIER_PROJET/21-La_France_se_réveille_pour.xml => 844
+data/FICHIER_PROJET/28-_Œdipe_à_Colone_,_la_rage.xml => 852
+data/FICHIER_PROJET/05-Tours_d_honneur_pour_les_athlètes.xml => 1013
+data/FICHIER_PROJET/27-A_Lens,_le_Louvre_sera.xml => 1023
+data/FICHIER_PROJET/28-Festival___Ososphère,_un_week-end.xml => 597
+data/FICHIER_PROJET/18-Les_22e_Journées_du_Patrimoine.xml => 463
+data/FICHIER_PROJET/22-Les_clubs_de_football_anglais.xml => 1213
+data/FICHIER_PROJET/09-Miracle___le_cricket_est.xml => 640
+data/FICHIER_PROJET/18-Ligue_1___Lyon_a.xml => 212
+data/FICHIER_PROJET/27-Voyager_1_s_aventure_dans_l_au-delà.xml => 1237
+data/FICHIER_PROJET/12-Fernando_Alonso_n_est_plus_qu_à.xml => 802
+data/FICHIER_PROJET/05-Edition___les_mots_et.xml => 613
+data/FICHIER_PROJET/12-Jean-Marie_Sevestre,_libraire_et_PDG.xml => 1335
+data/FICHIER_PROJET/08-Pavé,_tour_ou_silo,_cinq.xml => 332
+data/FICHIER_PROJET/27-Le_Stade_de_France_s_ouvre.xml => 1239
+data/FICHIER_PROJET/06-La_contamination_du_maïs_par.xml => 1122
+data/FICHIER_PROJET/18-Battue_par_la_Slovénie,_l_équipe.xml => 839
+data/FICHIER_PROJET/10-La_réalité_virtuelle_et_l_informatique.xml => 949
+data/FICHIER_PROJET/16-Une_sonde_japonaise_va_tenter.xml => 1207
+data/FICHIER_PROJET/05-L_apnéiste_français_Guillaume_Néry_plonge.xml => 1177
+data/FICHIER_PROJET/05-Rock___l_Illinois_magique_de.xml => 662
+data/FICHIER_PROJET/22-Grippe_aviaire___la_course.xml => 1549
+data/FICHIER_PROJET/22-Danse___quarante_jeunes_de.xml => 495
+data/FICHIER_PROJET/15-_Si_on_veut_aller_trop.xml => 1049
+data/FICHIER_PROJET/24-Canicules_et_sécheresses_menacent_de.xml => 1099
+data/FICHIER_PROJET/05-Photographie___Philip_Blenkinsop_a.xml => 547
+data/FICHIER_PROJET/08-La_mission_Deep_Impact_permet.xml => 1316
+data/FICHIER_PROJET/21-Matières_plastiques_et_pesticides_pourraient.xml => 777
+data/FICHIER_PROJET/26-Grippe_aviaire___une_sixième.xml => 748
+data/FICHIER_PROJET/29-Ligue_des_champions___Lyon.xml => 133
+data/FICHIER_PROJET/15-Un_quasar_solitaire_bouleverse_les.xml => 997
+data/FICHIER_PROJET/1.xml => 100
+data/FICHIER_PROJET/12-Musique_classique___un__Oberon_.xml => 515
+data/FICHIER_PROJET/12-Succès_sur_les_tatamis,_polémique.xml => 1111
+data/FICHIER_PROJET/26-Jazz___Manu_Katché,_haut.xml => 670
+data/FICHIER_PROJET/08-Théâtre___l_échappée_belle,_peu.xml => 794
+data/FICHIER_PROJET/11-La_troposphère_paie,_au_prix.xml => 911
+data/FICHIER_PROJET/13-Ligue_des_champions____Si.xml => 960
+data/FICHIER_PROJET/17-Anouk_Aimée_et_Philippe_Noiret.xml => 825
+data/FICHIER_PROJET/05-Jean-Christophe_Bette_a_dû_attendre.xml => 1036
+data/FICHIER_PROJET/28-A_Hossegor,_Kelly_Slater_peut.xml => 805
+data/FICHIER_PROJET/15-Capturer_et_emprisonner_le_CO.xml => 1065
+data/FICHIER_PROJET/18-L_équipe_de_France_de_tennis.xml => 244
+data/FICHIER_PROJET/06-Les_mauvais_comptes_d_une_élimination.xml => 1338
+data/FICHIER_PROJET/13-L_inattendue_lévitation_de_la_goutte.xml => 693
+data/FICHIER_PROJET/15-La_mort_de_Robert_Wise,.xml => 895
+data/FICHIER_PROJET/08-Carlos_do_Carmo____Le.xml => 889
+data/FICHIER_PROJET/17-De_la_difficulté_d_anticiper_les.xml => 1014
+data/FICHIER_PROJET/15-Lille_s_incline_dans_les.xml => 774
+data/FICHIER_PROJET/05-Au_stade_d_Abidjan,_la_défaite.xml => 736
+data/FICHIER_PROJET/08-L_équipe_de_France_victime_d_un.xml => 663
+data/FICHIER_PROJET/14-Grippe_aviaire___l_OMS_exhorte.xml => 913
+data/FICHIER_PROJET/15-Danse___Preljocaj_emmène_l_Opéra.xml => 534
+data/FICHIER_PROJET/07-Un_député_UMP_lance_une.xml => 698
+data/FICHIER_PROJET/12-Musiques_du_monde___les.xml => 608
+data/FICHIER_PROJET/12-Agassi_plie_face_au_meilleur.xml => 769
+data/FICHIER_PROJET/28-Danse___Robyn_Orlin_et.xml => 911
+data/FICHIER_PROJET/26-Lyon_prend_ses_aises_en.xml => 713
+data/FICHIER_PROJET/05-Le_Colombien_Juan_Pablo_Montoya.xml => 1142
+data/FICHIER_PROJET/22-Exposition___les_métamorphoses_picturales.xml => 957
+data/FICHIER_PROJET/05-Prague_inaugure_les_Journées_européennes.xml => 809
+data/FICHIER_PROJET/10-Le_cyclone_Katrina_complique_le.xml => 872
+data/FICHIER_PROJET/29-Forte_réduction_de_la_calotte.xml => 734
+data/FICHIER_PROJET/15-Le_Théâtre_des_Champs-Elysées_s_offre.xml => 584
+data/FICHIER_PROJET/05-La_circoncision_pourrait_réduire_le.xml => 2348
+data/FICHIER_PROJET/13-Les_accidents_vasculaires_cérébraux,_à.xml => 1856
+data/FICHIER_PROJET/05-Le_théâtre_de_texte_confronté.xml => 1624
+data/FICHIER_PROJET/22-Sursaut_des_Monégasques_après_le.xml => 574
+data/FICHIER_PROJET/22-Des_laboureurs,_des_OGM..._et.xml => 1308
+data/FICHIER_PROJET/08-Sous_l_effet_du_réchauffement,_les.xml => 1279
+data/FICHIER_PROJET/15-Capturer_et_emprisonner_le_CO2,.xml => 1065
+data/FICHIER_PROJET/13-Des_astronomes_détectent_l_explosion_cosmique.xml => 783
+data/FICHIER_PROJET/23-Les_Bleus,_tombeurs_de_la.xml => 676
+data/FICHIER_PROJET/03-Des_chercheurs_parviennent_à_régénérer.xml 
+03-Des_chercheurs_parviennent_à_régénérer.xml => 2521
+
+05-La_circoncision_pourrait_réduire_le.xml => 2348
+
+13-Les_accidents_vasculaires_cérébraux,_à.xml => 1856
+
+05-Le_théâtre_de_texte_confronté.xml => 1624
+
+22-Grippe_aviaire___la_course.xml => 1549
+
+Search done successfully !
+
+ ================================================================
+ =     *         *       SEARCH SELECTION       *         *     =
+ ================================================================
+ |  1 - With key-word                                           |
+ |  2 - With another file                                       |
+ |--------------------------------------------------------------|
+ |  0 - Back                                                    |
+ ================================================================
+>>0
+
+
+
+==================================================================
+ >>>    SEARCH ENGINE : CLOSE
+
+
+ ================================================================
+ |     *         *          MAIN  MENU          *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Connect as admin                                        |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>0
+
+
+
+==================================================================
+ >>>    SEARCH ENGINE : CLOSE
+
+
+]0;michael@michael-Aspire-V3-371: ~/Documents/Red-String-Project[01;32mmichael@michael-Aspire-V3-371[00m:[01;34m~/Documents/Red-String-Project[00m$ bash run
+run: ligne 1: !/bin/bash: Aucun fichier ou dossier de ce type
+[3;J[H[2Jrm -rf release/*.o
+rm -rf release/SearchEngine.exe
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/descriptor_generator.c -o release/descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/index_generator.c -o release/index_generator.o 
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/text_descriptor_generator.c -o release/text_descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/image_descriptor_generator.c -o release/image_descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/sound_descriptor_generator.c -o release/sound_descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/data_manager.c -o release/data_manager.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/text_finder.c -o release/text_finder.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/image_finder.c -o release/image_finder.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/sound_finder.c -o release/sound_finder.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/data_handler.c -o release/data_handler.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/map_of_map.c -o release/map_of_map.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/hash_map.c -o release/hash_map.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/report.c -o release/report.o 
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Test/test.c -o release/test.o
+gcc -c -w -Wall -g -std=gnu99 src/Controller/search_engine.c -o release/search_engine.o 
+gcc -c -w -Wall -g -std=gnu99 src/Console/main.c -o release/main.o
+gcc -c -w -Wall -g -std=gnu99 src/Console//gui.c -o release/gui.o
+gcc -c -w -Wall -g -std=gnu99 src/Controller/functions.c -o release/functions.o
+gcc   release/descriptor_generator.o release/index_generator.o release/text_descriptor_generator.o release/image_descriptor_generator.o release/sound_descriptor_generator.o release/data_manager.o release/text_finder.o release/image_finder.o release/sound_finder.o release/data_handler.o release/map_of_map.o release/hash_map.o release/report.o release/test.o release/search_engine.o release/main.o release/gui.o release/functions.o -lm -o release/SearchEngine.exe 
+
+
+
+[H[J
+Configuration succesfully loaded !
+ ================================================================
+ |     *         *          MAIN  MENU          *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Connect as admin                                        |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>1
+
+
+==================================================================
+ >>>    SEARCH ENGINE : INITITIALIZATION
+-> checking descriptors...
+
+
+==================================================================
+ >>>    TEXT DESCRIPTOR UPDATE
+
+no descriptor found !
+ -> Updating text descriptor...
+file reset
+ -> Done ! 85 text descriptors updated !
+
+
+==================================================================
+ >>>    IMAGE DESCRIPTOR UPDATE
+
+no descriptor found !
+ -> Updating image descriptor...
+
+
+==================================================================
+ >>>    SOUND DESCRIPTOR UPDATE
+
+no descriptor found !
+[H[J
+
+==================================================================
+ >>>    GENERATING DESCRIPTORS TIME : 1s
+ >>>    SEARCH ENGINE : READY
+
+
+ ================================================================
+ =     *         *       SEARCH SELECTION       *         *     =
+ ================================================================
+ |  1 - With key-word                                           |
+ |  2 - With another file                                       |
+ |--------------------------------------------------------------|
+ |  0 - Back                                                    |
+ ================================================================
+>>0
+
+
+
+==================================================================
+ >>>    SEARCH ENGINE : CLOSE
+
+
+ ================================================================
+ |     *         *          MAIN  MENU          *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Connect as admin                                        |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>3
+Please, enter the password :
+>>z admin
+You are now connected as admin !
+ ================================================================
+ |     *         *      MAIN  MENU (ADMIN)      *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Setup the configuration                                 |
+ |  4 - Change password                                         |
+ |  5 - Index all files                                         |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>( 5
+ -> Updating text descriptor...
+file reset
+ -> Done ! 86 text descriptors updated !
+ -> Updating image descriptor...
+Audio files
+ ================================================================
+ |     *         *      MAIN  MENU (ADMIN)      *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Setup the configuration                                 |
+ |  4 - Change password                                         |
+ |  5 - Index all files                                         |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>1
+
+
+==================================================================
+ >>>    SEARCH ENGINE : INITITIALIZATION
+-> checking descriptors...
+
+
+==================================================================
+ >>>    TEXT DESCRIPTOR UPDATE
+
+ -> Updating text descriptor...
+file reset
+ -> Done ! 86 text descriptors updated !
+
+
+==================================================================
+ >>>    IMAGE DESCRIPTOR UPDATE
+
+ -> Updating image descriptor...
+
+
+==================================================================
+ >>>    SOUND DESCRIPTOR UPDATE
+
+no descriptor found !
+[H[J
+
+==================================================================
+ >>>    GENERATING DESCRIPTORS TIME : 1s
+ >>>    SEARCH ENGINE : READY
+
+
+ ================================================================
+ =     *         *       SEARCH SELECTION       *         *     =
+ ================================================================
+ |  1 - With key-word                                           |
+ |  2 - With another file                                       |
+ |--------------------------------------------------------------|
+ |  0 - Back                                                    |
+ ================================================================
+>>2
+Please, enter a file path : 
+>>toto.xml
+
+
+Fichiers �quivalents :
+
+data/FICHIER_PROJET/06-US_Open___Mauresmo_et.xml => 89
+data/FICHIER_PROJET/17-La_voix_envoûtante_de_Girija.xml => 420
+data/FICHIER_PROJET/27-Martin_Scorsese_inaugure_la_Cinémathèque.xml => 305
+data/FICHIER_PROJET/26-Tom_Boonen_sacré_champion_du.xml => 396
+data/FICHIER_PROJET/06-Sensibiliser_à_la_vaccination_grippale.xml => 634
+data/FICHIER_PROJET/08-US_Open___Pierce_élimine.xml => 111
+data/FICHIER_PROJET/03-Des_chercheurs_parviennent_à_régénérer.xml => 654
+data/FICHIER_PROJET/22-Ted_Stanger,_l_Américain_de_service.xml => 561
+data/FICHIER_PROJET/05-Musique_électronique___l_élan_collectif.xml => 364
+data/FICHIER_PROJET/03-Mimer_un_signal_nerveux_pour.xml => 3179
+data/FICHIER_PROJET/22-Dominique_Noël____Les_architectes.xml => 577
+data/FICHIER_PROJET/21-La_France_se_réveille_pour.xml => 524
+data/FICHIER_PROJET/28-_Œdipe_à_Colone_,_la_rage.xml => 487
+data/FICHIER_PROJET/05-Tours_d_honneur_pour_les_athlètes.xml => 569
+data/FICHIER_PROJET/17-Une_équipe_française_a_réussi.xml => 798
+data/FICHIER_PROJET/27-A_Lens,_le_Louvre_sera.xml => 550
+data/FICHIER_PROJET/28-Festival___Ososphère,_un_week-end.xml => 411
+data/FICHIER_PROJET/18-Les_22e_Journées_du_Patrimoine.xml => 279
+data/FICHIER_PROJET/22-Les_clubs_de_football_anglais.xml => 571
+data/FICHIER_PROJET/09-Miracle___le_cricket_est.xml => 413
+data/FICHIER_PROJET/18-Ligue_1___Lyon_a.xml => 107
+data/FICHIER_PROJET/27-Voyager_1_s_aventure_dans_l_au-delà.xml => 728
+data/FICHIER_PROJET/12-Fernando_Alonso_n_est_plus_qu_à.xml => 297
+data/FICHIER_PROJET/05-Edition___les_mots_et.xml => 462
+data/FICHIER_PROJET/12-Jean-Marie_Sevestre,_libraire_et_PDG.xml => 673
+data/FICHIER_PROJET/08-Pavé,_tour_ou_silo,_cinq.xml => 302
+data/FICHIER_PROJET/27-Le_Stade_de_France_s_ouvre.xml => 649
+data/FICHIER_PROJET/06-La_contamination_du_maïs_par.xml => 632
+data/FICHIER_PROJET/18-Battue_par_la_Slovénie,_l_équipe.xml => 463
+data/FICHIER_PROJET/10-La_réalité_virtuelle_et_l_informatique.xml => 585
+data/FICHIER_PROJET/16-Une_sonde_japonaise_va_tenter.xml => 619
+data/FICHIER_PROJET/05-L_apnéiste_français_Guillaume_Néry_plonge.xml => 637
+data/FICHIER_PROJET/05-Rock___l_Illinois_magique_de.xml => 397
+data/FICHIER_PROJET/22-Grippe_aviaire___la_course.xml => 714
+data/FICHIER_PROJET/22-Danse___quarante_jeunes_de.xml => 365
+data/FICHIER_PROJET/15-_Si_on_veut_aller_trop.xml => 593
+data/FICHIER_PROJET/24-Canicules_et_sécheresses_menacent_de.xml => 554
+data/FICHIER_PROJET/05-Photographie___Philip_Blenkinsop_a.xml => 317
+data/FICHIER_PROJET/08-La_mission_Deep_Impact_permet.xml => 734
+data/FICHIER_PROJET/21-Matières_plastiques_et_pesticides_pourraient.xml => 438
+data/FICHIER_PROJET/26-Grippe_aviaire___une_sixième.xml => 459
+data/FICHIER_PROJET/29-Ligue_des_champions___Lyon.xml => 111
+data/FICHIER_PROJET/15-Un_quasar_solitaire_bouleverse_les.xml => 606
+data/FICHIER_PROJET/1.xml => 111
+data/FICHIER_PROJET/12-Musique_classique___un__Oberon_.xml => 405
+data/FICHIER_PROJET/12-Succès_sur_les_tatamis,_polémique.xml => 600
+data/FICHIER_PROJET/26-Jazz___Manu_Katché,_haut.xml => 370
+data/FICHIER_PROJET/08-Théâtre___l_échappée_belle,_peu.xml => 527
+data/FICHIER_PROJET/11-La_troposphère_paie,_au_prix.xml => 596
+data/FICHIER_PROJET/13-Ligue_des_champions____Si.xml => 595
+data/FICHIER_PROJET/17-Anouk_Aimée_et_Philippe_Noiret.xml => 506
+data/FICHIER_PROJET/05-Jean-Christophe_Bette_a_dû_attendre.xml => 628
+data/FICHIER_PROJET/28-A_Hossegor,_Kelly_Slater_peut.xml => 508
+data/FICHIER_PROJET/15-Capturer_et_emprisonner_le_CO.xml => 555
+data/FICHIER_PROJET/18-L_équipe_de_France_de_tennis.xml => 111
+data/FICHIER_PROJET/06-Les_mauvais_comptes_d_une_élimination.xml => 691
+data/FICHIER_PROJET/13-L_inattendue_lévitation_de_la_goutte.xml => 455
+data/FICHIER_PROJET/15-La_mort_de_Robert_Wise,.xml => 514
+data/FICHIER_PROJET/08-Carlos_do_Carmo____Le.xml => 485
+data/FICHIER_PROJET/17-De_la_difficulté_d_anticiper_les.xml => 540
+data/FICHIER_PROJET/15-Lille_s_incline_dans_les.xml => 530
+data/FICHIER_PROJET/05-Au_stade_d_Abidjan,_la_défaite.xml => 381
+data/FICHIER_PROJET/08-L_équipe_de_France_victime_d_un.xml => 299
+data/FICHIER_PROJET/14-Grippe_aviaire___l_OMS_exhorte.xml => 447
+data/FICHIER_PROJET/15-Danse___Preljocaj_emmène_l_Opéra.xml => 345
+data/FICHIER_PROJET/07-Un_député_UMP_lance_une.xml => 389
+data/FICHIER_PROJET/12-Musiques_du_monde___les.xml => 436
+data/FICHIER_PROJET/12-Agassi_plie_face_au_meilleur.xml => 509
+data/FICHIER_PROJET/28-Danse___Robyn_Orlin_et.xml => 484
+data/FICHIER_PROJET/26-Lyon_prend_ses_aises_en.xml => 457
+data/FICHIER_PROJET/05-Le_Colombien_Juan_Pablo_Montoya.xml => 671
+data/FICHIER_PROJET/22-Exposition___les_métamorphoses_picturales.xml => 575
+data/FICHIER_PROJET/05-Prague_inaugure_les_Journées_européennes.xml => 431
+data/FICHIER_PROJET/10-Le_cyclone_Katrina_complique_le.xml => 524
+data/FICHIER_PROJET/29-Forte_réduction_de_la_calotte.xml => 401
+data/FICHIER_PROJET/15-Le_Théâtre_des_Champs-Elysées_s_offre.xml => 423
+data/FICHIER_PROJET/05-La_circoncision_pourrait_réduire_le.xml => 800
+data/FICHIER_PROJET/13-Les_accidents_vasculaires_cérébraux,_à.xml => 608
+data/FICHIER_PROJET/05-Le_théâtre_de_texte_confronté.xml => 735
+data/FICHIER_PROJET/22-Sursaut_des_Monégasques_après_le.xml => 379
+data/FICHIER_PROJET/22-Des_laboureurs,_des_OGM..._et.xml => 658
+data/FICHIER_PROJET/08-Sous_l_effet_du_réchauffement,_les.xml => 588
+data/FICHIER_PROJET/15-Capturer_et_emprisonner_le_CO2,.xml => 555
+data/FICHIER_PROJET/13-Des_astronomes_détectent_l_explosion_cosmique.xml => 455
+data/FICHIER_PROJET/23-Les_Bleus,_tombeurs_de_la.xml => 446
+data/FICHIER_PROJET/03-Mimer_un_signal_nerveux_pour.xml 
+03-Mimer_un_signal_nerveux_pour.xml => 3179
+
+05-La_circoncision_pourrait_réduire_le.xml => 800
+
+17-Une_équipe_française_a_réussi.xml => 798
+
+05-Le_théâtre_de_texte_confronté.xml => 735
+
+08-La_mission_Deep_Impact_permet.xml => 734
+
+Search done successfully !
+
+ ================================================================
+ =     *         *       SEARCH SELECTION       *         *     =
+ ================================================================
+ |  1 - With key-word                                           |
+ |  2 - With another file                                       |
+ |--------------------------------------------------------------|
+ |  0 - Back                                                    |
+ ================================================================
+>>0
+
+
+
+==================================================================
+ >>>    SEARCH ENGINE : CLOSE
+
+
+ ================================================================
+ |     *         *      MAIN  MENU (ADMIN)      *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Setup the configuration                                 |
+ |  4 - Change password                                         |
+ |  5 - Index all files                                         |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>3
+
+ ================================================================
+ =     *         *        CONFIG MANAGER        *         *     =
+ ================================================================
+ |  1 - Change the configuration                                |
+ |  2 - Reset the configuration                                 |
+ |--------------------------------------------------------------|
+ |  0 - Retour                                                  |
+ ================================================================
+>>2
+
+ ================================================================
+ =     *         *        CONFIG MANAGER        *         *     =
+ ================================================================
+ |  1 - Change the configuration                                |
+ |  2 - Reset the configuration                                 |
+ |--------------------------------------------------------------|
+ |  0 - Retour                                                  |
+ ================================================================
+>>1
+
+ ================================================================
+ =     *         *        CONFIG MANAGER        *         *     =
+ ================================================================
+ |  1 - Change the configuration                                |
+ |  2 - Reset the configuration                                 |
+ |--------------------------------------------------------------|
+ |  0 - Retour                                                  |
+ ================================================================
+>>0
+ ================================================================
+ |     *         *      MAIN  MENU (ADMIN)      *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Setup the configuration                                 |
+ |  4 - Change password                                         |
+ |  5 - Index all files                                         |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>5
+ -> Updating text descriptor...
+file reset
+ -> Done ! 86 text descriptors updated !
+ -> Updating image descriptor...
+Audio files
+ ================================================================
+ |     *         *      MAIN  MENU (ADMIN)      *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Setup the configuration                                 |
+ |  4 - Change password                                         |
+ |  5 - Index all files                                         |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>4
+Please, enter the password :
+>>toto
+Password correctly changed !
+ ================================================================
+ |     *         *      MAIN  MENU (ADMIN)      *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Setup the configuration                                 |
+ |  4 - Change password                                         |
+ |  5 - Index all files                                         |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>0
+
+
+
+==================================================================
+ >>>    SEARCH ENGINE : CLOSE
+
+
+]0;michael@michael-Aspire-V3-371: ~/Documents/Red-String-Project[01;32mmichael@michael-Aspire-V3-371[00m:[01;34m~/Documents/Red-String-Project[00m$ bash run
+run: ligne 1: !/bin/bash: Aucun fichier ou dossier de ce type
+[3;J[H[2Jrm -rf release/*.o
+rm -rf release/SearchEngine.exe
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/descriptor_generator.c -o release/descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/index_generator.c -o release/index_generator.o 
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/text_descriptor_generator.c -o release/text_descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/image_descriptor_generator.c -o release/image_descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/sound_descriptor_generator.c -o release/sound_descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/data_manager.c -o release/data_manager.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/text_finder.c -o release/text_finder.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/image_finder.c -o release/image_finder.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/sound_finder.c -o release/sound_finder.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/data_handler.c -o release/data_handler.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/map_of_map.c -o release/map_of_map.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/hash_map.c -o release/hash_map.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/report.c -o release/report.o 
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Test/test.c -o release/test.o
+gcc -c -w -Wall -g -std=gnu99 src/Controller/search_engine.c -o release/search_engine.o 
+gcc -c -w -Wall -g -std=gnu99 src/Console/main.c -o release/main.o
+gcc -c -w -Wall -g -std=gnu99 src/Console//gui.c -o release/gui.o
+gcc -c -w -Wall -g -std=gnu99 src/Controller/functions.c -o release/functions.o
+gcc   release/descriptor_generator.o release/index_generator.o release/text_descriptor_generator.o release/image_descriptor_generator.o release/sound_descriptor_generator.o release/data_manager.o release/text_finder.o release/image_finder.o release/sound_finder.o release/data_handler.o release/map_of_map.o release/hash_map.o release/report.o release/test.o release/search_engine.o release/main.o release/gui.o release/functions.o -lm -o release/SearchEngine.exe 
+
+
+
+[H[J
+Configuration succesfully loaded !
+ ================================================================
+ |     *         *          MAIN  MENU          *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Connect as admin                                        |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>3
+Please, enter the password :
+>>admin
+Wrong password : access forbidden !
+ ================================================================
+ |     *         *          MAIN  MENU          *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Connect as admin                                        |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>3
+Please, enter the password :
+>>toto
+You are now connected as admin !
+ ================================================================
+ |     *         *      MAIN  MENU (ADMIN)      *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Setup the configuration                                 |
+ |  4 - Change password                                         |
+ |  5 - Index all files                                         |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>5 2
+Text Files :
+	-06-US_Open___Mauresmo_et.xml
+	-17-La_voix_envoûtante_de_Girija.xml
+	-27-Martin_Scorsese_inaugure_la_Cinémathèque.xml
+	-26-Tom_Boonen_sacré_champion_du.xml
+	-06-Sensibiliser_à_la_vaccination_grippale.xml
+	-08-US_Open___Pierce_élimine.xml
+	-03-Des_chercheurs_parviennent_à_régénérer.xml
+	-22-Ted_Stanger,_l_Américain_de_service.xml
+	-05-Musique_électronique___l_élan_collectif.xml
+	-03-Mimer_un_signal_nerveux_pour.xml
+	-22-Dominique_Noël____Les_architectes.xml
+	-21-La_France_se_réveille_pour.xml
+	-28-_Œdipe_à_Colone_,_la_rage.xml
+	-05-Tours_d_honneur_pour_les_athlètes.xml
+	-17-Une_équipe_française_a_réussi.xml
+	-27-A_Lens,_le_Louvre_sera.xml
+	-28-Festival___Ososphère,_un_week-end.xml
+	-18-Les_22e_Journées_du_Patrimoine.xml
+	-22-Les_clubs_de_football_anglais.xml
+	-09-Miracle___le_cricket_est.xml
+	-18-Ligue_1___Lyon_a.xml
+	-27-Voyager_1_s_aventure_dans_l_au-delà.xml
+	-12-Fernando_Alonso_n_est_plus_qu_à.xml
+	-05-Edition___les_mots_et.xml
+	-12-Jean-Marie_Sevestre,_libraire_et_PDG.xml
+	-08-Pavé,_tour_ou_silo,_cinq.xml
+	-27-Le_Stade_de_France_s_ouvre.xml
+	-06-La_contamination_du_maïs_par.xml
+	-18-Battue_par_la_Slovénie,_l_équipe.xml
+	-10-La_réalité_virtuelle_et_l_informatique.xml
+	-16-Une_sonde_japonaise_va_tenter.xml
+	-05-L_apnéiste_français_Guillaume_Néry_plonge.xml
+	-05-Rock___l_Illinois_magique_de.xml
+	-22-Grippe_aviaire___la_course.xml
+	-22-Danse___quarante_jeunes_de.xml
+	-15-_Si_on_veut_aller_trop.xml
+	-24-Canicules_et_sécheresses_menacent_de.xml
+	-05-Photographie___Philip_Blenkinsop_a.xml
+	-08-La_mission_Deep_Impact_permet.xml
+	-21-Matières_plastiques_et_pesticides_pourraient.xml
+	-26-Grippe_aviaire___une_sixième.xml
+	-29-Ligue_des_champions___Lyon.xml
+	-15-Un_quasar_solitaire_bouleverse_les.xml
+	-1.xml
+	-12-Musique_classique___un__Oberon_.xml
+	-12-Succès_sur_les_tatamis,_polémique.xml
+	-26-Jazz___Manu_Katché,_haut.xml
+	-08-Théâtre___l_échappée_belle,_peu.xml
+	-11-La_troposphère_paie,_au_prix.xml
+	-13-Ligue_des_champions____Si.xml
+	-17-Anouk_Aimée_et_Philippe_Noiret.xml
+	-05-Jean-Christophe_Bette_a_dû_attendre.xml
+	-28-A_Hossegor,_Kelly_Slater_peut.xml
+	-15-Capturer_et_emprisonner_le_CO.xml
+	-18-L_équipe_de_France_de_tennis.xml
+	-06-Les_mauvais_comptes_d_une_élimination.xml
+	-13-L_inattendue_lévitation_de_la_goutte.xml
+	-15-La_mort_de_Robert_Wise,.xml
+	-08-Carlos_do_Carmo____Le.xml
+	-17-De_la_difficulté_d_anticiper_les.xml
+	-15-Lille_s_incline_dans_les.xml
+	-05-Au_stade_d_Abidjan,_la_défaite.xml
+	-08-L_équipe_de_France_victime_d_un.xml
+	-14-Grippe_aviaire___l_OMS_exhorte.xml
+	-15-Danse___Preljocaj_emmène_l_Opéra.xml
+	-07-Un_député_UMP_lance_une.xml
+	-12-Musiques_du_monde___les.xml
+	-12-Agassi_plie_face_au_meilleur.xml
+	-28-Danse___Robyn_Orlin_et.xml
+	-26-Lyon_prend_ses_aises_en.xml
+	-05-Le_Colombien_Juan_Pablo_Montoya.xml
+	-22-Exposition___les_métamorphoses_picturales.xml
+	-05-Prague_inaugure_les_Journées_européennes.xml
+	-10-Le_cyclone_Katrina_complique_le.xml
+	-29-Forte_réduction_de_la_calotte.xml
+	-15-Le_Théâtre_des_Champs-Elysées_s_offre.xml
+	-05-La_circoncision_pourrait_réduire_le.xml
+	-13-Les_accidents_vasculaires_cérébraux,_à.xml
+	-05-Le_théâtre_de_texte_confronté.xml
+	-22-Sursaut_des_Monégasques_après_le.xml
+	-22-Des_laboureurs,_des_OGM..._et.xml
+	-08-Sous_l_effet_du_réchauffement,_les.xml
+	-15-Capturer_et_emprisonner_le_CO2,.xml
+	-13-Des_astronomes_détectent_l_explosion_cosmique.xml
+	-toto.xml
+	-23-Les_Bleus,_tombeurs_de_la.xml
+
+Image Files :
+	-41.jpg
+	-08.jpg
+	-04.jpg
+	-43.jpg
+	-33.jpg
+	-25.jpg
+	-44.jpg
+	-52.bmp
+	-21.jpg
+	-51.bmp
+	-24.jpg
+	-50.jpg
+	-53.bmp
+	-48.jpg
+	-47.jpg
+	-37.jpg
+	-07.jpg
+	-59.bmp
+	-57.bmp
+	-60.bmp
+	-62.bmp
+	-32.jpg
+	-02.jpg
+	-26.jpg
+	-15.jpg
+	-30.jpg
+	-35.jpg
+	-05.jpg
+	-63.bmp
+	-12.jpg
+	-49.jpg
+	-61.bmp
+	-23.jpg
+	-01.jpg
+	-56.bmp
+	-38.jpg
+	-17.jpg
+	-27.jpg
+	-55.bmp
+	-34.jpg
+	-19.jpg
+	-42.jpg
+	-31.jpg
+	-18.jpg
+	-16.jpg
+	-14.jpg
+	-11.jpg
+	-22.jpg
+	-29.jpg
+	-28.jpg
+	-54.bmp
+	-03.jpg
+	-46.jpg
+	-13.jpg
+	-36.jpg
+	-10.jpg
+	-58.bmp
+	-20.jpg
+	-06.jpg
+	-40.jpg
+	-45.jpg
+	-09.jpg
+	-39.jpg
+
+Audio Files :
+ ================================================================
+ |     *         *      MAIN  MENU (ADMIN)      *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Setup the configuration                                 |
+ |  4 - Change password                                         |
+ |  5 - Index all files                                         |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>1
+
+
+==================================================================
+ >>>    SEARCH ENGINE : INITITIALIZATION
+-> checking descriptors...
+
+
+==================================================================
+ >>>    TEXT DESCRIPTOR UPDATE
+
+ -> Updating text descriptor...
+file reset
+ -> Done ! 86 text descriptors updated !
+
+
+==================================================================
+ >>>    IMAGE DESCRIPTOR UPDATE
+
+ -> Updating image descriptor...
+
+
+==================================================================
+ >>>    SOUND DESCRIPTOR UPDATE
+
+no descriptor found !
+[H[J
+
+==================================================================
+ >>>    GENERATING DESCRIPTORS TIME : 26s
+ >>>    SEARCH ENGINE : READY
+
+
+ ================================================================
+ =     *         *       SEARCH SELECTION       *         *     =
+ ================================================================
+ |  1 - With key-word                                           |
+ |  2 - With another file                                       |
+ |--------------------------------------------------------------|
+ |  0 - Back                                                    |
+ ================================================================
+>>2
+Please, enter a file path : 
+>>45.jpg
+run : ligne 9 : 12689 Erreur de segmentation  (core dumped) ./release/SearchEngine.exe
+]0;michael@michael-Aspire-V3-371: ~/Documents/Red-String-Project[01;32mmichael@michael-Aspire-V3-371[00m:[01;34m~/Documents/Red-String-Project[00m$ bash run
+run: ligne 1: !/bin/bash: Aucun fichier ou dossier de ce type
+[3;J[H[2Jrm -rf release/*.o
+rm -rf release/SearchEngine.exe
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/descriptor_generator.c -o release/descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/index_generator.c -o release/index_generator.o 
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/text_descriptor_generator.c -o release/text_descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/image_descriptor_generator.c -o release/image_descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/sound_descriptor_generator.c -o release/sound_descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/data_manager.c -o release/data_manager.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/text_finder.c -o release/text_finder.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/image_finder.c -o release/image_finder.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/sound_finder.c -o release/sound_finder.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/data_handler.c -o release/data_handler.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/map_of_map.c -o release/map_of_map.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/hash_map.c -o release/hash_map.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/report.c -o release/report.o 
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Test/test.c -o release/test.o
+gcc -c -w -Wall -g -std=gnu99 src/Controller/search_engine.c -o release/search_engine.o 
+gcc -c -w -Wall -g -std=gnu99 src/Console/main.c -o release/main.o
+gcc -c -w -Wall -g -std=gnu99 src/Console//gui.c -o release/gui.o
+gcc -c -w -Wall -g -std=gnu99 src/Controller/functions.c -o release/functions.o
+gcc   release/descriptor_generator.o release/index_generator.o release/text_descriptor_generator.o release/image_descriptor_generator.o release/sound_descriptor_generator.o release/data_manager.o release/text_finder.o release/image_finder.o release/sound_finder.o release/data_handler.o release/map_of_map.o release/hash_map.o release/report.o release/test.o release/search_engine.o release/main.o release/gui.o release/functions.o -lm -o release/SearchEngine.exe 
+
+
+
+[H[J
+Configuration succesfully loaded !
+ ================================================================
+ |     *         *          MAIN  MENU          *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Connect as admin                                        |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>1
+
+
+==================================================================
+ >>>    SEARCH ENGINE : INITITIALIZATION
+-> checking descriptors...
+
+
+==================================================================
+ >>>    TEXT DESCRIPTOR UPDATE
+
+ -> Updating text descriptor...
+file reset
+ -> Done ! 86 text descriptors updated !
+
+
+==================================================================
+ >>>    IMAGE DESCRIPTOR UPDATE
+
+ -> Updating image descriptor...
+
+
+==================================================================
+ >>>    SOUND DESCRIPTOR UPDATE
+
+no descriptor found !
+[H[J
+
+==================================================================
+ >>>    GENERATING DESCRIPTORS TIME : 26s
+ >>>    SEARCH ENGINE : READY
+
+
+ ================================================================
+ =     *         *       SEARCH SELECTION       *         *     =
+ ================================================================
+ |  1 - With key-word                                           |
+ |  2 - With another file                                       |
+ |--------------------------------------------------------------|
+ |  0 - Back                                                    |
+ ================================================================
+>>2
+Please, enter a file path : 
+>>45.jpg
+run : ligne 9 : 12894 Erreur de segmentation  (core dumped) ./release/SearchEngine.exe
+]0;michael@michael-Aspire-V3-371: ~/Documents/Red-String-Project[01;32mmichael@michael-Aspire-V3-371[00m:[01;34m~/Documents/Red-String-Project[00m$ bash run
+run: ligne 1: !/bin/bash: Aucun fichier ou dossier de ce type
+[3;J[H[2Jrm -rf release/*.o
+rm -rf release/SearchEngine.exe
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/descriptor_generator.c -o release/descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/index_generator.c -o release/index_generator.o 
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/text_descriptor_generator.c -o release/text_descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/image_descriptor_generator.c -o release/image_descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/sound_descriptor_generator.c -o release/sound_descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/data_manager.c -o release/data_manager.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/text_finder.c -o release/text_finder.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/image_finder.c -o release/image_finder.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/sound_finder.c -o release/sound_finder.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/data_handler.c -o release/data_handler.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/map_of_map.c -o release/map_of_map.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/hash_map.c -o release/hash_map.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/report.c -o release/report.o 
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Test/test.c -o release/test.o
+gcc -c -w -Wall -g -std=gnu99 src/Controller/search_engine.c -o release/search_engine.o 
+gcc -c -w -Wall -g -std=gnu99 src/Console/main.c -o release/main.o
+gcc -c -w -Wall -g -std=gnu99 src/Console//gui.c -o release/gui.o
+gcc -c -w -Wall -g -std=gnu99 src/Controller/functions.c -o release/functions.o
+gcc   release/descriptor_generator.o release/index_generator.o release/text_descriptor_generator.o release/image_descriptor_generator.o release/sound_descriptor_generator.o release/data_manager.o release/text_finder.o release/image_finder.o release/sound_finder.o release/data_handler.o release/map_of_map.o release/hash_map.o release/report.o release/test.o release/search_engine.o release/main.o release/gui.o release/functions.o -lm -o release/SearchEngine.exe 
+
+
+
+[H[J
+Configuration succesfully loaded !
+ ================================================================
+ |     *         *          MAIN  MENU          *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Connect as admin                                        |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>1
+
+
+==================================================================
+ >>>    SEARCH ENGINE : INITITIALIZATION
+-> checking descriptors...
+
+
+==================================================================
+ >>>    TEXT DESCRIPTOR UPDATE
+
+ -> Updating text descriptor...
+file reset
+ -> Done ! 86 text descriptors updated !
+
+
+==================================================================
+ >>>    IMAGE DESCRIPTOR UPDATE
+
+ -> Updating image descriptor...
+2
+
+==================================================================
+ >>>    SOUND DESCRIPTOR UPDATE
+
+no descriptor found !
+[H[J
+
+==================================================================
+ >>>    GENERATING DESCRIPTORS TIME : 25s
+ >>>    SEARCH ENGINE : READY
+
+
+ ================================================================
+ =     *         *       SEARCH SELECTION       *         *     =
+ ================================================================
+ |  1 - With key-word                                           |
+ |  2 - With another file                                       |
+ |--------------------------------------------------------------|
+ |  0 - Back                                                    |
+ ================================================================
+>>0
+1 digit was expected, please try again !
+>>0
+
+
+
+==================================================================
+ >>>    SEARCH ENGINE : CLOSE
+
+
+ ================================================================
+ |     *         *          MAIN  MENU          *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Connect as admin                                        |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>3
+Please, enter the password :
+>>a toto
+You are now connected as admin !
+ ================================================================
+ |     *         *      MAIN  MENU (ADMIN)      *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Setup the configuration                                 |
+ |  4 - Change password                                         |
+ |  5 - Index all files                                         |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>5
+ -> Updating text descriptor...
+file reset
+ -> Done ! 86 text descriptors updated !
+ -> Updating image descriptor...
+Audio files
+ ================================================================
+ |     *         *      MAIN  MENU (ADMIN)      *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Setup the configuration                                 |
+ |  4 - Change password                                         |
+ |  5 - Index all files                                         |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>0
+
+
+
+==================================================================
+ >>>    SEARCH ENGINE : CLOSE
+
+
+]0;michael@michael-Aspire-V3-371: ~/Documents/Red-String-Project[01;32mmichael@michael-Aspire-V3-371[00m:[01;34m~/Documents/Red-String-Project[00m$ bash run
+run: ligne 1: !/bin/bash: Aucun fichier ou dossier de ce type
+[3;J[H[2Jrm -rf release/*.o
+rm -rf release/SearchEngine.exe
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/descriptor_generator.c -o release/descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/index_generator.c -o release/index_generator.o 
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/text_descriptor_generator.c -o release/text_descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/image_descriptor_generator.c -o release/image_descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Descriptor/sound_descriptor_generator.c -o release/sound_descriptor_generator.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/data_manager.c -o release/data_manager.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/text_finder.c -o release/text_finder.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/image_finder.c -o release/image_finder.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Search/sound_finder.c -o release/sound_finder.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/data_handler.c -o release/data_handler.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/map_of_map.c -o release/map_of_map.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/hash_map.c -o release/hash_map.o
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Tools/report.c -o release/report.o 
+gcc -c -w -Wall -g -std=gnu99 src/Kernel/Test/test.c -o release/test.o
+gcc -c -w -Wall -g -std=gnu99 src/Controller/search_engine.c -o release/search_engine.o 
+gcc -c -w -Wall -g -std=gnu99 src/Console/main.c -o release/main.o
+gcc -c -w -Wall -g -std=gnu99 src/Console//gui.c -o release/gui.o
+gcc -c -w -Wall -g -std=gnu99 src/Controller/functions.c -o release/functions.o
+gcc   release/descriptor_generator.o release/index_generator.o release/text_descriptor_generator.o release/image_descriptor_generator.o release/sound_descriptor_generator.o release/data_manager.o release/text_finder.o release/image_finder.o release/sound_finder.o release/data_handler.o release/map_of_map.o release/hash_map.o release/report.o release/test.o release/search_engine.o release/main.o release/gui.o release/functions.o -lm -o release/SearchEngine.exe 
+
+
+
+[H[J
+Configuration succesfully loaded !
+ ================================================================
+ |     *         *          MAIN  MENU          *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Connect as admin                                        |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>1
+
+
+==================================================================
+ >>>    SEARCH ENGINE : INITITIALIZATION
+-> checking descriptors...
+
+
+==================================================================
+ >>>    TEXT DESCRIPTOR UPDATE
+
+ -> Updating text descriptor...
+file reset
+ -> Done ! 86 text descriptors updated !
+
+
+==================================================================
+ >>>    IMAGE DESCRIPTOR UPDATE
+
+ -> Updating image descriptor...
+
+
+==================================================================
+ >>>    SOUND DESCRIPTOR UPDATE
+
+no descriptor found !
+[H[J
+
+==================================================================
+ >>>    GENERATING DESCRIPTORS TIME : 4s
+ >>>    SEARCH ENGINE : READY
+
+
+ ================================================================
+ =     *         *       SEARCH SELECTION       *         *     =
+ ================================================================
+ |  1 - With key-word                                           |
+ |  2 - With another file                                       |
+ |--------------------------------------------------------------|
+ |  0 - Back                                                    |
+ ================================================================
+>>0 2
+Please, enter a file path : 
+>>45.jpg
+
+
+Fichiers �quivalents :
+
+data/FICHIER_PROJET/41.jpg => 637384
+data/FICHIER_PROJET/08.jpg => 631644
+data/FICHIER_PROJET/04.jpg => 633554
+data/FICHIER_PROJET/43.jpg => 630487
+data/FICHIER_PROJET/33.jpg => 636320
+data/FICHIER_PROJET/25.jpg => 635511
+data/FICHIER_PROJET/44.jpg => 639062
+data/FICHIER_PROJET/52.bmp => 134248
+data/FICHIER_PROJET/21.jpg => 635722
+data/FICHIER_PROJET/51.bmp => 134196
+data/FICHIER_PROJET/24.jpg => 635082
+data/FICHIER_PROJET/50.jpg => 638027
+data/FICHIER_PROJET/53.bmp => 134204
+data/FICHIER_PROJET/48.jpg => 641468
+data/FICHIER_PROJET/47.jpg => 641199
+data/FICHIER_PROJET/37.jpg => 637559
+data/FICHIER_PROJET/07.jpg => 631458
+data/FICHIER_PROJET/59.bmp => 424209
+data/FICHIER_PROJET/57.bmp => 155631
+data/FICHIER_PROJET/60.bmp => 423301
+data/FICHIER_PROJET/62.bmp => 155405
+data/FICHIER_PROJET/32.jpg => 634121
+data/FICHIER_PROJET/02.jpg => 631588
+data/FICHIER_PROJET/26.jpg => 631436
+data/FICHIER_PROJET/15.jpg => 635824
+data/FICHIER_PROJET/30.jpg => 636486
+data/FICHIER_PROJET/35.jpg => 636827
+data/FICHIER_PROJET/05.jpg => 628349
+data/FICHIER_PROJET/63.bmp => 163430
+data/FICHIER_PROJET/12.jpg => 629608
+data/FICHIER_PROJET/49.jpg => 634704
+data/FICHIER_PROJET/61.bmp => 423439
+data/FICHIER_PROJET/23.jpg => 636083
+data/FICHIER_PROJET/01.jpg => 634712
+data/FICHIER_PROJET/56.bmp => 73898
+data/FICHIER_PROJET/38.jpg => 637206
+data/FICHIER_PROJET/17.jpg => 631185
+data/FICHIER_PROJET/27.jpg => 641044
+data/FICHIER_PROJET/55.bmp => 70944
+data/FICHIER_PROJET/34.jpg => 638833
+data/FICHIER_PROJET/19.jpg => 634474
+data/FICHIER_PROJET/42.jpg => 629461
+data/FICHIER_PROJET/31.jpg => 636928
+data/FICHIER_PROJET/18.jpg => 637967
+data/FICHIER_PROJET/16.jpg => 643664
+data/FICHIER_PROJET/14.jpg => 637662
+data/FICHIER_PROJET/11.jpg => 629966
+data/FICHIER_PROJET/22.jpg => 632961
+data/FICHIER_PROJET/29.jpg => 637674
+data/FICHIER_PROJET/28.jpg => 631858
+data/FICHIER_PROJET/54.bmp => 69256
+data/FICHIER_PROJET/03.jpg => 635933
+data/FICHIER_PROJET/46.jpg => 646376
+data/FICHIER_PROJET/13.jpg => 631982
+data/FICHIER_PROJET/36.jpg => 637885
+data/FICHIER_PROJET/10.jpg => 629765
+data/FICHIER_PROJET/58.bmp => 157085
+data/FICHIER_PROJET/20.jpg => 633961
+data/FICHIER_PROJET/06.jpg => 632966
+data/FICHIER_PROJET/40.jpg => 639857
+data/FICHIER_PROJET/09.jpg => 630541
+data/FICHIER_PROJET/39.jpg => 639005
+data/FICHIER_PROJET/46.jpg 
+46.jpg 
+16.jpg 
+48.jpg 
+47.jpg 
+27.jpg 
+Search done successfully !
+
+ ================================================================
+ =     *         *       SEARCH SELECTION       *         *     =
+ ================================================================
+ |  1 - With key-word                                           |
+ |  2 - With another file                                       |
+ |--------------------------------------------------------------|
+ |  0 - Back                                                    |
+ ================================================================
+>>
+(eog:13113): EOG-WARNING **: Failed to open file '/home/michael/.cache/thumbnails/normal/ff2e380012c87eb2fafece57acf70fb8.png': Aucun fichier ou dossier de ce type
+51.bmp
+1 digit was expected, please try again !
+>>2
+Please, enter a file path : 
+>>51.bmp
+
+
+Fichiers �quivalents :
+
+data/FICHIER_PROJET/41.jpg => 417320
+data/FICHIER_PROJET/08.jpg => 405496
+data/FICHIER_PROJET/04.jpg => 429329
+data/FICHIER_PROJET/43.jpg => 427054
+data/FICHIER_PROJET/33.jpg => 433741
+data/FICHIER_PROJET/25.jpg => 414498
+data/FICHIER_PROJET/44.jpg => 422748
+data/FICHIER_PROJET/52.bmp => 444958
+data/FICHIER_PROJET/21.jpg => 418615
+data/FICHIER_PROJET/24.jpg => 432031
+data/FICHIER_PROJET/50.jpg => 412875
+data/FICHIER_PROJET/53.bmp => 444914
+data/FICHIER_PROJET/48.jpg => 446581
+data/FICHIER_PROJET/47.jpg => 419118
+data/FICHIER_PROJET/37.jpg => 418788
+data/FICHIER_PROJET/07.jpg => 411385
+data/FICHIER_PROJET/59.bmp => 13051
+data/FICHIER_PROJET/57.bmp => 14977
+data/FICHIER_PROJET/60.bmp => 13959
+data/FICHIER_PROJET/62.bmp => 15203
+data/FICHIER_PROJET/32.jpg => 429767
+data/FICHIER_PROJET/02.jpg => 414066
+data/FICHIER_PROJET/26.jpg => 427554
+data/FICHIER_PROJET/15.jpg => 433546
+data/FICHIER_PROJET/30.jpg => 434301
+data/FICHIER_PROJET/35.jpg => 436790
+data/FICHIER_PROJET/05.jpg => 420658
+data/FICHIER_PROJET/63.bmp => 15210
+data/FICHIER_PROJET/12.jpg => 420340
+data/FICHIER_PROJET/49.jpg => 433668
+data/FICHIER_PROJET/61.bmp => 13821
+data/FICHIER_PROJET/23.jpg => 433713
+data/FICHIER_PROJET/01.jpg => 407398
+data/FICHIER_PROJET/56.bmp => 51718
+data/FICHIER_PROJET/38.jpg => 416064
+data/FICHIER_PROJET/17.jpg => 420551
+data/FICHIER_PROJET/27.jpg => 415974
+data/FICHIER_PROJET/55.bmp => 48764
+data/FICHIER_PROJET/34.jpg => 442336
+data/FICHIER_PROJET/19.jpg => 411462
+data/FICHIER_PROJET/42.jpg => 424928
+data/FICHIER_PROJET/31.jpg => 434980
+data/FICHIER_PROJET/18.jpg => 436379
+data/FICHIER_PROJET/16.jpg => 455635
+data/FICHIER_PROJET/14.jpg => 437755
+data/FICHIER_PROJET/11.jpg => 422211
+data/FICHIER_PROJET/22.jpg => 420875
+data/FICHIER_PROJET/29.jpg => 421429
+data/FICHIER_PROJET/28.jpg => 416009
+data/FICHIER_PROJET/54.bmp => 47076
+data/FICHIER_PROJET/03.jpg => 408327
+data/FICHIER_PROJET/46.jpg => 412299
+data/FICHIER_PROJET/13.jpg => 412264
+data/FICHIER_PROJET/36.jpg => 438696
+data/FICHIER_PROJET/10.jpg => 421796
+data/FICHIER_PROJET/58.bmp => 13523
+data/FICHIER_PROJET/20.jpg => 420474
+data/FICHIER_PROJET/06.jpg => 411968
+data/FICHIER_PROJET/40.jpg => 415069
+data/FICHIER_PROJET/45.jpg => 413835
+data/FICHIER_PROJET/09.jpg => 405816
+data/FICHIER_PROJET/39.jpg => 411261
+data/FICHIER_PROJET/16.jpg 
+16.jpg 
+48.jpg 
+52.bmp 
+53.bmp 
+34.jpg 
+Search done successfully !
+
+ ================================================================
+ =     *         *       SEARCH SELECTION       *         *     =
+ ================================================================
+ |  1 - With key-word                                           |
+ |  2 - With another file                                       |
+ |--------------------------------------------------------------|
+ |  0 - Back                                                    |
+ ================================================================
+>>
+(eog:13137): EOG-WARNING **: Failed to open file '/home/michael/.cache/thumbnails/normal/f0ee2445144d5f7515acfa0b8898d48f.png': Aucun fichier ou dossier de ce type
+2
+Please, enter a file path : 
+>>54.bmp
+
+
+Fichiers �quivalents :
+
+data/FICHIER_PROJET/41.jpg => 384028
+data/FICHIER_PROJET/08.jpg => 372276
+data/FICHIER_PROJET/04.jpg => 394124
+data/FICHIER_PROJET/43.jpg => 388082
+data/FICHIER_PROJET/33.jpg => 399634
+data/FICHIER_PROJET/25.jpg => 374746
+data/FICHIER_PROJET/44.jpg => 373440
+data/FICHIER_PROJET/52.bmp => 372302
+data/FICHIER_PROJET/21.jpg => 384309
+data/FICHIER_PROJET/51.bmp => 372354
+data/FICHIER_PROJET/24.jpg => 397236
+data/FICHIER_PROJET/50.jpg => 378279
+data/FICHIER_PROJET/53.bmp => 372346
+data/FICHIER_PROJET/48.jpg => 410052
+data/FICHIER_PROJET/47.jpg => 372956
+data/FICHIER_PROJET/37.jpg => 381821
+data/FICHIER_PROJET/07.jpg => 377249
+data/FICHIER_PROJET/59.bmp => 374471
+data/FICHIER_PROJET/57.bmp => 376397
+data/FICHIER_PROJET/60.bmp => 375379
+data/FICHIER_PROJET/62.bmp => 376623
+data/FICHIER_PROJET/32.jpg => 395310
+data/FICHIER_PROJET/02.jpg => 380040
+data/FICHIER_PROJET/26.jpg => 375782
+data/FICHIER_PROJET/15.jpg => 398936
+data/FICHIER_PROJET/30.jpg => 399884
+data/FICHIER_PROJET/35.jpg => 400674
+data/FICHIER_PROJET/05.jpg => 374596
+data/FICHIER_PROJET/63.bmp => 376630
+data/FICHIER_PROJET/12.jpg => 387126
+data/FICHIER_PROJET/49.jpg => 396686
+data/FICHIER_PROJET/61.bmp => 375241
+data/FICHIER_PROJET/23.jpg => 399274
+data/FICHIER_PROJET/01.jpg => 372591
+data/FICHIER_PROJET/56.bmp => 413138
+data/FICHIER_PROJET/38.jpg => 374766
+data/FICHIER_PROJET/17.jpg => 379870
+data/FICHIER_PROJET/27.jpg => 372347
+data/FICHIER_PROJET/55.bmp => 410184
+data/FICHIER_PROJET/34.jpg => 404830
+data/FICHIER_PROJET/19.jpg => 375335
+data/FICHIER_PROJET/42.jpg => 386348
+data/FICHIER_PROJET/31.jpg => 401340
+data/FICHIER_PROJET/18.jpg => 371699
+data/FICHIER_PROJET/16.jpg => 414492
+data/FICHIER_PROJET/14.jpg => 402654
+data/FICHIER_PROJET/11.jpg => 387020
+data/FICHIER_PROJET/22.jpg => 377691
+data/FICHIER_PROJET/29.jpg => 387485
+data/FICHIER_PROJET/28.jpg => 380217
+data/FICHIER_PROJET/03.jpg => 373510
+data/FICHIER_PROJET/46.jpg => 372400
+data/FICHIER_PROJET/13.jpg => 373168
+data/FICHIER_PROJET/36.jpg => 402700
+data/FICHIER_PROJET/10.jpg => 386676
+data/FICHIER_PROJET/58.bmp => 374943
+data/FICHIER_PROJET/20.jpg => 380281
+data/FICHIER_PROJET/06.jpg => 378365
+data/FICHIER_PROJET/40.jpg => 381107
+data/FICHIER_PROJET/45.jpg => 374572
+data/FICHIER_PROJET/09.jpg => 371782
+data/FICHIER_PROJET/39.jpg => 377703
+data/FICHIER_PROJET/16.jpg 
+16.jpg 
+56.bmp 
+55.bmp 
+48.jpg 
+34.jpg 
+Search done successfully !
+
+ ================================================================
+ =     *         *       SEARCH SELECTION       *         *     =
+ ================================================================
+ |  1 - With key-word                                           |
+ |  2 - With another file                                       |
+ |--------------------------------------------------------------|
+ |  0 - Back                                                    |
+ ================================================================
+>>0 2
+Please, enter a file path : 
+>>28-A_Hossegor,_Kelly_Slater_peut.xml^[[6~      l
+
+
+Fichiers �quivalents :
+
+data/FICHIER_PROJET/06-US_Open___Mauresmo_et.xml => 102
+data/FICHIER_PROJET/17-La_voix_envoûtante_de_Girija.xml => 795
+data/FICHIER_PROJET/27-Martin_Scorsese_inaugure_la_Cinémathèque.xml => 410
+data/FICHIER_PROJET/26-Tom_Boonen_sacré_champion_du.xml => 995
+data/FICHIER_PROJET/06-Sensibiliser_à_la_vaccination_grippale.xml => 841
+data/FICHIER_PROJET/08-US_Open___Pierce_élimine.xml => 176
+data/FICHIER_PROJET/03-Des_chercheurs_parviennent_à_régénérer.xml => 466
+data/FICHIER_PROJET/22-Ted_Stanger,_l_Américain_de_service.xml => 782
+data/FICHIER_PROJET/05-Musique_électronique___l_élan_collectif.xml => 520
+data/FICHIER_PROJET/03-Mimer_un_signal_nerveux_pour.xml => 427
+data/FICHIER_PROJET/22-Dominique_Noël____Les_architectes.xml => 692
+data/FICHIER_PROJET/21-La_France_se_réveille_pour.xml => 880
+data/FICHIER_PROJET/28-_Œdipe_à_Colone_,_la_rage.xml => 610
+data/FICHIER_PROJET/05-Tours_d_honneur_pour_les_athlètes.xml => 959
+data/FICHIER_PROJET/17-Une_équipe_française_a_réussi.xml => 823
+data/FICHIER_PROJET/27-A_Lens,_le_Louvre_sera.xml => 679
+data/FICHIER_PROJET/28-Festival___Ososphère,_un_week-end.xml => 506
+data/FICHIER_PROJET/18-Les_22e_Journées_du_Patrimoine.xml => 291
+data/FICHIER_PROJET/22-Les_clubs_de_football_anglais.xml => 737
+data/FICHIER_PROJET/09-Miracle___le_cricket_est.xml => 556
+data/FICHIER_PROJET/18-Ligue_1___Lyon_a.xml => 109
+data/FICHIER_PROJET/27-Voyager_1_s_aventure_dans_l_au-delà.xml => 1173
+data/FICHIER_PROJET/12-Fernando_Alonso_n_est_plus_qu_à.xml => 1006
+data/FICHIER_PROJET/05-Edition___les_mots_et.xml => 551
+data/FICHIER_PROJET/12-Jean-Marie_Sevestre,_libraire_et_PDG.xml => 729
+data/FICHIER_PROJET/08-Pavé,_tour_ou_silo,_cinq.xml => 271
+data/FICHIER_PROJET/27-Le_Stade_de_France_s_ouvre.xml => 734
+data/FICHIER_PROJET/06-La_contamination_du_maïs_par.xml => 759
+data/FICHIER_PROJET/18-Battue_par_la_Slovénie,_l_équipe.xml => 595
+data/FICHIER_PROJET/10-La_réalité_virtuelle_et_l_informatique.xml => 526
+data/FICHIER_PROJET/16-Une_sonde_japonaise_va_tenter.xml => 1026
+data/FICHIER_PROJET/05-L_apnéiste_français_Guillaume_Néry_plonge.xml => 996
+data/FICHIER_PROJET/05-Rock___l_Illinois_magique_de.xml => 626
+data/FICHIER_PROJET/22-Grippe_aviaire___la_course.xml => 963
+data/FICHIER_PROJET/22-Danse___quarante_jeunes_de.xml => 368
+data/FICHIER_PROJET/15-_Si_on_veut_aller_trop.xml => 983
+data/FICHIER_PROJET/24-Canicules_et_sécheresses_menacent_de.xml => 509
+data/FICHIER_PROJET/05-Photographie___Philip_Blenkinsop_a.xml => 381
+data/FICHIER_PROJET/08-La_mission_Deep_Impact_permet.xml => 861
+data/FICHIER_PROJET/21-Matières_plastiques_et_pesticides_pourraient.xml => 279
+data/FICHIER_PROJET/26-Grippe_aviaire___une_sixième.xml => 591
+data/FICHIER_PROJET/29-Ligue_des_champions___Lyon.xml => 155
+data/FICHIER_PROJET/15-Un_quasar_solitaire_bouleverse_les.xml => 543
+data/FICHIER_PROJET/1.xml => 176
+data/FICHIER_PROJET/12-Musique_classique___un__Oberon_.xml => 523
+data/FICHIER_PROJET/12-Succès_sur_les_tatamis,_polémique.xml => 888
+data/FICHIER_PROJET/26-Jazz___Manu_Katché,_haut.xml => 400
+data/FICHIER_PROJET/08-Théâtre___l_échappée_belle,_peu.xml => 558
+data/FICHIER_PROJET/11-La_troposphère_paie,_au_prix.xml => 528
+data/FICHIER_PROJET/13-Ligue_des_champions____Si.xml => 600
+data/FICHIER_PROJET/17-Anouk_Aimée_et_Philippe_Noiret.xml => 458
+data/FICHIER_PROJET/05-Jean-Christophe_Bette_a_dû_attendre.xml => 1254
+data/FICHIER_PROJET/15-Capturer_et_emprisonner_le_CO.xml => 385
+data/FICHIER_PROJET/18-L_équipe_de_France_de_tennis.xml => 135
+data/FICHIER_PROJET/06-Les_mauvais_comptes_d_une_élimination.xml => 1107
+data/FICHIER_PROJET/13-L_inattendue_lévitation_de_la_goutte.xml => 304
+data/FICHIER_PROJET/15-La_mort_de_Robert_Wise,.xml => 908
+data/FICHIER_PROJET/08-Carlos_do_Carmo____Le.xml => 920
+data/FICHIER_PROJET/17-De_la_difficulté_d_anticiper_les.xml => 465
+data/FICHIER_PROJET/15-Lille_s_incline_dans_les.xml => 655
+data/FICHIER_PROJET/05-Au_stade_d_Abidjan,_la_défaite.xml => 654
+data/FICHIER_PROJET/08-L_équipe_de_France_victime_d_un.xml => 560
+data/FICHIER_PROJET/14-Grippe_aviaire___l_OMS_exhorte.xml => 440
+data/FICHIER_PROJET/15-Danse___Preljocaj_emmène_l_Opéra.xml => 347
+data/FICHIER_PROJET/07-Un_député_UMP_lance_une.xml => 643
+data/FICHIER_PROJET/12-Musiques_du_monde___les.xml => 352
+data/FICHIER_PROJET/12-Agassi_plie_face_au_meilleur.xml => 1178
+data/FICHIER_PROJET/28-Danse___Robyn_Orlin_et.xml => 572
+data/FICHIER_PROJET/26-Lyon_prend_ses_aises_en.xml => 651
+data/FICHIER_PROJET/05-Le_Colombien_Juan_Pablo_Montoya.xml => 1169
+data/FICHIER_PROJET/22-Exposition___les_métamorphoses_picturales.xml => 732
+data/FICHIER_PROJET/05-Prague_inaugure_les_Journées_européennes.xml => 649
+data/FICHIER_PROJET/10-Le_cyclone_Katrina_complique_le.xml => 730
+data/FICHIER_PROJET/29-Forte_réduction_de_la_calotte.xml => 681
+data/FICHIER_PROJET/15-Le_Théâtre_des_Champs-Elysées_s_offre.xml => 586
+data/FICHIER_PROJET/05-La_circoncision_pourrait_réduire_le.xml => 949
+data/FICHIER_PROJET/13-Les_accidents_vasculaires_cérébraux,_à.xml => 762
+data/FICHIER_PROJET/05-Le_théâtre_de_texte_confronté.xml => 950
+data/FICHIER_PROJET/22-Sursaut_des_Monégasques_après_le.xml => 517
+data/FICHIER_PROJET/22-Des_laboureurs,_des_OGM..._et.xml => 953
+data/FICHIER_PROJET/08-Sous_l_effet_du_réchauffement,_les.xml => 596
+data/FICHIER_PROJET/15-Capturer_et_emprisonner_le_CO2,.xml => 385
+data/FICHIER_PROJET/13-Des_astronomes_détectent_l_explosion_cosmique.xml => 655
+data/FICHIER_PROJET/toto.xml => 427
+data/FICHIER_PROJET/23-Les_Bleus,_tombeurs_de_la.xml => 910
+data/FICHIER_PROJET/05-Jean-Christophe_Bette_a_dû_attendre.xml 
+05-Jean-Christophe_Bette_a_dû_attendre.xml => 1254
+
+12-Agassi_plie_face_au_meilleur.xml => 1178
+
+27-Voyager_1_s_aventure_dans_l_au-delà.xml => 1173
+
+05-Le_Colombien_Juan_Pablo_Montoya.xml => 1169
+
+06-Les_mauvais_comptes_d_une_élimination.xml => 1107
+
+Search done successfully !
+
+ ================================================================
+ =     *         *       SEARCH SELECTION       *         *     =
+ ================================================================
+ |  1 - With key-word                                           |
+ |  2 - With another file                                       |
+ |--------------------------------------------------------------|
+ |  0 - Back                                                    |
+ ================================================================
+>>2
+Please, enter a file path : 
+>>28-Festival___Ososphère,_un_week-end.xml
+
+
+Fichiers �quivalents :
+
+data/FICHIER_PROJET/06-US_Open___Mauresmo_et.xml => 58
+data/FICHIER_PROJET/17-La_voix_envoûtante_de_Girija.xml => 807
+data/FICHIER_PROJET/27-Martin_Scorsese_inaugure_la_Cinémathèque.xml => 318
+data/FICHIER_PROJET/26-Tom_Boonen_sacré_champion_du.xml => 460
+data/FICHIER_PROJET/06-Sensibiliser_à_la_vaccination_grippale.xml => 559
+data/FICHIER_PROJET/08-US_Open___Pierce_élimine.xml => 27
+data/FICHIER_PROJET/03-Des_chercheurs_parviennent_à_régénérer.xml => 435
+data/FICHIER_PROJET/22-Ted_Stanger,_l_Américain_de_service.xml => 724
+data/FICHIER_PROJET/05-Musique_électronique___l_élan_collectif.xml => 534
+data/FICHIER_PROJET/03-Mimer_un_signal_nerveux_pour.xml => 249
+data/FICHIER_PROJET/22-Dominique_Noël____Les_architectes.xml => 492
+data/FICHIER_PROJET/21-La_France_se_réveille_pour.xml => 432
+data/FICHIER_PROJET/28-_Œdipe_à_Colone_,_la_rage.xml => 580
+data/FICHIER_PROJET/05-Tours_d_honneur_pour_les_athlètes.xml => 464
+data/FICHIER_PROJET/17-Une_équipe_française_a_réussi.xml => 525
+data/FICHIER_PROJET/27-A_Lens,_le_Louvre_sera.xml => 625
+data/FICHIER_PROJET/18-Les_22e_Journées_du_Patrimoine.xml => 291
+data/FICHIER_PROJET/22-Les_clubs_de_football_anglais.xml => 594
+data/FICHIER_PROJET/09-Miracle___le_cricket_est.xml => 378
+data/FICHIER_PROJET/18-Ligue_1___Lyon_a.xml => 77
+data/FICHIER_PROJET/27-Voyager_1_s_aventure_dans_l_au-delà.xml => 782
+data/FICHIER_PROJET/12-Fernando_Alonso_n_est_plus_qu_à.xml => 406
+data/FICHIER_PROJET/05-Edition___les_mots_et.xml => 295
+data/FICHIER_PROJET/12-Jean-Marie_Sevestre,_libraire_et_PDG.xml => 718
+data/FICHIER_PROJET/08-Pavé,_tour_ou_silo,_cinq.xml => 419
+data/FICHIER_PROJET/27-Le_Stade_de_France_s_ouvre.xml => 756
+data/FICHIER_PROJET/06-La_contamination_du_maïs_par.xml => 527
+data/FICHIER_PROJET/18-Battue_par_la_Slovénie,_l_équipe.xml => 452
+data/FICHIER_PROJET/10-La_réalité_virtuelle_et_l_informatique.xml => 432
+data/FICHIER_PROJET/16-Une_sonde_japonaise_va_tenter.xml => 783
+data/FICHIER_PROJET/05-L_apnéiste_français_Guillaume_Néry_plonge.xml => 539
+data/FICHIER_PROJET/05-Rock___l_Illinois_magique_de.xml => 417
+data/FICHIER_PROJET/22-Grippe_aviaire___la_course.xml => 573
+data/FICHIER_PROJET/22-Danse___quarante_jeunes_de.xml => 494
+data/FICHIER_PROJET/15-_Si_on_veut_aller_trop.xml => 594
+data/FICHIER_PROJET/24-Canicules_et_sécheresses_menacent_de.xml => 611
+data/FICHIER_PROJET/05-Photographie___Philip_Blenkinsop_a.xml => 384
+data/FICHIER_PROJET/08-La_mission_Deep_Impact_permet.xml => 571
+data/FICHIER_PROJET/21-Matières_plastiques_et_pesticides_pourraient.xml => 331
+data/FICHIER_PROJET/26-Grippe_aviaire___une_sixième.xml => 372
+data/FICHIER_PROJET/29-Ligue_des_champions___Lyon.xml => 96
+data/FICHIER_PROJET/15-Un_quasar_solitaire_bouleverse_les.xml => 489
+data/FICHIER_PROJET/1.xml => 27
+data/FICHIER_PROJET/12-Musique_classique___un__Oberon_.xml => 303
+data/FICHIER_PROJET/12-Succès_sur_les_tatamis,_polémique.xml => 417
+data/FICHIER_PROJET/26-Jazz___Manu_Katché,_haut.xml => 348
+data/FICHIER_PROJET/08-Théâtre___l_échappée_belle,_peu.xml => 441
+data/FICHIER_PROJET/11-La_troposphère_paie,_au_prix.xml => 466
+data/FICHIER_PROJET/13-Ligue_des_champions____Si.xml => 512
+data/FICHIER_PROJET/17-Anouk_Aimée_et_Philippe_Noiret.xml => 522
+data/FICHIER_PROJET/05-Jean-Christophe_Bette_a_dû_attendre.xml => 628
+data/FICHIER_PROJET/28-A_Hossegor,_Kelly_Slater_peut.xml => 506
+data/FICHIER_PROJET/15-Capturer_et_emprisonner_le_CO.xml => 519
+data/FICHIER_PROJET/18-L_équipe_de_France_de_tennis.xml => 79
+data/FICHIER_PROJET/06-Les_mauvais_comptes_d_une_élimination.xml => 657
+data/FICHIER_PROJET/13-L_inattendue_lévitation_de_la_goutte.xml => 346
+data/FICHIER_PROJET/15-La_mort_de_Robert_Wise,.xml => 696
+data/FICHIER_PROJET/08-Carlos_do_Carmo____Le.xml => 742
+data/FICHIER_PROJET/17-De_la_difficulté_d_anticiper_les.xml => 570
+data/FICHIER_PROJET/15-Lille_s_incline_dans_les.xml => 368
+data/FICHIER_PROJET/05-Au_stade_d_Abidjan,_la_défaite.xml => 440
+data/FICHIER_PROJET/08-L_équipe_de_France_victime_d_un.xml => 280
+data/FICHIER_PROJET/14-Grippe_aviaire___l_OMS_exhorte.xml => 361
+data/FICHIER_PROJET/15-Danse___Preljocaj_emmène_l_Opéra.xml => 526
+data/FICHIER_PROJET/07-Un_député_UMP_lance_une.xml => 455
+data/FICHIER_PROJET/12-Musiques_du_monde___les.xml => 535
+data/FICHIER_PROJET/12-Agassi_plie_face_au_meilleur.xml => 632
+data/FICHIER_PROJET/28-Danse___Robyn_Orlin_et.xml => 687
+data/FICHIER_PROJET/26-Lyon_prend_ses_aises_en.xml => 461
+data/FICHIER_PROJET/05-Le_Colombien_Juan_Pablo_Montoya.xml => 703
+data/FICHIER_PROJET/22-Exposition___les_métamorphoses_picturales.xml => 592
+data/FICHIER_PROJET/05-Prague_inaugure_les_Journées_européennes.xml => 707
+data/FICHIER_PROJET/10-Le_cyclone_Katrina_complique_le.xml => 553
+data/FICHIER_PROJET/29-Forte_réduction_de_la_calotte.xml => 465
+data/FICHIER_PROJET/15-Le_Théâtre_des_Champs-Elysées_s_offre.xml => 358
+data/FICHIER_PROJET/05-La_circoncision_pourrait_réduire_le.xml => 601
+data/FICHIER_PROJET/13-Les_accidents_vasculaires_cérébraux,_à.xml => 635
+data/FICHIER_PROJET/05-Le_théâtre_de_texte_confronté.xml => 929
+data/FICHIER_PROJET/22-Sursaut_des_Monégasques_après_le.xml => 368
+data/FICHIER_PROJET/22-Des_laboureurs,_des_OGM..._et.xml => 700
+data/FICHIER_PROJET/08-Sous_l_effet_du_réchauffement,_les.xml => 586
+data/FICHIER_PROJET/15-Capturer_et_emprisonner_le_CO2,.xml => 519
+data/FICHIER_PROJET/13-Des_astronomes_détectent_l_explosion_cosmique.xml => 493
+data/FICHIER_PROJET/toto.xml => 249
+data/FICHIER_PROJET/23-Les_Bleus,_tombeurs_de_la.xml => 495
+data/FICHIER_PROJET/05-Le_théâtre_de_texte_confronté.xml 
+05-Le_théâtre_de_texte_confronté.xml => 929
+
+17-La_voix_envoûtante_de_Girija.xml => 807
+
+16-Une_sonde_japonaise_va_tenter.xml => 783
+
+27-Voyager_1_s_aventure_dans_l_au-delà.xml => 782
+
+27-Le_Stade_de_France_s_ouvre.xml => 756
+
+Search done successfully !
+
+ ================================================================
+ =     *         *       SEARCH SELECTION       *         *     =
+ ================================================================
+ |  1 - With key-word                                           |
+ |  2 - With another file                                       |
+ |--------------------------------------------------------------|
+ |  0 - Back                                                    |
+ ================================================================
+>>0
+
+
+
+==================================================================
+ >>>    SEARCH ENGINE : CLOSE
+
+
+ ================================================================
+ |     *         *          MAIN  MENU          *         *     |
+ ================================================================
+ |  1 - Run the Search Engine                                   |
+ |  2 - Show data base files                                    |
+ |  3 - Connect as admin                                        |
+ |--------------------------------------------------------------|
+ |  0 - Quit                                                    |
+ ================================================================
+>>0
+
+
+
+==================================================================
+ >>>    SEARCH ENGINE : CLOSE
+
+
+]0;michael@michael-Aspire-V3-371: ~/Documents/Red-String-Project[01;32mmichael@michael-Aspire-V3-371[00m:[01;34m~/Documents/Red-String-Project[00m$ exit
+exit
+
+Script terminé sur ven. 20 janv. 2017 14:17:47 CET
