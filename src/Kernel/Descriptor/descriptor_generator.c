@@ -41,7 +41,8 @@ int check_descriptor(DataFile df, DataFile *data_files, size_t size) {
 
 		DataFile ressource = init_data_file(desc[i].file_name);
 		if (ressource.date > df.date) {
-			printf("File not up-to-date in descriptor : %s !\n", ressource.path);
+			printf("File not up-to-date in descriptor : %s !\n",
+					ressource.path);
 			free(desc);
 			free(content);
 			return 1;
@@ -83,10 +84,11 @@ void descriptor_to_file(Descriptor descriptor, DataFile df) {
 	strcat(result, "\n");
 
 	for (size_t i = 0; i < descriptor.nb_maps; i++) {
-	char currentKey[5];
-	sprintf(currentKey, "%zu", i);
+		char currentKey[5];
+		sprintf(currentKey, "%zu", i);
 		while (*get_hashMap_with_key(descriptor.map, currentKey) != NULL) {
-			char *tmp = pop_value_hash_map((get_hashMap_with_key(descriptor.map, currentKey)));
+			char *tmp = pop_value_hash_map(
+					(get_hashMap_with_key(descriptor.map, currentKey)));
 			//printf("%s\n", (**get_hashMap_with_key(descriptor.map, currentKey)).key);
 			strcat(result, tmp);
 		}
@@ -114,6 +116,10 @@ int compare_descriptors(Descriptor desc1, Descriptor desc2) {
 			if (!strcmp(map1->key, map2->key)) {
 				//printf("%s vs %s\n", map1->key, map2->key);
 				//puts("+1 !");
+				int min = map1->nbOccurence;
+				if (min > map2->nbOccurence) {
+					min = map2->nbOccurence;
+				}
 				common += (map1->nbOccurence * 10 + map2->nbOccurence);
 				//common += 1 + map1->nbOccurence;
 			}
