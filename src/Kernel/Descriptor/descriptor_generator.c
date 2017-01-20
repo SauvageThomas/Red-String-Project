@@ -211,3 +211,8 @@ Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 	*size_desc = i;
 	return descriptors;
 }
+
+int int main(int argc, char const *argv[]) {
+	init_descriptor("/home/michael/Red-String-Project/data/FICHIER_PROJET/jingle_m6.bin");
+	return 0;
+}
