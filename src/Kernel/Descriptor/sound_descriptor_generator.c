@@ -1,11 +1,5 @@
-<<<<<<< HEAD
+
 #include "sound_descriptor_generator.h"
-=======
-#include "../Tools/data_handler.h"
-#include "descriptor_generator.h"
-#include "../Data/constant.h"
-#include "../Search/sound_finder.h"
->>>>>>> 8657370baae9db24608e3d03d446e24b27cba734
 
 Descriptor generate_sound_descriptor(DataFile df, int size_window, int nb_intervalles){
 	Descriptor descriptor = init_descriptor(df.path);
@@ -47,8 +41,7 @@ void generate_sound_descriptors(DataFile df, Directory dir, int size_window, int
 	for (int i = 0; i < dir.audio_size; i += 1) {
 		printf("name : %s\n", dir.audio_files[i].path);
 		Descriptor desc = generate_sound_descriptor(dir.audio_files[i], size_window, nb_intervalles);
-		puts("OK");
 		descriptor_to_file(desc, df);
-		//printf("[%d] File descriptor SUCCESS : %s\n", (i+1), dir.audio_files[i].path);
+		printf("[%d] File descriptor SUCCESS : %s\n", (i+1), dir.audio_files[i].path);
 	}
 }
