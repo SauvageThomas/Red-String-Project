@@ -50,6 +50,7 @@ int search_data(Config config, char* file_path) {
 	char *content = read_string_from_file(df);
 	int size_desc;
 	Descriptor *desc = extract_all_descriptor(content, &size_desc);
+	puts("OK");
 	int cpt = 0;
 
 	while (strcmp(desc[cpt].file_name, file_path)) {
@@ -65,8 +66,11 @@ int search_data(Config config, char* file_path) {
 		//printf("%d\n", i);
 		if (i != cpt) {
 			int common = compare_descriptors(descriptor, desc[i]);
+
 			add_nb_value_hash_map(&result, desc[i].file_name, common);
-			printf("%s => %d\n",desc[i].file_name, common);
+			
+			if (DEBUG)
+				printf("%s => %d\n",desc[i].file_name, common);
 		}
 		//exit(0);
 
@@ -78,6 +82,26 @@ int search_data(Config config, char* file_path) {
 
 	for (int i = 0; i < max; i += 1) {
 		char *tmp = pop_value_hash_map(&result);
+		
+		if (i==0){
+
+			char c = tmp[0];
+
+			int count = 0;
+			char *file = malloc(strlen(tmp));
+
+			file[0] = '\0';
+			while(c != ' '){
+				c = tmp[count];
+				strncat(file, &c, 1);
+				
+				count += 1;
+			}
+			printf("%s\n", file);
+			char* cmd = malloc(KSIZE);
+			sprintf(cmd, "%s%s%s", "xdg-open ", file, " &");
+			system(cmd);
+		}
 
 		//Change the content of the string
 		char *final_string;
@@ -92,8 +116,6 @@ int search_data(Config config, char* file_path) {
 			final_string = pretty_print_sound(tmp);
 			break;
 		}
-
-		printf("%s\n", final_string);
 	}
 	return SUCCESS;
 }

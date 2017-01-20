@@ -129,7 +129,6 @@ Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 		//Remove the '>'
 		cpt += 1;
 		if (i >= size - 1) {
-			puts("realloc");
 			size *= 2;
 
 			descriptors = realloc(descriptors, sizeof(descriptors) * size);
