@@ -14,7 +14,6 @@
 #include "../Tools/hash_map.h"
 #include "../Data/constant.h"
 #include "../Tools/data_handler.h"
-#include "../Tools/hash_map.h"
 #include "../Tools/map_of_map.h"
 
 #ifndef DESCRIPTOR_DESCRIPTOR_GENERATOR_H_

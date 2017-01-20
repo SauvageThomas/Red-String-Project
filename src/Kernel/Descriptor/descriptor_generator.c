@@ -82,12 +82,13 @@ void descriptor_to_file(Descriptor descriptor, DataFile df) {
 	strcat(result, descriptor.file_name);
 	strcat(result, "\n");
 	strcat(result, "\n");
-
+	puts("OK");
 	for (size_t i = 0; i < descriptor.nb_maps; i++) {
 		char currentKey[5];
-		sprintf(currentKey, "%zu", i);
+		sprintf(currentKey, "%u", i);
 		printf("%s\n", currentKey);
 		while (*get_hashMap_with_key(descriptor.map, currentKey) != NULL) {
+			puts("OK!!!");
 			char *tmp = pop_value_hash_map((get_hashMap_with_key(descriptor.map, currentKey)));
 			strcat(result, tmp);
 		}
@@ -96,7 +97,7 @@ void descriptor_to_file(Descriptor descriptor, DataFile df) {
 
 	//free_map_of_map(descriptor.map);
 	free(result);
-	result = NULL;
+	//result = NULL;
 }
 
 //Right now only work for image and text (not tested yet, waiting for descriptor_extractor)
