@@ -84,9 +84,8 @@ void descriptor_to_file(Descriptor descriptor, DataFile df) {
 	strcat(result, "\n");
 	puts("OK");
 	for (size_t i = 0; i < descriptor.nb_maps; i++) {
-		char currentKey[5];
-		sprintf(currentKey, "%u", i);
-		printf("%s\n", currentKey);
+	char currentKey[5];
+	sprintf(currentKey, "%zu", i);
 		while (*get_hashMap_with_key(descriptor.map, currentKey) != NULL) {
 			puts("OK!!!");
 			char *tmp = pop_value_hash_map((get_hashMap_with_key(descriptor.map, currentKey)));

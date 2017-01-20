@@ -1,11 +1,43 @@
+<<<<<<< HEAD
 #include "sound_descriptor_generator.h"
+=======
+#include "../Tools/data_handler.h"
+#include "descriptor_generator.h"
+#include "../Data/constant.h"
+#include "../Search/sound_finder.h"
+>>>>>>> 8657370baae9db24608e3d03d446e24b27cba734
 
 Descriptor generate_sound_descriptor(DataFile df, int size_window, int nb_intervalles){
 	Descriptor descriptor = init_descriptor(df.path);
+	size_t len = strlen(df.path);
+	char *tmp = df.path;
+	df.path = malloc(KSIZE * 2 + 15);
+	strcpy(df.path, tmp);
+
+	df.path[len + 1] = '\0';
+	df.path[len] = '2';
+	df.path[len - 1] = 'n';
+	df.path[len - 2] = 'i';
+	df.path[len - 3] = 'b';
 	size_t count_maps;
-	descriptor.map = file_content(df, size_window, nb_intervalles, &count_maps);	
+	int* sound_values = file_content(df, size_window, nb_intervalles, &count_maps);
+	int key_map_of_map;
+	char str[5];
+	char str2[5];
+	int max = df.length/sizeof(double);
 	descriptor.size = df.length;
 	descriptor.nb_maps = count_maps;
+	char **array = malloc(descriptor.nb_maps* sizeof(char*));
+	for (size_t i = 0; i < descriptor.nb_maps; i++) {
+		array[i] = malloc(5*sizeof(char));
+		sprintf(array[i], "%zu", i);
+	}
+	for (int i = 0; i < max; i += 1) {
+		sprintf(str, "%d", sound_values[i]);
+		key_map_of_map = (int)floor((i+1)/(double)size_window);
+		printf("%s\n", str2);
+		add_value_MapOfMap(&(descriptor.map), array[key_map_of_map], str, 1);
+	}
 	return descriptor;
 }
 
