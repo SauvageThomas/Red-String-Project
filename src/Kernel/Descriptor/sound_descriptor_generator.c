@@ -21,19 +21,19 @@ Descriptor generate_sound_descriptor(DataFile df, int size_window, int nb_interv
 	char str[5];
 	char str2[5];
 	int max = df.length/sizeof(double);
+	descriptor.size = df.length;
+	descriptor.nb_maps = count_maps;
+	char **array = malloc(descriptor.nb_maps* sizeof(char*));
+	for (size_t i = 0; i < descriptor.nb_maps; i++) {
+		array[i] = malloc(5*sizeof(char));
+		sprintf(array[i], "%zu", i);
+	}
 	for (int i = 0; i < max; i += 1) {
 		sprintf(str, "%d", sound_values[i]);
 		key_map_of_map = (int)floor((i+1)/(double)size_window);
-		sprintf(str2, "%d", key_map_of_map);
 		printf("%s\n", str2);
-		add_value_MapOfMap(&(descriptor.map), str2, str, 1);
+		add_value_MapOfMap(&(descriptor.map), array[key_map_of_map], str, 1);
 	}
-	printf("AAAAAAAAAAAAAAAA\n");
-	printf("%s\n", pop_value_MapOfMap(&(descriptor.map)));
-	printf("AAAAAAAAAAAAAAAA\n");
-	printf("%s\n", pop_value_MapOfMap(&(descriptor.map)));
-	descriptor.size = df.length;
-	descriptor.nb_maps = count_maps;
 	return descriptor;
 }
 
