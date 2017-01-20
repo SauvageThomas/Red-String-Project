@@ -28,11 +28,14 @@ Descriptor generate_sound_descriptor(DataFile df, int size_window, int nb_interv
 		array[i] = malloc(5*sizeof(char));
 		sprintf(array[i], "%zu", i);
 	}
+	char **array2 = malloc(nb_intervalles* sizeof(char*));
+	for (size_t i = 0; i < nb_intervalles; i++) {
+		array2[i] = malloc(5*sizeof(char));
+		sprintf(array2[i], "%zu", i);
+	}
 	for (int i = 0; i < max; i += 1) {
-		sprintf(str, "%d", sound_values[i]);
-		key_map_of_map = (int)floor((i+1)/(double)size_window);
-		printf("%s\n", str2);
-		add_value_MapOfMap(&(descriptor.map), array[key_map_of_map], str, 1);
+		key_map_of_map = (int)floor((i)/(double)size_window);
+		add_value_MapOfMap(&(descriptor.map), array[key_map_of_map], array2[sound_values[i]], 1);
 	}
 	return descriptor;
 }
