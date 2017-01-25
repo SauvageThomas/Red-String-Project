@@ -1,7 +1,7 @@
 /*
  * data_manager.c
  *
- *  Created on: 5 déc. 2016	
+ *  Created on: 5 dï¿½c. 2016
  *      Author: THOMAS
  */
 
@@ -10,22 +10,16 @@
 int search_data(Config config, char* file_path) {
 	DataFile df = init_data_file(file_path);
 	HashMap result = NULL;
-
 	if (!is_existing_file(df)) {
 		return FILE_NOT_FOUND;
 	}
-
 	if (is_empty_file(df)) {
 		return EMPTY;
 	}
-
 	enum FileType file_type = get_data_file_extension(df.path);
-
 	//Directory dir = get_all_files(get_value_of(config, "path"));
-
 	char full_path[KSIZE * 2];
 	strcpy(full_path, get_value_of(config, "descriptors"));
-
 	switch (file_type) {
 	case TEXT:
 		strcat(full_path, "text_descriptors");
@@ -39,25 +33,20 @@ int search_data(Config config, char* file_path) {
 		strcat(full_path, "sound_descriptors");
 		//find_sound(df, get_value_of(config, "taille_des_fenetres"), get_value_of(config, "nombre_de_barre"));
 		break;
-
 	default:
 		return FILE_TYPE_NOT_SUPPORTED;
 		break;
 	}
-
 	df = init_data_file(full_path);
-
 	char *content = read_string_from_file(df);
 	int size_desc;
 	Descriptor *desc = extract_all_descriptor(content, &size_desc);
 	int cpt = 0;
-
 	while (strcmp(desc[cpt].file_name, file_path)) {
 		//printf("%s and %s\n", desc[cpt].file_name, file_path) ;
 		cpt += 1;
 	}
-
-	puts("\n\nFichiers équivalents :\n");
+	puts("\n\nFichiers Ã©quivalents :\n");
 	Descriptor descriptor = desc[cpt];
 	//printf("%d\n", cpt);
 	int i;
@@ -69,16 +58,28 @@ int search_data(Config config, char* file_path) {
 			printf("%s => %d\n",desc[i].file_name, common);
 		}
 		//exit(0);
-
 	}
 	int max = 5;
 	if (i < max) {
 		max = i;
 	}
-
 	for (int i = 0; i < max; i += 1) {
 		char *tmp = pop_value_hash_map(&result);
 
+			if(i == 0){
+			char c=tmp[0];
+			int count =0;
+			char * file=malloc(strlen(tmp));
+			file[0]='\0';
+			while(c!=' '){
+				c=tmp[count];
+				strncat(file, &c, 1);
+				count++;
+			}
+			printf("%s\n", file);
+			char * cmd=malloc(KSIZE);
+			sprintf(cmd, "%s%s%s", "xdg-open ", file, " &");
+			system(cmd);}
 		//Change the content of the string
 		char *final_string;
 		switch (file_type) {
@@ -92,7 +93,6 @@ int search_data(Config config, char* file_path) {
 			final_string = pretty_print_sound(tmp);
 			break;
 		}
-
 		printf("%s\n", final_string);
 	}
 	return SUCCESS;
@@ -120,7 +120,6 @@ char *pretty_print_string(char *in) {
 char *pretty_print_image(char *in) {
 	char *out = malloc(KSIZE + 15);
 	out[0] = '\0';
-
 	char c = in[0];
 	int j = 0;
 	while (c != '\0') {
@@ -144,27 +143,20 @@ Directory get_all_files(char *path) {
 	size_t max_size_text = 15;
 	size_t max_size_audio = 15;
 	size_t max_size_image = 15;
-
 	Directory dir;
-
 	dir.txt_size = 0;
 	dir.audio_size = 0;
 	dir.image_size = 0;
-
 	dir.txt_files = malloc(sizeof(DataFile) * max_size_text);
 	dir.audio_files = malloc(sizeof(DataFile) * max_size_audio);
 	dir.image_files = malloc(sizeof(DataFile) * max_size_image);
-
 	char *full_path = malloc(KSIZE * 2);
-
 	DIR *dp;
 	struct dirent *ep;
 	dp = opendir(path);
-
 	if (dp != NULL) {
 		while (ep = readdir(dp)) {
 			strcpy(full_path, path);
-
 			if (dir.txt_size >= max_size_text - 1) {
 				max_size_text *= 2;
 				dir.txt_files = realloc(dir.txt_files,
@@ -180,7 +172,6 @@ Directory get_all_files(char *path) {
 				dir.image_files = realloc(dir.image_files,
 						sizeof(DataFile) * max_size_image);
 			}
-
 			strcat(full_path, ep->d_name);
 			if (DEBUG) {
 				printf("text %d audio %d image %d\n", dir.txt_size,
@@ -189,9 +180,7 @@ Directory get_all_files(char *path) {
 						 max_size_audio, max_size_image);*/
 			}
 			//puts(ep->d_name);
-
 			enum FileType file_type = get_data_file_extension(ep->d_name);
-
 			switch (file_type) {
 			case TEXT:
 				dir.txt_files[dir.txt_size] = init_data_file(full_path);
@@ -222,5 +211,4 @@ Directory get_all_files(char *path) {
 		dir.txt_size = -1;
 	}
 	return dir;
-
 }

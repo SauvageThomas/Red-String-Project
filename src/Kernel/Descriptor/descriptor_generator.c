@@ -13,7 +13,7 @@ int check_descriptor(DataFile df, DataFile *data_files, size_t size) {
 		return 1;
 	}
 	puts("Have to check every file...");
-
+	return 1;
 	char *content = read_string_from_file(df);
 
 	int size_desc;
