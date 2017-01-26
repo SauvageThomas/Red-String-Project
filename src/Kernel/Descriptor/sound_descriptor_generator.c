@@ -18,8 +18,6 @@ Descriptor generate_sound_descriptor(DataFile df, int size_window, int nb_interv
 	size_t count_maps;
 	int* sound_values = file_content(df, size_window, nb_intervalles, &count_maps);
 	int key_map_of_map;
-	char str[5];
-	char str2[5];
 	int max = df.length/sizeof(double);
 	descriptor.size = df.length;
 	descriptor.nb_maps = count_maps;

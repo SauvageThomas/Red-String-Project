@@ -75,6 +75,8 @@ void descriptor_to_file(Descriptor descriptor, DataFile df) {
 		fprintf(stderr, "Malloc failed %s\n", strerror(errno));
 	}
 
+	size_t len = strlen(descriptor.file_name);
+
 	char date[50];
 	sprintf(date, "%u\n", descriptor.date);
 
@@ -84,19 +86,41 @@ void descriptor_to_file(Descriptor descriptor, DataFile df) {
 	strcat(result, "\n");
 
 	for (size_t i = 0; i < descriptor.nb_maps; i++) {
-		char currentKey[5];
-		sprintf(currentKey, "%zu", i);
+	char currentKey[5];
+	sprintf(currentKey, "%zu", i);
+
+	char** tableau = malloc(sizeof(char*) * (descriptor.size / (descriptor.nb_maps* sizeof(double))));
+	for (size_t i = 0; i < (descriptor.size / (descriptor.nb_maps* sizeof(double))); i++) {
+		tableau[i] = NULL;
+	}
+
 		while (*get_hashMap_with_key(descriptor.map, currentKey) != NULL) {
-			char *tmp = pop_value_hash_map(
-					(get_hashMap_with_key(descriptor.map, currentKey)));
-			//printf("%s\n", (**get_hashMap_with_key(descriptor.map, currentKey)).key);
-			strcat(result, tmp);
+			char *tmp = pop_value_hash_map((get_hashMap_with_key(descriptor.map, currentKey)));
+
+			if (descriptor.file_name[len-1] == 'v') {
+				char *p;
+	    	p = strtok(tmp, " ");
+				int a = atoi(p);
+				tableau[a] = strtok(strtok(NULL, " "), "\n");
+			} else {
+				strcat(result, tmp);
+			}
 		}
+
+		if (descriptor.file_name[len-1] == 'v') {
+			char* ligne = malloc(sizeof(char)*3 * (descriptor.size / (descriptor.nb_maps* sizeof(double))));
+			for (size_t i = 0; i < (descriptor.size / (descriptor.nb_maps* sizeof(double))); i++) {
+				if (tableau[i] == NULL) {
+					strcat(ligne, "0 ");
+				} else {
+					strcat(ligne, strcat(tableau[i], " "));
+				}
+			}
+			strcat(result, ligne);
+		}
+
 		strcat(result, "\n");
 		append_string_in_file(df, result);
-		if (i < 2) {
-			printf("%s\n", result);
-		}
 		result = malloc(descriptor.size);
 	}
 
