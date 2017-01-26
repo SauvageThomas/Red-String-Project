@@ -1,7 +1,7 @@
 /*
  * data_manager.c
  *
- *  Created on: 5 déc. 2016	
+ *  Created on: 5 dÃ©c. 2016	
  *      Author: THOMAS
  */
 
@@ -58,7 +58,7 @@ int search_data(Config config, char* file_path) {
 		cpt += 1;
 	}
 
-	puts("\n\nFichiers équivalents :\n");
+	puts("\n\nFichiers Ã©quivalents :\n");
 	Descriptor descriptor = desc[cpt];
 	//printf("%d\n", cpt);
 	int i;
