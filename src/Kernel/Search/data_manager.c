@@ -62,7 +62,7 @@ int search_data(Config config, char* file_path) {
 			
 			if (DEBUG)
 				printf("%s => %d\n",desc[i].file_name, common);
-		
+		}
 
 	}
 	int max = 5;
@@ -106,6 +106,7 @@ int search_data(Config config, char* file_path) {
 			final_string = pretty_print_sound(tmp);
 			break;
 		}
+		printf("%s\n", final_string);
 	}
 	return SUCCESS;
 }
