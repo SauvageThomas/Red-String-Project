@@ -110,7 +110,7 @@ Config load_config() {
 	configuration.size = 0;
 	configuration.size_word = KSIZEWORD;
 
-	configuration.config = malloc(sizeof(char*) * i);
+	configuration.config = malloc(sizeof(char*) * i * 2);
 	if (configuration.config == NULL) {
 		fprintf(stderr, "Malloc in load config failed %s\n", strerror(errno));
 	}

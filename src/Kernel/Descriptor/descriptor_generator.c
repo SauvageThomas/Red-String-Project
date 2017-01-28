@@ -185,9 +185,11 @@ Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 			//printf("cont %d\n", strlen(content));
 			//printf("[%d/%d]%s => %d\n", cpt, max, key, n);
 		}
+		free(key);
 		size += 1;
 	}
 	//puts("almost");
 	*size_desc = i;
+
 	return descriptors;
 }

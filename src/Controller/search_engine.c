@@ -96,7 +96,7 @@ void init_search_engine(Config config) {
 	}
 	size_t k = (size_t) strtol(size_window, (char **) NULL, 10);
 	size_t m = (size_t) strtol(nb_intervalles, (char **) NULL, 10);
-	check_sound_descriptor(path, dir, k, m);
+	//check_sound_descriptor(path, dir, k, m);
 
 	if(!DEBUG)
 		clear_console();
