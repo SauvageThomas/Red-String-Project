@@ -131,7 +131,7 @@ Config load_config() {
 
 		if (value == NULL) {
 			puts("Corrupted config file, default one used.");
-			//TODO: faire un fichier par défaut et le charger à la place de NULL
+			//TODO: faire un fichier par dï¿½faut et le charger ï¿½ la place de NULL
 			return configuration;
 		}
 		key = strtok(NULL, token);

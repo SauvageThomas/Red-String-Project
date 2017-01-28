@@ -21,8 +21,6 @@ int search_data(Config config, char* file_path) {
 
 	enum FileType file_type = get_data_file_extension(df.path);
 
-	//Directory dir = get_all_files(get_value_of(config, "path"));
-
 	char full_path[KSIZE * 2];
 	strcpy(full_path, get_value_of(config, "descriptors"));
 
@@ -32,12 +30,9 @@ int search_data(Config config, char* file_path) {
 		break;
 	case IMAGE:
 		strcat(full_path, "image_descriptors");
-		//puts("hey");
-		//find_image(get_value_of(config, "quantification"), df);
 		break;
 	case SOUND:
 		strcat(full_path, "sound_descriptors");
-		//find_sound(df, get_value_of(config, "taille_des_fenetres"), get_value_of(config, "nombre_de_barre"));
 		break;
 
 	default:
@@ -50,20 +45,16 @@ int search_data(Config config, char* file_path) {
 	char *content = read_string_from_file(df);
 	int size_desc;
 	Descriptor *desc = extract_all_descriptor(content, &size_desc);
-	puts("OK");
 	int cpt = 0;
 
 	while (strcmp(desc[cpt].file_name, file_path)) {
-		//printf("%s and %s\n", desc[cpt].file_name, file_path) ;
 		cpt += 1;
 	}
 
-	puts("\n\nFichiers équivalents :\n");
+	puts("\n\nSame file type scores :\n");
 	Descriptor descriptor = desc[cpt];
-	//printf("%d\n", cpt);
 	int i;
 	for (i = 0; i < size_desc; i += 1) {
-		//printf("%d\n", i);
 		if (i != cpt) {
 			int common = compare_descriptors(descriptor, desc[i]);
 
@@ -71,8 +62,7 @@ int search_data(Config config, char* file_path) {
 			
 			if (DEBUG)
 				printf("%s => %d\n",desc[i].file_name, common);
-		}
-		//exit(0);
+		
 
 	}
 	int max = 5;
@@ -97,7 +87,7 @@ int search_data(Config config, char* file_path) {
 				
 				count += 1;
 			}
-			printf("%s\n", file);
+			printf("\nBEST RESULT : %s\n\n", file);
 			char* cmd = malloc(KSIZE);
 			sprintf(cmd, "%s%s%s", "xdg-open ", file, " &");
 			system(cmd);

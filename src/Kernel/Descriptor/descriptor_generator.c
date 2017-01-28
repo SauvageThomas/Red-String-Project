@@ -75,6 +75,8 @@ void descriptor_to_file(Descriptor descriptor, DataFile df) {
 		fprintf(stderr, "Malloc failed %s\n", strerror(errno));
 	}
 
+	size_t len = strlen(descriptor.file_name);
+
 	char date[50];
 	sprintf(date, "%u\n", descriptor.date);
 
@@ -82,21 +84,44 @@ void descriptor_to_file(Descriptor descriptor, DataFile df) {
 	strcat(result, descriptor.file_name);
 	strcat(result, "\n");
 	strcat(result, "\n");
-	puts("OK");
+
 	for (size_t i = 0; i < descriptor.nb_maps; i++) {
 	char currentKey[5];
 	sprintf(currentKey, "%zu", i);
+
+	char** tableau = malloc(sizeof(char*) * descriptor.nb_intervalles);
+	for (size_t i = 0; i < (descriptor.nb_intervalles); i++) {
+		tableau[i] = NULL;
+	}
+
 		while (*get_hashMap_with_key(descriptor.map, currentKey) != NULL) {
-			puts("OK!!!");
 			char *tmp = pop_value_hash_map((get_hashMap_with_key(descriptor.map, currentKey)));
-			//printf("%s\n", (**get_hashMap_with_key(descriptor.map, currentKey)).key);
-			strcat(result, tmp);
+
+			if (descriptor.file_name[len-1] == 'v') {
+				char *p;
+	    	p = strtok(tmp, " ");
+				int a = atoi(p);
+				tableau[a] = strtok(strtok(NULL, " "), "\n");
+			} else {
+				strcat(result, tmp);
+			}
 		}
+
+		if (descriptor.file_name[len-1] == 'v') {
+			char* ligne = malloc(3 * descriptor.nb_intervalles);
+			memset(&ligne[0], 0, sizeof(ligne));
+			for (size_t i = 0; i < descriptor.nb_intervalles; i++) {
+				if (tableau[i] == NULL) {
+					strcat(ligne, "0 ");
+				} else {
+					strcat(ligne, strcat(tableau[i], " "));
+				}
+			}
+			strcat(result, ligne);
+		}
+
 		strcat(result, "\n");
 		append_string_in_file(df, result);
-		if (i < 2) {
-			printf("%s\n", result);
-		}
 		result = malloc(descriptor.size);
 	}
 
@@ -116,7 +141,11 @@ int compare_descriptors(Descriptor desc1, Descriptor desc2) {
 			if (!strcmp(map1->key, map2->key)) {
 				//printf("%s vs %s\n", map1->key, map2->key);
 				//puts("+1 !");
-				common += (map1->nbOccurence * 10 + map2->nbOccurence);
+				int min = map1->nbOccurence;
+				if (min > map2->nbOccurence) {
+					min = map2->nbOccurence;
+				}
+				common += min;
 				//common += 1 + map1->nbOccurence;
 			}
 			map2 = map2->next;
@@ -135,8 +164,6 @@ Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 	int cpt = 0;
 	size_t max = strlen(content);
 	for (i = 0; cpt < max; i += 1) {
-		//printf("%d %d/%d\n", i, cpt, max);
-
 		//Remove the '>'
 		cpt += 1;
 		if (i >= size - 1) {
@@ -144,31 +171,25 @@ Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 
 			descriptors = realloc(descriptors, sizeof(descriptors) * size);
 		}
-		//printf("max %d\n", max);
-		//printf("all %u 1 %u / %u\n", sizeof(descriptors), sizeof(descriptors[i]),  sizeof(Descriptor));
-
 		descriptors[i].map = NULL;
 		descriptors[i].size = max;
 
 		//Read header
 		int tmp = 0;
 		while (content[cpt] != '\n') {
-			//putchar(content[cpt]);
 			descriptors[i].file_name[tmp] = content[cpt];
 			tmp += 1;
 			cpt += 1;
 		}
 		descriptors[i].file_name[tmp] = '\0';
-		//printf("file_name %s\n", descriptors[i].file_name);
 
 		//Remove the newline
 		cpt += 1;
 
 		//Add data to the map
-		char *key = malloc(KSIZEWORD);
+		char *key = malloc(KSIZE);
 		while (content[cpt] != '>' && cpt < max) {
 			int n;
-			//printf("line %s\n", line);
 			sscanf(&content[cpt], "%s %d", key, &n);
 
 			while (content[cpt] != '\n') {
@@ -177,19 +198,11 @@ Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 			}
 			//Remove the newline
 			cpt += 1;
-
-			//puts("before");
 			add_nb_value_hash_map(&(descriptors[i].map), key, n);
-			//puts("after");
-
-			//printf("cont %d\n", strlen(content));
-			//printf("[%d/%d]%s => %d\n", cpt, max, key, n);
 		}
 		free(key);
 		size += 1;
 	}
-	//puts("almost");
 	*size_desc = i;
-
 	return descriptors;
 }

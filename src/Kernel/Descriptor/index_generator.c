@@ -15,21 +15,17 @@
 
 void update_index(){
 
-
 	/*
-	* UPDATE THE INDEX FILE
+	* CREATE OR UPDATE THE INDEX FILE
 	*/
 
 
-	char* pathDescriptor = "../../../data/descriptors/text_descriptors_v2";
+	char* pathDescriptor = "data/descriptors/text_descriptors";
 	DataFile fileSource = init_data_file(pathDescriptor);
 	char* text = read_string_from_file(fileSource);
 
-	char* pathIndex = "../../../data/descriptors/text_index";
-	DataFile fileDestination = init_data_file(pathDescriptor);
-
 	char* fileName = malloc(KSIZE +1);
-	char* wordCurent = malloc(KSIZEWORD-50);
+	char* wordCurent = malloc(KSIZEWORD);
 	char* numberOccurenceCurent = malloc(sizeof(int));
 	int intNumberOccurenceCurent;
 	int isFileName = 0;
@@ -50,7 +46,6 @@ void update_index(){
 			isWordCurent = 0;
 			isFileName = 1;
 			continue;
-			
 		}
 		if(isFileName == 1 && text[i]!='\n'){
 			tmp = malloc(sizeof(char));
@@ -64,7 +59,6 @@ void update_index(){
 			wordCurent="";
 			wordCurent =  malloc(KSIZEWORD);
 			continue;
-	
 		}
 		if(isWordCurent == 1 && text[i] != ' ' && text[i] != '\n'){
 			tmp = malloc(sizeof(char));
@@ -95,43 +89,16 @@ void update_index(){
 			continue;
 		}
 	}
-	
-	if(map!=NULL){
-		write_string_in_file(fileDestination, pop_value_MapOfMap(&map));
-		puts("mamamiya");
-	}
-	while(map!=NULL){
-		append_string_in_file(fileDestination,pop_value_MapOfMap(&map)); 
-		puts("heuuu...");
-	}
-	  
-	
 
+
+	FILE* fileIndex=  fopen("data/descriptors/text_index", "w+");
+
+    if (fileIndex != NULL)
+    {
+		while(map!=NULL){
+			fputs(pop_value_MapOfMap(&map),fileIndex); 
+		}	
+    }
 	puts("INDEX FILE UPDATED.");
 }
-
-/*
-int main(){
-	puts("--> test index generator\n");
-	update_index();
-/*	MapOfMap map;
-	init_MapOfMap(&map);
-	add_value_MapOfMap(&map, "aa", "Fichier1", 11);
-	add_value_MapOfMap(&map, "bb", "Fichier2", 22);
-	add_value_MapOfMap(&map, "cc", "Fichier2", 33);
-	add_value_MapOfMap(&map, "aa", "Fichier3", 111);
-	add_value_MapOfMap(&map, "aa", "Fichier4", 12);
-	add_value_MapOfMap(&map, "aa", "Fichier45",777);
-	add_value_MapOfMap(&map, "aa", "Fichier42",7897);
-	add_value_MapOfMap(&map, "dd", "Fichier5", 4);
-	add_value_MapOfMap(&map, "bb", "Fichier6", 222);
-	/*while(!is_map_of_map_empty(map)){
-		printf("%s\n",pop_value_map_of_map(&map)); 
-
-	}	*/
-	//HashMap hashMap = *get_hashMap_with_key(map, "aa");
-	//printf("Test ----> : %s\n", pop_value_hash_map(&hashMap));
-	//free_map_of_map(map);
-//}
-
 
