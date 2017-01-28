@@ -65,12 +65,12 @@ void remove_punctuation(char* content) {
 char** remove_words(char* content, int *matrix_length) {
 	// maximum length of a french word is 24 and a word may have at least 3 letters within
 
-	char ** matrix_of_words = malloc(strlen(content) * sizeof(char*));
+	char ** matrix_of_words = malloc(strlen(content) * sizeof(char*) * 2);
 	if (matrix_of_words == NULL) {
 		fprintf(stderr, "Malloc failed %s\n", strerror(errno));
 	}
 	for (int i = 0; i < strlen(content); i++)
-		matrix_of_words[i] = malloc(KSIZEWORD * sizeof(char));
+		matrix_of_words[i] = malloc(KSIZEWORD * sizeof(char) * 2);
 
 	size_t cpt = 0, cpt1 = 0, cpt2 = 0;
 	char tmp = content[cpt];
@@ -82,7 +82,7 @@ char** remove_words(char* content, int *matrix_length) {
 				matrix_of_words[cpt1][cpt2] = tmp;
 				cpt2++;
 			}
-		} 
+		}
 		else {
 			if (cpt2 > 3){
 				matrix_of_words[cpt1][cpt2] = '\0';

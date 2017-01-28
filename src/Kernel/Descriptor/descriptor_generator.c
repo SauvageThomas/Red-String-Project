@@ -89,8 +89,8 @@ void descriptor_to_file(Descriptor descriptor, DataFile df) {
 	char currentKey[5];
 	sprintf(currentKey, "%zu", i);
 
-	char** tableau = malloc(sizeof(char*) * (descriptor.size / (descriptor.nb_maps* sizeof(double))));
-	for (size_t i = 0; i < (descriptor.size / (descriptor.nb_maps* sizeof(double))); i++) {
+	char** tableau = malloc(sizeof(char*) * descriptor.nb_intervalles);
+	for (size_t i = 0; i < (descriptor.nb_intervalles); i++) {
 		tableau[i] = NULL;
 	}
 
@@ -108,8 +108,9 @@ void descriptor_to_file(Descriptor descriptor, DataFile df) {
 		}
 
 		if (descriptor.file_name[len-1] == 'v') {
-			char* ligne = malloc(sizeof(char)*3 * (descriptor.size / (descriptor.nb_maps* sizeof(double))));
-			for (size_t i = 0; i < (descriptor.size / (descriptor.nb_maps* sizeof(double))); i++) {
+			char* ligne = malloc(sizeof(char)*3 * descriptor.nb_intervalles);
+			memset(&ligne[0], 0, sizeof(ligne));
+			for (size_t i = 0; i < descriptor.nb_intervalles; i++) {
 				if (tableau[i] == NULL) {
 					strcat(ligne, "0 ");
 				} else {

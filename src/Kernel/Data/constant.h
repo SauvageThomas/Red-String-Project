@@ -38,6 +38,7 @@ typedef struct {
 	time_t date;
 	size_t size;
 	size_t nb_maps;
+	size_t nb_intervalles;
 } Descriptor;
 
 

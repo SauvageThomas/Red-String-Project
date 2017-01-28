@@ -21,6 +21,7 @@ Descriptor generate_sound_descriptor(DataFile df, int size_window, int nb_interv
 	int max = df.length/sizeof(double);
 	descriptor.size = df.length;
 	descriptor.nb_maps = count_maps;
+	descriptor.nb_intervalles = nb_intervalles;
 	char **array = malloc(descriptor.nb_maps* sizeof(char*));
 	for (size_t i = 0; i < descriptor.nb_maps; i++) {
 		array[i] = malloc(5*sizeof(char));
