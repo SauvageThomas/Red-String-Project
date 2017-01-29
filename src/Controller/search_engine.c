@@ -39,7 +39,7 @@ void check_text_descriptor(char* path, Directory dir) {
 	int updated = check_descriptor(df, dir.txt_files, dir.txt_size);
 	if (updated) {
 		generate_text_descriptors(df, dir);
-		//update_index();
+		update_index();
 	}
 }
 
