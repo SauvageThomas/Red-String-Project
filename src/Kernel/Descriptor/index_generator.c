@@ -20,12 +20,12 @@ void update_index(){
 	*/
 
 
-	char* pathDescriptor = "../../../data/descriptors/text_descriptors";
+	char* pathDescriptor = "data/descriptors/text_descriptors";
 	DataFile fileSource = init_data_file(pathDescriptor);
 	char* text = read_string_from_file(fileSource);
 
 	char* fileName = malloc(KSIZE +1);
-	char* wordCurent = malloc(KSIZEWORD-50);
+	char* wordCurent = malloc(KSIZEWORD);
 	char* numberOccurenceCurent = malloc(sizeof(int));
 	int intNumberOccurenceCurent;
 	int isFileName = 0;
@@ -91,19 +91,14 @@ void update_index(){
 	}
 
 
-	FILE* fileIndex=  fopen("../../../data/descriptors/text_index", "w+");
+	FILE* fileIndex=  fopen("data/descriptors/text_index", "w+");
 
     if (fileIndex != NULL)
     {
-		if(map!=NULL){
-			fputs( pop_value_MapOfMap(&map), fileIndex);
-		}
 		while(map!=NULL){
 			fputs(pop_value_MapOfMap(&map),fileIndex); 
 		}	
-    	//fclose(fileIndex);
     }
-	
 	puts("INDEX FILE UPDATED.");
 }
 

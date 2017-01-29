@@ -1,4 +1,7 @@
+
 #include "../Tools/data_handler.h"
 #include "../Data/constant.h"
+#include "descriptor_generator.h"
+#include "index_generator.h"
 
-void generate_text_descriptors(DataFile df, Directory dir);
+void check_text_descriptor(char* path, Directory dir);

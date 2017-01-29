@@ -1,7 +1,5 @@
-#include "../Tools/data_handler.h"
-#include "descriptor_generator.h"
-#include "../Data/constant.h"
-#include "../Search/sound_finder.h"
+
+#include "sound_descriptor_generator.h"
 
 Descriptor generate_sound_descriptor(DataFile df, int size_window, int nb_intervalles){
 	Descriptor descriptor = init_descriptor(df.path);
@@ -21,6 +19,7 @@ Descriptor generate_sound_descriptor(DataFile df, int size_window, int nb_interv
 	int max = df.length/sizeof(double);
 	descriptor.size = df.length;
 	descriptor.nb_maps = count_maps;
+	descriptor.nb_intervalles = nb_intervalles;
 	char **array = malloc(descriptor.nb_maps* sizeof(char*));
 	for (size_t i = 0; i < descriptor.nb_maps; i++) {
 		array[i] = malloc(5*sizeof(char));
@@ -42,8 +41,20 @@ void generate_sound_descriptors(DataFile df, Directory dir, int size_window, int
 	puts(" -> Updating sound descriptor...");
 	write_string_in_file(df, ""); //Reset the file
 	for (int i = 0; i < dir.audio_size; i += 1) {
+		printf("name : %s\n", dir.audio_files[i].path);
 		Descriptor desc = generate_sound_descriptor(dir.audio_files[i], size_window, nb_intervalles);
 		descriptor_to_file(desc, df);
-		//printf("[%d] File descriptor SUCCESS : %s\n", (i+1), dir.audio_files[i].path);
+		printf("[%d] File descriptor SUCCESS : %s\n", (i+1), dir.audio_files[i].path);
+	}
+}
+
+void check_sound_descriptor(char* path, Directory dir, int k, int m) {
+	puts("\n\n ==================================================================");
+	puts(" >>>    SOUND DESCRIPTOR UPDATE\n");
+	char* full_path = strcat_path(path, "sound_descriptors");
+	DataFile df = init_data_file(full_path);
+	int updated = check_descriptor(df, dir.audio_files, dir.audio_size);
+	if (DEBUG || updated) {
+		generate_sound_descriptors(df, dir, k, m);
 	}
 }

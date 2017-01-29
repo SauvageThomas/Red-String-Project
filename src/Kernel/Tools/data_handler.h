@@ -1,9 +1,3 @@
-/*
- * tools.h
- *
- *  Created on: 30 nov. 2016
- *      Author: THOMAS
- */
 
 #include <stdio.h>
 #include "../Search/data_manager.h"
@@ -37,5 +31,6 @@ void write_string_in_file(DataFile data_file, char *string);
 void append_string_in_file(DataFile data_file, char *string);
 void purge_buffer();
 int get_secure_input(char* buffer, size_t size);
+char* strcat_path(char* path, char* file_name);
 
 #endif /* TOOLS_DATA_HANDLER_H_ */
