@@ -21,28 +21,6 @@ void launch_search_engine(Config config) {
 	close_search_engine();
 }
 
-char* strcat_path(char* path, char* file_name) {
-	/*
-	 * Return concat path + filename
-	 */
-	char* full_path = malloc(KSIZE);
-	sprintf(full_path, "%s%s", path, file_name);
-	return full_path;
-}
-
-void check_text_descriptor(char* path, Directory dir) {
-	puts("\n\n==================================================================");
-	puts(" >>>    TEXT DESCRIPTOR UPDATE\n");
-	char* full_path = strcat_path(path, "text_descriptors");
-	DataFile df = init_data_file(full_path);
-
-	int updated = check_descriptor(df, dir.txt_files, dir.txt_size);
-	if (updated) {
-		generate_text_descriptors(df, dir);
-		update_index();
-	}
-}
-
 void init_search_engine(Config config) {
 
 	/*

@@ -119,7 +119,7 @@ void search_gui(Config config) {
 		case '0':
 			break;
 		case '1':
-			search_by_keyword();
+			search_by_keyword(get_value_of(config, "descriptors"));
 			break;
 		case '2':
 			search_by_file(config);

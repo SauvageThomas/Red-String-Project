@@ -30,8 +30,63 @@ void error_config_file() {
 	reset_config();
 	puts("Error in the config file. It has been replaced by the backup file.");
 }
-void search_by_keyword() {
-	wip();
+void search_by_keyword(char *path) {
+
+	puts("Please, enter a unique key word : ");
+
+	char *keyword = malloc(KSIZEWORD);
+	get_secure_input(keyword, KSIZE);
+
+	char* file_path = malloc(KSIZE * 2);
+	strcpy(file_path, path);
+
+	strcat(file_path, "text_index");
+
+	DataFile df = init_data_file(file_path);
+
+	char *content = read_string_from_file(df);
+
+	int length = strlen(content);
+	int found = 0;
+	int cpt = 0;
+	puts("Result :");
+	for (int i = 0; i < length; i += 1) {
+		if (content[i] == '>') {
+			char *tmp = malloc(KSIZEWORD);
+			i += 1;
+			sscanf(&content[i], "%s", tmp);
+			//printf("<%s> <%s>\n", tmp, keyword);
+			if (!strcmp(tmp, keyword)) {
+
+				//puts("Ok");
+				found = 1;
+				i += strlen(keyword) + 1;
+			}
+		} else if (found) {
+			char *final_string = malloc(KSIZEWORD * 45);
+			while (content[i] != '>') {
+
+				if (content[i] == '\n') {
+					if (cpt > 5) {
+						break;
+					}
+					final_string = pretty_print_string(final_string);
+					printf("%s\n", final_string);
+					strcpy(final_string, "");
+					cpt += 1;
+				}
+				//putchar(content[i]);
+				strncat(final_string, &content[i], 1);
+				i += 1;
+
+			}
+			break;
+			exit(0);
+		}
+	}
+	if (!found) {
+		puts("No result found");
+	}
 }
 
 void modif_config() {

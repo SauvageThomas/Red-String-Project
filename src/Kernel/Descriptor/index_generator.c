@@ -19,7 +19,6 @@ void update_index(){
 	* CREATE OR UPDATE THE INDEX FILE
 	*/
 
-
 	char* pathDescriptor = "data/descriptors/text_descriptors";
 	DataFile fileSource = init_data_file(pathDescriptor);
 	char* text = read_string_from_file(fileSource);
