@@ -8,18 +8,14 @@
 #ifndef DATA_CONSTANT_H_
 #define DATA_CONSTANT_H_
 
+#include <stdio.h>
 #include <time.h>
-#include "../Tools/hash_map.h"
 
-#define DEBUG 0
+#include "../Tools/map_of_map.h"
+
+#define DEBUG 1
 #define PROD 1
 #define TEST 0
-
-#include <time.h>
-
-#include "../Tools/hash_map.h"
-#include <stdio.h>
-
 
 #define KPASSLEN 20
 #define KSIZE 255
@@ -32,10 +28,12 @@ typedef struct {
 } Config;
 
 typedef struct {
-	HashMap map;
+	MapOfMap map;
 	char file_name[KSIZE * 2];
 	time_t date;
 	size_t size;
+	size_t nb_maps;
+	size_t nb_intervalles;
 } Descriptor;
 
 

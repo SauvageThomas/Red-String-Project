@@ -13,6 +13,7 @@ void init_hash_map(HashMap* map) {
 	*map = NULL;
 }
 
+//find the value referenced by "key"
 CellHashMap* find_value(CellHashMap* cell, char* key) {
 	if (cell == NULL)
 		return NULL;
@@ -21,6 +22,7 @@ CellHashMap* find_value(CellHashMap* cell, char* key) {
 	return find_value(cell->next, key);
 }
 
+//free the memory of the map
 void free_map(HashMap map) {
 	while (map != NULL) {
 		HashMap old = map;
@@ -32,7 +34,7 @@ void free_map(HashMap map) {
 }
 
 //if the map don't yet contain the "key", this "key" is add with 1 occurrence
-//else the nombre od occurrence is incremented by one 
+//else the nombre of occurrence is incremented by one 
 void add_value_hash_map(HashMap* map, char* key) {
 	CellHashMap* cellTmp = find_value(*map, key);
 	if (cellTmp == NULL) {
@@ -52,6 +54,8 @@ void add_value_hash_map(HashMap* map, char* key) {
 	}
 }
 
+//if the map don't yet contain the "key", this "key" is add with nb_occurence occurrence
+//else the nombre of occurrence is incremented by nb_occurence
 void add_nb_value_hash_map(HashMap* map, char* key, int n) {
 	CellHashMap* cellTmp = find_value(*map, key);
 	if (cellTmp == NULL) {
@@ -72,28 +76,6 @@ void add_nb_value_hash_map(HashMap* map, char* key, int n) {
 	}
 }
 
-//if the map don't yet contain the "key", this "key" is add with nb_occurence occurrence
-//else the nombre od occurrence is incremented by one 
-void add_value_hash_map_with_value(HashMap* map, char* key, int nb_occurence) {
-	CellHashMap* cellTmp = find_value(*map, key);
-	if (cellTmp == NULL) {
-		HashMap map2 = malloc(sizeof(CellHashMap));
-
-		//printf("New key : %s\n", key);
-		((CellHashMap*) map2)->key = malloc(strlen(key) + 1);
-		strcpy(((CellHashMap*) map2)->key, key);
-
-		//((CellHashMap*) map2)->key = key;
-		map2->nbOccurence = nb_occurence;
-		((CellHashMap*) map2)->next = *map;
-		*map = map2;
-	} else {
-		cellTmp->nbOccurence += nb_occurence;
-		//printf("Alredy got : %s => %d\n", key, cellTmp->nbOccurence);
-	}
-}
-
-
 //return the number of occurrence of the "key"
 int find_nb_occurence(HashMap map, char* key) {
 	CellHashMap* cellTmp = find_value(map, key);
@@ -103,6 +85,7 @@ int find_nb_occurence(HashMap map, char* key) {
 
 }
 
+//remove the cell identified by "key"
 void remove_cell_hashmap(HashMap* map, char* key) {
 	if ((*map)->key == key) {
 		(*map) = (*map)->next;
@@ -111,7 +94,7 @@ void remove_cell_hashmap(HashMap* map, char* key) {
 
 }
 
-//return the cell which contain most occurrence, this method remove this cell of the map in the same time 
+//return the cell which contain most occurrences, this method remove this cell of the map in the same time 
 char* pop_value_hash_map(HashMap* map) {
 	CellHashMap* cellTmp = *map;
 	CellHashMap* max_occurences = *map;
@@ -136,6 +119,7 @@ void multiplay_val_of_cell(HashMap* map, char* key, int multiplier) {
 	find_value(*map, key)->nbOccurence *= multiplier;
 }
 
+//return the number of element of the map
 int size_of_map(HashMap map){
 	if(map==NULL)
 		return 0;
@@ -147,38 +131,6 @@ int size_of_map(HashMap map){
 	return result;
 }
 
-//return a string wich describe the map
-// ex : 
-//		chien 3
-//		chat 2
-//		poisson 5
-
-char* print_hash_map(HashMap map) {
-	puts("heeeeeeeeeey");
-	char* result = "";
-	char nb_occurence[4];
-	char* tmp;
-	char* tmp2;
-	size_t length;
-	while (map != NULL) {
-		sprintf(nb_occurence, "%d", map->nbOccurence);
-		length = strlen(map->key) + strlen(nb_occurence) + 1;
-		tmp = malloc(length);
-		strcpy(tmp, map->key);
-		strcat(tmp, " ");
-		strcat(tmp, nb_occurence);
-		strcat(tmp, "\n");
-		length = strlen(result) + strlen(tmp);
-		tmp2 = malloc(length);
-		strcpy(tmp2, result);
-		strcat(tmp2, tmp);
-		length = strlen(tmp2);
-		result = malloc(length);
-		strcpy(result, tmp2);
-		map = (HashMap) ((CellHashMap*) map)->next;
-	}
-	return result;
-}
 
 /*
  int main(){

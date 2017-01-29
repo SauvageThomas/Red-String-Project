@@ -70,7 +70,7 @@ int get_data_file_extension(char *file_name) {
 char* read_string_from_file(DataFile data_file) {
 	set_data_file_length(&data_file);
 	data_file.file = fopen(data_file.path, "r+");
-	char* string_in_file = malloc(sizeof(char) * data_file.length + 2);
+	char* string_in_file = malloc(data_file.length + 1);
 	if (string_in_file == NULL) {
 		fprintf(stderr, "Malloc in read_string_from_file failed %s\n", strerror(errno));
 	}
@@ -125,4 +125,13 @@ int get_secure_input(char* buffer, size_t size) {
 	}
 	buffer[i] = '\0';
 	return res;
+}
+
+char* strcat_path(char* path, char* file_name) {
+	/*
+	 * Return concat path + filename
+	 */
+	char* full_path = malloc(KSIZE);
+	sprintf(full_path, "%s%s", path, file_name);
+	return full_path;
 }
