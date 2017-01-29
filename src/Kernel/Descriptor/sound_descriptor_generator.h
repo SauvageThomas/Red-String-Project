@@ -3,4 +3,4 @@
 #include "../Search/sound_finder.h"
 #include "descriptor_generator.h"
 
-void generate_sound_descriptors(DataFile df, Directory dir, int size_window, int nb_intervalles);
+void check_sound_descriptor(char* path, Directory dir, int k, int m);

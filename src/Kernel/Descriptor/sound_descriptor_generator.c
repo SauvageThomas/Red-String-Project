@@ -47,3 +47,14 @@ void generate_sound_descriptors(DataFile df, Directory dir, int size_window, int
 		printf("[%d] File descriptor SUCCESS : %s\n", (i+1), dir.audio_files[i].path);
 	}
 }
+
+void check_sound_descriptor(char* path, Directory dir, int k, int m) {
+	puts("\n\n ==================================================================");
+	puts(" >>>    SOUND DESCRIPTOR UPDATE\n");
+	char* full_path = strcat_path(path, "sound_descriptors");
+	DataFile df = init_data_file(full_path);
+	int updated = check_descriptor(df, dir.audio_files, dir.audio_size);
+	if (DEBUG || updated) {
+		generate_sound_descriptors(df, dir, k, m);
+	}
+}

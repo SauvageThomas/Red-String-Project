@@ -1,12 +1,9 @@
-#include "../Tools/data_handler.h"
-#include "descriptor_generator.h"
-#include "../Data/constant.h"
+
+#include "text_descriptor_generator.h"
 
 Descriptor generate_text_descriptor(DataFile df){
 	int matrix_length = 0;
 	Descriptor descriptor = init_descriptor(df.path);
-
-
 	char* content = read_string_from_file(df);
 	char* new_content = remove_xml(content);
 	remove_punctuation(new_content);
@@ -32,4 +29,15 @@ void generate_text_descriptors(DataFile df, Directory dir){
 			printf("[%d] Text descriptor updated : %s\n", (i+1), dir.txt_files[i].path);
 	}
 	printf(" -> Done ! %d text descriptors updated !\n", dir.txt_size);
+}
+
+void check_text_descriptor(char* path, Directory dir) {
+	puts("\n\n ==================================================================");
+	puts(" >>>    TEXT DESCRIPTOR UPDATE\n");
+	char* full_path = strcat_path(path, "text_descriptors");
+	DataFile df = init_data_file(full_path);
+	if (DEBUG || check_descriptor(df, dir.txt_files, dir.txt_size)) {
+		generate_text_descriptors(df, dir);
+		update_index();
+	}
 }

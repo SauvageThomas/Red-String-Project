@@ -126,3 +126,12 @@ int get_secure_input(char* buffer, size_t size) {
 	buffer[i] = '\0';
 	return res;
 }
+
+char* strcat_path(char* path, char* file_name) {
+	/*
+	 * Return concat path + filename
+	 */
+	char* full_path = malloc(KSIZE);
+	sprintf(full_path, "%s%s", path, file_name);
+	return full_path;
+}

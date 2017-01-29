@@ -2,8 +2,7 @@
  ============================================================================
  Name        : main.c
  Author      : Thomas
- Version     :
- Description : Launches the search engine
+ Description : Launches the Tests or the Gui
  ============================================================================
  */
 
@@ -17,12 +16,14 @@
 #include "../Kernel/Test/test.h"
 #include "../Console/gui.h"
 
-/*
- * Description	: This is the only main which will be used in this project
- * Parameters	: None
- * Returns		: EXIT_SUCCESS or EXIT_FAILURE
- */
+
 int main(void) {
+	/*
+	 * Description	: This is the only main which will be used in this project
+	 * Parameters	: None
+	 * Returns		: EXIT_SUCCESS or EXIT_FAILURE
+	 */
+	
 	// Resolve error for windows execution
 	setvbuf(stdout, NULL, _IONBF, 0);
 	setvbuf(stderr, NULL, _IONBF, 0);

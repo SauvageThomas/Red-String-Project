@@ -20,7 +20,6 @@
 #include "../Kernel/Descriptor/text_descriptor_generator.h"
 #include "../Kernel/Descriptor/image_descriptor_generator.h"
 #include "../Kernel/Descriptor/sound_descriptor_generator.h"
-#include "../Kernel/Descriptor/index_generator.h"
 #include "../Kernel/Search/data_manager.h"
 #include "../Kernel/Tools/report.h"
 #include "../Kernel/Tools/data_handler.h"
@@ -32,8 +31,5 @@ void launch_search_engine(Config config);
 void init_search_engine(Config config);
 void run_search_engine();
 void close_search_engine();
-void check_text_descriptor(char* path, Directory dir);
-void check_image_descriptor(char* path, Directory dir, int n);
-void check_sound_descriptor(char* path, Directory dir, int k, int m);
 
 #endif

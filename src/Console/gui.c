@@ -1,13 +1,19 @@
 /*
- * gui.c
- *
- *  Created on: 6 janv. 2017
- *      Author: Thomas
+ ============================================================================
+ Name        : main.c
+ Author      : Thomas
+ Description : Console View of the software
+ ============================================================================
  */
 
 #include "gui.h"
 
 void start_gui() {
+	/*
+	* Affiche le menu principal du logiciel et permet
+	* différents choix pour l'utilisateur
+	*/
+
 	if (!DEBUG) {
 		clear_console();
 	}
@@ -18,7 +24,6 @@ void start_gui() {
 	Config config = load_config();
 
 	while (buffer[0] != '0') {
-		//clear_console();
 		puts(
 				" ================================================================");
 		if (admin)
@@ -53,9 +58,9 @@ void start_gui() {
 		puts(
 				" ================================================================");
 
-		get_input(buffer);
 
-		//clear_console();
+		// Recupère le choix de l'utilsateur et appelle la fonction associée
+		get_input(buffer);
 
 		switch (buffer[0]) {
 		case '0':
@@ -73,10 +78,9 @@ void start_gui() {
 			(admin == 0) ? input_error(buffer) : change_password();
 			break;
 		case '5':
-			(admin == 0) ?
-					input_error(buffer) : generate_all_descriptors(config);
+			(admin == 0) ? input_error(buffer) : generate_all_descriptors(config);
 			break;
-			default:
+		default:
 			input_error(buffer);
 			break;
 		}
@@ -84,6 +88,10 @@ void start_gui() {
 }
 
 void search_gui(Config config) {
+	/*
+	* Affiche le menu de recherche du moteur
+	*/
+
 	char buffer[2] = { ' ', '\0' };
 
 	while (buffer[0] != '0') {
@@ -104,6 +112,7 @@ void search_gui(Config config) {
 		puts(
 				" ================================================================");
 
+		// Recupère le choix de l'utilsateur et appelle la fonction associée
 		get_input(buffer);
 
 		switch (buffer[0]) {
@@ -123,6 +132,11 @@ void search_gui(Config config) {
 }
 
 void config_gui() {
+	/*
+	* Affiche le menu de configuration du moteur
+	*/
+
+
 	char buffer[2] = { ' ', '\0' };
 
 	while (buffer[0] != '0') {
@@ -143,6 +157,8 @@ void config_gui() {
 		puts(
 				" ================================================================");
 
+
+		// Recupère le choix de l'utilsateur et appelle la fonction associée
 		get_input(buffer);
 
 		switch (buffer[0]) {
