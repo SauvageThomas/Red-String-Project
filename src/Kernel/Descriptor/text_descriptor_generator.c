@@ -34,10 +34,11 @@ void generate_text_descriptors(DataFile df, Directory dir){
 void check_text_descriptor(char* path, Directory dir) {
 	puts("\n\n ==================================================================");
 	puts(" >>>    TEXT DESCRIPTOR UPDATE\n");
-	char* full_path = strcat_path(path, "text_descriptors");
-	DataFile df = init_data_file(full_path);
+	char* desc_path = strcat_path(path, "text_descriptors");
+	char* index_path = strcat_path(path, "text_index");
+	DataFile df = init_data_file(desc_path);
 	if (DEBUG || check_descriptor(df, dir.txt_files, dir.txt_size)) {
 		generate_text_descriptors(df, dir);
-		update_index();
+		update_index(desc_path, index_path);
 	}
 }
