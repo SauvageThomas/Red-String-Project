@@ -106,7 +106,8 @@ int search_data(Config config, char* file_path) {
 			final_string = pretty_print_sound(tmp);
 			break;
 		}
-		printf("%s\n", final_string);
+
+		printf("* RANK [%d] : %s", (i+1), final_string);
 	}
 	return SUCCESS;
 }

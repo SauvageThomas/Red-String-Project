@@ -42,7 +42,6 @@ re=report
 th=text_handler
 
 t=test
-se=search_engine
 
 
 # Exec file
@@ -56,7 +55,7 @@ mrproper: clean
 	rm -rf $(EXEC)
 
 
-$(EXEC): $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o $(R)$(se).o $(R)main.o $(R)gui.o $(R)functions.o
+$(EXEC): $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o $(R)main.o $(R)gui.o $(R)functions.o
 	$(CC)   $^ -lm -o $@ 
 
 
@@ -131,7 +130,7 @@ $(R)$(t).o : $(TEST)$(t).c $(TEST)$(t).h $(TOOL)$(dh).h
 $(R)gui.o : $(V)/gui.c $(V)/gui.h
 	$(CC) $(CFLAGS)
 
-$(R)main.o : $(V)main.c $(TEST)$(t).h $(TEST)minunit.h $(C)$(se).h $(DATA)constant.h $(V)gui.h
+$(R)main.o : $(V)main.c $(TEST)$(t).h $(TEST)minunit.h $(DATA)constant.h $(V)gui.h
 	
 	$(CC) $(CFLAGS)
 
@@ -142,6 +141,3 @@ $(R)main.o : $(V)main.c $(TEST)$(t).h $(TEST)minunit.h $(C)$(se).h $(DATA)consta
 
 $(R)functions.o : $(C)functions.c $(C)functions.h $(DATA)constant.h $(TOOL)$(re).h $(TOOL)$(dh).h $(SEARCH)$(dm).h $(SEARCH)$(tf).h $(SEARCH)$(if).h $(SEARCH)$(sf).h
 	$(CC) $(CFLAGS)
-	
-$(R)$(se).o : $(C)$(se).c $(C)$(se).h $(TOOL)$(re).h $(SEARCH)$(dm).h $(DESC)$(igen).h $(DESC)$(gen).h
-	$(CC) $(CFLAGS) 

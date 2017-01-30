@@ -41,10 +41,10 @@ void generate_sound_descriptors(DataFile df, Directory dir, int size_window, int
 	puts(" -> Updating sound descriptor...");
 	write_string_in_file(df, ""); //Reset the file
 	for (int i = 0; i < dir.audio_size; i += 1) {
-		printf("name : %s\n", dir.audio_files[i].path);
 		Descriptor desc = generate_sound_descriptor(dir.audio_files[i], size_window, nb_intervalles);
 		descriptor_to_file(desc, df);
-		printf("[%d] File descriptor SUCCESS : %s\n", (i+1), dir.audio_files[i].path);
+		if (DEBUG)
+			printf("[%d] File descriptor SUCCESS : %s\n", (i+1), dir.audio_files[i].path);
 	}
 }
 

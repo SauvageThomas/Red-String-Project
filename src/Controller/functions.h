@@ -23,6 +23,9 @@
 #include "../Kernel/Descriptor/text_descriptor_generator.h"
 #include "../Kernel/Descriptor/image_descriptor_generator.h"
 #include "../Kernel/Descriptor/sound_descriptor_generator.h"
+#include "../Kernel/Descriptor/descriptor_generator.h"
+
+
 
 void xor_crypt(char *password);
 char* get_value_of(Config config, const char* value);
@@ -39,6 +42,8 @@ void display_data_base(char *path);
 void error_config_file();
 char *remove_path(char *in);
 void generate_all_descriptors(Config config);
+void update_descriptors(Config config);
+time_t chrono();
 
 #if (defined(_WIN32) || defined(_WIN64))
 #define OS 1

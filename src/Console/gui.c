@@ -66,7 +66,8 @@ void start_gui() {
 		case '0':
 			break;
 		case '1':
-			launch_search_engine(config);
+			update_descriptors(config);
+			search_gui(config);
 			break;
 		case '2':
 			display_data_base(get_value_of(config, "path"));
