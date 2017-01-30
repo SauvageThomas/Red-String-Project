@@ -13,7 +13,7 @@
 
 #include "../Tools/map_of_map.h"
 
-#define DEBUG 1
+#define DEBUG 0
 #define PROD 1
 #define TEST 0
 
