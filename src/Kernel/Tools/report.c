@@ -12,23 +12,23 @@
 void show_search_report(int res){
 	switch(res){
 		case SUCCESS :
-			puts("Search done successfully !");
+			puts("\nSearch done successfully !");
 		break;
 
 		case EMPTY : 
-		 	puts("Search aborted : empty file !");
+		 	puts("\nSearch aborted : empty file !");
 		break;
 
 		case FILE_NOT_FOUND : 
-		 	puts("Search aborted : file not found !");
+		 	puts("\nSearch aborted : file not found !");
 		break;
 
 		case FILE_TYPE_NOT_SUPPORTED : 
-		 	puts("Search aborted : data type not supported !");
+		 	puts("\nSearch aborted : data type not supported !");
 		break;
 
 		default :
-			puts("Search aborted : unexpected error !");
+			puts("\nSearch aborted : unexpected error !");
 		break;
 	}
 }

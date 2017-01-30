@@ -32,6 +32,12 @@ int search_data(Config config, char* file_path) {
 		strcat(full_path, "image_descriptors");
 		break;
 	case SOUND:
+
+		//FUNCTION DEACTIVATED : Seg Fault
+		puts("\n\nThe function is DEACTIVATED because of seg fault error ! Sorry...");
+		return FILE_TYPE_NOT_SUPPORTED;
+
+
 		strcat(full_path, "sound_descriptors");
 		break;
 
@@ -54,7 +60,7 @@ int search_data(Config config, char* file_path) {
 	puts("\n\nSame file type scores :\n");
 	Descriptor descriptor = desc[cpt];
 	int i;
-	for (i = 0; i < size_desc; i += 1) {
+	for (i = 0; i < size_desc-1; i += 1) {
 		if (i != cpt) {
 			int common;
 			if(file_type == SOUND)
@@ -94,6 +100,7 @@ int search_data(Config config, char* file_path) {
 			printf("\nBEST RESULT : %s\n\n", file);
 			char* cmd = malloc(KSIZE);
 			sprintf(cmd, "%s%s%s", "xdg-open ", file, " &");
+			printf("\n>> open the best result with : %s\n", cmd);
 			system(cmd);
 		}
 
@@ -111,7 +118,7 @@ int search_data(Config config, char* file_path) {
 			break;
 		}
 
-		printf("* RANK [%d] : %s", (i+1), final_string);
+		printf("\n* RANK [%d] : %s", (i+1), final_string);
 	}
 	return SUCCESS;
 }
@@ -155,7 +162,7 @@ char *pretty_print_image(char *in) {
 }
 
 char *pretty_print_sound(char *in) {
-	return NULL;
+	return in;
 }
 
 Directory get_all_files(char *path) {
