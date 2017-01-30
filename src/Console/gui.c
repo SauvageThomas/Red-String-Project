@@ -31,7 +31,7 @@ void start_gui() {
 					" |     *         *      MAIN  MENU (ADMIN)      *         *     |");
 		else
 			puts(
-					" |     *         *          MAIN  MENU          *         *     |");
+					" |     *         *       MAIN MENU (USER)       *         *     |");
 		puts(
 				" ================================================================");
 		puts(
