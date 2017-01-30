@@ -157,34 +157,28 @@ int compare_descriptors(Descriptor desc1, Descriptor desc2) {
 }
 
 int compare_sound_descriptors( Descriptor desc1, Descriptor desc2){// (not tested yet, waiting for descriptor_extractor)
-	if (strcmp(desc1.file_name, desc2.file_name)){
-		printf("both files are the same !\n");
-		return 100;
-	}
-	else {
-		double tmp, tmp2, moy=0.0;
-		CellHashMap* map1 = desc1.map;
-		CellHashMap* map2 = desc2.map;
-		while (map1 != NULL && map2!=NULL) {
-			if (!strcmp(map1->key, map2->key)) {
-				moy+=1.0;
-			}
-			else{
-				tmp= (double)strtol(map1->key, NULL, 10);
-				tmp2= (double)strtol(map2->key, NULL, 10);
-				if (tmp!=0&&tmp2!=0){
-					if (tmp<tmp2)
-						moy+= tmp/tmp2;
-					if (tmp>tmp2)
-						moy+= tmp2/tmp;
-				}
-			}
-			map2 = map2->next;
-			map1 = map1->next;
+	
+	double tmp, tmp2, moy=0.0;
+	CellHashMap* map1 = desc1.map;
+	CellHashMap* map2 = desc2.map;
+	while (map1 != NULL && map2!=NULL) {
+		if (!strcmp(map1->key, map2->key)) {
+			moy+=1.0;
 		}
-		return moy/=desc1.size;
+		else{
+			tmp= (double)strtol(map1->key, NULL, 10);
+			tmp2= (double)strtol(map2->key, NULL, 10);
+			if (tmp!=0&&tmp2!=0){
+				if (tmp<tmp2)
+					moy+= tmp/tmp2;
+				if (tmp>tmp2)
+					moy+= tmp2/tmp;
+			}
+		}
+		map2 = map2->next;
+		map1 = map1->next;
 	}
-	return 0;
+	return moy/=desc1.size;
 }
 Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 	int size = 350;

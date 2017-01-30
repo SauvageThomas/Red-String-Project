@@ -56,7 +56,11 @@ int search_data(Config config, char* file_path) {
 	int i;
 	for (i = 0; i < size_desc; i += 1) {
 		if (i != cpt) {
-			int common = compare_descriptors(descriptor, desc[i]);
+			int common;
+			if(file_type == SOUND)
+				common = compare_sound_descriptors(descriptor, desc[i]);
+			else
+				common = compare_descriptors(descriptor, desc[i]);
 
 			add_nb_value_hash_map(&result, desc[i].file_name, common);
 			
