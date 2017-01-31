@@ -2,18 +2,17 @@
 
 void find_image(char *quantif, DataFile df) {
 	/*
-	
+	Quantify a file df with the quantification quantif
 	*/
-	if (quantif == NULL) {
-		error_config_file();
-	}
 	size_t n = (size_t) strtol(quantif, (char **) NULL, 10);
 	size_t size;
 	int *quant_array = quantify_file(n, df, size);
 }
 
 size_t *quantify_file(size_t n, DataFile df, size_t *size) {
-
+	/*
+	Quantify a file with the quantification n, the file df
+	*/
 	//For now we read the txt file
 	size_t len = strlen(df.path);
 	df.path[len - 1] = 't';
@@ -25,8 +24,6 @@ size_t *quantify_file(size_t n, DataFile df, size_t *size) {
 	int height;
 	int width;
 	int code;
-
-	//printf("%s\n", content);
 
 	df.file = fopen(df.path, "r+");
 	fscanf(df.file, "%d", &height);
@@ -60,6 +57,9 @@ size_t *quantify_file(size_t n, DataFile df, size_t *size) {
 }
 
 void int_to_bin_digit(uint8_t in, uint8_t count, uint8_t* out) {
+	/*
+	Convert an int into binary
+	*/
 	unsigned int mask = 1U << (count - 1);
 	int i;
 	for (i = 0; i < count; i++) {
@@ -69,6 +69,9 @@ void int_to_bin_digit(uint8_t in, uint8_t count, uint8_t* out) {
 }
 
 int exposant(uint8_t *tmp, int *i, int n) {
+	/*
+	Internal function
+	*/
 	int somme = 0;
 	for (int cpt = 0; cpt < n; cpt += 1) {
 		somme += tmp[cpt] * pow(2, *i);
@@ -79,6 +82,9 @@ int exposant(uint8_t *tmp, int *i, int n) {
 }
 
 size_t quantification(Pixel pixel, int n) {
+	/*
+	Quantify a pixel pixel with the quantification n
+	*/
 	uint8_t tmp[8];
 	int i = 3 * n - 1;
 	size_t res = 0;

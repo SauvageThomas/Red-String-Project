@@ -1,14 +1,4 @@
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
-
 #include "text_finder.h"
-
-int compare_2_texts(){
-	int score = 0;
-	return score;
-}
 
 char *remove_xml(char* content) {
 	char* working_content = malloc(sizeof(char) * (int) strlen(content));
