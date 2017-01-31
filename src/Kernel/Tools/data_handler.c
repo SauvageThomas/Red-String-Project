@@ -94,7 +94,7 @@ char* read_string_from_file(DataFile data_file) {
 	return string_in_file;
 }
 
-// écris dans un fichier ( son pointeur compris dans la structure DataFile ) avec le contenu de la chaîne de caractère 
+// écrit dans un fichier ( son pointeur compris dans la structure DataFile ) avec le contenu de la chaîne de caractère 
 void write_string_in_file(DataFile data_file, char *string) {
 	data_file.file = fopen(data_file.path, "w");
 	fputs(string, data_file.file);
