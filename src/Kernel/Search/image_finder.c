@@ -1,24 +1,15 @@
-#include <stdlib.h>
-#include <math.h>
-#include <errno.h>
-#include <stdio.h>
-
 #include "image_finder.h"
 
-int compare_2_images() {
-	int score = 0;
-	return score;
-}
-
 void find_image(char *quantif, DataFile df) {
+	/*
+	
+	*/
 	if (quantif == NULL) {
 		error_config_file();
 	}
 	size_t n = (size_t) strtol(quantif, (char **) NULL, 10);
 	size_t size;
 	int *quant_array = quantify_file(n, df, size);
-
-	//TODO: compare with index and get the similar files 
 }
 
 size_t *quantify_file(size_t n, DataFile df, size_t *size) {
@@ -31,7 +22,6 @@ size_t *quantify_file(size_t n, DataFile df, size_t *size) {
 
 	df = init_data_file(df.path);
 
-	//char *content = read_string_from_file(df);
 	int height;
 	int width;
 	int code;

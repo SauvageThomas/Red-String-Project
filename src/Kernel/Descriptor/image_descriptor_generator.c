@@ -1,6 +1,9 @@
 #include "image_descriptor_generator.h"
 
 Descriptor generate_image_descriptor(DataFile df, int quant) {
+	/*
+	Generate the descpritor of the image given in parameter with the quantification quant
+	*/
 	Descriptor descriptor = init_descriptor(df.path);
 	size_t size;
 	size_t *quant_array = quantify_file(quant, df, &size);
@@ -9,18 +12,21 @@ Descriptor generate_image_descriptor(DataFile df, int quant) {
 	int new_size = size;
 	descriptor.size = new_size;
 	descriptor.nb_maps = 1;
-	//printf("SIZE = %u\n", new_size);
 	for (int i = 0; i < new_size; i += 1) {
 		sprintf(str, "%u", quant_array[i]);
-		//printf("[%d/%u] value = %s\n", i, new_size, str);
 		add_value_MapOfMap(&(descriptor.map), "0", str, 1);
 	}
-	//puts("Free new_array");
+
 	free(quant_array);
 	return descriptor;
 }
 
 void generate_image_descriptors(DataFile df, Directory dir, int quant) {
+	/*
+	Iterate over every file in the directory dir and call generate_image_descriptor on every file
+	with the quantification quant
+	Write the descriptor in the file df
+	*/
 	puts(" -> Updating image descriptor...");
 	write_string_in_file(df, ""); //Reset the file
 	for (int i = 0; i < dir.image_size; i += 1) {
@@ -32,6 +38,10 @@ void generate_image_descriptors(DataFile df, Directory dir, int quant) {
 }
 
 void check_image_descriptor(char* path, Directory dir, int n) {
+	/*
+	Check if the image descriptor located at path is up-to-date according to the files in dir
+	with the quantification n 
+	*/
 	puts("\n\n ==================================================================");
 	puts(" >>>    IMAGE DESCRIPTOR UPDATE\n");
 	char* full_path = strcat_path(path, "image_descriptors");

@@ -8,6 +8,11 @@
 #ifndef SEARCH_IMAGE_FINDER_H_
 #define SEARCH_IMAGE_FINDER_H_
 
+#include <stdlib.h>
+#include <math.h>
+#include <errno.h>
+#include <stdio.h>
+
 #include "../Tools/data_handler.h"
 #include "../../Controller/functions.h"
 #include <stdint.h>

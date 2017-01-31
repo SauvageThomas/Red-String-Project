@@ -14,12 +14,9 @@
 #include <string.h>
 
 void update_index(char *desc_path, char *index_path) {
-
 	/*
 	 * CREATE OR UPDATE THE INDEX FILE
 	 */
-
-	//char* pathDescriptor = "data/descriptors/text_descriptors";
 	DataFile df = init_data_file(index_path);
 	write_string_in_file(df, ""); //reset the file
 	DataFile fileSource = init_data_file(desc_path);
