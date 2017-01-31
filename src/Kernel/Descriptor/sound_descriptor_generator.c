@@ -2,6 +2,10 @@
 #include "sound_descriptor_generator.h"
 
 Descriptor generate_sound_descriptor(DataFile df, int size_window, int nb_intervalles){
+	/*
+	Generate the descriptor of the sound given in parameter along with the number of intervals
+	and the size of each window
+	*/
 	Descriptor descriptor = init_descriptor(df.path);
 	size_t len = strlen(df.path);
 	char *tmp = df.path;
@@ -38,6 +42,11 @@ Descriptor generate_sound_descriptor(DataFile df, int size_window, int nb_interv
 }
 
 void generate_sound_descriptors(DataFile df, Directory dir, int size_window, int nb_intervalles){
+	/*
+	Iterate over every file in the directory dir and call generate_sound_descriptor on every file
+	with both the number of intervals and the size of each window.
+	Write the descriptor in the file df
+	*/
 	puts(" -> Updating sound descriptor...");
 	write_string_in_file(df, ""); //Reset the file
 	for (int i = 0; i < dir.audio_size; i += 1) {
@@ -49,6 +58,10 @@ void generate_sound_descriptors(DataFile df, Directory dir, int size_window, int
 }
 
 void check_sound_descriptor(char* path, Directory dir, int k, int m) {
+	/*
+	Check if the sound descriptor located at path is up-to-date according to the files in dir
+	with both the number of intervals m and the size of each window k.
+	*/
 	puts("\n\n ==================================================================");
 	puts(" >>>    SOUND DESCRIPTOR UPDATE\n");
 	char* full_path = strcat_path(path, "sound_descriptors");
