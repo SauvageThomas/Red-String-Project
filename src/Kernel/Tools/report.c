@@ -10,6 +10,9 @@
 #include "report.h"
 
 void show_search_report(int res){
+	/*
+	Show the search report
+	*/
 	switch(res){
 		case SUCCESS :
 			puts("\nSearch done successfully !");

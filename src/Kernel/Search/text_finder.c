@@ -1,16 +1,9 @@
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
-
 #include "text_finder.h"
 
-int compare_2_texts(){
-	int score = 0;
-	return score;
-}
-
 char *remove_xml(char* content) {
+	/*
+	Remove the xml tags within a char array
+	*/
 	char* working_content = malloc(sizeof(char) * (int) strlen(content));
 	if (working_content == NULL) {
 		fprintf(stderr, "Malloc failed %s\n", strerror(errno));
@@ -34,8 +27,10 @@ char *remove_xml(char* content) {
 }
 
 void remove_punctuation(char* content) {
+	/*
+	Remove the punctuation within a char array
+	*/
 	char punctuation[] = "\"/,;.:!?()\n";
-	//char* working_content = malloc(sizeof(char) * (int) strlen(content));
 	char* final_content;
 	char tmp;
 	for (size_t i = 0; i < strlen(content); i++) {
@@ -63,9 +58,11 @@ void remove_punctuation(char* content) {
 }
 
 char** remove_words(char* content, int *matrix_length) {
-	// maximum length of a french word is 24 and a word may have at least 3 letters within
-
+	/*
+	Remove the useless, short words within a char array (3 letters and less)
+	*/
 	char ** matrix_of_words = malloc(strlen(content) * sizeof(char*) * 2);
+	// maximum length of a french word is 24 and a word may have at least 3 letters within
 	if (matrix_of_words == NULL) {
 		fprintf(stderr, "Malloc failed %s\n", strerror(errno));
 	}

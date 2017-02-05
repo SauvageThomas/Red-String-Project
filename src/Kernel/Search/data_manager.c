@@ -8,6 +8,9 @@
 #include "data_manager.h"
 
 int search_data(Config config, char* file_path) {
+	/*
+	Read the configuration config and search the closer result with the file file_path
+	*/
 	DataFile df = init_data_file(file_path);
 	HashMap result = NULL;
 
@@ -36,7 +39,6 @@ int search_data(Config config, char* file_path) {
 		//FUNCTION DEACTIVATED : Seg Fault
 		puts("\n\nThe function is DEACTIVATED because of seg fault error ! Sorry...");
 		return FILE_TYPE_NOT_SUPPORTED;
-
 
 		strcat(full_path, "sound_descriptors");
 		break;
@@ -124,6 +126,9 @@ int search_data(Config config, char* file_path) {
 }
 
 char *pretty_print_string(char *in) {
+	/*
+	Return a prettier char
+	*/
 	char *out = malloc(KSIZE + 15);
 	out[0] = '\0';
 
@@ -143,6 +148,9 @@ char *pretty_print_string(char *in) {
 }
 
 char *pretty_print_image(char *in) {
+	/*
+	Return a prettier string
+	*/
 	char *out = malloc(KSIZE + 15);
 	out[0] = '\0';
 
@@ -162,10 +170,17 @@ char *pretty_print_image(char *in) {
 }
 
 char *pretty_print_sound(char *in) {
+	/*
+	Return a prettier string
+	*/
 	return in;
 }
 
 Directory get_all_files(char *path) {
+	/*
+	Return a Directory structure containing every informations about a directory and 
+	useful files
+	*/
 	size_t max_size_text = 15;
 	size_t max_size_audio = 15;
 	size_t max_size_image = 15;

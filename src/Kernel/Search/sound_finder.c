@@ -6,6 +6,9 @@ int compare_2_sounds(){
 }
 
 int *file_content (DataFile df, int size_window, int nb_intervalles, size_t *count_maps){
+	/*
+	Create the histogram for a given sound, within an array
+	*/
 	*count_maps = (df.length/sizeof(double) + (size_window-1)) / size_window;
 
 	int* sound_values = malloc((df.length/sizeof(double))*sizeof(int));
@@ -24,6 +27,9 @@ int *file_content (DataFile df, int size_window, int nb_intervalles, size_t *cou
 }
 
 int histogramme(double valeur, int nb_intervalles){
+	/*
+	Find the interval corresponding to the given value
+	*/
 		int count = 0;
 		while (1) {
 			if (valeur < -1+(2/(double)nb_intervalles)*count) {

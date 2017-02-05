@@ -8,6 +8,10 @@
 #include "descriptor_generator.h"
 
 int check_descriptor(DataFile df, DataFile *data_files, size_t size) {
+	/*
+	Check if the descriptor given in parameter is update-to-date according the 
+	data_files' array (with the size size)
+	*/
 	if (df.length == 0) {
 		puts("no descriptor found !");
 		return 1;
@@ -20,7 +24,6 @@ int check_descriptor(DataFile df, DataFile *data_files, size_t size) {
 	int size_desc;
 
 	Descriptor *desc = extract_all_descriptor(content, &size_desc);
-	//printf("size desc : %d and nb files %u\n", size_desc, size);
 	if (size != size_desc) {
 		puts("size !=");
 		return 1;
@@ -57,14 +60,20 @@ int check_descriptor(DataFile df, DataFile *data_files, size_t size) {
 }
 
 Descriptor init_descriptor(char* path) {
+	/*
+	Init a descriptor at the path path
+	*/
 	time_t rawtime = time(NULL);
 	Descriptor descriptor = { .map = NULL, .date = rawtime };
 	strcpy(descriptor.file_name, path);
 	return descriptor;
 }
 
-//Appends the descriptor at the end of the file
+
 void descriptor_to_file(Descriptor descriptor, DataFile df) {
+	/*
+	Add a descriptor descriptor at the end of the file df 
+	*/
 	if (descriptor.map == NULL) {
 		puts("None");
 		return;
@@ -99,7 +108,7 @@ void descriptor_to_file(Descriptor descriptor, DataFile df) {
 
 			if (descriptor.file_name[len-1] == 'v') {
 				char *p;
-	    	p = strtok(tmp, " ");
+	    		p = strtok(tmp, " ");
 				int a = atoi(p);
 				tableau[a] = strtok(strtok(NULL, " "), "\n");
 			} else {
@@ -125,12 +134,13 @@ void descriptor_to_file(Descriptor descriptor, DataFile df) {
 		result = malloc(descriptor.size);
 	}
 
-	//free_map_of_map(descriptor.map);
 	free(result);
 }
 
-//Right now only work for image and text (not tested yet, waiting for descriptor_extractor)
 int compare_descriptors(Descriptor desc1, Descriptor desc2) {
+	/*
+	Compare 2 descriptors without regarding of its type
+	*/
 	CellHashMap* map1 = desc1.map;
 	CellHashMap* map2 = desc2.map;
 
@@ -139,14 +149,11 @@ int compare_descriptors(Descriptor desc1, Descriptor desc2) {
 		while (map2 != NULL) {
 
 			if (!strcmp(map1->key, map2->key)) {
-				//printf("%s vs %s\n", map1->key, map2->key);
-				//puts("+1 !");
 				int min = map1->nbOccurence;
 				if (min > map2->nbOccurence) {
 					min = map2->nbOccurence;
 				}
 				common += min;
-				//common += 1 + map1->nbOccurence;
 			}
 			map2 = map2->next;
 		}
@@ -156,8 +163,10 @@ int compare_descriptors(Descriptor desc1, Descriptor desc2) {
 	return common;
 }
 
-int compare_sound_descriptors( Descriptor desc1, Descriptor desc2){// (not tested yet, waiting for descriptor_extractor)
-	
+int compare_sound_descriptors( Descriptor desc1, Descriptor desc2){
+	/*
+	Compare two sound descriptors
+	*/
 	double tmp, tmp2, moy=0.0;
 	CellHashMap* map1 = desc1.map;
 	CellHashMap* map2 = desc2.map;
@@ -180,7 +189,11 @@ int compare_sound_descriptors( Descriptor desc1, Descriptor desc2){// (not teste
 	}
 	return moy/=desc1.size;
 }
+
 Descriptor *extract_all_descriptor(char *content, int *size_desc) {
+	/*
+	Return every descriptors in the string content and its size size_desc
+	*/
 	int size = 350;
 	Descriptor *descriptors = malloc(sizeof(Descriptor) * size);
 
