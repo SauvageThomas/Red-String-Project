@@ -75,7 +75,7 @@ public class TreeController extends ViewController {
 		if (event.getClickCount() == 2) {
 			String path = this.treeView.getSelectionModel().getSelectedItem().getValue();
 			// If you click on a file
-			if (path.split("\\.").length != 0) {
+			if (path.split("\\.").length > 1) {
 				path = "data/" + path;
 
 				System.out.println(path);
