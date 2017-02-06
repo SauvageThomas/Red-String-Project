@@ -1,23 +1,44 @@
 package application.view;
 
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
-import application.Main;
+import application.view.fileOverview.FileOverviewController;
+import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
-public class TreeController extends ViewController {
+public class HomeController extends ViewController {
 
 	@FXML
 	private TreeView<String> treeView;
 
-	public TreeController() {
+	@FXML
+	private TextField searchField;
+
+	@FXML
+	private TabPane tabPane;
+	
+	@FXML
+	private AnchorPane rightPane;
+
+	private List<Tab> tabs;
+
+	public HomeController() {
 		System.out.println("const");
 	}
 
@@ -28,6 +49,8 @@ public class TreeController extends ViewController {
 	@FXML
 	private void initialize() {
 		System.out.println("init");
+
+		this.tabs = new ArrayList<>();
 
 		TreeItem<String> root = new TreeItem<String>("Database");
 		root.setExpanded(true);
@@ -79,8 +102,71 @@ public class TreeController extends ViewController {
 				path = "data/" + path;
 
 				System.out.println(path);
-				this.main.showFileOverview(path);
+				this.showFileOverview(path);
 			}
 		}
+	}
+
+	/**
+	 * Shows the file overview.
+	 */
+	public void showFileOverview(String path) {
+		try {
+
+			// Load person overview.
+			FXMLLoader loader = new FXMLLoader();
+
+			switch (path.split("\\.")[1]) {
+			case "xml":
+				loader.setLocation(this.getClass().getResource("fileOverview/TextOverview.fxml"));
+				break;
+			case "jpg":
+				loader.setLocation(this.getClass().getResource("fileOverview/ImageOverview.fxml"));
+				break;
+			case "bmp":
+				loader.setLocation(this.getClass().getResource("fileOverview/ImageOverview.fxml"));
+				break;
+			case "wav":
+				System.out.println("Wip ! but later do nothing ...");
+				break;
+			}
+
+			AnchorPane fileOverview = (AnchorPane) loader.load();
+			
+			this.addTab(path.split("/")[1], fileOverview);
+			
+			FileOverviewController controller = loader.getController();
+			
+			controller.setController(this.main);
+			controller.setFile(path);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@FXML
+	private void handleSearch(Event event) {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(this.getClass().getResource("SearchOverview.fxml"));
+			AnchorPane tabContent = (AnchorPane) loader.load();
+
+			this.addTab(this.searchField.getText(), tabContent);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	private void addTab(String name, Node node) {
+		Tab tab = new Tab(name, node);
+		
+		this.tabPane.getTabs().add(tab);
+		this.tabPane.getSelectionModel().select(tab);
+		this.tabs.add(tab);
+	}
+	
+	public AnchorPane getRightPane(){
+		return this.rightPane;
 	}
 }

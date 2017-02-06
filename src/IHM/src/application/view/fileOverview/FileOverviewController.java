@@ -10,7 +10,6 @@ public abstract class FileOverviewController extends ViewController {
 
 	public void setFile(String fileName) {
 		this.fileName = fileName;
-		
 		this.init();
 	}
 
