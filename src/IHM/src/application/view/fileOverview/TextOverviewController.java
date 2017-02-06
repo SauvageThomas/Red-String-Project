@@ -4,9 +4,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import application.view.ViewController;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -18,7 +19,7 @@ public class TextOverviewController extends FileOverviewController {
 
 	@FXML
 	private TextFlow content;
-
+	
 	@FXML
 	private void initialize() {
 		// Nothing for now
@@ -26,11 +27,14 @@ public class TextOverviewController extends FileOverviewController {
 
 	@Override
 	protected void init() {
-		String content;
+		
+		AnchorPane parent = this.main.getRightPane();
+		
+		this.content.prefWidthProperty().bind(Bindings.add(-15, parent.widthProperty()));
+		
 		try {
-			content = new String(Files.readAllBytes(Paths.get(this.fileName)));
+			String content = new String(Files.readAllBytes(Paths.get(this.fileName)));
 
-			// this.scrollPane.setContent(new Text(content));
 			for (String c : content.split(" ")) {
 				Text tmp = new Text(c + " ");
 				if (c.equals("cellules")) {

@@ -2,25 +2,32 @@ package application;
 
 import java.io.IOException;
 
-import application.view.TreeController;
-import application.view.fileOverview.FileOverviewController;
+import application.view.HomeController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class Main extends Application {
 
 	private Stage primaryStage;
 	private BorderPane rootLayout;
+	private HomeController homeController;
 
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Red-String-Project");
+
+		// System.out.println(new File("bear.wav").toURI());
+		// final AudioClip clip = new
+		// AudioClip("http://wavsource.com/snds_2017-02-05_1692732105491832/animals/bear_growl_y.wav");
+
+		// clip.play(1.0);
+
+		// System.out.println("Playing...");
 
 		this.initRootLayout();
 
@@ -61,62 +68,20 @@ public class Main extends Application {
 			rootLayout.setCenter(home);
 
 			// Give the controller access to the main app.
-			TreeController controller = loader.getController();
-			controller.setController(this, primaryStage);
+			homeController = loader.getController();
+			homeController.setController(this);
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public AnchorPane getRightPane() {
+		return this.homeController.getRightPane();
 	}
 
 	public static void main(String[] args) {
 		launch(args);
 	}
 
-	/**
-	 * Shows the file overview.
-	 */
-	public void showFileOverview(String path) {
-		try {
-			
-			// Load person overview.
-			FXMLLoader loader = new FXMLLoader();
-
-			switch (path.split("\\.")[1]) {
-			case "xml":
-				loader.setLocation(this.getClass().getResource("view/fileOverview/TextOverview.fxml"));
-				break;
-			case "jpg":
-				loader.setLocation(this.getClass().getResource("view/fileOverview/ImageOverview.fxml"));
-				break;
-			case "bmp":
-				loader.setLocation(this.getClass().getResource("view/fileOverview/ImageOverview.fxml"));
-				break;
-			case "wav":
-				System.out.println("Wip ! but later do nothing ...");
-				break;
-			}
-
-			AnchorPane fileOverview = (AnchorPane) loader.load();
-
-			// Create the dialog Stage.
-			Stage fileStage = new Stage();
-			fileStage.setTitle(path.split("/")[1]);
-			fileStage.initModality(Modality.WINDOW_MODAL);
-			fileStage.initOwner(primaryStage);
-			Scene scene = new Scene(fileOverview);
-			fileStage.setScene(scene);
-
-			// Give the controller access to the main app.
-			FileOverviewController controller = loader.getController();
-			controller.setController(this, fileStage);
-			controller.setFile(path);
-
-			// Show the dialog and wait until the user closes it
-			fileStage.showAndWait();
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 }

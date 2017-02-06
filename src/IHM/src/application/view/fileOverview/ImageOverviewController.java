@@ -13,9 +13,6 @@ public class ImageOverviewController extends FileOverviewController {
 	protected void init() {
 		Image image = new Image("file:" + this.fileName);
 		
-		this.stage.setResizable(false);
-		this.stage.sizeToScene();
-		
 		this.imageView.setImage(image);
 
 		System.out.println(image.getWidth() + "*" + image.getWidth());
