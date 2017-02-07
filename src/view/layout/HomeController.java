@@ -66,8 +66,9 @@ public class HomeController extends ViewController {
 			paths.forEach(filePath -> {
 				if (Files.isRegularFile(filePath)) {
 					
-
+					// allow windows execution
 					String path = filePath.toString().replace('\\', '/');
+					
 					path = path.split("/")[2];
 
 					String array[] = path.split("\\.");
