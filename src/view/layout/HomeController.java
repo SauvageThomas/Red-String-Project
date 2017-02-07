@@ -67,7 +67,8 @@ public class HomeController extends ViewController {
 				if (Files.isRegularFile(filePath)) {
 					
 
-					String path = filePath.toString().split("/")[2];
+					String path = filePath.toString().replace('\\', '/');
+					path = path.split("/")[2];
 
 					String array[] = path.split("\\.");
 					//path = array[0];
