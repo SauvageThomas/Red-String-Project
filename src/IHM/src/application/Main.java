@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 
+import application.model.XMLHandler;
 import application.view.HomeController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +21,8 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Red-String-Project");
+		
+		new XMLHandler("data/1.xml");
 
 		// System.out.println(new File("bear.wav").toURI());
 		// final AudioClip clip = new
