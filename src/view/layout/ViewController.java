@@ -1,7 +1,6 @@
-package application.view;
+package src.view.layout;
 
-import application.Main;
-import javafx.stage.Stage;
+import src.view.Main;
 
 public abstract class ViewController {
 

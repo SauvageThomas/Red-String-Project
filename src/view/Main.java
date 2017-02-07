@@ -1,14 +1,14 @@
-package application;
+package src.view;
 
 import java.io.IOException;
 
-import application.view.HomeController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import src.view.layout.HomeController;
 
 public class Main extends Application {
 
@@ -41,7 +41,7 @@ public class Main extends Application {
 		try {
 			// Load root layout from fxml file.
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(this.getClass().getResource("view/RootLayout.fxml"));
+			loader.setLocation(this.getClass().getResource("layout/RootLayout.fxml"));
 			rootLayout = (BorderPane) loader.load();
 
 			// Show the scene containing the root layout.
@@ -61,7 +61,7 @@ public class Main extends Application {
 			// Load person overview.
 			FXMLLoader loader = new FXMLLoader();
 
-			loader.setLocation(this.getClass().getResource("view/HomeLayout.fxml"));
+			loader.setLocation(this.getClass().getResource("layout/HomeLayout.fxml"));
 			AnchorPane home = (AnchorPane) loader.load();
 
 			// Set person overview into the center of root layout.

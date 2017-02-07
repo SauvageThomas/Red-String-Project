@@ -1,7 +1,6 @@
-package application.view;
+package src.view.layout;
 
 import java.io.IOException;
-import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -9,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-import application.view.fileOverview.FileOverviewController;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +19,7 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import src.view.layout.fileOverview.FileOverviewController;
 
 public class HomeController extends ViewController {
 
@@ -32,7 +31,7 @@ public class HomeController extends ViewController {
 
 	@FXML
 	private TabPane tabPane;
-	
+
 	@FXML
 	private AnchorPane rightPane;
 
@@ -63,26 +62,33 @@ public class HomeController extends ViewController {
 		root.getChildren().add(imageItem);
 		root.getChildren().add(soundItem);
 
-		try (Stream<Path> paths = Files.walk(Paths.get("data"))) {
+		try (Stream<Path> paths = Files.walk(Paths.get("data/FICHIER_PROJET/"))) {
 			paths.forEach(filePath -> {
 				if (Files.isRegularFile(filePath)) {
+					
+
+					String path = filePath.toString().split("/")[2];
+
+					String array[] = path.split("\\.");
+					//path = array[0];
 					System.out.println(filePath);
+					if (array.length != 0) {
 
-					String path = filePath.toString().split("\\\\")[1];
-
-					switch (path.split("\\.")[1]) {
-					case "xml":
-						textItem.getChildren().add(new TreeItem<>(path));
-						break;
-					case "jpg":
-						imageItem.getChildren().add(new TreeItem<>(path));
-						break;
-					case "bmp":
-						imageItem.getChildren().add(new TreeItem<>(path));
-						break;
-					case "wav":
-						soundItem.getChildren().add(new TreeItem<>(path));
-						break;
+						System.err.println(path);
+						switch (array[1]) {
+						case "xml":
+							textItem.getChildren().add(new TreeItem<>(path));
+							break;
+						case "jpg":
+							imageItem.getChildren().add(new TreeItem<>(path));
+							break;
+						case "bmp":
+							imageItem.getChildren().add(new TreeItem<>(path));
+							break;
+						case "wav":
+							soundItem.getChildren().add(new TreeItem<>(path));
+							break;
+						}
 					}
 				}
 			});
@@ -99,7 +105,7 @@ public class HomeController extends ViewController {
 			String path = this.treeView.getSelectionModel().getSelectedItem().getValue();
 			// If you click on a file
 			if (path.split("\\.").length > 1) {
-				path = "data/" + path;
+				path = "data/FICHIER_PROJET/" + path;
 
 				System.out.println(path);
 				this.showFileOverview(path);
@@ -132,11 +138,11 @@ public class HomeController extends ViewController {
 			}
 
 			AnchorPane fileOverview = (AnchorPane) loader.load();
-			
-			this.addTab(path.split("/")[1], fileOverview);
-			
+
+			this.addTab(path.split("/")[2], fileOverview);
+
 			FileOverviewController controller = loader.getController();
-			
+
 			controller.setController(this.main);
 			controller.setFile(path);
 		} catch (IOException e) {
@@ -160,13 +166,13 @@ public class HomeController extends ViewController {
 
 	private void addTab(String name, Node node) {
 		Tab tab = new Tab(name, node);
-		
+
 		this.tabPane.getTabs().add(tab);
 		this.tabPane.getSelectionModel().select(tab);
 		this.tabs.add(tab);
 	}
-	
-	public AnchorPane getRightPane(){
+
+	public AnchorPane getRightPane() {
 		return this.rightPane;
 	}
 }
