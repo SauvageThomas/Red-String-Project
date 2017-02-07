@@ -68,4 +68,8 @@ public class Controller {
 	//public native void get_input();
 	//public native void clear_console();
 	//public native void chrono();
+	
+	public static void main(String[] args) {
+		
+	}
 }
