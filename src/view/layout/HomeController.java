@@ -65,10 +65,10 @@ public class HomeController extends ViewController {
 		try (Stream<Path> paths = Files.walk(Paths.get("data/FICHIER_PROJET/"))) {
 			paths.forEach(filePath -> {
 				if (Files.isRegularFile(filePath)) {
-					
+
 					// allow windows execution
 					String path = filePath.toString().replace('\\', '/');
-					
+
 					path = path.split("/")[2];
 
 					String array[] = path.split("\\.");
@@ -104,12 +104,12 @@ public class HomeController extends ViewController {
 	@FXML
 	private void handleDoubleClick(MouseEvent event) {
 		if (event.getClickCount() == 2) {
-			String path = this.treeView.getSelectionModel().getSelectedItem().getValue();
-			// If you click on a file
+			TreeItem<String> selection = this.treeView.getSelectionModel().getSelectedItem();
+			if (selection == null)
+				return;
+			String path = selection.getValue();
 			if (path.split("\\.").length > 1) {
 				path = "data/FICHIER_PROJET/" + path;
-
-				System.out.println(path);
 				this.showFileOverview(path);
 			}
 		}
@@ -136,7 +136,7 @@ public class HomeController extends ViewController {
 				break;
 			case "wav":
 				System.out.println("Wip ! but later do nothing ...");
-				break;
+				return;
 			}
 
 			AnchorPane fileOverview = (AnchorPane) loader.load();
