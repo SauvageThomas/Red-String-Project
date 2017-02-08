@@ -44,7 +44,7 @@ char *remove_path(char *in);
 void generate_all_descriptors(Config config);
 void update_descriptors(Config config);
 time_t chrono();
-void display_rank(char *file_name, int rank)
+void display_rank(char *file_name, int rank);
 
 #if (defined(_WIN32) || defined(_WIN64))
 #define OS 1

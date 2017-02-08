@@ -270,7 +270,7 @@ Config load_config() {
 }
 
 void display_rank(char *file_name, int rank){
-	printf("[%d] %s", rank, file_name);
+	printf("[%d] %s\n", rank, file_name);
 }
 
 void display_data_base(char *path) {
