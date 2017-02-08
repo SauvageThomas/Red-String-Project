@@ -20,7 +20,7 @@
 #include "../../Controller/functions.h"
 #include "../Data/constant.h"
 #include "../Tools/data_handler.h"
-
+#include "../Descriptor/descriptor_generator.h"
 enum FileType {
 	TEXT, IMAGE, SOUND
 };

@@ -271,6 +271,10 @@ Config load_config() {
 	return configuration;
 }
 
+void display_rank(char *file_name, int rank){
+	printf("[%d] %s\n", rank, file_name);
+}
+
 void display_data_base(char *path) {
 	/*
 	Display every file with the good extension in the databse path

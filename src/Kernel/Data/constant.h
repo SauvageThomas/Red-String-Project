@@ -21,6 +21,15 @@
 #define KSIZE 255
 #define KSIZEWORD 26
 
+typedef struct cellule{
+	struct cellule * suivant;
+	int element;
+} cellule;
+
+typedef struct pile{
+	cellule * tete;
+}pile;
+
 typedef struct {
 	char** config;
 	size_t size;
@@ -33,6 +42,8 @@ typedef struct {
 	time_t date;
 	size_t size;
 	size_t nb_maps;
+	pile *p;
+	size_t p_size;
 	size_t nb_intervalles;
 } Descriptor;
 

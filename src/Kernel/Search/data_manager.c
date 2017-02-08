@@ -1,7 +1,7 @@
 /*
  * data_manager.c
  *
- *  Created on: 5 déc. 2016	
+ *  Created on: 5 déc. 2016
  *      Author: THOMAS
  */
 
@@ -37,8 +37,8 @@ int search_data(Config config, char* file_path) {
 	case SOUND:
 
 		//FUNCTION DEACTIVATED : Seg Fault
-		puts("\n\nThe function is DEACTIVATED because of seg fault error ! Sorry...");
-		return FILE_TYPE_NOT_SUPPORTED;
+		//puts("\n\nThe function is DEACTIVATED because of seg fault error ! Sorry...");
+		//return FILE_TYPE_NOT_SUPPORTED;
 
 		strcat(full_path, "sound_descriptors");
 		break;
@@ -52,26 +52,40 @@ int search_data(Config config, char* file_path) {
 
 	char *content = read_string_from_file(df);
 	int size_desc;
-	Descriptor *desc = extract_all_descriptor(content, &size_desc);
+	Descriptor * desc;
+	if (file_type == SOUND)
+		desc = extract_all_descriptors(content, &size_desc, file_type);
+	else
+		desc = extract_all_descriptor(content, &size_desc);
 	int cpt = 0;
-
 	while (strcmp(desc[cpt].file_name, file_path)) {
 		cpt += 1;
 	}
-
 	puts("\n\nSame file type scores :\n");
 	Descriptor descriptor = desc[cpt];
 	int i;
-	for (i = 0; i < size_desc-1; i += 1) {
+
+	for (i = 0; i < size_desc; i += 1) {
 		if (i != cpt) {
-			int common;
-			if(file_type == SOUND)
-				common = compare_sound_descriptors(descriptor, desc[i]);
+			int common = 0;
+			float common2 = 0.0;
+			// we need to compare every window until one of the two files doesn't have one anymore
+			if(file_type == SOUND){
+				float moy=0.0;
+				for (int j=0; j<descriptor.p_size && j<desc[i].p_size; j++ ){
+					moy = compare_sound_descriptors(&descriptor.p[j], &desc[i].p[j]);
+					common2 = common2 + moy;
+				}
+				// if ( descriptor.p_size>desc[i].p_size)
+				// common2 /= descriptor.p_size;
+				// else common2 /= desc[i].p_size;
+				common= (int)common2;
+			}
 			else
 				common = compare_descriptors(descriptor, desc[i]);
 
 			add_nb_value_hash_map(&result, desc[i].file_name, common);
-			
+
 			if (DEBUG)
 				printf("%s => %d\n",desc[i].file_name, common);
 		}
@@ -79,12 +93,13 @@ int search_data(Config config, char* file_path) {
 	}
 	int max = 5;
 	if (i < max) {
-		max = i;
+		max = i-1;
 	}
 
 	for (int i = 0; i < max; i += 1) {
+		// puts("passed ! \n");
 		char *tmp = pop_value_hash_map(&result);
-		
+
 		if (i==0){
 
 			char c = tmp[0];
@@ -96,10 +111,11 @@ int search_data(Config config, char* file_path) {
 			while(c != ' '){
 				c = tmp[count];
 				strncat(file, &c, 1);
-				
+
 				count += 1;
 			}
-			printf("\nBEST RESULT : %s\n\n", file);
+			//printf("\nBEST RESULT : %s\n\n", file);
+			display_rank(file, 1);
 			char* cmd = malloc(KSIZE);
 			sprintf(cmd, "%s%s%s", "xdg-open ", file, " &");
 			printf("\n>> open the best result with : %s\n", cmd);
@@ -119,8 +135,8 @@ int search_data(Config config, char* file_path) {
 			final_string = pretty_print_sound(tmp);
 			break;
 		}
-
-		printf("\n* RANK [%d] : %s", (i+1), final_string);
+		display_rank(final_string, i+1);
+		//printf("\n* RANK [%d] : %s", (i+1), final_string);
 	}
 	return SUCCESS;
 }
@@ -178,7 +194,7 @@ char *pretty_print_sound(char *in) {
 
 Directory get_all_files(char *path) {
 	/*
-	Return a Directory structure containing every informations about a directory and 
+	Return a Directory structure containing every informations about a directory and
 	useful files
 	*/
 	size_t max_size_text = 15;
