@@ -6,10 +6,144 @@
  */
 
 #include "descriptor_generator.h"
+Descriptor *extract_all_descriptor(char *content, int *size_desc) {
+	/*
+	Return every descriptors in the string content and its size size_desc
+	*/
+	int size = 350;
+	Descriptor *descriptors = malloc(sizeof(Descriptor) * size);
 
+	int i;
+	int cpt = 0;
+	size_t max = strlen(content);
+	for (i = 0; cpt < max; i += 1) {
+		//Remove the '>'
+		cpt += 1;
+		if (i >= size - 1) {
+			size *= 2;
+
+			descriptors = realloc(descriptors, sizeof(descriptors) * size);
+		}
+		descriptors[i].map = NULL;
+		descriptors[i].size = max;
+
+		//Read header
+		int tmp = 0;
+		while (content[cpt] != '\n') {
+			descriptors[i].file_name[tmp] = content[cpt];
+			tmp += 1;
+			cpt += 1;
+		}
+		descriptors[i].file_name[tmp] = '\0';
+
+		//Remove the newline
+		cpt += 1;
+
+		//Add data to the map
+		char *key = malloc(KSIZE);
+		while (content[cpt] != '>' && cpt < max) {
+			int n;
+			sscanf(&content[cpt], "%s %d", key, &n);
+
+			while (content[cpt] != '\n') {
+				//putchar(content[cpt]);
+				cpt += 1;
+			}
+			//Remove the newline
+			cpt += 1;
+			add_nb_value_hash_map(&(descriptors[i].map), key, n);
+		}
+		free(key);
+		size += 1;
+	}
+	*size_desc = i;
+	return descriptors;
+}
+
+
+Descriptor *extract_all_descriptors(char *content, int *size_desc, enum FileType file_type) {
+    int size = 350;
+    int size2= size;
+    Descriptor *descriptors = malloc(sizeof(Descriptor) * size);
+
+    int i;
+    int cpt = 0;
+    size_t max = strlen(content);
+    for (i = 0; cpt < max; i += 1) {
+        //Remove the '>'
+        cpt += 1;
+        if (i >= size - 1) {
+            puts("realloc 1");
+						size*=2;
+            descriptors = realloc(descriptors, sizeof(descriptors) * size);
+        }
+        descriptors[i].map = NULL;
+        descriptors[i].size = max;
+
+        //Read header
+        int tmp = 0;
+        while (content[cpt] != '\n') {
+            descriptors[i].file_name[tmp] = content[cpt];
+            tmp += 1;
+            cpt += 1;
+        }
+        descriptors[i].file_name[tmp] = '\0';
+
+        //Remove the newline
+        cpt += 1;
+        //Add data to the map
+        char *key = malloc(KSIZEWORD);
+        descriptors[i].p=malloc(size2*sizeof(pile));
+        int j=-1;
+        while (content[cpt] != '>' && cpt < max) {
+            if (file_type==TEXT || file_type==IMAGE){
+                int n;
+                //printf("line %s\n", line);
+                sscanf(&content[cpt], "%s %d", key, &n);
+
+                    while (content[cpt] != '\n') {
+                    //putchar(content[cpt]);
+                    cpt += 1;
+                }
+								cpt+=1;
+                    //puts("before");
+                add_nb_value_hash_map(&(descriptors[i].map), key, n);
+                //puts("after");
+
+                //printf("cont %d\n", strlen(content));
+                //printf("[%d/%d]%s => %d\n", cpt, max, key, n);
+            }
+            else if (file_type==SOUND){
+                if (j >= size2 - 1) {
+                //    puts("realloc 2");
+                    size2 *= 2;
+
+                    descriptors[i].p = realloc(descriptors[i].p, sizeof(pile) * size2);
+                }
+                INIT_PILE( descriptors[i].p[j]);
+                int n;
+                while (content[cpt] != '\n') {
+                        sscanf(&content[cpt], "%d", &n);
+                        while (content[cpt]!= ' ') cpt++;
+                        EMPILE(&descriptors[i].p[j], n);
+
+                    cpt ++;
+                }
+                //Remove the newline
+                cpt ++;
+                j++;
+            }
+
+        }
+        size ++;
+        descriptors[i].p_size=j;
+    }
+    *size_desc = i;
+    return descriptors;
+}
 int check_descriptor(DataFile df, DataFile *data_files, size_t size) {
 	/*
-	Check if the descriptor given in parameter is update-to-date according the 
+	Check if the descriptor given in parameter is update-to-date according the
 	data_files' array (with the size size)
 	*/
 	if (df.length == 0) {
@@ -18,11 +152,10 @@ int check_descriptor(DataFile df, DataFile *data_files, size_t size) {
 	}
 
 	puts("Have to check every file...");
-
+	//  return 1;
 	char *content = read_string_from_file(df);
 
 	int size_desc;
-
 	Descriptor *desc = extract_all_descriptor(content, &size_desc);
 	if (size != size_desc) {
 		puts("size !=");
@@ -72,7 +205,7 @@ Descriptor init_descriptor(char* path) {
 
 void descriptor_to_file(Descriptor descriptor, DataFile df) {
 	/*
-	Add a descriptor descriptor at the end of the file df 
+	Add a descriptor descriptor at the end of the file df
 	*/
 	if (descriptor.map == NULL) {
 		puts("None");
@@ -163,84 +296,72 @@ int compare_descriptors(Descriptor desc1, Descriptor desc2) {
 	return common;
 }
 
-int compare_sound_descriptors( Descriptor desc1, Descriptor desc2){
-	/*
-	Compare two sound descriptors
-	*/
-	double tmp, tmp2, moy=0.0;
-	CellHashMap* map1 = desc1.map;
-	CellHashMap* map2 = desc2.map;
-	while (map1 != NULL && map2!=NULL) {
-		if (!strcmp(map1->key, map2->key)) {
-			moy+=1.0;
-		}
-		else{
-			tmp= (double)strtol(map1->key, NULL, 10);
-			tmp2= (double)strtol(map2->key, NULL, 10);
-			if (tmp!=0&&tmp2!=0){
-				if (tmp<tmp2)
-					moy+= tmp/tmp2;
-				if (tmp>tmp2)
-					moy+= tmp2/tmp;
-			}
-		}
-		map2 = map2->next;
-		map1 = map1->next;
-	}
-	return moy/=desc1.size;
+
+float compare_sound_descriptors( pile* desc1, pile* desc2){// (not tested yet, waiting for descriptor_extractor)
+        double tmp, tmp2, moy=0.0;
+        int cpt =0;
+            cellule* p1 = desc1->tete;
+            cellule* p2 = desc2->tete;
+            while (p1 != NULL && p2!=NULL) {
+
+                if (p1->element==p2->element) {
+                    moy+=1.0;
+                }
+                else{
+                    tmp= (double)p1->element;
+                    tmp2= (double)p2->element;
+                    if (tmp!=0&&tmp2!=0){
+                        if (tmp<tmp2)
+                            moy+= tmp/tmp2;
+                        if (tmp>tmp2)
+                            moy+= tmp2/tmp;
+                    }
+                }
+                cpt++;
+                p1 = p1->suivant;
+                p2 = p2->suivant;
+            }
+            if (p1 != NULL)
+                while (p1 != NULL){
+                    p1 = p1->suivant;
+                    cpt++;
+                }
+        if (moy!=0.0) return (moy/cpt *100);
+        return 0.0;
 }
 
-Descriptor *extract_all_descriptor(char *content, int *size_desc) {
-	/*
-	Return every descriptors in the string content and its size size_desc
-	*/
-	int size = 350;
-	Descriptor *descriptors = malloc(sizeof(Descriptor) * size);
 
-	int i;
-	int cpt = 0;
-	size_t max = strlen(content);
-	for (i = 0; cpt < max; i += 1) {
-		//Remove the '>'
-		cpt += 1;
-		if (i >= size - 1) {
-			size *= 2;
 
-			descriptors = realloc(descriptors, sizeof(descriptors) * size);
-		}
-		descriptors[i].map = NULL;
-		descriptors[i].size = max;
-
-		//Read header
-		int tmp = 0;
-		while (content[cpt] != '\n') {
-			descriptors[i].file_name[tmp] = content[cpt];
-			tmp += 1;
-			cpt += 1;
-		}
-		descriptors[i].file_name[tmp] = '\0';
-
-		//Remove the newline
-		cpt += 1;
-
-		//Add data to the map
-		char *key = malloc(KSIZE);
-		while (content[cpt] != '>' && cpt < max) {
-			int n;
-			sscanf(&content[cpt], "%s %d", key, &n);
-
-			while (content[cpt] != '\n') {
-				//putchar(content[cpt]);
-				cpt += 1;
-			}
-			//Remove the newline
-			cpt += 1;
-			add_nb_value_hash_map(&(descriptors[i].map), key, n);
-		}
-		free(key);
-		size += 1;
-	}
-	*size_desc = i;
-	return descriptors;
+void INIT_PILE(pile* p)
+{
+    p=NULL;
 }
 
+void AFFICHE_PILE( pile *p)
+{
+    cellule *tmp=p->tete;
+    while( tmp!=NULL){
+        printf("%d ", tmp->element);
+        tmp=tmp->suivant;
+    }
+}
+
+int PILE_EST_VIDE( pile *p)
+{
+    return (p==NULL);
+}
+
+void EMPILE ( pile *p, int val)
+{
+    cellule *tmp;
+    tmp=(cellule*)malloc(sizeof(cellule));
+    tmp->element=val;
+    tmp->suivant=p->tete;
+    p->tete=tmp;
+}
+
+int DEPILE (pile *p)
+{
+    int val;
+    cellule * tmp=p->tete;
+}

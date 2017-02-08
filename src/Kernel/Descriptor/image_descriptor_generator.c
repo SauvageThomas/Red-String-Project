@@ -40,7 +40,7 @@ void generate_image_descriptors(DataFile df, Directory dir, int quant) {
 void check_image_descriptor(char* path, Directory dir, int n) {
 	/*
 	Check if the image descriptor located at path is up-to-date according to the files in dir
-	with the quantification n 
+	with the quantification n
 	*/
 	puts("\n\n ==================================================================");
 	puts(" >>>    IMAGE DESCRIPTOR UPDATE\n");
