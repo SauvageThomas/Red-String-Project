@@ -99,7 +99,8 @@ int search_data(Config config, char* file_path) {
 				
 				count += 1;
 			}
-			printf("\nBEST RESULT : %s\n\n", file);
+			//printf("\nBEST RESULT : %s\n\n", file);
+			display_rank(file, 1);
 			char* cmd = malloc(KSIZE);
 			sprintf(cmd, "%s%s%s", "xdg-open ", file, " &");
 			printf("\n>> open the best result with : %s\n", cmd);
@@ -119,8 +120,8 @@ int search_data(Config config, char* file_path) {
 			final_string = pretty_print_sound(tmp);
 			break;
 		}
-
-		printf("\n* RANK [%d] : %s", (i+1), final_string);
+		display_rank(final_string, i+1);
+		//printf("\n* RANK [%d] : %s", (i+1), final_string);
 	}
 	return SUCCESS;
 }
