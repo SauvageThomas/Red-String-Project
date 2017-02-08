@@ -8,7 +8,7 @@
 
 #include <jni.h>
 #include "functions.h"
-#include "../../jni/src_Controller_controller.h"
+#include "../../jni/src_Controller_Controller.h"
 
 const int pass_key[] = { 22, 53, 44, 71, 66, 177, 253, 122, 9548, 1215, 48421,
 		629, 314, 4784, 5102, 914, 213, 316, 145, 78 };
