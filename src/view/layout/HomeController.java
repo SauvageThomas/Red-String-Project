@@ -19,6 +19,7 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import src.view.FilterableTreeItem;
 import src.view.layout.fileOverview.FileOverviewController;
 
 public class HomeController extends ViewController {
@@ -30,12 +31,19 @@ public class HomeController extends ViewController {
 	private TextField searchField;
 
 	@FXML
+	private TextField treeField;
+
+	@FXML
 	private TabPane tabPane;
 
 	@FXML
 	private AnchorPane rightPane;
 
 	private List<Tab> tabs;
+
+	private int nbXML;
+	private int nbImage;
+	private int nbAudio;
 
 	public HomeController() {
 		System.out.println("const");
@@ -49,7 +57,22 @@ public class HomeController extends ViewController {
 	private void initialize() {
 		System.out.println("init");
 
+		System.out.println("abxc".contains(""));
+
 		this.tabs = new ArrayList<>();
+		this.handleTreeSearch();
+	}
+
+	@FXML
+	private void handleTreeSearch() {
+
+		nbXML = 0;
+		nbImage = 0;
+		nbAudio = 0;
+
+		if (this.treeField.getText() == null) {
+			System.out.println("fuck it");
+		}
 
 		TreeItem<String> root = new TreeItem<String>("Database");
 		root.setExpanded(true);
@@ -58,38 +81,61 @@ public class HomeController extends ViewController {
 		TreeItem<String> imageItem = new TreeItem<>("Images");
 		TreeItem<String> soundItem = new TreeItem<>("Sounds");
 
+		textItem.setExpanded(true);
+		imageItem.setExpanded(true);
+		soundItem.setExpanded(true);
+
 		root.getChildren().add(textItem);
 		root.getChildren().add(imageItem);
 		root.getChildren().add(soundItem);
 
 		try (Stream<Path> paths = Files.walk(Paths.get("data/FICHIER_PROJET/"))) {
+
 			paths.forEach(filePath -> {
 				if (Files.isRegularFile(filePath)) {
 
-					// allow windows execution
-					String path = filePath.toString().replace('\\', '/');
+					if (filePath.toString().toLowerCase().contains(this.treeField.getText())) {
+						System.out.println(this.treeField.getText());
 
-					path = path.split("/")[2];
+						// Allows windows execution
+						String path = filePath.toString().replace('\\', '/');
 
-					String array[] = path.split("\\.");
-					//path = array[0];
-					System.out.println(filePath);
-					if (array.length != 0) {
+						path = path.split("/")[2];
 
-						System.err.println(path);
-						switch (array[1]) {
-						case "xml":
-							textItem.getChildren().add(new TreeItem<>(path));
-							break;
-						case "jpg":
-							imageItem.getChildren().add(new TreeItem<>(path));
-							break;
-						case "bmp":
-							imageItem.getChildren().add(new TreeItem<>(path));
-							break;
-						case "wav":
-							soundItem.getChildren().add(new TreeItem<>(path));
-							break;
+						String array[] = path.split("\\.");
+						// path = array[0];
+						// System.out.println(filePath);
+
+						if (array.length != 0) {
+
+							switch (array[1]) {
+							case "xml":
+								textItem.getChildren().add(new TreeItem<>(path));
+								nbXML += 1;
+								break;
+							case "jpg":
+								imageItem.getChildren().add(new TreeItem<>(path));
+								nbImage += 1;
+								break;
+							case "bmp":
+								imageItem.getChildren().add(new TreeItem<>(path));
+								nbImage += 1;
+								break;
+							case "wav":
+								soundItem.getChildren().add(new TreeItem<>(path));
+								nbAudio += 1;
+								break;
+							}
+							if (nbXML > 5) {
+								System.out.println("ok");
+								textItem.setExpanded(false);
+							}
+							if (nbImage > 5) {
+								imageItem.setExpanded(false);
+							}
+							if (nbAudio > 5) {
+								soundItem.setExpanded(false);
+							}
 						}
 					}
 				}
@@ -98,7 +144,7 @@ public class HomeController extends ViewController {
 			e.printStackTrace();
 		}
 
-		treeView.setRoot(root);
+		this.treeView.setRoot(root);
 	}
 
 	@FXML
