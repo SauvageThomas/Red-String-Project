@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import src.Controller.Controller;
 import src.view.layout.HomeController;
 
 public class Main extends Application {
@@ -21,6 +22,7 @@ public class Main extends Application {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Red-String-Project");
 
+		System.out.println(Controller.loginAsAdmin());
 		// System.out.println(new File("bear.wav").toURI());
 		// final AudioClip clip = new
 		// AudioClip("http://wavsource.com/snds_2017-02-05_1692732105491832/animals/bear_growl_y.wav");
