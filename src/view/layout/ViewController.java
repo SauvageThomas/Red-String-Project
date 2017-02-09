@@ -9,4 +9,5 @@ public abstract class ViewController {
 	public void setController(Main main) {
 		this.main = main;
 	}
+
 }
