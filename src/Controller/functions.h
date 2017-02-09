@@ -8,6 +8,7 @@
 #ifndef GUI_FUNCTIONS_H_
 #define GUI_FUNCTIONS_H_
 
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
