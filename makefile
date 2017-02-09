@@ -8,9 +8,8 @@
 
 # Compilation
 CC=gcc
-CFLAGS= -c -w -Wall -g -std=gnu99 $(<) -o $(@)
 JNI= -I/usr/lib/jvm/java-8-oracle/include -I/usr/lib/jvm/java-8-oracle/include/linux
-LDFLAGS=
+CFLAGS= $(JNI) -fPIC -c -w -Wall -g -std=gnu99 $(<) -o $(@)
 EXEC=release/SearchEngine.exe
 
 # Directories
@@ -141,6 +140,12 @@ $(R)main.o : $(V)main.c $(TEST)$(t).h $(TEST)minunit.h $(DATA)constant.h $(V)gui
 ##############
 
 $(R)functions.o : $(C)functions.c $(C)functions.h $(DATA)constant.h $(TOOL)$(re).h $(TOOL)$(dh).h $(SEARCH)$(dm).h $(SEARCH)$(tf).h $(SEARCH)$(if).h $(SEARCH)$(sf).h
-	$(CC) $(JNI) $(CFLAGS)
+	$(CC) $(CFLAGS)
+	
+$(R)functions_wrapper.o : $(C)functions_wrapper.c
+	$(CC) $(CFLAGS)
+	
+libkernel.so : $(R)functions_wrapper.o $(R)functions.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o
+	$(CC) -shared -o libkernel.so $(R)functions_wrapper.o $(R)functions.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o
 	
 	

@@ -7,6 +7,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+  
 /*
  * Class:     src_Controller_Controller
  * Method:    search_by_file
