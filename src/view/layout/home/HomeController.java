@@ -1,4 +1,4 @@
-package src.view.layout;
+package src.view.layout.home;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -19,22 +19,19 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import src.view.layout.ViewController;
 import src.view.layout.fileOverview.FileOverviewController;
 
 public class HomeController extends ViewController {
 
 	@FXML
 	private TreeView<String> treeView;
-
 	@FXML
 	private TextField searchField;
-
 	@FXML
 	private TextField treeField;
-
 	@FXML
 	private TabPane tabPane;
-
 	@FXML
 	private AnchorPane rightPane;
 
@@ -43,6 +40,7 @@ public class HomeController extends ViewController {
 	private int nbXML;
 	private int nbImage;
 	private int nbAudio;
+	private static int maxTreeItem = 15;
 
 	public HomeController() {
 		System.out.println("const");
@@ -56,8 +54,6 @@ public class HomeController extends ViewController {
 	private void initialize() {
 		System.out.println("init");
 
-		System.out.println("abxc".contains(""));
-
 		this.tabs = new ArrayList<>();
 		this.handleTreeSearch();
 	}
@@ -68,10 +64,8 @@ public class HomeController extends ViewController {
 		nbXML = 0;
 		nbImage = 0;
 		nbAudio = 0;
-
-		if (this.treeField.getText() == null) {
-			System.out.println("fuck it");
-		}
+		
+		
 
 		TreeItem<String> root = new TreeItem<String>("Database");
 		root.setExpanded(true);
@@ -87,7 +81,8 @@ public class HomeController extends ViewController {
 		root.getChildren().add(textItem);
 		root.getChildren().add(imageItem);
 		root.getChildren().add(soundItem);
-
+		
+		//TODO: Link it to the config file
 		try (Stream<Path> paths = Files.walk(Paths.get("data/FICHIER_PROJET/"))) {
 
 			paths.forEach(filePath -> {
@@ -125,14 +120,13 @@ public class HomeController extends ViewController {
 								nbAudio += 1;
 								break;
 							}
-							if (nbXML > 5) {
-								System.out.println("ok");
+							if (nbXML > HomeController.maxTreeItem) {
 								textItem.setExpanded(false);
 							}
-							if (nbImage > 5) {
+							if (nbImage > HomeController.maxTreeItem) {
 								imageItem.setExpanded(false);
 							}
-							if (nbAudio > 5) {
+							if (nbAudio > HomeController.maxTreeItem) {
 								soundItem.setExpanded(false);
 							}
 						}
@@ -154,6 +148,8 @@ public class HomeController extends ViewController {
 				return;
 			String path = selection.getValue();
 			if (path.split("\\.").length > 1) {
+				
+				//TODO: Link it to the config file
 				path = "data/FICHIER_PROJET/" + path;
 				this.showFileOverview(path);
 			}
@@ -171,13 +167,13 @@ public class HomeController extends ViewController {
 
 			switch (path.split("\\.")[1]) {
 			case "xml":
-				loader.setLocation(this.getClass().getResource("fileOverview/TextOverview.fxml"));
+				loader.setLocation(this.getClass().getResource("../fileOverview/TextOverview.fxml"));
 				break;
 			case "jpg":
-				loader.setLocation(this.getClass().getResource("fileOverview/ImageOverview.fxml"));
+				loader.setLocation(this.getClass().getResource("../fileOverview/ImageOverview.fxml"));
 				break;
 			case "bmp":
-				loader.setLocation(this.getClass().getResource("fileOverview/ImageOverview.fxml"));
+				loader.setLocation(this.getClass().getResource("../fileOverview/ImageOverview.fxml"));
 				break;
 			case "wav":
 				System.out.println("Wip ! but later do nothing ...");
@@ -222,4 +218,5 @@ public class HomeController extends ViewController {
 	public AnchorPane getRightPane() {
 		return this.rightPane;
 	}
+
 }

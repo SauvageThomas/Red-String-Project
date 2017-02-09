@@ -145,7 +145,7 @@ $(R)functions.o : $(C)functions.c $(C)functions.h $(DATA)constant.h $(TOOL)$(re)
 $(R)functions_wrapper.o : $(C)functions_wrapper.c
 	$(CC) $(CFLAGS)
 	
-libkernel.so : $(R)functions_wrapper.o $(R)functions.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o
-	$(CC) -shared -o libkernel.so $(R)functions_wrapper.o $(R)functions.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o
+jni/libkernel.so : $(R)functions_wrapper.o $(R)functions.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o
+	$(CC) -shared -o jni/libkernel.so $^
 	
 	

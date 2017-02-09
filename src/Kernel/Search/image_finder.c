@@ -2,8 +2,8 @@
 
 void find_image(char *quantif, DataFile df) {
 	/*
-	Quantify a file df with the quantification quantif
-	*/
+	 Quantify a file df with the quantification quantif
+	 */
 	size_t n = (size_t) strtol(quantif, (char **) NULL, 10);
 	size_t size;
 	int *quant_array = quantify_file(n, df, size);
@@ -11,8 +11,8 @@ void find_image(char *quantif, DataFile df) {
 
 size_t *quantify_file(size_t n, DataFile df, size_t *size) {
 	/*
-	Quantify a file with the quantification n, the file df
-	*/
+	 Quantify a file with the quantification n, the file df
+	 */
 	//For now we read the txt file
 	size_t len = strlen(df.path);
 	df.path[len - 1] = 't';
@@ -37,20 +37,35 @@ size_t *quantify_file(size_t n, DataFile df, size_t *size) {
 		fprintf(stderr, "Malloc failed %s\n", strerror(errno));
 	}
 
-	for (int i = 0; i < height * width; i += 1) {
-		Pixel p;
-		fscanf(df.file, "%d", &p.red);
+	int red_pixels[height * width];
+	int green_pixels[height * width];
 
-		if (code == 1) {
-			p.green = p.red;
-			p.blue = p.red;
-		} else {
-			fscanf(df.file, "%d", &p.green);
-			fscanf(df.file, "%d", &p.blue);
+	for (int c = 0; c < code; c += 1) {
+		for (int i = 0; i < height * width; i += 1) {
+			Pixel p;
+
+			//First channel
+			if (c == 0) {
+				fscanf(df.file, "%d", &red_pixels[i]);
+				if (code == 1) {
+					p.red = red_pixels[i];
+					p.blue = p.red;
+					p.green = p.red;
+
+					size_t q = quantification(p, n);
+					quant_array[i] = q;
+				}
+			} else if (c == 0) { //Second channel
+				fscanf(df.file, "%d", &green_pixels[i]);
+			} else { //Third channel
+				fscanf(df.file, "%d", &p.blue);
+				p.red = red_pixels[i];
+				p.green = green_pixels[i];
+
+				size_t q = quantification(p, n);
+				quant_array[i] = q;
+			}
 		}
-
-		size_t q = quantification(p, n);
-		quant_array[i] = q;
 	}
 
 	return quant_array;
@@ -58,8 +73,8 @@ size_t *quantify_file(size_t n, DataFile df, size_t *size) {
 
 void int_to_bin_digit(uint8_t in, uint8_t count, uint8_t* out) {
 	/*
-	Convert an int into binary
-	*/
+	 Convert an int into binary
+	 */
 	unsigned int mask = 1U << (count - 1);
 	int i;
 	for (i = 0; i < count; i++) {
@@ -70,8 +85,8 @@ void int_to_bin_digit(uint8_t in, uint8_t count, uint8_t* out) {
 
 int exposant(uint8_t *tmp, int *i, int n) {
 	/*
-	Internal function
-	*/
+	 Internal function
+	 */
 	int somme = 0;
 	for (int cpt = 0; cpt < n; cpt += 1) {
 		somme += tmp[cpt] * pow(2, *i);
@@ -83,8 +98,8 @@ int exposant(uint8_t *tmp, int *i, int n) {
 
 size_t quantification(Pixel pixel, int n) {
 	/*
-	Quantify a pixel pixel with the quantification n
-	*/
+	 Quantify a pixel pixel with the quantification n
+	 */
 	uint8_t tmp[8];
 	int i = 3 * n - 1;
 	size_t res = 0;
