@@ -22,7 +22,7 @@ public class Main extends Application {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Red-String-Project");
 
-		System.out.println(Controller.loginAsAdmin());
+		Controller.searchByKeyword("cellule");
 		// System.out.println(new File("bear.wav").toURI());
 		// final AudioClip clip = new
 		// AudioClip("http://wavsource.com/snds_2017-02-05_1692732105491832/animals/bear_growl_y.wav");
