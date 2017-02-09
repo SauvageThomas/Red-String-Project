@@ -16,7 +16,7 @@ public class Controller {
 	private native int login();
 	
 	static{
-		//System.loadLibrary("");
+		System.loadLibrary("kernel");
 	}
 	
 	public static void searchByFile(Object config){
