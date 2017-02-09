@@ -28,7 +28,6 @@ Kernel/SearchEngine.exe
 
 # Shared objects (inc. Windows DLLs)
 *.dll
-*.so
 *.so.*
 *.dylib
 
