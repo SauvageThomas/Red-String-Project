@@ -8,9 +8,8 @@
 
 # Compilation
 CC=gcc
-CFLAGS= -c -w -Wall -g -std=gnu99 $(<) -o $(@)
 JNI= -I/usr/lib/jvm/java-8-oracle/include -I/usr/lib/jvm/java-8-oracle/include/linux
-LDFLAGS=
+CFLAGS= $(JNI) -c -w -Wall -g -std=gnu99 $(<) -o $(@)
 EXEC=release/SearchEngine.exe
 
 # Directories
@@ -141,6 +140,9 @@ $(R)main.o : $(V)main.c $(TEST)$(t).h $(TEST)minunit.h $(DATA)constant.h $(V)gui
 ##############
 
 $(R)functions.o : $(C)functions.c $(C)functions.h $(DATA)constant.h $(TOOL)$(re).h $(TOOL)$(dh).h $(SEARCH)$(dm).h $(SEARCH)$(tf).h $(SEARCH)$(if).h $(SEARCH)$(sf).h
-	$(CC) $(JNI) $(CFLAGS)
+	$(CC) -fPIC $(CFLAGS)
+	
+libkernel.so : $(R)functions.o
+	$(CC) -shared -o libkernel.so $(R)functions.o
 	
 	
