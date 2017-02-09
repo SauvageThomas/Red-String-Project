@@ -19,7 +19,6 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import src.view.FilterableTreeItem;
 import src.view.layout.fileOverview.FileOverviewController;
 
 public class HomeController extends ViewController {
