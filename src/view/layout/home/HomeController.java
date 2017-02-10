@@ -34,6 +34,7 @@ public class HomeController extends ViewController {
 	private TabPane tabPane;
 	@FXML
 	private AnchorPane rightPane;
+	
 
 	private List<Tab> tabs;
 
@@ -218,5 +219,5 @@ public class HomeController extends ViewController {
 	public AnchorPane getRightPane() {
 		return this.rightPane;
 	}
-
+	
 }

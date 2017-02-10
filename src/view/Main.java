@@ -93,7 +93,7 @@ public class Main extends Application {
 	public AnchorPane getRightPane() {
 		return this.homeController.getRightPane();
 	}
-
+	
 	public Stage getPrimaryStage() {
 		return this.primaryStage;
 	}

@@ -16,7 +16,7 @@
    <children>
       <SplitPane dividerPositions="0.3" layoutX="269.0" layoutY="130.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="372.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="372.0" SplitPane.resizableWithParent="false">
                <children>
                   <TreeView fx:id="treeView" layoutX="-1.0" onMouseClicked="#handleDoubleClick" prefHeight="598.0" prefWidth="364.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
                   <Label layoutY="6.0" text="Search a file :" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="15.0" />
