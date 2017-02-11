@@ -41,7 +41,6 @@ public class TextOverviewController extends FileOverviewController {
 
 	@Override
 	protected void init() {
-
 		//this.content.prefWidthProperty().bind(Bindings.add(-15, parent.widthProperty()));
 		this.innerRightPane.prefWidthProperty().bind(Bindings.add(-15, this.main.getRightPane().widthProperty()));
 

@@ -198,7 +198,7 @@ public class HomeController extends ViewController {
 	private void handleSearch(Event event) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(this.getClass().getResource("SearchOverview.fxml"));
+			loader.setLocation(this.getClass().getResource("../SearchOverview.fxml"));
 			AnchorPane tabContent = (AnchorPane) loader.load();
 
 			this.addTab(this.searchField.getText(), tabContent);
