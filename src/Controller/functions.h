@@ -15,6 +15,7 @@
 #include <errno.h>
 
 #include "../Kernel/Data/constant.h"
+#include "../Kernel/Data/config.h"
 #include "../Kernel/Tools/report.h"
 #include "../Kernel/Tools/data_handler.h"
 #include "../Kernel/Search/data_manager.h"
@@ -29,8 +30,8 @@
 
 
 void xor_crypt(char *password);
-char* get_value_of(Config config, const char* value);
-Config load_config();
+char* get_value_of(const char* value);
+void load_config();
 void wip();
 void input_error(char *input);
 int login();
@@ -42,8 +43,10 @@ void clear_console();
 void display_data_base(char *path);
 void error_config_file();
 char *remove_path(char *in);
-void generate_all_descriptors(Config config);
-void update_descriptors(Config config);
+void generate_all_descriptors();
+int update_text_descriptor(char* path, Directory dir);
+int update_image_descriptor(char* path, Directory dir, int n);
+int update_sound_descriptor(char* path, Directory dir, int k, int m);
 time_t chrono();
 void display_rank(char *file_name, int rank);
 

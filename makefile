@@ -4,13 +4,14 @@
 #  $? 	La liste des dépendances plus récentes que la cible
 #  $* 	Le nom du fichier sans suffixe
 
-.PHONY: clean, mrproper
+.PHONY: clean, mrproper, jni_lib
 
 # Compilation
 CC=gcc
 JNI= -I/usr/lib/jvm/java-8-oracle/include -I/usr/lib/jvm/java-8-oracle/include/linux
 CFLAGS= $(JNI) -fPIC -c -w -Wall -g -std=gnu99 $(<) -o $(@)
 EXEC=release/SearchEngine.exe
+JNI_LIB = jni/libkernel.so
 
 # Directories
 M=src/Kernel/
@@ -47,6 +48,7 @@ t=test
 # Exec file
 all: $(EXEC)
 
+jni_lib: $(JNI_LIB)
 
 clean:
 	rm -rf $(R)*.o
@@ -55,7 +57,7 @@ mrproper: clean
 	rm -rf $(EXEC)
 
 
-$(EXEC): $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o $(R)main.o $(R)gui.o $(R)functions.o
+$(EXEC): $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o $(R)main.o $(R)gui.o $(R)functions.o $(R)config.o
 	$(CC)   $^ -lm -o $@ 
 
 
@@ -121,6 +123,12 @@ $(R)$(t).o : $(TEST)$(t).c $(TEST)$(t).h $(TOOL)$(dh).h
 	$(CC) $(CFLAGS)
 
 
+###############
+# Data Module #
+###############
+
+$(R)config.o : $(DATA)config.c $(DATA)config.h
+	$(CC) $(CFLAGS)
 
 
 ########
@@ -145,7 +153,7 @@ $(R)functions.o : $(C)functions.c $(C)functions.h $(DATA)constant.h $(TOOL)$(re)
 $(R)functions_wrapper.o : $(C)functions_wrapper.c
 	$(CC) $(CFLAGS)
 	
-jni/libkernel.so : $(R)functions_wrapper.o $(R)functions.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o
+jni/libkernel.so : $(R)config.o $(R)functions_wrapper.o $(R)functions.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o
 	$(CC) -shared -o jni/libkernel.so $^
 	
 	

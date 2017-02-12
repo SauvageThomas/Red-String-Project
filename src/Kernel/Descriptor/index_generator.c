@@ -8,10 +8,7 @@
  */
 
 #include "index_generator.h"
-#include "../Tools/data_handler.h"
-#include "../Tools/map_of_map.h"
-#include "../Data/constant.h"
-#include <string.h>
+
 
 void update_index(char *desc_path, char *index_path) {
 	/*
@@ -96,6 +93,5 @@ void update_index(char *desc_path, char *index_path) {
 			fputs(pop_value_MapOfMap(&map), fileIndex);
 		}
 	}
-	puts("INDEX FILE UPDATED.");
 }
 

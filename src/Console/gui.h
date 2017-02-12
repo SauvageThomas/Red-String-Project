@@ -9,10 +9,11 @@
 
 #include "../Controller/functions.h"
 #include "../Kernel/Data/constant.h"
+#include "../Kernel/Data/config.h"
 #include "../Kernel/Tools/data_handler.h"
 
-void start_gui();	
-void search_gui();
-void config_gui();
+void show_main_menu();	
+void show_search_menu();
+void show_config_menu();
 
 #endif /* GUI_GUI_H_ */

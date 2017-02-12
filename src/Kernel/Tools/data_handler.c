@@ -118,7 +118,7 @@ void purge_buffer() {
 
 // récupère les données de l'entrée standard de manière sécurisée
 int get_secure_input(char* buffer, size_t size) {
-	printf(">>");
+	printf(" >> ");
 	int res = 1;
 
 	int c = getchar();

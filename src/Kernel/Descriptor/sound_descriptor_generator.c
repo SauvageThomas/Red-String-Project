@@ -47,27 +47,24 @@ void generate_sound_descriptors(DataFile df, Directory dir, int size_window, int
 	with both the number of intervals and the size of each window.
 	Write the descriptor in the file df
 	*/
-	puts(" -> Updating sound descriptor...");
 	write_string_in_file(df, ""); //Reset the file
 	for (int i = 0; i < dir.audio_size; i += 1) {
 		Descriptor desc = generate_sound_descriptor(dir.audio_files[i], size_window, nb_intervalles);
 		descriptor_to_file(desc, df);
-		if (DEBUG)
-			printf("[%d] File descriptor SUCCESS : %s\n", (i+1), dir.audio_files[i].path);
 	}
 }
 
-void check_sound_descriptor(char* path, Directory dir, int k, int m) {
+int check_sound_descriptor(char* path, Directory dir, int k, int m) {
 	/*
 	Check if the sound descriptor located at path is up-to-date according to the files in dir
 	with both the number of intervals m and the size of each window k.
 	*/
-	puts("\n\n ==================================================================");
-	puts(" >>>    SOUND DESCRIPTOR UPDATE\n");
+	
 	char* full_path = strcat_path(path, "sound_descriptors");
 	DataFile df = init_data_file(full_path);
-	int updated = check_descriptor(df, dir.audio_files, dir.audio_size);
-	if (DEBUG || updated) {
+	if (DEBUG || check_descriptor(df, dir.audio_files, dir.audio_size)) {
 		generate_sound_descriptors(df, dir, k, m);
+		return 1;
 	}
+	return 0;
 }

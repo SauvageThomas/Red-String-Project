@@ -27,27 +27,25 @@ void generate_image_descriptors(DataFile df, Directory dir, int quant) {
 	with the quantification quant
 	Write the descriptor in the file df
 	*/
-	puts(" -> Updating image descriptor...");
+	
 	write_string_in_file(df, ""); //Reset the file
 	for (int i = 0; i < dir.image_size; i += 1) {
 		Descriptor desc = generate_image_descriptor(dir.image_files[i], quant);
 		descriptor_to_file(desc, df);
-		if(DEBUG)
-			printf("[%d] Image descriptor updated : %s\n", (i+1), dir.image_files[i].path);
 	}
 }
 
-void check_image_descriptor(char* path, Directory dir, int n) {
+int check_image_descriptor(char* path, Directory dir, int n) {
 	/*
 	Check if the image descriptor located at path is up-to-date according to the files in dir
 	with the quantification n
 	*/
-	puts("\n\n ==================================================================");
-	puts(" >>>    IMAGE DESCRIPTOR UPDATE\n");
+	
 	char* full_path = strcat_path(path, "image_descriptors");
 	DataFile df = init_data_file(full_path);
-	int updated = check_descriptor(df, dir.image_files, dir.image_size);
-	if (DEBUG || updated) {
+	if (DEBUG || check_descriptor(df, dir.image_files, dir.image_size)) {
 		generate_image_descriptors(df, dir, n);
+		return 1;
 	}
+	return 0;
 }
