@@ -34,6 +34,7 @@ public class HomeController extends ViewController {
 	private TabPane tabPane;
 	@FXML
 	private AnchorPane rightPane;
+	
 
 	private List<Tab> tabs;
 
@@ -197,7 +198,7 @@ public class HomeController extends ViewController {
 	private void handleSearch(Event event) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(this.getClass().getResource("SearchOverview.fxml"));
+			loader.setLocation(this.getClass().getResource("../SearchOverview.fxml"));
 			AnchorPane tabContent = (AnchorPane) loader.load();
 
 			this.addTab(this.searchField.getText(), tabContent);
@@ -218,5 +219,5 @@ public class HomeController extends ViewController {
 	public AnchorPane getRightPane() {
 		return this.rightPane;
 	}
-
+	
 }
