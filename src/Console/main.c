@@ -17,7 +17,7 @@
 #include "../Console/gui.h"
 
 
-int main(void) {
+int main() {
 	/*
 	 * Description	: This is the only main which will be used in this project
 	 * Parameters	: None
@@ -37,10 +37,7 @@ int main(void) {
 		return EXIT_SUCCESS;
 	}
 
-	
-	if (DEBUG) puts("DEBUG MODE : ACTIVATED");
-
-	if (PROD) start_gui();
+	if (PROD) show_main_menu();
 
 	return EXIT_SUCCESS;
 }

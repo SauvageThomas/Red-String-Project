@@ -4,4 +4,4 @@
 #include "descriptor_generator.h"
 #include "index_generator.h"
 
-void check_text_descriptor(char* path, Directory dir);
+int check_text_descriptor(char* path, Directory dir);

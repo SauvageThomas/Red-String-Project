@@ -6,4 +6,4 @@
 #include "descriptor_generator.h"
 #include "../Search/image_finder.h"
 
-void check_image_descriptor(char* path, Directory dir, int n);
+int check_image_descriptor(char* path, Directory dir, int n);
