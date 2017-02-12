@@ -1,11 +1,14 @@
 package src.view.layout;
 
+import java.io.IOException;
 import java.util.Optional;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
@@ -13,13 +16,24 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Pair;
+import src.view.layout.settings.RootSettingsOverviewController;
+import src.view.layout.settings.SettingsOverviewController;
 
 public class RootController extends ViewController {
 
+	private Stage settingsStage;
+	private SettingsOverviewController settingsController;
+
 	@FXML
 	private Menu menuFile;
+	@FXML
+	private MenuItem adminMenuItem;
 
 	public RootController() {
 	}
@@ -94,7 +108,55 @@ public class RootController extends ViewController {
 	public void displayAdminMode() {
 		for (MenuItem m : this.menuFile.getItems()) {
 			m.setVisible(true);
+			if (m == this.adminMenuItem) {
+				m.setVisible(false);
+			}
 		}
+	}
+
+	@FXML
+	private void settingsHandler() {
+		this.settingsStage = new Stage();
+		this.settingsStage.setTitle("Settings");
+		this.settingsStage.initOwner(this.main.getPrimaryStage());
+		this.settingsStage.initModality(Modality.WINDOW_MODAL);
+
+		try {
+			// Load root layout from fxml file.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(this.getClass().getResource("settings/RootSettingsOverview.fxml"));
+			BorderPane rootLayout = (BorderPane) loader.load();
+
+			RootSettingsOverviewController viewRootController = loader.getController();
+			viewRootController.setController(this.main);
+
+			loader = new FXMLLoader();
+			loader.setLocation(this.getClass().getResource("settings/SettingsOverview.fxml"));
+			AnchorPane settingOverview = (AnchorPane) loader.load();
+
+			this.settingsController = loader.getController();
+			this.settingsController.setController(this.main);
+
+			viewRootController.init(settingOverview);
+
+			// Show the scene containing the root layout.
+			Scene scene = new Scene(rootLayout);
+			this.settingsStage.setScene(scene);
+			this.settingsStage.setResizable(false);
+			this.settingsStage.sizeToScene();
+
+			this.settingsStage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void quitSettings() {
+		this.settingsStage.close();
+	}
+
+	public void saveSettings() {
+		this.settingsController.save();
 	}
 
 }

@@ -12,9 +12,9 @@
         <menus>
           <Menu fx:id="menuFile" mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" onAction="#loginHandler" text="Login as admin" />
+                  <MenuItem fx:id="adminMenuItem" mnemonicParsing="false" onAction="#loginHandler" text="Login as admin" />
                   <MenuItem mnemonicParsing="false" text="Launch indexation" visible="false" />
-                  <MenuItem mnemonicParsing="false" text="Parameters" />
+                  <MenuItem mnemonicParsing="false" onAction="#settingsHandler" text="Settings" />
                   <SeparatorMenuItem mnemonicParsing="false" />
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
