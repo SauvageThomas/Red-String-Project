@@ -119,6 +119,10 @@ public class Main extends Application {
 		this.admin = true;
 		this.rootController.displayAdminMode();
 	}
+	
+	public boolean isAdminModeActivated() {
+		return this.admin;
+	}
 
 	public void quitSettings() {
 		this.rootController.quitSettings();

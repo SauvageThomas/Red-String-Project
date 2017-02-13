@@ -12,7 +12,8 @@ import java.util.Arrays;
 public enum Configuration {
 
 	INSTANCE;
-
+	
+	private static final String fileName = ".config";
 	private String dataPath;
 	private String descriptorPath;
 	private int windowSize;
@@ -85,7 +86,7 @@ public enum Configuration {
 					+ String.valueOf(this.barNumber) + "\n" + this.names[4] + " " + String.valueOf(this.quantification)
 					+ "\n";
 
-			FileWriter fw = new FileWriter(".config");
+			FileWriter fw = new FileWriter(Configuration.fileName);
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.write(content);
 			

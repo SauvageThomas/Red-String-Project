@@ -7,10 +7,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import src.view.layout.ViewController;
 import src.view.tools.Configuration;
 
 public class SettingsOverviewController extends ViewController {
+
+	@FXML
+	private GridPane gridPane;
 
 	@FXML
 	private TextField dataPath;
@@ -62,6 +66,11 @@ public class SettingsOverviewController extends ViewController {
 		this.textApp.textProperty().set("This app");
 		this.imageApp.textProperty().set("This app");
 		this.audioApp.textProperty().set("This app");
+		
+		//If not admin don't display configuration
+		if (!this.main.isAdminModeActivated()) {
+			this.gridPane.getChildren().remove(0);
+		}
 
 		/*
 		 * this.menuTextApp.textProperty().set("This app");
@@ -71,13 +80,13 @@ public class SettingsOverviewController extends ViewController {
 	}
 
 	public void save() {
-		//TODO: Check the values before doing anything
+		// TODO: Check the values before doing anything
 		this.config.setDataPath(this.dataPath.getText());
 		this.config.setDescriptorPath(this.descriptorsPath.getText());
 		this.config.setQuantification(this.quantification.getSelectionModel().getSelectedItem());
 		this.config.setBarNumber(Integer.valueOf(this.barNumbers.getText()));
 		this.config.setWindowSize(Integer.valueOf(this.windowsSize.getText()));
-		
+
 		this.config.save();
 		this.main.quitSettings();
 	}
