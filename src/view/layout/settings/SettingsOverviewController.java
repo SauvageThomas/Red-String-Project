@@ -14,10 +14,6 @@ import src.view.tools.Configuration;
 public class SettingsOverviewController extends ViewController {
 
 	@FXML
-	private Pane configPane;
-	@FXML
-	private ScrollPane scrollPane;
-	@FXML
 	private AnchorPane rootPain;
 
 	@FXML
