@@ -73,7 +73,7 @@ public class Main extends Application {
 			rootLayout = (BorderPane) loader.load();
 
 			rootController = loader.getController();
-			// rootController.setController(this);
+			rootController.setController(this);
 
 			// Show the scene containing the root layout.
 			Scene scene = new Scene(rootLayout);

@@ -1,12 +1,13 @@
 package src.view.tools;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.List;
 
 public enum Configuration {
 
@@ -17,7 +18,8 @@ public enum Configuration {
 	private int windowSize;
 	private int barNumber;
 	private int quantification;
-	private final String names[] = { "path", "descriptors", "taille_des_fenetres", "nombre_de_barre", "quantification" };
+	private final String names[] = { "path", "descriptors", "taille_des_fenetres", "nombre_de_barre",
+			"quantification" };
 
 	Configuration() {
 		try {
@@ -78,12 +80,19 @@ public enum Configuration {
 
 	public void save() {
 		try {
-			List<String> lines = Arrays.asList(this.names[0] + " " + this.dataPath,
-					this.names[1] + " " + this.descriptorPath, this.names[2] + " " + String.valueOf(this.windowSize),
-					this.names[3] + " " + String.valueOf(this.barNumber),
-					this.names[4] + " " + String.valueOf(this.quantification));
-			Path file = Paths.get(".config");
-			Files.write(file, lines, Charset.forName("UTF-8"));
+			String content = this.names[0] + " " + this.dataPath + "\n" + this.names[1] + " " + this.descriptorPath
+					+ "\n" + this.names[2] + " " + String.valueOf(this.windowSize) + "\n" + this.names[3] + " "
+					+ String.valueOf(this.barNumber) + "\n" + this.names[4] + " " + String.valueOf(this.quantification)
+					+ "\n";
+
+			FileWriter fw = new FileWriter(".config");
+			BufferedWriter bw = new BufferedWriter(fw);
+			bw.write(content);
+			
+			bw.close();
+			fw.close();
+			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
