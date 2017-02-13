@@ -27,6 +27,8 @@ public class RootSettingsOverviewController extends ViewController {
 	
 	public void init(AnchorPane pane){
 		this.scrollPane.setContent(pane);
+		scrollPane.setFitToHeight(true);
+		scrollPane.setFitToWidth(true);
 	}
 	
 	@FXML

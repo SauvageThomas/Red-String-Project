@@ -86,6 +86,7 @@ public class HomeController extends ViewController {
 	public void setController(Main main) {
 		System.out.println(searchBarController);
 		this.searchBarController.setController(this.main);
+		this.searchBarController.init();
 	}
 
 	@FXML

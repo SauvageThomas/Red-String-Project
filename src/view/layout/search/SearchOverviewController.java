@@ -37,6 +37,8 @@ public class SearchOverviewController extends ViewController {
 
 			// Give the controller access to the main app.
 			this.searchBarController = loader.getController();
+			this.searchBarController.setController(this.main);
+			this.searchBarController.init();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

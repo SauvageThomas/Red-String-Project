@@ -1,20 +1,24 @@
 package src.view.layout.settings;
 
-import java.util.Arrays;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuButton;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import src.view.layout.ViewController;
 import src.view.tools.Configuration;
 
 public class SettingsOverviewController extends ViewController {
 
 	@FXML
-	private GridPane gridPane;
+	private Pane configPane;
+	@FXML
+	private ScrollPane scrollPane;
+	@FXML
+	private AnchorPane rootPain;
 
 	@FXML
 	private TextField dataPath;
@@ -69,7 +73,9 @@ public class SettingsOverviewController extends ViewController {
 		
 		//If not admin don't display configuration
 		if (!this.main.isAdminModeActivated()) {
-			this.gridPane.getChildren().remove(0);
+			//this.configPane..getChildren().remove(0);
+			//this.configPane.visibleProperty().set(false);
+			this.rootPain.getChildren().remove(3);
 		}
 
 		/*
