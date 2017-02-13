@@ -19,9 +19,9 @@ import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import src.view.Main;
-import src.view.layout.SearchBarController;
 import src.view.layout.ViewController;
 import src.view.layout.fileOverview.FileOverviewController;
+import src.view.layout.search.SearchBarController;
 import src.view.tools.Configuration;
 
 public class HomeController extends ViewController {
@@ -66,7 +66,7 @@ public class HomeController extends ViewController {
 			// Load person overview.
 			FXMLLoader loader = new FXMLLoader();
 
-			loader.setLocation(this.getClass().getResource("../SearchBar.fxml"));
+			loader.setLocation(this.getClass().getResource("../search/SearchBar.fxml"));
 			AnchorPane searchBar = (AnchorPane) loader.load();
 			
 			AnchorPane.setRightAnchor(searchBar, 0.0);
@@ -84,6 +84,7 @@ public class HomeController extends ViewController {
 
 	@Override
 	public void setController(Main main) {
+		System.out.println(searchBarController);
 		this.searchBarController.setController(this.main);
 	}
 
