@@ -41,29 +41,33 @@ Descriptor generate_sound_descriptor(DataFile df, int size_window, int nb_interv
 	return descriptor;
 }
 
-void generate_sound_descriptors(DataFile df, Directory dir, int size_window, int nb_intervalles){
+void generate_sound_descriptors(DataFile df){
 	/*
 	Iterate over every file in the directory dir and call generate_sound_descriptor on every file
 	with both the number of intervals and the size of each window.
 	Write the descriptor in the file df
 	*/
+	size_t size_window = get_sizet_from_config("taille_des_fenetres");
+	size_t nb_intervalles = get_sizet_from_config("nombre_de_barre");
+	size_t nb_sound = get_nb_sound();
+	DataFile* sound_files = get_sound_files();
 	write_string_in_file(df, ""); //Reset the file
-	for (int i = 0; i < dir.audio_size; i += 1) {
-		Descriptor desc = generate_sound_descriptor(dir.audio_files[i], size_window, nb_intervalles);
+	for (int i = 0; i < nb_sound; i += 1) {
+		Descriptor desc = generate_sound_descriptor(sound_files[i], size_window, nb_intervalles);
 		descriptor_to_file(desc, df);
 	}
 }
 
-int check_sound_descriptor(char* path, Directory dir, int k, int m) {
+int check_sound_descriptor() {
 	/*
 	Check if the sound descriptor located at path is up-to-date according to the files in dir
 	with both the number of intervals m and the size of each window k.
 	*/
-	
+	char* path = get_value_of("descriptors");
 	char* full_path = strcat_path(path, "sound_descriptors");
 	DataFile df = init_data_file(full_path);
-	if (DEBUG || check_descriptor(df, dir.audio_files, dir.audio_size)) {
-		generate_sound_descriptors(df, dir, k, m);
+	if (DEBUG || check_descriptor(df, get_sound_files(), get_nb_sound())) {
+		generate_sound_descriptors(df);
 		return 1;
 	}
 	return 0;

@@ -8,6 +8,30 @@
 
 #include "gui.h"
 
+void display_data_base(char *path) {
+	/*
+	Display every file with the good extension in the databse path
+	*/
+	DataFile* text_files = get_text_files();
+	DataFile* image_files = get_image_files();
+	DataFile* sound_files = get_sound_files();
+
+	printf("Text Files :\n");
+	for (int i = 0; i < get_nb_text(); i += 1) {
+		printf("\t-%s\n", remove_path(text_files[i].path));
+	}
+
+	printf("\nImage Files :\n");
+	for (int i = 0; i < get_nb_image(); i += 1) {
+		printf("\t-%s\n", remove_path(image_files[i].path));
+	}
+
+	printf("\nAudio Files :\n");
+	for (int i = 0; i < get_nb_sound(); i += 1) {
+		printf("\t-%s\n", remove_path(sound_files[i].path));
+	}
+}
+
 size_t get_sizet_from_config(char* key){
 	char* size_str = get_value_of(key);
 	if (size_str == NULL) {
@@ -16,65 +40,59 @@ size_t get_sizet_from_config(char* key){
 	return (size_t) strtol(size_str, (char **) NULL, 10);
 }
 
-void update_text_descriptor_wrp(char* path, Directory dir){
+void update_text_descriptor_wrp(){
 	puts("\n\n ==================================================================");
 	puts(" >>>    TEXT DESCRIPTOR UPDATE\n");
 	printf(" -> Updating text descriptor...");
-	int res_txt = update_text_descriptor(path, dir);
+	int res_txt = update_text_descriptor();
 	if (res_txt == 0)
-		printf("\n -> %d text descriptors already up-to-date !\n", dir.txt_size);
+		printf("\n -> %d text descriptors already up-to-date !\n", get_nb_text());
 	else if (res_txt >= 1)
-		printf(" Done !\n -> %d text descriptors updated !\n", dir.txt_size);
+		printf(" Done !\n -> %d text descriptors updated !\n", get_nb_text());
 	if (res_txt == 2)
 		puts(" -> Index updated !");
 }
 
-void update_image_descriptor_wrp(char* path, Directory dir){
+void update_image_descriptor_wrp(){
 	puts("\n\n ==================================================================");
 	puts(" >>>    IMAGE DESCRIPTOR UPDATE\n");
 	printf(" -> Updating image descriptor...");
-	size_t n = get_sizet_from_config("quantification");
-	int res_image = update_image_descriptor(path, dir, n);
+	int res_image = update_image_descriptor();
 	if (res_image == 0)
-		printf("\n -> %d image descriptors already up-to-date !\n", dir.image_size);
+		printf("\n -> %d image descriptors already up-to-date !\n", get_nb_image());
 	else if (res_image == 1)
-		printf(" Done !\n -> %d image descriptors updated !\n", dir.image_size);
+		printf(" Done !\n -> %d image descriptors updated !\n", get_nb_image());
 }
 
-void update_sound_descriptor_wrp(char* path, Directory dir){
+void update_sound_descriptor_wrp(){
 	puts("\n\n ==================================================================");
 	puts(" >>>    SOUND DESCRIPTOR UPDATE\n");
 	printf(" -> Updating sound descriptor...");
-	size_t k = get_sizet_from_config("taille_des_fenetres");
-	size_t m = get_sizet_from_config("nombre_de_barre");
-	int res_sound = update_sound_descriptor(path, dir, k, m);
+	int res_sound = update_sound_descriptor();
 	if (res_sound == 0)
-		printf("\n -> %d sound descriptors already up-to-date !\n", dir.audio_size);
+		printf("\n -> %d sound descriptors already up-to-date !\n", get_nb_sound());
 	else if (res_sound == 1)
-		printf(" Done !\n -> %d sound descriptors updated !\n", dir.audio_size);
+		printf(" Done !\n -> %d sound descriptors updated !\n", get_nb_sound());
 }
 
-Directory init_search_engine(){
+void init_search_engine(){
 	puts("\n\n ==================================================================");
 	puts(" >>>    SEARCH ENGINE : INITITIALIZATION\n");
 	printf(" -> Loading data base...");
-	
-	Directory dir = get_all_files(get_value_of("path"));
+	load_data_base(get_value_of("path"));
 	printf(" Done !\n");
-	printf(" -> %d text file found !\n", dir.txt_size);
-	printf(" -> %d image file found !\n", dir.image_size);
-	printf(" -> %d sound file found !\n", dir.audio_size);
-	return dir;
+	printf(" -> %d text file found !\n", get_nb_text());
+	printf(" -> %d image file found !\n", get_nb_image());
+	printf(" -> %d sound file found !\n", get_nb_sound());
 }
 
 void run_search_engine(){
 	
-	Directory dir = init_search_engine();
-	char *path = get_value_of("descriptors");
+	init_search_engine();
 	chrono();
-	update_text_descriptor_wrp(path, dir);
-	update_image_descriptor_wrp(path, dir);
-	update_sound_descriptor_wrp(path, dir);
+	update_text_descriptor_wrp();
+	update_image_descriptor_wrp();
+	update_sound_descriptor_wrp();
 
 	if(!DEBUG)
 		clear_console();
@@ -149,6 +167,27 @@ void show_main_menu() {
 			input_error(buffer);
 			break;
 		}
+	}
+}
+
+void search_by_file() {
+	/*
+	* Lance la recherche par un fichier, quel que soit son format
+	*/
+
+	char* tmp = get_value_of("path");
+
+	char* file_name = malloc(KSIZE);
+	char* file_path = malloc(KSIZE * 2);
+
+	strcpy(file_path, tmp);
+
+	puts("Please, enter a file path : ");
+	if (get_secure_input(file_name, KSIZE)) {
+		strcat(file_path, file_name);
+		int res = search_data(file_path);
+		// affiche le resultat de la recherche
+		show_search_report(res);
 	}
 }
 

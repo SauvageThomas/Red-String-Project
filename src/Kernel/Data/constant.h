@@ -21,6 +21,12 @@
 #define KSIZE 255
 #define KSIZEWORD 26
 
+#if (defined(_WIN32) || defined(_WIN64))
+#define OS 1
+#else
+#define OS 0
+#endif
+
 typedef struct cellule{
 	struct cellule * suivant;
 	int element;
@@ -29,12 +35,6 @@ typedef struct cellule{
 typedef struct pile{
 	cellule * tete;
 }pile;
-
-typedef struct {
-	char** config;
-	size_t size;
-	size_t size_word;
-} Config;
 
 typedef struct {
 	MapOfMap map;
@@ -46,7 +46,5 @@ typedef struct {
 	size_t p_size;
 	size_t nb_intervalles;
 } Descriptor;
-
-
 
 #endif /* DATA_CONSTANT_H_ */

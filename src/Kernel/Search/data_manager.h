@@ -19,14 +19,9 @@
 #include "../Tools/report.h"
 #include "../../Controller/functions.h"
 #include "../Data/constant.h"
-#include "../Tools/data_handler.h"
-#include "../Descriptor/descriptor_generator.h"
-enum FileType {
-	TEXT, IMAGE, SOUND
-};
+#include "../Data/config.h"
 
-int search_data(Config config, char* file_path);
-Directory get_all_files(char *path);
+int search_data(char* file_path);
 char *pretty_print_string(char *in);
 char *pretty_print_image(char *in);
 char *pretty_print_sound(char *in);

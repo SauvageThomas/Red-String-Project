@@ -10,6 +10,7 @@
 #include "../Controller/functions.h"
 #include "../Kernel/Data/constant.h"
 #include "../Kernel/Data/config.h"
+#include "../Kernel/Data/data_base.h"
 #include "../Kernel/Tools/data_handler.h"
 
 void show_main_menu();	

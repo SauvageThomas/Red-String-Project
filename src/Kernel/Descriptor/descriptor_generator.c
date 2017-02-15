@@ -6,6 +6,8 @@
  */
 
 #include "descriptor_generator.h"
+
+
 Descriptor *extract_all_descriptor(char *content, int *size_desc) {
 	/*
 	Return every descriptors in the string content and its size size_desc

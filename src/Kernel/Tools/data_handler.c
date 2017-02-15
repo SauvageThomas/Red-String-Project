@@ -5,13 +5,7 @@
  *      Author: THOMAS
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
-#include <string.h>
-#include <sys/stat.h>
 #include "data_handler.h"
-#include "../Data/constant.h"
 
 // permet d'initialiser une structure DataFile à partir d'un chemin
 DataFile init_data_file(char* path) {

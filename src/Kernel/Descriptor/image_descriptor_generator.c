@@ -1,3 +1,4 @@
+
 #include "image_descriptor_generator.h"
 
 Descriptor generate_image_descriptor(DataFile df, int quant) {
@@ -21,30 +22,31 @@ Descriptor generate_image_descriptor(DataFile df, int quant) {
 	return descriptor;
 }
 
-void generate_image_descriptors(DataFile df, Directory dir, int quant) {
+void generate_image_descriptors(DataFile df) {
 	/*
 	Iterate over every file in the directory dir and call generate_image_descriptor on every file
 	with the quantification quant
 	Write the descriptor in the file df
 	*/
-	
+	size_t quantification = get_sizet_from_config("quantification");
+	DataFile* image_files = get_image_files();
+	size_t nb_image = get_nb_image();
 	write_string_in_file(df, ""); //Reset the file
-	for (int i = 0; i < dir.image_size; i += 1) {
-		Descriptor desc = generate_image_descriptor(dir.image_files[i], quant);
-		descriptor_to_file(desc, df);
+	for (int i = 0; i < nb_image; i += 1) {
+		descriptor_to_file(generate_image_descriptor(image_files[i], quantification), df);
 	}
 }
 
-int check_image_descriptor(char* path, Directory dir, int n) {
+int check_image_descriptor() {
 	/*
 	Check if the image descriptor located at path is up-to-date according to the files in dir
 	with the quantification n
 	*/
-	
+	char* path = get_value_of("descriptors");
 	char* full_path = strcat_path(path, "image_descriptors");
 	DataFile df = init_data_file(full_path);
-	if (DEBUG || check_descriptor(df, dir.image_files, dir.image_size)) {
-		generate_image_descriptors(df, dir, n);
+	if (DEBUG || check_descriptor(df, get_image_files(), get_nb_image())) {
+		generate_image_descriptors(df);
 		return 1;
 	}
 	return 0;

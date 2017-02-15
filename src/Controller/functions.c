@@ -12,37 +12,145 @@
 const int pass_key[] = { 22, 53, 44, 71, 66, 177, 253, 122, 9548, 1215, 48421,
 		629, 314, 4784, 5102, 914, 213, 316, 145, 78 };
 
-void search_by_file(Config config) {
+int search_data(char* file_path) {
 	/*
-	* Lance la recherche par un fichier, quel que soit son format
+	Read the configuration config and search the closer result with the file file_path
 	*/
+	DataFile df = init_data_file(file_path);
+	HashMap result = NULL;
 
-	char* tmp = get_value_of("path");
-
-	char* file_name = malloc(KSIZE);
-	char* file_path = malloc(KSIZE * 2);
-
-	strcpy(file_path, tmp);
-
-	puts("Please, enter a file path : ");
-	if (get_secure_input(file_name, KSIZE)) {
-		strcat(file_path, file_name);
-		int res = search_data(config, file_path);
-		// affiche le resultat de la recherche
-		show_search_report(res);
+	if (!is_existing_file(df)) {
+		return FILE_NOT_FOUND;
 	}
+
+	if (is_empty_file(df)) {
+		return EMPTY;
+	}
+
+	enum FileType file_type = get_data_file_extension(df.path);
+
+	char full_path[KSIZE * 2];
+	strcpy(full_path, get_value_of("descriptors"));
+
+	switch (file_type) {
+	case TEXT:
+		strcat(full_path, "text_descriptors");
+		break;
+	case IMAGE:
+		strcat(full_path, "image_descriptors");
+		break;
+	case SOUND:
+		strcat(full_path, "sound_descriptors");
+		break;
+
+	default:
+		return FILE_TYPE_NOT_SUPPORTED;
+		break;
+	}
+
+	df = init_data_file(full_path);
+
+	char *content = read_string_from_file(df);
+	int size_desc;
+	Descriptor * desc;
+	if (file_type == SOUND)
+		desc = extract_all_descriptors(content, &size_desc, file_type);
+	else
+		desc = extract_all_descriptor(content, &size_desc);
+	int cpt = 0;
+	while (strcmp(desc[cpt].file_name, file_path)) {
+		cpt += 1;
+	}
+	puts("\n\nSame file type scores :\n");
+	Descriptor descriptor = desc[cpt];
+	int i;
+
+	for (i = 0; i < size_desc; i += 1) {
+		if (i != cpt) {
+			int common = 0;
+			float common2 = 0.0;
+			// we need to compare every window until one of the two files doesn't have one anymore
+			if(file_type == SOUND){
+				float moy=0.0;
+				for (int j=0; j<descriptor.p_size && j<desc[i].p_size; j++ ){
+					moy = compare_sound_descriptors(&descriptor.p[j], &desc[i].p[j]);
+					common2 = common2 + moy;
+				}
+				// if ( descriptor.p_size>desc[i].p_size)
+				// common2 /= descriptor.p_size;
+				// else common2 /= desc[i].p_size;
+				common= (int)common2;
+			}
+			else
+				common = compare_descriptors(descriptor, desc[i]);
+
+			add_nb_value_hash_map(&result, desc[i].file_name, common);
+
+			if (DEBUG)
+				printf("%s => %d\n",desc[i].file_name, common);
+		}
+
+	}
+	int max = 5;
+	if (i < max) {
+		max = i-1;
+	}
+
+	for (int i = 0; i < max; i += 1) {
+		// puts("passed ! \n");
+		char *tmp = pop_value_hash_map(&result);
+
+		if (i==0){
+
+			char c = tmp[0];
+
+			int count = 0;
+			char *file = malloc(strlen(tmp));
+
+			file[0] = '\0';
+			while(c != ' '){
+				c = tmp[count];
+				strncat(file, &c, 1);
+
+				count += 1;
+			}
+			//printf("\nBEST RESULT : %s\n\n", file);
+			display_rank(file, 1);
+			char* cmd = malloc(KSIZE);
+			sprintf(cmd, "%s%s%s", "xdg-open ", file, " &");
+			printf("\n>> open the best result with : %s\n", cmd);
+			system(cmd);
+		}
+
+		//Change the content of the string
+		char *final_string;
+		switch (file_type) {
+		case TEXT:
+			final_string = pretty_print_string(tmp);
+			break;
+		case IMAGE:
+			final_string = pretty_print_image(tmp);
+			break;
+		case SOUND:
+			final_string = pretty_print_sound(tmp);
+			break;
+		}
+		display_rank(final_string, i+1);
+		//printf("\n* RANK [%d] : %s", (i+1), final_string);
+	}
+	return SUCCESS;
 }
 
-int update_text_descriptor(char* path, Directory dir){
-	return check_text_descriptor(path, dir);
+int update_text_descriptor(){
+	return check_text_descriptor();
 }
 
-int update_image_descriptor(char* path, Directory dir, int n){
-	return check_image_descriptor(path, dir, n);
+int update_image_descriptor(){
+	return check_image_descriptor();
 }
 
-int update_sound_descriptor(char* path, Directory dir, int k, int m){
-	return check_sound_descriptor(path, dir, k, m);
+int update_sound_descriptor(){
+	return check_sound_descriptor();
 }
 
 
@@ -117,16 +225,13 @@ void generate_all_descriptors() {
 
 	char *path = get_value_of("descriptors");
 
-	// charge l'ensemble des fichiers de la base de donnée
-	Directory dir = get_all_files(get_value_of("path"));
-
 	char *full_path[KSIZE*2];
 
 	// descripteur de texte
 	strcpy(full_path, path);
 	strcat(full_path, "text_descriptors");
 	DataFile df = init_data_file(full_path);
-	generate_text_descriptors(df, dir);
+	generate_text_descriptors(df);
 
 	// descripteur image
 	char *quant = get_value_of("quantification");
@@ -134,7 +239,7 @@ void generate_all_descriptors() {
 	strcpy(full_path, path);
 	strcat(full_path, "image_descriptors");
 	df = init_data_file(full_path);
-	generate_image_descriptors(df, dir, n);
+	generate_image_descriptors(df);
 
 	// descripteur son
 	char *size_window = get_value_of("taille_des_fenetres");
@@ -144,34 +249,12 @@ void generate_all_descriptors() {
 	strcpy(full_path, path);
 	strcat(full_path, "sound_descriptors");
 	df = init_data_file(full_path);
-	generate_sound_descriptors(df, dir, k, m);
+	generate_sound_descriptors(df);
 }
 
 
 void display_rank(char *file_name, int rank){
 	printf("[%d] %s\n", rank, file_name);
-}
-
-void display_data_base(char *path) {
-	/*
-	Display every file with the good extension in the databse path
-	*/
-	Directory dir = get_all_files(path);
-
-	printf("Text Files :\n");
-	for (int i = 0; i < dir.txt_size; i += 1) {
-		printf("\t-%s\n", remove_path(dir.txt_files[i].path));
-	}
-
-	printf("\nImage Files :\n");
-	for (int i = 0; i < dir.image_size; i += 1) {
-		printf("\t-%s\n", remove_path(dir.image_files[i].path));
-	}
-
-	printf("\nAudio Files :\n");
-	for (int i = 0; i < dir.audio_size; i += 1) {
-		printf("\t-%s\n", remove_path(dir.audio_files[i].path));
-	}
 }
 
 char *remove_path(char *in) {
@@ -225,8 +308,7 @@ int login() {
 		strcpy(pass, "admin");
 		xor_crypt(pass);
 		write_string_in_file(data_file, pass);
-		puts(
-				"The password file has not been detected. Password has been reset.");
+		puts("The password file has not been detected. Password has been reset.");
 		return 0;
 	}
 

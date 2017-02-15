@@ -1,6 +1,13 @@
 
 #include "config.h"
 
+typedef struct {
+	char** config;
+	size_t size;
+	size_t size_word;
+} Config;
+
+
 Config CONFIG = {NULL, -1, -1};
 
 void error_config_file() {
