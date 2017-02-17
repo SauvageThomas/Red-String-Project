@@ -29,23 +29,18 @@
 
 
 int search_data(char* file_path);
-void xor_crypt(char *password);
-char* get_value_of(const char* value);
-void wip();
 void input_error(char *input);
-int login();
 void get_input(char* buffer);
 void search_by_keyword(char *path);
 void modif_config();
 void clear_console();
-void display_data_base(char *path);
 void error_config_file();
 char *remove_path(char *in);
 void generate_all_descriptors();
-int update_text_descriptor();
-int update_image_descriptor();
-int update_sound_descriptor();
+
+int update_text_descriptor(int force);
+int update_image_descriptor(int force);
+int update_sound_descriptor(int force);
 time_t chrono();
-void display_rank(char *file_name, int rank);
 
 #endif /* GUI_FUNCTIONS_H_ */

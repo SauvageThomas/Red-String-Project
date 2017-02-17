@@ -24,6 +24,10 @@ DataFile init_data_file(char* path) {
 	return data_file;
 }
 
+void free_data_file(DataFile df){
+	free(df.path);
+}
+
 // permet de savoir si un fichier existe
 int is_existing_file(DataFile data_file) {
 	data_file.file = fopen(data_file.path, "r");
@@ -137,4 +141,24 @@ char* strcat_path(char* path, char* file_name) {
 	char* full_path = malloc(KSIZE);
 	sprintf(full_path, "%s%s", path, file_name);
 	return full_path;
+}
+
+char *remove_path(char *in) {
+	/*
+	Internal function used to remove the path of file Ex: /bin/bash => bash
+	*/
+	char *out = malloc(KSIZE);
+	out[0] = '\0';
+
+	char c = in[0];
+	int j = 0;
+	while (c != '\0') {
+		c = in[j];
+		strncat(out, &c, 1);
+		if (c == '/') {
+			out[0] = '\0';
+		}
+		j += 1;
+	}
+	return out;
 }

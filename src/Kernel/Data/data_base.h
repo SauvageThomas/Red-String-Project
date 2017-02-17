@@ -18,5 +18,6 @@ DataFile* get_sound_files();
 size_t get_nb_text();
 size_t get_nb_image();
 size_t get_nb_sound();
+void free_data_base();
 
 #endif DATA_DATA_BASE_H_

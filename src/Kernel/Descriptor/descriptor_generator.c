@@ -149,18 +149,14 @@ int check_descriptor(DataFile df, DataFile *data_files, size_t size) {
 	data_files' array (with the size size)
 	*/
 	if (df.length == 0) {
-		puts("no descriptor found !");
 		return 1;
 	}
-
-	puts("Have to check every file...");
 	//  return 1;
 	char *content = read_string_from_file(df);
 
 	int size_desc;
 	Descriptor *desc = extract_all_descriptor(content, &size_desc);
 	if (size != size_desc) {
-		puts("size !=");
 		return 1;
 	}
 	//For each file
@@ -170,7 +166,6 @@ int check_descriptor(DataFile df, DataFile *data_files, size_t size) {
 			for (int j = 0; j < strlen(desc[i].file_name); j += 1) {
 
 				if (desc[i].file_name[j] != data_files[i].path[j]) {
-					puts("wrong");
 					free(desc);
 					free(content);
 					return 1;
@@ -180,15 +175,11 @@ int check_descriptor(DataFile df, DataFile *data_files, size_t size) {
 
 		DataFile ressource = init_data_file(desc[i].file_name);
 		if (ressource.date > df.date) {
-			printf("File not up-to-date in descriptor : %s !\n", ressource.path);
 			free(desc);
 			free(content);
 			return 1;
 		}
-		//free_map_of_map(desc[i].map);
 	}
-
-	puts("All the files are up-to-date in descriptor !");
 	free(desc);
 	free(content);
 	return 0;
@@ -210,7 +201,6 @@ void descriptor_to_file(Descriptor descriptor, DataFile df) {
 	Add a descriptor descriptor at the end of the file df
 	*/
 	if (descriptor.map == NULL) {
-		puts("None");
 		return;
 	}
 
@@ -300,36 +290,36 @@ int compare_descriptors(Descriptor desc1, Descriptor desc2) {
 
 
 float compare_sound_descriptors( pile* desc1, pile* desc2){// (not tested yet, waiting for descriptor_extractor)
-        double tmp, tmp2, moy=0.0;
-        int cpt =0;
-            cellule* p1 = desc1->tete;
-            cellule* p2 = desc2->tete;
-            while (p1 != NULL && p2!=NULL) {
+    double tmp, tmp2, moy=0.0;
+    int cpt =0;
+        cellule* p1 = desc1->tete;
+        cellule* p2 = desc2->tete;
+        while (p1 != NULL && p2!=NULL) {
 
-                if (p1->element==p2->element) {
-                    moy+=1.0;
-                }
-                else{
-                    tmp= (double)p1->element;
-                    tmp2= (double)p2->element;
-                    if (tmp!=0&&tmp2!=0){
-                        if (tmp<tmp2)
-                            moy+= tmp/tmp2;
-                        if (tmp>tmp2)
-                            moy+= tmp2/tmp;
-                    }
-                }
-                cpt++;
-                p1 = p1->suivant;
-                p2 = p2->suivant;
+            if (p1->element==p2->element) {
+                moy+=1.0;
             }
-            if (p1 != NULL)
-                while (p1 != NULL){
-                    p1 = p1->suivant;
-                    cpt++;
+            else{
+                tmp= (double)p1->element;
+                tmp2= (double)p2->element;
+                if (tmp!=0&&tmp2!=0){
+                    if (tmp<tmp2)
+                        moy+= tmp/tmp2;
+                    if (tmp>tmp2)
+                        moy+= tmp2/tmp;
                 }
-        if (moy!=0.0) return (moy/cpt *100);
-        return 0.0;
+            }
+            cpt++;
+            p1 = p1->suivant;
+            p2 = p2->suivant;
+        }
+        if (p1 != NULL)
+            while (p1 != NULL){
+                p1 = p1->suivant;
+                cpt++;
+            }
+    if (moy!=0.0) return (moy/cpt *100);
+    return 0.0;
 }
 
 

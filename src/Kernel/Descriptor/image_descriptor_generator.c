@@ -37,7 +37,7 @@ void generate_image_descriptors(DataFile df) {
 	}
 }
 
-int check_image_descriptor() {
+int check_image_descriptor(int force) {
 	/*
 	Check if the image descriptor located at path is up-to-date according to the files in dir
 	with the quantification n
@@ -45,7 +45,7 @@ int check_image_descriptor() {
 	char* path = get_value_of("descriptors");
 	char* full_path = strcat_path(path, "image_descriptors");
 	DataFile df = init_data_file(full_path);
-	if (DEBUG || check_descriptor(df, get_image_files(), get_nb_image())) {
+	if (DEBUG || force || check_descriptor(df, get_image_files(), get_nb_image())) {
 		generate_image_descriptors(df);
 		return 1;
 	}

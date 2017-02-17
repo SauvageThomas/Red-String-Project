@@ -57,7 +57,7 @@ mrproper: clean
 	rm -rf $(EXEC)
 
 
-$(EXEC): $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o $(R)main.o $(R)gui.o $(R)functions.o $(R)config.o $(R)data_base.o
+$(EXEC): $(R)password.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o $(R)main.o $(R)gui.o $(R)functions.o $(R)config.o $(R)data_base.o
 	$(CC)   $^ -lm -o $@ 
 
 
@@ -133,6 +133,9 @@ $(R)config.o : $(DATA)config.c $(DATA)config.h
 $(R)data_base.o : $(DATA)data_base.c $(DATA)data_base.h
 	$(CC) $(CFLAGS)
 
+$(R)password.o : $(DATA)password.c $(DATA)password.h
+	$(CC) $(CFLAGS)
+
 
 ########
 # View #
@@ -156,7 +159,7 @@ $(R)functions.o : $(C)functions.c $(C)functions.h $(DATA)constant.h $(TOOL)$(re)
 $(R)functions_wrapper.o : $(C)functions_wrapper.c
 	$(CC) $(CFLAGS)
 	
-jni/libkernel.so : $(R)data_base.o $(R)config.o $(R)functions_wrapper.o $(R)functions.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o
+jni/libkernel.so : $(R)password.o $(R)data_base.o $(R)config.o $(R)functions_wrapper.o $(R)functions.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o
 	$(CC) -shared -o jni/libkernel.so $^
 	
 	

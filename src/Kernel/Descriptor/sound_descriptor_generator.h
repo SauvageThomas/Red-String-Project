@@ -4,4 +4,4 @@
 #include "../Search/sound_finder.h"
 #include "descriptor_generator.h"
 
-int check_sound_descriptor();
+int check_sound_descriptor(int force);

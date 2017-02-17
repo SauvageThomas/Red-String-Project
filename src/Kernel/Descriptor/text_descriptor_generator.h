@@ -6,4 +6,4 @@
 #include "descriptor_generator.h"
 #include "index_generator.h"
 
-int check_text_descriptor();
+int check_text_descriptor(int force);

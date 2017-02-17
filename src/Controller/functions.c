@@ -8,10 +8,6 @@
 
 #include "functions.h"
 
-
-const int pass_key[] = { 22, 53, 44, 71, 66, 177, 253, 122, 9548, 1215, 48421,
-		629, 314, 4784, 5102, 914, 213, 316, 145, 78 };
-
 int search_data(char* file_path) {
 	/*
 	Read the configuration config and search the closer result with the file file_path
@@ -85,9 +81,6 @@ int search_data(char* file_path) {
 				common = compare_descriptors(descriptor, desc[i]);
 
 			add_nb_value_hash_map(&result, desc[i].file_name, common);
-
-			if (DEBUG)
-				printf("%s => %d\n",desc[i].file_name, common);
 		}
 
 	}
@@ -141,19 +134,17 @@ int search_data(char* file_path) {
 	return SUCCESS;
 }
 
-int update_text_descriptor(){
-	return check_text_descriptor();
+int update_text_descriptor(int force){
+	return check_text_descriptor(force);
 }
 
-int update_image_descriptor(){
-	return check_image_descriptor();
+int update_image_descriptor(int force){
+	return check_image_descriptor(force);
 }
 
-int update_sound_descriptor(){
-	return check_sound_descriptor();
+int update_sound_descriptor(int force){
+	return check_sound_descriptor(force);
 }
-
-
 
 void search_by_keyword(char *path) {
 	/*
@@ -214,154 +205,6 @@ void search_by_keyword(char *path) {
 	if (!found) {
 		puts("No result found");
 	}
-}
-
-
-
-void generate_all_descriptors() {
-	/*
-	* Genere tous les descripteurs
-	*/
-
-	char *path = get_value_of("descriptors");
-
-	char *full_path[KSIZE*2];
-
-	// descripteur de texte
-	strcpy(full_path, path);
-	strcat(full_path, "text_descriptors");
-	DataFile df = init_data_file(full_path);
-	generate_text_descriptors(df);
-
-	// descripteur image
-	char *quant = get_value_of("quantification");
-	size_t n = (size_t) strtol(quant, (char **) NULL, 10);
-	strcpy(full_path, path);
-	strcat(full_path, "image_descriptors");
-	df = init_data_file(full_path);
-	generate_image_descriptors(df);
-
-	// descripteur son
-	char *size_window = get_value_of("taille_des_fenetres");
-	size_t k = (size_t) strtol(size_window, (char **) NULL, 10);
-	char *nb_intervalles = get_value_of("nombre_de_barre");
-	size_t m = (size_t) strtol(nb_intervalles, (char **) NULL, 10);
-	strcpy(full_path, path);
-	strcat(full_path, "sound_descriptors");
-	df = init_data_file(full_path);
-	generate_sound_descriptors(df);
-}
-
-
-void display_rank(char *file_name, int rank){
-	printf("[%d] %s\n", rank, file_name);
-}
-
-char *remove_path(char *in) {
-	/*
-	Internal function used to remove the path of file Ex: /bin/bash => bash
-	*/
-	char *out = malloc(KSIZE);
-	out[0] = '\0';
-
-	char c = in[0];
-	int j = 0;
-	while (c != '\0') {
-		c = in[j];
-		strncat(out, &c, 1);
-		if (c == '/') {
-			out[0] = '\0';
-		}
-		j += 1;
-	}
-	return out;
-}
-
-void change_password() {
-	/*
-	Allow an admin to change his password
-	*/
-	char pass[KPASSLEN];
-	puts("Please, enter the password :");
-	get_secure_input(pass, sizeof(pass));
-
-	DataFile data_file = init_data_file(".pass");
-
-	xor_crypt(pass);
-	write_string_in_file(data_file, pass);
-	puts("Password correctly changed !");
-}
-
-int login() {
-	/*
-	Allow a user to connect as an admin
-	*/
-	char pass[KPASSLEN];
-	puts("Please, enter the password :");
-	if (!get_secure_input(pass, sizeof(pass))) {
-		return 0;
-	}
-
-	DataFile data_file = init_data_file(".pass");
-
-	if (data_file.length == 0) { //The file is empty or does not exist
-		strcpy(pass, "admin");
-		xor_crypt(pass);
-		write_string_in_file(data_file, pass);
-		puts("The password file has not been detected. Password has been reset.");
-		return 0;
-	}
-
-	char* compare = read_string_from_file(data_file);
-
-	xor_crypt(compare);
-
-	if (!strcmp(compare, pass)) {
-		puts("You are now connected as admin !");
-		return 1;
-	} else {
-		puts("Wrong password : access forbidden !");
-		return 0;
-	}
-}
-
-void wip() {
-	/*
-	Internal function
-	*/
-	puts("Work in progress : not yet implemented !");
-}
-
-void input_error(char *input) {
-	/*
-	Display an error
-	*/
-	printf("command not found : %s ! Please, try again.\n", input);
-}
-
-void xor_crypt(char *password) {
-	/*
-	Crypt an input (modify the input)
-	*/
-	for (int i = 0; i < KPASSLEN; i += 1) {
-		password[i] ^= pass_key[i];
-	}
-}
-
-void get_input(char* buffer) {
-	/*
-	Get the input for the menu, only 1 digit
-	*/
-	while (get_secure_input(buffer, 2) != 1) {
-		puts("1 digit was expected, please try again !");
-	}
-}
-
-void clear_console() {
-	/*
-	Clear the console
-	*/
-	printf("\033[H\033[J\n");
 }
 
 time_t chrono() {

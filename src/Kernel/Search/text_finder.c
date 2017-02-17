@@ -4,7 +4,7 @@ char *remove_xml(char* content) {
 	/*
 	Remove the xml tags within a char array
 	*/
-	char* working_content = malloc(sizeof(char) * (int) strlen(content));
+	char* working_content = malloc(strlen(content));
 	if (working_content == NULL) {
 		fprintf(stderr, "Malloc failed %s\n", strerror(errno));
 	}
@@ -30,7 +30,7 @@ void remove_punctuation(char* content) {
 	/*
 	Remove the punctuation within a char array
 	*/
-	char punctuation[] = "\"/,;.:!?()\n";
+	char punctuation[] = "\"/,;.:!?()-\n";
 	char* final_content;
 	char tmp;
 	for (size_t i = 0; i < strlen(content); i++) {
@@ -61,13 +61,16 @@ char** remove_words(char* content, int *matrix_length) {
 	/*
 	Remove the useless, short words within a char array (3 letters and less)
 	*/
-	char ** matrix_of_words = malloc(strlen(content) * sizeof(char*) * 2);
+
+	int nb_max_word = strlen(content) / 5;
+	char** matrix_of_words = malloc(nb_max_word * sizeof(char*));
 	// maximum length of a french word is 24 and a word may have at least 3 letters within
 	if (matrix_of_words == NULL) {
 		fprintf(stderr, "Malloc failed %s\n", strerror(errno));
 	}
-	for (int i = 0; i < strlen(content); i++)
-		matrix_of_words[i] = malloc(KSIZEWORD * sizeof(char) * 2);
+
+	for (int i = 0; i < nb_max_word; i++)
+		matrix_of_words[i] = malloc(KSIZEWORD);
 
 	size_t cpt = 0, cpt1 = 0, cpt2 = 0;
 	char tmp = content[cpt];
@@ -91,5 +94,8 @@ char** remove_words(char* content, int *matrix_length) {
 		tmp = content[cpt];
 	}
 	*matrix_length = cpt1;
+	for (int i = cpt1; i < nb_max_word; i++){
+		free(matrix_of_words[i]);
+	}
 	return matrix_of_words;
 }

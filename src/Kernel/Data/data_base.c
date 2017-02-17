@@ -36,6 +36,24 @@ size_t get_nb_image(){
 size_t get_nb_sound(){
 	return DATA_BASE.audio_size;
 }
+
+void free_data_base(){
+	for (int i = 0; i < DATA_BASE.txt_size; i++){
+		free_data_file(DATA_BASE.txt_files[i]);
+	}
+	free(DATA_BASE.txt_files);
+
+	for (int i = 0; i < DATA_BASE.image_size; i++){
+		free_data_file(DATA_BASE.image_files[i]);
+	}
+	free(DATA_BASE.image_files);
+
+	for (int i = 0; i < DATA_BASE.audio_size; i++){
+		free_data_file(DATA_BASE.audio_files[i]);
+	}
+	free(DATA_BASE.audio_files);
+}
+
 void load_data_base(char *path) {
 	/*
 	Return a Directory structure containing every informations about a directory and

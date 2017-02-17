@@ -21,7 +21,6 @@
 #include "../Data/constant.h"
 #include "../Data/config.h"
 
-int search_data(char* file_path);
 char *pretty_print_string(char *in);
 char *pretty_print_image(char *in);
 char *pretty_print_sound(char *in);
