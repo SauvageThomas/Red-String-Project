@@ -71,12 +71,47 @@ int search_data(Config config, char* file_path) {
 			float common2 = 0.0;
 			// we need to compare every window until one of the two files doesn't have one anymore
 			if(file_type == SOUND){
-				float moy=0.0;
-				for (int j=0; j<descriptor.p_size && j<desc[i].p_size; j++ ){
+				int counter = 0;
+				int k;
+				float test = 0.0, moy = 0.0, moy2 = 0.0;
+				for (int j = 0; j<descriptor.p_size && j<desc[i].p_size; j++ ){
 					moy = compare_sound_descriptors(&descriptor.p[j], &desc[i].p[j]);
+					test = compare_sound_descriptors(&descriptor.p[0], &desc[i].p[j]);
+					printf("\nmoy : %f\n", moy);
+					printf("\ntest : %f\n", test);
+
+					if (test == 100) {
+						puts("\nentered !\n");
+						int verif = 1;
+						for (k = 0; k<descriptor.p_size && verif; k++) {
+							moy2 = compare_sound_descriptors(&descriptor.p[k], &desc[i].p[k]);
+							printf("\nmoy2 : %f\n", moy2);
+							if ( moy2 != 100) verif = 0;
+
+						}
+						if (k >= descriptor.p_size){
+							counter++;
+							printf("\n (1) présent : %d fois !\n", counter);
+						}
+					}
 					common2 = common2 + moy;
 				}
-				// if ( descriptor.p_size>desc[i].p_size)
+			 	if ( descriptor.p_size<desc[i].p_size){
+					int counter2 = 0;
+					for ( k; k<desc[i].p_size; k++){
+						float	moy2 = compare_sound_descriptors(&descriptor.p[counter2], &desc[i].p[k]);
+						if (moy2 == 100){
+							while (moy2 == 100){
+								counter2++;
+								moy2 = compare_sound_descriptors(&descriptor.p[counter2], &desc[i].p[k]);
+							}
+							if (counter2 >= descriptor.p_size){
+								counter++;
+								printf("\nprésent : %d fois !\n", counter);
+							}
+						}
+					}
+				}
 				// common2 /= descriptor.p_size;
 				// else common2 /= desc[i].p_size;
 				common= (int)common2;
@@ -238,7 +273,7 @@ Directory get_all_files(char *path) {
 			}
 
 			strcat(full_path, ep->d_name);
-			
+
 			enum FileType file_type = get_data_file_extension(ep->d_name);
 
 			switch (file_type) {
