@@ -49,8 +49,6 @@ public class Main extends Application {
 		this.admin = false;
 		this.config = Configuration.INSTANCE;
 		
-		//System.out.println("ADMIN : " + Controller.loginAsAdmin("admin"));
-		//System.out.println("UPDT TXT : " + Controller.updateTextDescriptors(1));
 		// Controller.searchByKeyword("cellule");
 		// System.out.println(new File("bear.wav").toURI());
 		// final AudioClip clip = new
