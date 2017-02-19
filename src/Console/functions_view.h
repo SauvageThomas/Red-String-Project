@@ -12,6 +12,7 @@
 #include "../Kernel/Data/config.h"
 #include "../Kernel/Data/data_base.h"
 #include "../Kernel/Tools/data_handler.h"
+#include "console_IO.h"
 
 void show_main_menu();	
 void show_search_menu();

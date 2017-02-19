@@ -11,10 +11,10 @@
 
 // Include all data
 #include "../Kernel/Data/constant.h"
+#include "menus.h"
 
 // Include tests files
 #include "../Kernel/Test/test.h"
-#include "../Console/gui.h"
 
 
 int main() {
@@ -37,7 +37,18 @@ int main() {
 		return EXIT_SUCCESS;
 	}
 
-	if (PROD) show_main_menu();
+	if (PROD) {
+		if (DEBUG) {
+			puts("DEBUG MODE : ACTIVATED");
+		}
+		else{
+			clear_console();
+		}
+		load_config();
+		init_search_engine();
+		update_descriptors(0);
+		show_main_menu();
+	}
 
 	return EXIT_SUCCESS;
 }

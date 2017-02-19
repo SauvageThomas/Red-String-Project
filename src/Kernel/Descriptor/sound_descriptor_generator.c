@@ -63,7 +63,7 @@ int check_sound_descriptor(int force) {
 	Check if the sound descriptor located at path is up-to-date according to the files in dir
 	with both the number of intervals m and the size of each window k.
 	*/
-	char* path = get_value_of("descriptors");
+	char* path = get_data_from_config("descriptors");
 	char* full_path = strcat_path(path, "sound_descriptors");
 	DataFile df = init_data_file(full_path);
 	if (DEBUG || force || check_descriptor(df, get_sound_files(), get_nb_sound())) {

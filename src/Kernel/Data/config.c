@@ -111,7 +111,15 @@ void load_config() {
 	}
 }
 
-char* get_value_of(const char* value) {
+size_t get_sizet_from_config(char* key){
+	char* size_str = get_data_from_config(key);
+	if (size_str == NULL) {
+		error_config_file();
+	}
+	return (size_t) strtol(size_str, (char **) NULL, 10);
+}
+
+char* get_data_from_config(const char* value) {
 	/*
 	Return the value associated to the key input
 	If it doesn't contain it, it calls error_config_file 
@@ -123,5 +131,5 @@ char* get_value_of(const char* value) {
 		}
 	}
 	error_config_file();
-	return get_value_of(value);
+	return get_data_from_config(value);
 }

@@ -27,7 +27,7 @@ void change_password() {
 	puts("Password correctly changed !");
 }
 
-int login(char* password) {
+int try_login(char* password) {
 	/*
 	Allow a user to connect as an admin
 	*/

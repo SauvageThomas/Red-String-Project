@@ -17,7 +17,6 @@
 #include "../Kernel/Tools/data_handler.h"
 #include "../Kernel/Data/constant.h"
 #include "../Kernel/Data/config.h"
-#include "../Kernel/Tools/report.h"
 #include "../Kernel/Search/data_manager.h"
 #include "../Kernel/Search/text_finder.h"
 #include "../Kernel/Search/image_finder.h"
@@ -28,19 +27,10 @@
 #include "../Kernel/Descriptor/descriptor_generator.h"
 
 
-int search_data(char* file_path);
-void input_error(char *input);
-void get_input(char* buffer);
-void search_by_keyword(char *path);
-void modif_config();
-void clear_console();
-void error_config_file();
-char *remove_path(char *in);
-void generate_all_descriptors();
-
+char** search_data(char* file_path);
+char** search_by_keywords(char** keywords);
 int update_text_descriptor(int force);
 int update_image_descriptor(int force);
 int update_sound_descriptor(int force);
-time_t chrono();
 
 #endif /* GUI_FUNCTIONS_H_ */

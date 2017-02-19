@@ -23,7 +23,7 @@ char* pretty_print_string(char *in) {
 		if (c == '/') {
 			out[0] = '\0';
 		} else if (c == ' ') {
-			strcat(out, "=> ");
+			strcat(out, " -> ");
 		}
 		j += 1;
 	}

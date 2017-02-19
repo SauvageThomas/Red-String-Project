@@ -11,7 +11,7 @@ enum FileType {
 	TEXT, IMAGE, SOUND
 };
 
-void load_data_base(char *path);
+void load_data_base();
 DataFile* get_text_files();
 DataFile* get_image_files();
 DataFile* get_sound_files();

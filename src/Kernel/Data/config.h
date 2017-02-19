@@ -13,4 +13,4 @@ void modif_config();
 void reset_config();
 void init_config();
 void load_config();
-char* get_value_of(const char* value);
+char* get_data_from_config(const char* value);

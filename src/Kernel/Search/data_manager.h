@@ -16,7 +16,6 @@
 #include "text_finder.h"
 #include "image_finder.h"
 #include "sound_finder.h"
-#include "../Tools/report.h"
 #include "../../Controller/functions.h"
 #include "../Data/constant.h"
 #include "../Data/config.h"

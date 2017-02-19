@@ -162,3 +162,14 @@ char *remove_path(char *in) {
 	}
 	return out;
 }
+
+time_t chrono() {
+	/*
+	The first call create the chrono (you should not use the outpout)
+	and the second call return the time between the first and the second call
+	*/
+	static time_t prev_time;
+	time_t res = time(NULL) - prev_time;
+	prev_time = time(NULL);
+	return res;
+}

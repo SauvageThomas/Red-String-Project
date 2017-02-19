@@ -43,7 +43,7 @@ int check_text_descriptor(int force) {
 	/*
 	Check if the text descriptor located at path is up-to-date according to the files in dir
 	*/
-	char *path = get_value_of("descriptors");
+	char *path = get_data_from_config("descriptors");
 	char* desc_path = strcat_path(path, "text_descriptors");
 	char* index_path = strcat_path(path, "text_index");
 	DataFile df = init_data_file(desc_path);

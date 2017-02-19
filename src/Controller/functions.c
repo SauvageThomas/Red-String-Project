@@ -8,25 +8,34 @@
 
 #include "functions.h"
 
-int search_data(char* file_path) {
+int login(char* password){
+	return try_login(password);
+}
+
+
+char** search_data(char* file_path) {
 	/*
 	Read the configuration config and search the closer result with the file file_path
 	*/
 	DataFile df = init_data_file(file_path);
 	HashMap result = NULL;
+	char** results = malloc(6 * sizeof(char*));
+	results[0] = malloc(2); //flag
 
 	if (!is_existing_file(df)) {
-		return FILE_NOT_FOUND;
+		sprintf(results[0], "%d", -1);
+		return results;
 	}
 
 	if (is_empty_file(df)) {
-		return EMPTY;
+		sprintf(results[0], "%d", -2);
+		return results;
 	}
 
 	enum FileType file_type = get_data_file_extension(df.path);
 
 	char full_path[KSIZE * 2];
-	strcpy(full_path, get_value_of("descriptors"));
+	strcpy(full_path, get_data_from_config("descriptors"));
 
 	switch (file_type) {
 	case TEXT:
@@ -40,8 +49,8 @@ int search_data(char* file_path) {
 		break;
 
 	default:
-		return FILE_TYPE_NOT_SUPPORTED;
-		break;
+		sprintf(results[0], "%d", -3);
+		return results;
 	}
 
 	df = init_data_file(full_path);
@@ -86,13 +95,17 @@ int search_data(char* file_path) {
 	}
 	int max = 5;
 	if (i < max) {
-		max = i-1;
+		max = i;
 	}
-
-	for (int i = 0; i < max; i += 1) {
-		// puts("passed ! \n");
+	sprintf(results[0], "%d", max);
+	for (int i = 1; i <= max; i += 1) {
 		char *tmp = pop_value_hash_map(&result);
-
+		results[i] = malloc(strlen(tmp));
+		results[i] = tmp;
+	}
+	return results;
+}
+		/*
 		if (i==0){
 
 			char c = tmp[0];
@@ -130,9 +143,8 @@ int search_data(char* file_path) {
 		}
 		display_rank(final_string, i+1);
 		//printf("\n* RANK [%d] : %s", (i+1), final_string);
-	}
-	return SUCCESS;
-}
+	*/
+
 
 int update_text_descriptor(int force){
 	return check_text_descriptor(force);
@@ -146,15 +158,46 @@ int update_sound_descriptor(int force){
 	return check_sound_descriptor(force);
 }
 
-void search_by_keyword(char *path) {
+
+void search_by_keywords_view(){
+	puts("Please, enter your keywords (max 10), put \"0\" to stop : ");
+	int count = 0;
+	char** keywords = malloc(11 * sizeof(char*));
+	do{
+		char* buffer = malloc(KSIZEWORD);
+		get_secure_input(buffer, KSIZEWORD);
+		if (!strcmp(buffer, "0")){
+			break;
+		}
+		count ++;
+		keywords[count] = malloc(sizeof(buffer));
+		strcpy(keywords[count], buffer);
+	}while (count < 11);
+	sprintf(keywords[0], "%d", count);
+	if (!DEBUG)
+		clear_console();
+	printf("TOTAL KEYWORD(S) : %s\n", keywords[0]);
+	for (int i = 1; i <= count; i++)
+		printf(" -  %s\n", keywords[i]);
+	char** results = search_by_keywords(keywords);
+
+	int flag = atoi(results[0]);
+	if (flag == -1)
+		puts("No result found !");
+	else{
+		printf("%s result(s) found ! \n", results[0]);
+		for(int i = 1; i <= flag; i++)
+			printf(" # [%d]  -  %s\n", i, results[i]);
+	}
+
+}
+
+char** search_by_keywords(char** keywords) {
 	/*
 	Allow the user to search a file using a keyword
 	*/
-	puts("Please, enter a unique key word : ");
-
-	char *keyword = malloc(KSIZEWORD);
-	get_secure_input(keyword, KSIZE);
-
+	
+	char* path = get_data_from_config("descriptors");
 	char* file_path = malloc(KSIZE * 2);
 	strcpy(file_path, path);
 
@@ -167,53 +210,45 @@ void search_by_keyword(char *path) {
 	int length = strlen(content);
 	int found = 0;
 	int cpt = 0;
-	puts("Result :");
+	char** results = malloc(6 * sizeof(char*));
+	results[0] = malloc(2); // flag
 	for (int i = 0; i < length; i += 1) {
 		if (content[i] == '>') {
 			char *tmp = malloc(KSIZEWORD);
 			i += 1;
 			sscanf(&content[i], "%s", tmp);
-			//printf("<%s> <%s>\n", tmp, keyword);
-			if (!strcmp(tmp, keyword)) {
-
-				//puts("Ok");
+			if (!strcmp(tmp, keywords[1])) {
 				found = 1;
-				i += strlen(keyword) + 1;
+				i += strlen(keywords[1]) + 1;
 			}
 		} else if (found) {
-			char *final_string = malloc(KSIZEWORD * 45);
+			char *final_string = malloc(2 * KSIZE);
 			while (content[i] != '>') {
 
 				if (content[i] == '\n') {
+					final_string = pretty_print_string(final_string);
+					cpt ++;
+					results[cpt] = malloc(strlen(final_string));
+					strcpy(results[cpt], final_string);
+					strcpy(final_string, "\0");
 					if (cpt > 5) {
 						break;
 					}
-					final_string = pretty_print_string(final_string);
-					printf("%s\n", final_string);
-					strcpy(final_string, "");
-					cpt += 1;
 				}
 				//putchar(content[i]);
-				strncat(final_string, &content[i], 1);
+				else{
+					strncat(final_string, &content[i], 1);
+				}
 				i += 1;
 
 			}
+			sprintf(results[0], "%d", cpt);
 			break;
-			exit(0);
 		}
 	}
 	if (!found) {
-		puts("No result found");
+		sprintf(results[0], "%d", -1);
 	}
-}
-
-time_t chrono() {
-	/*
-	The first call create the chrono (you should not use the outpout)
-	and the second call return the time between the first and the second call
-	*/
-	static time_t prev_time;
-	time_t res = time(NULL) - prev_time;
-	prev_time = time(NULL);
-	return res;
+	
+	return results;
 }

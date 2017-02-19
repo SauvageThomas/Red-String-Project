@@ -42,7 +42,7 @@ int check_image_descriptor(int force) {
 	Check if the image descriptor located at path is up-to-date according to the files in dir
 	with the quantification n
 	*/
-	char* path = get_value_of("descriptors");
+	char* path = get_data_from_config("descriptors");
 	char* full_path = strcat_path(path, "image_descriptors");
 	DataFile df = init_data_file(full_path);
 	if (DEBUG || force || check_descriptor(df, get_image_files(), get_nb_image())) {

@@ -12,7 +12,6 @@ typedef struct {
 
 Directory DATA_BASE = {NULL, -1, NULL, -1, NULL, -1};
 
-
 DataFile* get_text_files(){
 	return DATA_BASE.txt_files;
 }
@@ -54,11 +53,13 @@ void free_data_base(){
 	free(DATA_BASE.audio_files);
 }
 
-void load_data_base(char *path) {
+void load_data_base() {
 	/*
 	Return a Directory structure containing every informations about a directory and
 	useful files
 	*/
+
+	char* path = get_data_from_config("path");
 	size_t max_size_text = 15;
 	size_t max_size_audio = 15;
 	size_t max_size_image = 15;
