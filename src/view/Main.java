@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import src.controller.Controller;
 import src.view.layout.RootController;
 import src.view.layout.home.HomeController;
 import src.view.tools.Configuration;
@@ -47,7 +48,8 @@ public class Main extends Application {
 
 		this.admin = false;
 		this.config = Configuration.INSTANCE;
-
+		
+		//System.out.println("ADMIN : " + Controller.loginAsAdmin("admin"));
 		// Controller.searchByKeyword("cellule");
 		// System.out.println(new File("bear.wav").toURI());
 		// final AudioClip clip = new
