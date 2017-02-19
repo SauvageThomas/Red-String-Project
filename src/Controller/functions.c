@@ -76,12 +76,41 @@ char** search_data(char* file_path) {
 			float common2 = 0.0;
 			// we need to compare every window until one of the two files doesn't have one anymore
 			if(file_type == SOUND){
-				float moy=0.0;
-				for (int j=0; j<descriptor.p_size && j<desc[i].p_size; j++ ){
+				int counter = 0;
+				int k;
+				float test = 0.0, moy = 0.0, moy2 = 0.0;
+				for (int j = 0; j<descriptor.p_size && j<desc[i].p_size; j++ ){
 					moy = compare_sound_descriptors(&descriptor.p[j], &desc[i].p[j]);
+					test = compare_sound_descriptors(&descriptor.p[0], &desc[i].p[j]);
+
+					if (test == 100) {
+						int verif = 1;
+						for (k = 0; k<descriptor.p_size && verif; k++) {
+							moy2 = compare_sound_descriptors(&descriptor.p[k], &desc[i].p[k]);
+							if ( moy2 != 100) verif = 0;
+
+						}
+						if (k >= descriptor.p_size){
+							counter++;
+						}
+					}
 					common2 = common2 + moy;
 				}
-				// if ( descriptor.p_size>desc[i].p_size)
+			 	if ( descriptor.p_size<desc[i].p_size){
+					int counter2 = 0;
+					for ( k; k<desc[i].p_size; k++){
+						float	moy2 = compare_sound_descriptors(&descriptor.p[counter2], &desc[i].p[k]);
+						if (moy2 == 100){
+							while (moy2 == 100){
+								counter2++;
+								moy2 = compare_sound_descriptors(&descriptor.p[counter2], &desc[i].p[k]);
+							}
+							if (counter2 >= descriptor.p_size){
+								counter++;
+							}
+						}
+					}
+				}
 				// common2 /= descriptor.p_size;
 				// else common2 /= desc[i].p_size;
 				common= (int)common2;
@@ -101,7 +130,7 @@ char** search_data(char* file_path) {
 	for (int i = 1; i <= max; i += 1) {
 		char *tmp = pop_value_hash_map(&result);
 		results[i] = malloc(strlen(tmp));
-		results[i] = tmp;
+		strcpy(results[i], tmp);
 	}
 	return results;
 }
