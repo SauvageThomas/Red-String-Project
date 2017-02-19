@@ -5,13 +5,7 @@
  *      Author: THOMAS
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
-#include <string.h>
-#include <sys/stat.h>
 #include "data_handler.h"
-#include "../Data/constant.h"
 
 // permet d'initialiser une structure DataFile à partir d'un chemin
 DataFile init_data_file(char* path) {
@@ -28,6 +22,10 @@ DataFile init_data_file(char* path) {
 		set_data_file_length(&data_file);
 	}
 	return data_file;
+}
+
+void free_data_file(DataFile df){
+	free(df.path);
 }
 
 // permet de savoir si un fichier existe
@@ -143,4 +141,35 @@ char* strcat_path(char* path, char* file_name) {
 	char* full_path = malloc(KSIZE);
 	sprintf(full_path, "%s%s", path, file_name);
 	return full_path;
+}
+
+char *remove_path(char *in) {
+	/*
+	Internal function used to remove the path of file Ex: /bin/bash => bash
+	*/
+	char *out = malloc(KSIZE);
+	out[0] = '\0';
+
+	char c = in[0];
+	int j = 0;
+	while (c != '\0') {
+		c = in[j];
+		strncat(out, &c, 1);
+		if (c == '/') {
+			out[0] = '\0';
+		}
+		j += 1;
+	}
+	return out;
+}
+
+time_t chrono() {
+	/*
+	The first call create the chrono (you should not use the outpout)
+	and the second call return the time between the first and the second call
+	*/
+	static time_t prev_time;
+	time_t res = time(NULL) - prev_time;
+	prev_time = time(NULL);
+	return res;
 }

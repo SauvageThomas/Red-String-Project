@@ -5,5 +5,6 @@
 #include "../Data/constant.h"
 #include "descriptor_generator.h"
 #include "../Search/image_finder.h"
+#include "../Search/data_manager.h"
 
-int check_image_descriptor(char* path, Directory dir, int n);
+int check_image_descriptor(int force);

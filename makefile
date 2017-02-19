@@ -39,7 +39,6 @@ sf=sound_finder
 dh=data_handler
 map=hash_map
 mm=map_of_map
-re=report
 th=text_handler
 
 t=test
@@ -57,7 +56,7 @@ mrproper: clean
 	rm -rf $(EXEC)
 
 
-$(EXEC): $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o $(R)main.o $(R)gui.o $(R)functions.o $(R)config.o
+$(EXEC): $(R)console_IO.o $(R)menus.o $(R)functions_view.o $(R)password.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(t).o $(R)main.o $(R)functions.o $(R)config.o $(R)data_base.o
 	$(CC)   $^ -lm -o $@ 
 
 
@@ -85,7 +84,7 @@ $(R)$(igen).o : $(DESC)$(igen).c $(DESC)$(igen).h
 # Search Module #
 #################
 
-$(R)$(dm).o : $(SEARCH)$(dm).c $(SEARCH)$(dm).h $(TOOL)report.h $(TOOL)$(dh).h $(SEARCH)$(tf).h $(SEARCH)$(if).h $(SEARCH)$(sf).h
+$(R)$(dm).o : $(SEARCH)$(dm).c $(SEARCH)$(dm).h $(TOOL)$(dh).h $(SEARCH)$(tf).h $(SEARCH)$(if).h $(SEARCH)$(sf).h
 	$(CC) $(CFLAGS)
 
 $(R)$(tf).o : $(SEARCH)$(tf).c $(SEARCH)$(tf).h $(TOOL)$(dh).h
@@ -111,9 +110,6 @@ $(R)$(map).o : $(TOOL)$(map).c $(TOOL)$(map).h
 $(R)$(mm).o : $(TOOL)$(mm).c $(TOOL)$(dh).h $(TOOL)$(mm).h $(TOOL)$(map).h
 	$(CC) $(CFLAGS)
 
-$(R)$(re).o : $(TOOL)$(re).c $(TOOL)$(re).h
-	$(CC) $(CFLAGS) 
-
 
 ###############
 # Test Module #
@@ -130,16 +126,27 @@ $(R)$(t).o : $(TEST)$(t).c $(TEST)$(t).h $(TOOL)$(dh).h
 $(R)config.o : $(DATA)config.c $(DATA)config.h
 	$(CC) $(CFLAGS)
 
+$(R)data_base.o : $(DATA)data_base.c $(DATA)data_base.h
+	$(CC) $(CFLAGS)
+
+$(R)password.o : $(DATA)password.c $(DATA)password.h
+	$(CC) $(CFLAGS)
+
 
 ########
 # View #
 ########
 
-$(R)gui.o : $(V)/gui.c $(V)/gui.h
+$(R)console_IO.o : $(V)/console_IO.c $(V)/console_IO.h
 	$(CC) $(CFLAGS)
 
-$(R)main.o : $(V)main.c $(TEST)$(t).h $(TEST)minunit.h $(DATA)constant.h $(V)gui.h
-	
+$(R)menus.o : $(V)/menus.c $(V)/menus.h
+	$(CC) $(CFLAGS)
+
+$(R)functions_view.o : $(V)/functions_view.c $(V)/functions_view.h
+	$(CC) $(CFLAGS)
+
+$(R)main.o : $(V)main.c $(TEST)$(t).h $(TEST)minunit.h $(DATA)constant.h
 	$(CC) $(CFLAGS)
 
 
@@ -147,13 +154,13 @@ $(R)main.o : $(V)main.c $(TEST)$(t).h $(TEST)minunit.h $(DATA)constant.h $(V)gui
 # Controller #
 ##############
 
-$(R)functions.o : $(C)functions.c $(C)functions.h $(DATA)constant.h $(TOOL)$(re).h $(TOOL)$(dh).h $(SEARCH)$(dm).h $(SEARCH)$(tf).h $(SEARCH)$(if).h $(SEARCH)$(sf).h
+$(R)functions.o : $(C)functions.c $(C)functions.h $(DATA)constant.h $(TOOL)$(dh).h $(SEARCH)$(dm).h $(SEARCH)$(tf).h $(SEARCH)$(if).h $(SEARCH)$(sf).h
 	$(CC) $(CFLAGS)
 	
 $(R)functions_wrapper.o : $(C)functions_wrapper.c
 	$(CC) $(CFLAGS)
 	
-jni/libkernel.so : $(R)config.o $(R)functions_wrapper.o $(R)functions.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o
+jni/libkernel.so : $(R)console_IO.o $(R)menus.o $(R)functions_view.o $(R)password.o $(R)data_base.o $(R)config.o $(R)functions_wrapper.o $(R)functions.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o
 	$(CC) -shared -o jni/libkernel.so $^
 	
 	

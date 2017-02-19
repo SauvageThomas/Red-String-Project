@@ -8,54 +8,196 @@
 
 #include "functions.h"
 
+int login(char* password){
+	return try_login(password);
+}
 
-const int pass_key[] = { 22, 53, 44, 71, 66, 177, 253, 122, 9548, 1215, 48421,
-		629, 314, 4784, 5102, 914, 213, 316, 145, 78 };
 
-void search_by_file(Config config) {
+char** search_data(char* file_path) {
 	/*
-	* Lance la recherche par un fichier, quel que soit son format
+	Read the configuration config and search the closer result with the file file_path
+	*/
+	DataFile df = init_data_file(file_path);
+	HashMap result = NULL;
+	char** results = malloc(6 * sizeof(char*));
+	results[0] = malloc(2); //flag
+
+	if (!is_existing_file(df)) {
+		sprintf(results[0], "%d", -1);
+		return results;
+	}
+
+	if (is_empty_file(df)) {
+		sprintf(results[0], "%d", -2);
+		return results;
+	}
+
+	enum FileType file_type = get_data_file_extension(df.path);
+
+	char full_path[KSIZE * 2];
+	strcpy(full_path, get_data_from_config("descriptors"));
+
+	switch (file_type) {
+	case TEXT:
+		strcat(full_path, "text_descriptors");
+		break;
+	case IMAGE:
+		strcat(full_path, "image_descriptors");
+		break;
+	case SOUND:
+		strcat(full_path, "sound_descriptors");
+		break;
+
+	default:
+		sprintf(results[0], "%d", -3);
+		return results;
+	}
+
+	df = init_data_file(full_path);
+
+	char *content = read_string_from_file(df);
+	int size_desc;
+	Descriptor * desc;
+	if (file_type == SOUND)
+		desc = extract_all_descriptors(content, &size_desc, file_type);
+	else
+		desc = extract_all_descriptor(content, &size_desc);
+	int cpt = 0;
+	while (strcmp(desc[cpt].file_name, file_path)) {
+		cpt += 1;
+	}
+	puts("\n\nSame file type scores :\n");
+	Descriptor descriptor = desc[cpt];
+	int i;
+
+	for (i = 0; i < size_desc; i += 1) {
+		if (i != cpt) {
+			int common = 0;
+			float common2 = 0.0;
+			// we need to compare every window until one of the two files doesn't have one anymore
+			if(file_type == SOUND){
+				float moy=0.0;
+				for (int j=0; j<descriptor.p_size && j<desc[i].p_size; j++ ){
+					moy = compare_sound_descriptors(&descriptor.p[j], &desc[i].p[j]);
+					common2 = common2 + moy;
+				}
+				// if ( descriptor.p_size>desc[i].p_size)
+				// common2 /= descriptor.p_size;
+				// else common2 /= desc[i].p_size;
+				common= (int)common2;
+			}
+			else
+				common = compare_descriptors(descriptor, desc[i]);
+
+			add_nb_value_hash_map(&result, desc[i].file_name, common);
+		}
+
+	}
+	int max = 5;
+	if (i < max) {
+		max = i;
+	}
+	sprintf(results[0], "%d", max);
+	for (int i = 1; i <= max; i += 1) {
+		char *tmp = pop_value_hash_map(&result);
+		results[i] = malloc(strlen(tmp));
+		results[i] = tmp;
+	}
+	return results;
+}
+		/*
+		if (i==0){
+
+			char c = tmp[0];
+
+			int count = 0;
+			char *file = malloc(strlen(tmp));
+
+			file[0] = '\0';
+			while(c != ' '){
+				c = tmp[count];
+				strncat(file, &c, 1);
+
+				count += 1;
+			}
+			//printf("\nBEST RESULT : %s\n\n", file);
+			display_rank(file, 1);
+			char* cmd = malloc(KSIZE);
+			sprintf(cmd, "%s%s%s", "xdg-open ", file, " &");
+			printf("\n>> open the best result with : %s\n", cmd);
+			system(cmd);
+		}
+
+		//Change the content of the string
+		char *final_string;
+		switch (file_type) {
+		case TEXT:
+			final_string = pretty_print_string(tmp);
+			break;
+		case IMAGE:
+			final_string = pretty_print_image(tmp);
+			break;
+		case SOUND:
+			final_string = pretty_print_sound(tmp);
+			break;
+		}
+		display_rank(final_string, i+1);
+		//printf("\n* RANK [%d] : %s", (i+1), final_string);
 	*/
 
-	char* tmp = get_value_of("path");
 
-	char* file_name = malloc(KSIZE);
-	char* file_path = malloc(KSIZE * 2);
+int update_text_descriptor(int force){
+	return check_text_descriptor(force);
+}
 
-	strcpy(file_path, tmp);
+int update_image_descriptor(int force){
+	return check_image_descriptor(force);
+}
 
-	puts("Please, enter a file path : ");
-	if (get_secure_input(file_name, KSIZE)) {
-		strcat(file_path, file_name);
-		int res = search_data(config, file_path);
-		// affiche le resultat de la recherche
-		show_search_report(res);
+int update_sound_descriptor(int force){
+	return check_sound_descriptor(force);
+}
+
+
+void search_by_keywords_view(){
+	puts("Please, enter your keywords (max 10), put \"0\" to stop : ");
+	int count = 0;
+	char** keywords = malloc(11 * sizeof(char*));
+	do{
+		char* buffer = malloc(KSIZEWORD);
+		get_secure_input(buffer, KSIZEWORD);
+		if (!strcmp(buffer, "0")){
+			break;
+		}
+		count ++;
+		keywords[count] = malloc(sizeof(buffer));
+		strcpy(keywords[count], buffer);
+	}while (count < 11);
+	sprintf(keywords[0], "%d", count);
+	if (!DEBUG)
+		clear_console();
+	printf("TOTAL KEYWORD(S) : %s\n", keywords[0]);
+	for (int i = 1; i <= count; i++)
+		printf(" -  %s\n", keywords[i]);
+	char** results = search_by_keywords(keywords);
+
+	int flag = atoi(results[0]);
+	if (flag == -1)
+		puts("No result found !");
+	else{
+		printf("%s result(s) found ! \n", results[0]);
+		for(int i = 1; i <= flag; i++)
+			printf(" # [%d]  -  %s\n", i, results[i]);
 	}
+
 }
 
-int update_text_descriptor(char* path, Directory dir){
-	return check_text_descriptor(path, dir);
-}
-
-int update_image_descriptor(char* path, Directory dir, int n){
-	return check_image_descriptor(path, dir, n);
-}
-
-int update_sound_descriptor(char* path, Directory dir, int k, int m){
-	return check_sound_descriptor(path, dir, k, m);
-}
-
-
-
-void search_by_keyword(char *path) {
+char** search_by_keywords(char** keywords) {
 	/*
 	Allow the user to search a file using a keyword
 	*/
-	puts("Please, enter a unique key word : ");
-
-	char *keyword = malloc(KSIZEWORD);
-	get_secure_input(keyword, KSIZE);
-
+	
+	char* path = get_data_from_config("descriptors");
 	char* file_path = malloc(KSIZE * 2);
 	strcpy(file_path, path);
 
@@ -68,227 +210,45 @@ void search_by_keyword(char *path) {
 	int length = strlen(content);
 	int found = 0;
 	int cpt = 0;
-	puts("Result :");
+	char** results = malloc(6 * sizeof(char*));
+	results[0] = malloc(2); // flag
 	for (int i = 0; i < length; i += 1) {
 		if (content[i] == '>') {
 			char *tmp = malloc(KSIZEWORD);
 			i += 1;
 			sscanf(&content[i], "%s", tmp);
-			//printf("<%s> <%s>\n", tmp, keyword);
-			if (!strcmp(tmp, keyword)) {
-
-				//puts("Ok");
+			if (!strcmp(tmp, keywords[1])) {
 				found = 1;
-				i += strlen(keyword) + 1;
+				i += strlen(keywords[1]) + 1;
 			}
 		} else if (found) {
-			char *final_string = malloc(KSIZEWORD * 45);
+			char *final_string = malloc(2 * KSIZE);
 			while (content[i] != '>') {
 
 				if (content[i] == '\n') {
+					final_string = pretty_print_string(final_string);
+					cpt ++;
+					results[cpt] = malloc(strlen(final_string));
+					strcpy(results[cpt], final_string);
+					strcpy(final_string, "\0");
 					if (cpt > 5) {
 						break;
 					}
-					final_string = pretty_print_string(final_string);
-					printf("%s\n", final_string);
-					strcpy(final_string, "");
-					cpt += 1;
 				}
 				//putchar(content[i]);
-				strncat(final_string, &content[i], 1);
+				else{
+					strncat(final_string, &content[i], 1);
+				}
 				i += 1;
 
 			}
+			sprintf(results[0], "%d", cpt);
 			break;
-			exit(0);
 		}
 	}
 	if (!found) {
-		puts("No result found");
+		sprintf(results[0], "%d", -1);
 	}
-}
-
-
-
-void generate_all_descriptors() {
-	/*
-	* Genere tous les descripteurs
-	*/
-
-	char *path = get_value_of("descriptors");
-
-	// charge l'ensemble des fichiers de la base de donnée
-	Directory dir = get_all_files(get_value_of("path"));
-
-	char *full_path[KSIZE*2];
-
-	// descripteur de texte
-	strcpy(full_path, path);
-	strcat(full_path, "text_descriptors");
-	DataFile df = init_data_file(full_path);
-	generate_text_descriptors(df, dir);
-
-	// descripteur image
-	char *quant = get_value_of("quantification");
-	size_t n = (size_t) strtol(quant, (char **) NULL, 10);
-	strcpy(full_path, path);
-	strcat(full_path, "image_descriptors");
-	df = init_data_file(full_path);
-	generate_image_descriptors(df, dir, n);
-
-	// descripteur son
-	char *size_window = get_value_of("taille_des_fenetres");
-	size_t k = (size_t) strtol(size_window, (char **) NULL, 10);
-	char *nb_intervalles = get_value_of("nombre_de_barre");
-	size_t m = (size_t) strtol(nb_intervalles, (char **) NULL, 10);
-	strcpy(full_path, path);
-	strcat(full_path, "sound_descriptors");
-	df = init_data_file(full_path);
-	generate_sound_descriptors(df, dir, k, m);
-}
-
-
-void display_rank(char *file_name, int rank){
-	printf("[%d] %s\n", rank, file_name);
-}
-
-void display_data_base(char *path) {
-	/*
-	Display every file with the good extension in the databse path
-	*/
-	Directory dir = get_all_files(path);
-
-	printf("Text Files :\n");
-	for (int i = 0; i < dir.txt_size; i += 1) {
-		printf("\t-%s\n", remove_path(dir.txt_files[i].path));
-	}
-
-	printf("\nImage Files :\n");
-	for (int i = 0; i < dir.image_size; i += 1) {
-		printf("\t-%s\n", remove_path(dir.image_files[i].path));
-	}
-
-	printf("\nAudio Files :\n");
-	for (int i = 0; i < dir.audio_size; i += 1) {
-		printf("\t-%s\n", remove_path(dir.audio_files[i].path));
-	}
-}
-
-char *remove_path(char *in) {
-	/*
-	Internal function used to remove the path of file Ex: /bin/bash => bash
-	*/
-	char *out = malloc(KSIZE);
-	out[0] = '\0';
-
-	char c = in[0];
-	int j = 0;
-	while (c != '\0') {
-		c = in[j];
-		strncat(out, &c, 1);
-		if (c == '/') {
-			out[0] = '\0';
-		}
-		j += 1;
-	}
-	return out;
-}
-
-void change_password() {
-	/*
-	Allow an admin to change his password
-	*/
-	char pass[KPASSLEN];
-	puts("Please, enter the password :");
-	get_secure_input(pass, sizeof(pass));
-
-	DataFile data_file = init_data_file(".pass");
-
-	xor_crypt(pass);
-	write_string_in_file(data_file, pass);
-	puts("Password correctly changed !");
-}
-
-int login() {
-	/*
-	Allow a user to connect as an admin
-	*/
-	char pass[KPASSLEN];
-	puts("Please, enter the password :");
-	if (!get_secure_input(pass, sizeof(pass))) {
-		return 0;
-	}
-
-	DataFile data_file = init_data_file(".pass");
-
-	if (data_file.length == 0) { //The file is empty or does not exist
-		strcpy(pass, "admin");
-		xor_crypt(pass);
-		write_string_in_file(data_file, pass);
-		puts(
-				"The password file has not been detected. Password has been reset.");
-		return 0;
-	}
-
-	char* compare = read_string_from_file(data_file);
-
-	xor_crypt(compare);
-
-	if (!strcmp(compare, pass)) {
-		puts("You are now connected as admin !");
-		return 1;
-	} else {
-		puts("Wrong password : access forbidden !");
-		return 0;
-	}
-}
-
-void wip() {
-	/*
-	Internal function
-	*/
-	puts("Work in progress : not yet implemented !");
-}
-
-void input_error(char *input) {
-	/*
-	Display an error
-	*/
-	printf("command not found : %s ! Please, try again.\n", input);
-}
-
-void xor_crypt(char *password) {
-	/*
-	Crypt an input (modify the input)
-	*/
-	for (int i = 0; i < KPASSLEN; i += 1) {
-		password[i] ^= pass_key[i];
-	}
-}
-
-void get_input(char* buffer) {
-	/*
-	Get the input for the menu, only 1 digit
-	*/
-	while (get_secure_input(buffer, 2) != 1) {
-		puts("1 digit was expected, please try again !");
-	}
-}
-
-void clear_console() {
-	/*
-	Clear the console
-	*/
-	printf("\033[H\033[J\n");
-}
-
-time_t chrono() {
-	/*
-	The first call create the chrono (you should not use the outpout)
-	and the second call return the time between the first and the second call
-	*/
-	static time_t prev_time;
-	time_t res = time(NULL) - prev_time;
-	prev_time = time(NULL);
-	return res;
+	
+	return results;
 }

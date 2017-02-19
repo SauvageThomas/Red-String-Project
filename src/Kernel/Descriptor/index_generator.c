@@ -14,84 +14,56 @@ void update_index(char *desc_path, char *index_path) {
 	/*
 	 * CREATE OR UPDATE THE INDEX FILE
 	 */
-	DataFile df = init_data_file(index_path);
-	write_string_in_file(df, ""); //reset the file
+	
 	DataFile fileSource = init_data_file(desc_path);
-	char* text = read_string_from_file(fileSource);
+	char* text = malloc(fileSource.length);
+	text = read_string_from_file(fileSource);
 
-	char* fileName = malloc(KSIZE + 1);
-	char* wordCurent = malloc(KSIZEWORD);
-	char* numberOccurenceCurent = malloc(sizeof(int));
 	int intNumberOccurenceCurent;
-	int isFileName = 0;
-	int isText = 0;
-	int isWordCurent = 0;
-	int isNumberOccurenceCurent = 0;
-	char* pattern = "%c";
 	MapOfMap map;
 	init_MapOfMap(&map);
-	int test = 0;
-	char* tmp;
+	char* file_name = malloc(KSIZE);
+	
 
 	for (int i = 0; i < fileSource.length; i++) {
-		if (text[i] == '>') {
-			test++;
-			fileName = "";
-			fileName = malloc(KSIZE + 1);
-			isWordCurent = 0;
-			isFileName = 1;
-			continue;
+		if (text[i] == '>'){
+			int cursor = 0;
+			i++;
+			while(text[i] != '\n'){
+				file_name[cursor] = text[i];
+				cursor++;
+				i++;
+			}
+			file_name[cursor] = '\0';
 		}
-		if (isFileName == 1 && text[i] != '\n') {
-			tmp = malloc(sizeof(char));
-			sprintf(tmp, "%c", text[i]);
-			strcat(fileName, tmp);
-			continue;
-		}
-		if (isFileName == 1 && text[i] == '\n') {
-			isFileName = 0;
-			isWordCurent = 1;
-			wordCurent = "";
-			wordCurent = malloc(KSIZEWORD);
-			continue;
-		}
-		if (isWordCurent == 1 && text[i] != ' ' && text[i] != '\n') {
-			tmp = malloc(sizeof(char));
-			sprintf(tmp, "%c", text[i]);
-			strcat(wordCurent, tmp);
-			continue;
-		}
-		if (isWordCurent == 1 && text[i] == ' ') {
-			isWordCurent = 0;
-			isNumberOccurenceCurent = 1;
-			numberOccurenceCurent = "";
-			numberOccurenceCurent = malloc(KSIZEWORD);
-			continue;
-		}
-		if (isNumberOccurenceCurent == 1 && text[i] != '\n') {
-			tmp = malloc(sizeof(char));
-			sprintf(tmp, "%c", text[i]);
-			strcat(numberOccurenceCurent, tmp);
-			continue;
-		}
-		if (isNumberOccurenceCurent == 1 && text[i] == '\n') {
-			sscanf(numberOccurenceCurent, "%d", &intNumberOccurenceCurent);
-			add_value_MapOfMap(&map, wordCurent, fileName,
-					intNumberOccurenceCurent);
-			isWordCurent = 1;
-			isNumberOccurenceCurent = 0;
-			wordCurent = "";
-			wordCurent = malloc(KSIZEWORD);
-			continue;
-		}
+		if (text[i] != ' ' && text[i] != '\n' && text[i] != '>'){
+			int cursor = 0;
+			char* word = malloc(KSIZE);
+			char* nb_occurences = malloc(3); // <= 999
+			cursor = 0;
+			while(text[i] != ' '){
+				word[cursor] = text[i];
+				cursor++;
+				i++;
+			}
+			word[cursor] = '\0';
+			i++;
+			cursor = 0;
+			while(text[i] != '\n'){
+				nb_occurences[cursor] = text[i];
+				cursor++;
+				i++;
+			}
+			nb_occurences[cursor] = '\0';
+			sscanf(nb_occurences, "%d", &intNumberOccurenceCurent);
+			add_value_MapOfMap(&map, word, file_name, intNumberOccurenceCurent);
+		}		
 	}
-
-	FILE* fileIndex = fopen(index_path, "w+");
-
-	if (fileIndex != NULL) {
-		while (map != NULL) {
-			fputs(pop_value_MapOfMap(&map), fileIndex);
-		}
+	DataFile df = init_data_file(index_path);
+	write_string_in_file(df, ""); //reset the file
+	while (map != NULL) {
+		append_string_in_file(df, pop_value_MapOfMap(&map));
 	}
+	free(file_name);
 }
 

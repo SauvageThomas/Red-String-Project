@@ -7,7 +7,7 @@ public class Article {
 	private String title;
 	private String summary;
 	private String content;
-
+	
 	public Article() {
 	}
 

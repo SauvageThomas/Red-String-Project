@@ -1,9 +1,6 @@
+
 #include "sound_finder.h"
 
-int compare_2_sounds(){
-	int score = 0;
-	return score;
-}
 
 int *file_content (DataFile df, int size_window, int nb_intervalles, size_t *count_maps){
 	/*

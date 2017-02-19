@@ -1,6 +1,12 @@
 
 #include <stdio.h>
-#include "../Search/data_manager.h"
+#include <stdlib.h>
+#include <errno.h>
+#include <string.h>
+#include <sys/stat.h>
+#include "../Data/constant.h"
+#include "../Data/data_base.h"
+
 #ifndef TOOLS_DATA_HANDLER_H_
 #define TOOLS_DATA_HANDLER_H_
 
@@ -11,15 +17,6 @@ typedef struct etDataFile {
 	char *type;
 	time_t date;
 } DataFile;
-
-typedef struct {
-	DataFile *txt_files;
-	size_t txt_size;
-	DataFile *audio_files;
-	size_t audio_size;
-	DataFile *image_files;
-	size_t image_size;
-} Directory;
 
 DataFile init_data_file(char* path);
 int is_existing_file(DataFile data_file);

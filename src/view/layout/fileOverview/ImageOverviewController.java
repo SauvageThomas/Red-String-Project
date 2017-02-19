@@ -16,7 +16,7 @@ public class ImageOverviewController extends FileOverviewController {
 		this.imageView.setImage(image);
 
 		System.out.println(image.getWidth() + "*" + image.getWidth());
-		
+		System.out.println("wut");
 	}
 
 }
