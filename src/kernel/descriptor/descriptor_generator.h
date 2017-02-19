@@ -16,10 +16,10 @@
 #include <stdlib.h>
 #include <errno.h>
 
-#include "../Tools/data_handler.h"
-#include "../Data/constant.h"
-#include "../Data/data_base.h"
-#include "../Tools/map_of_map.h"
+#include "../tools/data_handler.h"
+#include "../data/constant.h"
+#include "../data/data_base.h"
+#include "../tools/map_of_map.h"
 
 
 int check_descriptor(DataFile df, DataFile *data_files, size_t size);

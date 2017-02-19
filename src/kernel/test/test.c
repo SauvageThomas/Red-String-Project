@@ -9,8 +9,8 @@
 #include "minunit.h"
 #include <string.h>
 
-#include "../Tools/data_handler.h"
-#include "../Tools/hash_map.h"
+#include "../tools/data_handler.h"
+#include "../tools/hash_map.h"
 
 char msg[50];
 char *TEST_WRITE_FILE_PATH = "src/Data/Test/test_write_string_from_file";

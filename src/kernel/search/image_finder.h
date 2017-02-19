@@ -8,14 +8,15 @@
 #ifndef SEARCH_IMAGE_FINDER_H_
 #define SEARCH_IMAGE_FINDER_H_
 
+#include <stdint.h>
 #include <stdlib.h>
 #include <math.h>
 #include <errno.h>
 #include <stdio.h>
 
-#include "../Tools/data_handler.h"
-#include "../../Controller/functions.h"
-#include <stdint.h>
+#include "../tools/data_handler.h"
+#include "../../controller/functions.h"
+
 
 typedef struct {
 	uint8_t red;

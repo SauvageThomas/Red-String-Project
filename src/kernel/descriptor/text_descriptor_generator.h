@@ -1,7 +1,7 @@
 
-#include "../Data/data_base.h"
-#include "../Tools/data_handler.h"
-#include "../Data/constant.h"
+#include "../data/data_base.h"
+#include "../tools/data_handler.h"
+#include "../data/constant.h"
 
 #include "descriptor_generator.h"
 #include "index_generator.h"

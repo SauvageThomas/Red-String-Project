@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <time.h>
 
-#include "../Tools/map_of_map.h"
+#include "../tools/map_of_map.h"
 
 #define DEBUG 0
 #define PROD 1

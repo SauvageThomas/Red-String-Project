@@ -16,9 +16,9 @@
 #include "text_finder.h"
 #include "image_finder.h"
 #include "sound_finder.h"
-#include "../../Controller/functions.h"
-#include "../Data/constant.h"
-#include "../Data/config.h"
+#include "../../controller/functions.h"
+#include "../data/constant.h"
+#include "../data/config.h"
 
 char *pretty_print_string(char *in);
 char *pretty_print_image(char *in);

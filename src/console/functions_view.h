@@ -7,11 +7,11 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "../Controller/functions.h"
-#include "../Kernel/Data/constant.h"
-#include "../Kernel/Data/config.h"
-#include "../Kernel/Data/data_base.h"
-#include "../Kernel/Tools/data_handler.h"
+#include "../controller/functions.h"
+#include "../kernel/data/constant.h"
+#include "../kernel/data/config.h"
+#include "../kernel/data/data_base.h"
+#include "../kernel/tools/data_handler.h"
 #include "console_IO.h"
 
 void show_main_menu();	

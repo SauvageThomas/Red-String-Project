@@ -10,8 +10,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../Tools/data_handler.h"
-#include "../Tools/map_of_map.h"
+#include "../tools/data_handler.h"
+#include "../tools/map_of_map.h"
 
 int* file_content (DataFile df, int size_window, int nb_intervalles, size_t *count_maps);
 int histogramme(double valeur, int nb_intervalles);

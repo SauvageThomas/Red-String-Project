@@ -8,8 +8,8 @@
  */
 
 #include <string.h>
-#include "../Tools/data_handler.h"
-#include "../Tools/map_of_map.h"
-#include "../Data/constant.h"
+#include "../tools/data_handler.h"
+#include "../tools/map_of_map.h"
+#include "../data/constant.h"
 
 void update_index();

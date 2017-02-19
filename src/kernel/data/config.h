@@ -6,7 +6,7 @@
 #include <errno.h>
 
 #include "constant.h"
-#include "../Tools/data_handler.h"
+#include "../tools/data_handler.h"
 
 void error_config_file();
 void modif_config();

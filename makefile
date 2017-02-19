@@ -14,15 +14,15 @@ EXEC=release/SearchEngine.exe
 JNI_LIB = jni/libkernel.so
 
 # Directories
-M=src/Kernel/
-V=src/Console/
-C=src/Controller/
+M=src/kernel/
+V=src/console/
+C=src/controller/
 R=release/
-DESC=$(M)Descriptor/
-TOOL=$(M)Tools/
-SEARCH=$(M)Search/
-TEST=$(M)Test/
-DATA=$(M)Data/
+DESC=$(M)descriptor/
+TOOL=$(M)tools/
+SEARCH=$(M)search/
+TEST=$(M)test/
+DATA=$(M)data/
 
 # Code files
 igen=index_generator
@@ -160,7 +160,7 @@ $(R)functions.o : $(C)functions.c $(C)functions.h $(DATA)constant.h $(TOOL)$(dh)
 $(R)functions_wrapper.o : $(C)functions_wrapper.c
 	$(CC) $(CFLAGS)
 	
-jni/libkernel.so : $(R)console_IO.o $(R)menus.o $(R)functions_view.o $(R)password.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(t).o $(R)main.o $(R)functions.o $(R)config.o $(R)data_base.o
+jni/libkernel.so : $(R)functions_wrapper.o $(R)password.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(t).o $(R)functions.o $(R)config.o $(R)data_base.o
 	$(CC) -shared -o jni/libkernel.so $^
 	
 	

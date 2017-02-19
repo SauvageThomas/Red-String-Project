@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <errno.h>
 
-#include "../Tools/data_handler.h"
+#include "../tools/data_handler.h"
 
 char *remove_xml(char* content);
 void remove_punctuation(char* content);

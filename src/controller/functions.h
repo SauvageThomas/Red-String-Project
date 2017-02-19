@@ -14,17 +14,17 @@
 #include <stdlib.h>
 #include <errno.h>
 
-#include "../Kernel/Tools/data_handler.h"
-#include "../Kernel/Data/constant.h"
-#include "../Kernel/Data/config.h"
-#include "../Kernel/Search/data_manager.h"
-#include "../Kernel/Search/text_finder.h"
-#include "../Kernel/Search/image_finder.h"
-#include "../Kernel/Search/sound_finder.h"
-#include "../Kernel/Descriptor/text_descriptor_generator.h"
-#include "../Kernel/Descriptor/image_descriptor_generator.h"
-#include "../Kernel/Descriptor/sound_descriptor_generator.h"
-#include "../Kernel/Descriptor/descriptor_generator.h"
+#include "../kernel/tools/data_handler.h"
+#include "../kernel/data/constant.h"
+#include "../kernel/data/config.h"
+#include "../kernel/search/data_manager.h"
+#include "../kernel/search/text_finder.h"
+#include "../kernel/search/image_finder.h"
+#include "../kernel/search/sound_finder.h"
+#include "../kernel/descriptor/text_descriptor_generator.h"
+#include "../kernel/descriptor/image_descriptor_generator.h"
+#include "../kernel/descriptor/sound_descriptor_generator.h"
+#include "../kernel/descriptor/descriptor_generator.h"
 
 
 char** search_data(char* file_path);

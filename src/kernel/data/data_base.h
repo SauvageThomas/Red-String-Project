@@ -2,10 +2,8 @@
 #ifndef DATA_DATA_BASE_H_
 #define DATA_DATA_BASE_H_
 
-#include "../Tools/data_handler.h"
+#include "../tools/data_handler.h"
 #include <dirent.h>
-
-
 
 enum FileType {
 	TEXT, IMAGE, SOUND
