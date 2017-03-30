@@ -1,17 +1,17 @@
 package src.view.layout;
 
-import src.view.Main;
+import src.DesktopLauncher;
 
 public abstract class ViewController {
 
-	protected Main main;
+	protected DesktopLauncher main;
 
 	public ViewController() {
-		this.main = Main.instance;
+		this.main = DesktopLauncher.instance;
 	}
 
-	public void setController(Main main) {
-		this.main = Main.instance;
+	public void setController(DesktopLauncher main) {
+		this.main = DesktopLauncher.instance;
 	}
 
 }

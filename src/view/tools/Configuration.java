@@ -3,24 +3,21 @@ package src.view.tools;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
 public enum Configuration {
 
 	INSTANCE;
-	
+
 	private static final String fileName = ".config";
 	private String dataPath;
 	private String descriptorPath;
 	private int windowSize;
 	private int barNumber;
 	private int quantification;
-	private final String names[] = { "path", "descriptors", "taille_des_fenetres", "nombre_de_barre",
-			"quantification" };
+	private final String names[] = { "path", "descriptors", "taille_des_fenetres", "nombre_de_barre", "quantification" };
 
 	Configuration() {
 		try {
@@ -89,10 +86,9 @@ public enum Configuration {
 			FileWriter fw = new FileWriter(Configuration.fileName);
 			BufferedWriter bw = new BufferedWriter(fw);
 			bw.write(content);
-			
+
 			bw.close();
 			fw.close();
-			
 
 		} catch (IOException e) {
 			e.printStackTrace();

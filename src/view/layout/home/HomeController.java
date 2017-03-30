@@ -18,7 +18,7 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import src.view.Main;
+import src.DesktopLauncher;
 import src.view.layout.ViewController;
 import src.view.layout.fileOverview.FileOverviewController;
 import src.view.layout.search.SearchBarController;
@@ -83,7 +83,7 @@ public class HomeController extends ViewController {
 	}
 
 	@Override
-	public void setController(Main main) {
+	public void setController(DesktopLauncher main) {
 		System.out.println(searchBarController);
 		this.searchBarController.setController(this.main);
 		this.searchBarController.init();

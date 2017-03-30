@@ -1,4 +1,4 @@
-package src.view;
+package src;
 
 import java.io.IOException;
 
@@ -9,14 +9,13 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import src.controller.Controller;
 import src.view.layout.RootController;
 import src.view.layout.home.HomeController;
 import src.view.tools.Configuration;
 
-public class Main extends Application {
+public class DesktopLauncher extends Application {
 
-	public static Main instance;
+	public static DesktopLauncher instance;
 
 	private final String appName = "Red-String-Project";
 
@@ -30,12 +29,11 @@ public class Main extends Application {
 
 	private Configuration config;
 
-	public Main() {
+	public DesktopLauncher() {
 		super();
-		synchronized (Main.class) {
+		synchronized (DesktopLauncher.class) {
 			if (instance != null) {
-				throw new UnsupportedOperationException(
-						getClass() + " is singleton but constructor called more than once");
+				throw new UnsupportedOperationException(getClass() + " is singleton but constructor called more than once");
 			}
 			instance = this;
 		}
@@ -48,15 +46,6 @@ public class Main extends Application {
 
 		this.admin = false;
 		this.config = Configuration.INSTANCE;
-		
-		//System.out.println("ADMIN : " + Controller.updateImageDescriptors(0));
-		// System.out.println(new File("bear.wav").toURI());
-		// final AudioClip clip = new
-		// AudioClip("http://wavsource.com/snds_2017-02-05_1692732105491832/animals/bear_growl_y.wav");
-
-		// clip.play(1.0);
-
-		// System.out.println("Playing...");
 
 		this.initRootLayout();
 
