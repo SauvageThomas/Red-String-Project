@@ -81,6 +81,9 @@ void start_gui() {
 		case '5':
 			(admin == 0) ? input_error(buffer) : generate_all_descriptors(config);
 			break;
+		/*TO do : intégrer ce cas à l'interface graphique */case '6':
+			update_index_image(get_value_of(config, "path"),"../../assets/descriptors/image_index");
+			break;
 		default:
 			input_error(buffer);
 			break;
