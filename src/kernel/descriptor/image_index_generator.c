@@ -136,17 +136,15 @@ void update_index_image(char *_path, char *index_path) {
 		strcpy(result, tmp);
 		nb += 1;
 	}
-	printf("%s", result);
+	//printf("%s", result);
 	 
-	/*
+	
 	FILE* fileIndex = fopen(index_path, "w+");
 
 	if (fileIndex != NULL) {
-		while (map != NULL) {
-			fputs(pop_value_MapOfMap(&map), fileIndex);
-		}
+			fputs(result, fileIndex);
 	}
-	*/
+	
 
 	//printf("Dossier : %s\n",_path);
 	//printf("Index : %s\n",index_path);
