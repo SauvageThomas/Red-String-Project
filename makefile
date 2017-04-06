@@ -56,11 +56,7 @@ mrproper: clean
 	rm -rf $(EXEC)
 
 
-<<<<<<< HEAD
-$(EXEC): $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o $(R)main.o $(R)gui.o $(R)functions.o $(R)image_index_generator.o
-=======
-$(EXEC): $(R)console_IO.o $(R)menus.o $(R)functions_view.o $(R)password.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(t).o $(R)main.o $(R)functions.o $(R)config.o $(R)data_base.o
->>>>>>> a7e00f3d70ec7911cbcf120ff5aecdefe5887011
+$(EXEC): $(R)console_IO.o $(R)menus.o $(R)functions_view.o $(R)password.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(t).o $(R)main.o $(R)functions.o $(R)config.o $(R)data_base.o  $(R)image_index_generator.o
 	$(CC)   $^ -lm -o $@ 
 
 
@@ -168,11 +164,7 @@ $(R)functions.o : $(C)functions.c $(C)functions.h $(DATA)constant.h $(TOOL)$(dh)
 $(R)functions_wrapper.o : $(C)functions_wrapper.c
 	$(CC) $(CFLAGS)
 	
-<<<<<<< HEAD
-jni/libkernel.so : $(R)functions_wrapper.o $(R)functions.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(re).o $(R)$(t).o $(R)image_index_generator.o
-=======
-jni/libkernel.so : $(R)functions_wrapper.o $(R)password.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(t).o $(R)functions.o $(R)config.o $(R)data_base.o
->>>>>>> a7e00f3d70ec7911cbcf120ff5aecdefe5887011
+jni/libkernel.so : $(R)functions_wrapper.o $(R)password.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(t).o $(R)functions.o $(R)config.o $(R)data_base.o $(R)image_index_generator.o
 	$(CC) -shared -o jni/libkernel.so $^
 	
 	
