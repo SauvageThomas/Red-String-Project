@@ -4,25 +4,42 @@ import java.io.IOException;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import src.Controller.Controller;
+import src.controller.Controller;
 import src.view.layout.RootController;
 import src.view.layout.home.HomeController;
+import src.view.tools.Configuration;
 
 public class Main extends Application {
-	
+
+	public static Main instance;
+
 	private final String appName = "Red-String-Project";
-	
+
 	private Stage primaryStage;
 	private BorderPane rootLayout;
-	
+
 	private HomeController homeController;
 	private RootController rootController;
-	
+
 	private boolean admin;
+
+	private Configuration config;
+
+	public Main() {
+		super();
+		synchronized (Main.class) {
+			if (instance != null) {
+				throw new UnsupportedOperationException(
+						getClass() + " is singleton but constructor called more than once");
+			}
+			instance = this;
+		}
+	}
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -30,8 +47,9 @@ public class Main extends Application {
 		this.primaryStage.setTitle(this.appName);
 
 		this.admin = false;
-
-		//Controller.searchByKeyword("cellule");
+		this.config = Configuration.INSTANCE;
+		
+		//System.out.println("ADMIN : " + Controller.updateImageDescriptors(0));
 		// System.out.println(new File("bear.wav").toURI());
 		// final AudioClip clip = new
 		// AudioClip("http://wavsource.com/snds_2017-02-05_1692732105491832/animals/bear_growl_y.wav");
@@ -55,7 +73,7 @@ public class Main extends Application {
 			loader.setLocation(this.getClass().getResource("layout/RootLayout.fxml"));
 			rootLayout = (BorderPane) loader.load();
 
-			 rootController = loader.getController();
+			rootController = loader.getController();
 			rootController.setController(this);
 
 			// Show the scene containing the root layout.
@@ -79,11 +97,11 @@ public class Main extends Application {
 			AnchorPane home = (AnchorPane) loader.load();
 
 			// Set person overview into the center of root layout.
-			rootLayout.setCenter(home);
+			this.rootLayout.setCenter(home);
 
 			// Give the controller access to the main app.
-			homeController = loader.getController();
-			homeController.setController(this);
+			this.homeController = loader.getController();
+			this.homeController.setController(this);
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -98,12 +116,28 @@ public class Main extends Application {
 		return this.primaryStage;
 	}
 
-	public static void main(String[] args) {
-		launch(args);
-	}
-
 	public void activeAdminMode() {
 		this.admin = true;
 		this.rootController.displayAdminMode();
+	}
+	
+	public boolean isAdminModeActivated() {
+		return this.admin;
+	}
+
+	public void quitSettings() {
+		this.rootController.quitSettings();
+	}
+
+	public void saveSettings() {
+		this.rootController.saveSettings();
+	}
+
+	public void addTab(String name, Node node) {
+		this.homeController.addTab(name, node);
+	}
+
+	public static void main(String[] args) {
+		launch(args);
 	}
 }

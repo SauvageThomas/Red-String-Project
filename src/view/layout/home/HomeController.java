@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -19,22 +18,26 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import src.view.Main;
 import src.view.layout.ViewController;
 import src.view.layout.fileOverview.FileOverviewController;
+import src.view.layout.search.SearchBarController;
+import src.view.tools.Configuration;
 
 public class HomeController extends ViewController {
 
 	@FXML
 	private TreeView<String> treeView;
 	@FXML
-	private TextField searchField;
-	@FXML
 	private TextField treeField;
 	@FXML
 	private TabPane tabPane;
 	@FXML
 	private AnchorPane rightPane;
+	@FXML
+	private AnchorPane innerPane;
 
+	private SearchBarController searchBarController;
 	private List<Tab> tabs;
 
 	private int nbXML;
@@ -52,10 +55,38 @@ public class HomeController extends ViewController {
 	 */
 	@FXML
 	private void initialize() {
-		System.out.println("init");
 
 		this.tabs = new ArrayList<>();
 		this.handleTreeSearch();
+		this.showSearchBar();
+	}
+	
+	private void showSearchBar() {
+		try {
+			// Load person overview.
+			FXMLLoader loader = new FXMLLoader();
+
+			loader.setLocation(this.getClass().getResource("../search/SearchBar.fxml"));
+			AnchorPane searchBar = (AnchorPane) loader.load();
+			
+			AnchorPane.setRightAnchor(searchBar, 0.0);
+			AnchorPane.setLeftAnchor(searchBar, 0.0);
+			AnchorPane.setBottomAnchor(searchBar, 0.0);
+			this.innerPane.getChildren().add(searchBar);
+
+			// Give the controller access to the main app.
+			this.searchBarController = loader.getController();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void setController(Main main) {
+		System.out.println(searchBarController);
+		this.searchBarController.setController(this.main);
+		this.searchBarController.init();
 	}
 
 	@FXML
@@ -64,8 +95,6 @@ public class HomeController extends ViewController {
 		nbXML = 0;
 		nbImage = 0;
 		nbAudio = 0;
-		
-		
 
 		TreeItem<String> root = new TreeItem<String>("Database");
 		root.setExpanded(true);
@@ -81,15 +110,15 @@ public class HomeController extends ViewController {
 		root.getChildren().add(textItem);
 		root.getChildren().add(imageItem);
 		root.getChildren().add(soundItem);
-		
-		//TODO: Link it to the config file
+
+		// TODO: Link it to the config file
 		try (Stream<Path> paths = Files.walk(Paths.get("data/FICHIER_PROJET/"))) {
 
 			paths.forEach(filePath -> {
 				if (Files.isRegularFile(filePath)) {
 
 					if (filePath.toString().toLowerCase().contains(this.treeField.getText())) {
-						System.out.println(this.treeField.getText());
+						// System.out.println(this.treeField.getText());
 
 						// Allows windows execution
 						String path = filePath.toString().replace('\\', '/');
@@ -148,9 +177,8 @@ public class HomeController extends ViewController {
 				return;
 			String path = selection.getValue();
 			if (path.split("\\.").length > 1) {
-				
-				//TODO: Link it to the config file
-				path = "data/FICHIER_PROJET/" + path;
+
+				path = Configuration.INSTANCE.getDataPath() + path;
 				this.showFileOverview(path);
 			}
 		}
@@ -193,21 +221,7 @@ public class HomeController extends ViewController {
 		}
 	}
 
-	@FXML
-	private void handleSearch(Event event) {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(this.getClass().getResource("SearchOverview.fxml"));
-			AnchorPane tabContent = (AnchorPane) loader.load();
-
-			this.addTab(this.searchField.getText(), tabContent);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-	}
-
-	private void addTab(String name, Node node) {
+	public void addTab(String name, Node node) {
 		Tab tab = new Tab(name, node);
 
 		this.tabPane.getTabs().add(tab);

@@ -6,21 +6,20 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 
-
-<BorderPane prefHeight="600.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111">
+<BorderPane prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.view.layout.settings.RootSettingsOverviewController">
    <bottom>
       <Pane prefHeight="71.0" prefWidth="500.0" BorderPane.alignment="CENTER">
          <children>
-            <ButtonBar layoutX="262.0" layoutY="16.0" prefHeight="40.0" prefWidth="200.0">
+            <ButtonBar layoutX="1.0" layoutY="16.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" prefWidth="353.0">
               <buttons>
-                <Button mnemonicParsing="false" text="Save" />
-                  <Button mnemonicParsing="false" text="Cancel" />
+                <Button fx:id="okButton" alignment="CENTER" mnemonicParsing="false" onAction="#saveHandler" text="Save" />
+                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelhandler" text="Cancel" />
               </buttons>
             </ButtonBar>
          </children>
       </Pane>
    </bottom>
    <center>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <ScrollPane fx:id="scrollPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
