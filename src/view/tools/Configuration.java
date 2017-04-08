@@ -10,6 +10,7 @@ import java.util.Arrays;
 public enum Configuration {
 
 	INSTANCE;
+	
 
 	private static final String fileName = ".config";
 	private String dataPath;
