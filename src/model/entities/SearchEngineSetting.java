@@ -6,14 +6,14 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class SearchEngineConfiguration {
+public abstract class SearchEngineSetting {
 	/* ATTRIBUTS */
 	
 	protected Map<String, Setting> settings;
 	protected String configFilePath;
 	
 	/* CONSTRUCTORS */
-	public SearchEngineConfiguration(String configFilePath) throws IOException {
+	public SearchEngineSetting(String configFilePath) throws IOException {
 		this.configFilePath = configFilePath;
 		this.settings = new HashMap<>();
 		this.fillSettings();
