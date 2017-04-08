@@ -25,8 +25,10 @@ public class QTILConfiguration extends SearchEngineSetting{
 	private String extractSettingValue(String line, String key) throws IOException{
 		if (line == null)
 			throw new IOException("Empty setting file : " + this.configFilePath + " (loading setting : " + key + ")");
-		if (!Pattern.matches(key + " = *\n", line))
+		/*
+		if (!Pattern.matches(key + " = .\n", line))
 			throw new IOException("Setting not found : " + key + " (setting file : " + this.configFilePath + ")");
+			*/
 		return line.split(" = ")[1].replace("\n\r", "");
 	}
 

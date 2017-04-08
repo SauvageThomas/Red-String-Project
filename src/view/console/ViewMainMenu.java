@@ -9,6 +9,9 @@ public class ViewMainMenu extends ViewMenu{
 	
 	public ViewMainMenu() {
 		this.viewSearchMenu = new ViewSearchMenu();
+		this.viewHistory = new ViewHistory();
+		this.viewSettings = new ViewSettings();
+		this.viewLogin = new ViewLogin();
 	}
 
 	@Override
