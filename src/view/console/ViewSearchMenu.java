@@ -1,7 +1,17 @@
 package src.view.console;
 
+import java.util.Scanner;
+
+import src.controller.ControllerSoftware;
+
 public class ViewSearchMenu extends ViewMenu{
 
+	private ControllerSoftware controllerSoftware;
+	
+	public ViewSearchMenu(ControllerSoftware controllerSoftware) {
+		this.controllerSoftware = controllerSoftware;
+	}
+	
 	@Override
 	public void showMenuItems() {
 		System.out.println("|  1  -  SEARCH WITH A FILE                      |");
@@ -20,32 +30,50 @@ public class ViewSearchMenu extends ViewMenu{
 			this.searchWithColorView();
 			break;
 		case 3 :
-			this.searchWithShadeOfGreyView();
+			this.searchWithShadeOfGrayView();
 			break;
 		case 4 :
-			this.searchWithKeyWordsView();
+			this.searchWithKeywordsView();
 			break;
 		}
 	}
 
-	private void searchWithKeyWordsView() {
-		// TODO Auto-generated method stub
-		
+	private void searchWithKeywordsView() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please, enter your keywords :");
+		System.out.println(">> ");
+		String keywords = sc.nextLine();
+		this.controllerSoftware.searchByKeywords(keywords);
 	}
 
-	private void searchWithShadeOfGreyView() {
-		// TODO Auto-generated method stub
-		
+	private void searchWithShadeOfGrayView() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please, enter your gray value (0 - 255) :");
+		System.out.println(">> ");
+		int gray = sc.nextInt();
+		this.controllerSoftware.searchByShadeOfGray(gray);
 	}
 
 	private void searchWithColorView() {
-		// TODO Auto-generated method stub
-		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please, enter your red value (0 - 255) :");
+		System.out.println(">> ");
+		int red = sc.nextInt();
+		System.out.println("Please, enter your green value (0 - 255) :");
+		System.out.println(">> ");
+		int green = sc.nextInt();
+		System.out.println("Please, enter your blue value (0 - 255) :");
+		System.out.println(">> ");
+		int blue = sc.nextInt();
+		this.controllerSoftware.searchByColor(red, green, blue);		
 	}
 
 	private void searchWithFileView() {
-		// TODO Auto-generated method stub
-		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please, enter your file path :");
+		System.out.println(">> ");
+		String filePath = sc.nextLine();
+		this.controllerSoftware.searchByFile(filePath);
 	}
 
 }

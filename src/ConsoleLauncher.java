@@ -1,5 +1,6 @@
 package src;
 
+import src.controller.ControllerSoftware;
 import src.view.console.ViewMainMenu;
 
 public class ConsoleLauncher {
@@ -7,11 +8,11 @@ public class ConsoleLauncher {
 	private ViewMainMenu menu;
 	
 	public ConsoleLauncher() {
-		this.menu = new ViewMainMenu();
+		ControllerSoftware controllerSoftware = new ControllerSoftware();
+		this.menu = new ViewMainMenu(controllerSoftware);
 	}
 	
 	public void start(){
-		System.out.println("Hello World !");
 		this.menu.showView();
 	}
 

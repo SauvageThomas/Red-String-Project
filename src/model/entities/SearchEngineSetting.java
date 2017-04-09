@@ -15,7 +15,7 @@ public abstract class SearchEngineSetting {
 	/* CONSTRUCTORS */
 	public SearchEngineSetting(String configFilePath) throws IOException {
 		this.configFilePath = configFilePath;
-		this.settings = new HashMap<>();
+		this.settings = new HashMap<String, Setting>();
 		this.fillSettings();
 	}
 	
@@ -54,5 +54,9 @@ public abstract class SearchEngineSetting {
 		BufferedWriter writer = new  BufferedWriter(fw);
 		writer.write(this.getConfigText());
 		writer.close();
+	}
+
+	public Map<String, Setting> getSettings() {
+		return this.settings;
 	}
 }

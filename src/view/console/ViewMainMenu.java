@@ -1,5 +1,7 @@
 package src.view.console;
 
+import src.controller.ControllerSoftware;
+
 public class ViewMainMenu extends ViewMenu{
 	
 	private ViewSearchMenu viewSearchMenu;
@@ -7,10 +9,10 @@ public class ViewMainMenu extends ViewMenu{
 	private ViewSettings viewSettings;
 	private ViewLogin viewLogin;
 	
-	public ViewMainMenu() {
-		this.viewSearchMenu = new ViewSearchMenu();
+	public ViewMainMenu(ControllerSoftware controllerSoftware) {
+		this.viewSearchMenu = new ViewSearchMenu(controllerSoftware);
 		this.viewHistory = new ViewHistory();
-		this.viewSettings = new ViewSettings();
+		this.viewSettings = new ViewSettings(controllerSoftware);
 		this.viewLogin = new ViewLogin();
 	}
 
