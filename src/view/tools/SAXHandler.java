@@ -3,7 +3,7 @@ package src.view.tools;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
-import src.view.Article;
+import src.model.entities.Article;
 
 public class SAXHandler extends DefaultHandler {
 

@@ -10,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
-import src.view.Article;
+import src.model.entities.Article;
 import src.view.tools.SAXHandler;
 
 public class TextOverviewController extends FileOverviewController {
