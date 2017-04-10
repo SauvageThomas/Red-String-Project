@@ -15,8 +15,8 @@ import src.model.entities.SearchParameter;
 public class History implements Serializable {
 
 	private static final long serialVersionUID = -71436115086375235L;
-
 	private static History instance = History.load();
+	private static final String path = ".history";
 
 	private List<Request> requests;
 
@@ -41,7 +41,7 @@ public class History implements Serializable {
 	private static History load() {
 		FileInputStream fileIn;
 		try {
-			fileIn = new FileInputStream(".history");
+			fileIn = new FileInputStream(History.path);
 
 			ObjectInputStream in = new ObjectInputStream(fileIn);
 			History output = (History) in.readObject();
@@ -61,7 +61,7 @@ public class History implements Serializable {
 
 	public void save() {
 		try {
-			FileOutputStream fileOut = new FileOutputStream(".history");
+			FileOutputStream fileOut = new FileOutputStream(History.path);
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			out.writeObject(this);
 			out.close();
