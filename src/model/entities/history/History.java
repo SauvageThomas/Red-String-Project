@@ -22,6 +22,7 @@ public class History implements Serializable {
 
 	private History() {
 		this.requests = new ArrayList<>();
+		this.save();
 	}
 
 	public void addRequest(Request request) {
