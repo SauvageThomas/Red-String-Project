@@ -1,10 +1,15 @@
-package src.model.entities;
+package src.model.entities.history;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Request {
+import src.model.entities.SearchParameter;
 
+public class Request  implements Serializable{
+
+	private static final long serialVersionUID = -1953258854190134665L;
+	
 	private SearchParameter searchParameter;
 	private List<String> results;
 	

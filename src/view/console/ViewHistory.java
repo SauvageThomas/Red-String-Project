@@ -3,7 +3,7 @@ package src.view.console;
 import java.util.List;
 
 import src.controller.ControllerHistory;
-import src.model.entities.Request;
+import src.model.entities.history.Request;
 
 public class ViewHistory extends View{
 

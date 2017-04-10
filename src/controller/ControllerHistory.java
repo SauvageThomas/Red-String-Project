@@ -2,15 +2,15 @@ package src.controller;
 
 import java.util.List;
 
-import src.model.entities.History;
-import src.model.entities.Request;
+import src.model.entities.history.History;
+import src.model.entities.history.Request;
 
 public class ControllerHistory {
 
 	private History history;
 	
 	public ControllerHistory() {
-		this.history = new History();
+		this.history = History.getInstance();
 	}
 	
 	public void saveRequest(Request request){
