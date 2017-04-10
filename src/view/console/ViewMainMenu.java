@@ -14,7 +14,7 @@ public class ViewMainMenu extends ViewMenu{
 		this.viewSearchMenu = new ViewSearchMenu(controllerSoftware);
 		this.viewHistory = new ViewHistory(controllerHistory);
 		this.viewSettings = new ViewSettings(controllerSoftware);
-		this.viewLogin = new ViewLogin();
+		this.viewLogin = new ViewLogin(controllerSoftware);
 	}
 
 	@Override

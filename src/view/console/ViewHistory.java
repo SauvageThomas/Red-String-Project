@@ -12,10 +12,11 @@ public class ViewHistory extends View{
 	public ViewHistory(ControllerHistory controllerHistory) {
 		this.controllerHistory = controllerHistory;
 	}
+	
 	@Override
 	public void showView() {
 		List<Request> requests = this.controllerHistory.getSavedRequests();
-		System.out.println("Request hitory :");
+		System.out.println("Request history :");
 		if (requests.isEmpty()){
 			System.out.println(" - no request saved !");
 		}

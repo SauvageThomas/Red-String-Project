@@ -53,4 +53,11 @@ public class QTILSoftware {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
 	}
+
+	public boolean loginAsAdmin(String password) {
+		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
+		return true;
+	}
 }

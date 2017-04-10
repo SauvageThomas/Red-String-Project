@@ -1,11 +1,30 @@
 package src.view.console;
 
+import java.util.Scanner;
+
+import src.controller.ControllerSoftware;
+
 public class ViewLogin extends View{
 
+	private ControllerSoftware controllerSoftware;
+	
+	public ViewLogin(ControllerSoftware controllerSoftware) {
+		this.controllerSoftware = controllerSoftware;
+	}
+	
 	@Override
 	public void showView() {
-		// TODO Auto-generated method stub
-		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please, enter the admin password :");
+		System.out.println(">> ");
+		String password = sc.nextLine();
+		boolean flag = this.controllerSoftware.loginAsAdmin(password);
+		if (flag){
+			System.out.println("You are now logged as admin.");
+		}
+		else{
+			System.out.println("Wrong password !!");
+		}
 	}
 
 }
