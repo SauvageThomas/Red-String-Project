@@ -1,6 +1,7 @@
 package src.model.entities;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class KeywordsParameter extends SearchParameter{
@@ -22,4 +23,17 @@ public class KeywordsParameter extends SearchParameter{
 		return this.keywords;
 	}
 
+	@Override
+	public String toString() {
+		Collections.sort(this.keywords);
+		String res = this.keywords.size() + " Keywords";
+		for (Keyword keyword : this.keywords){
+			if (keyword.isPositive())
+				res += "\n|  +  " + keyword.getWord();
+			else
+				res += "\n|  -  " + keyword.getWord();
+		}
+		return res;
+		
+	}
 }

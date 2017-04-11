@@ -1,13 +1,10 @@
 package src.controller;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import src.model.entities.QTILSoftware;
 import src.model.entities.SearchEngine;
 import src.model.entities.history.Request;
-import src.model.entities.history.Result;
 
 public class ControllerSoftware {
 
@@ -21,13 +18,8 @@ public class ControllerSoftware {
 		return this.software.getEngines();
 	}
 
-	public List<String> searchByKeywords(String keywords) {
-		Request request = this.software.searchByKeywords(keywords);
-		List<String> results = new ArrayList<>();
-		for (Result result : request.getResults()){
-			results.add(result.toString());
-		}
-		return results;
+	public Request searchByKeywords(String keywords) {
+		return this.software.searchByKeywords(keywords);
 	}
 
 	public void searchByShadeOfGray(int gray) {

@@ -1,7 +1,11 @@
 package src.model.entities;
 
-public class Keyword {
+import java.io.Serializable;
 
+public class Keyword implements Comparable<Keyword>, Serializable{
+
+	private static final long serialVersionUID = -6627808384967036984L;
+	
 	private String word;
 	private boolean isPositive;
 	
@@ -12,6 +16,10 @@ public class Keyword {
 
 	public String getWord() {
 		return this.word;
+	}
+	
+	public boolean isPositive(){
+		return this.isPositive;
 	}
 
 	@Override
@@ -31,6 +39,15 @@ public class Keyword {
 		} else if (!this.word.equals(other.word))
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(Keyword o) {
+		if (this.isPositive && !o.isPositive)
+			return -1;
+		if (!this.isPositive && o.isPositive)
+			return 1;
+		return this.word.compareTo(o.word);			
 	}
 
 	

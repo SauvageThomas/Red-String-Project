@@ -23,6 +23,7 @@ public class QTILSoftware {
 			System.out.println("ERROR : " + e.getMessage());
 			System.exit(1);
 		}
+		this.adminManagement = new AdminManagement();
 	}
 
 	public static QTILSoftware getSoftware() {
@@ -78,7 +79,6 @@ public class QTILSoftware {
 	}
 
 	public boolean loginAsAdmin(String password) {
-		// TODO open/check password in file .pass
-		return true;
+		return this.adminManagement.loginAsAdmin(password);
 	}
 }

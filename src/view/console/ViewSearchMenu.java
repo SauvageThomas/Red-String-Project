@@ -2,14 +2,18 @@ package src.view.console;
 
 import java.util.Scanner;
 
+import src.controller.ControllerHistory;
 import src.controller.ControllerSoftware;
+import src.model.entities.history.Request;
 
 public class ViewSearchMenu extends ViewMenu{
 
 	private ControllerSoftware controllerSoftware;
+	private ControllerHistory controllerHistory;
 	
-	public ViewSearchMenu(ControllerSoftware controllerSoftware) {
+	public ViewSearchMenu(ControllerSoftware controllerSoftware, ControllerHistory controllerHistory) {
 		this.controllerSoftware = controllerSoftware;
+		this.controllerHistory = controllerHistory;
 	}
 	
 	@Override
@@ -43,7 +47,12 @@ public class ViewSearchMenu extends ViewMenu{
 		System.out.println("Please, enter your keywords :");
 		System.out.println(">> ");
 		String keywords = sc.nextLine();
-		this.controllerSoftware.searchByKeywords(keywords);
+		Request requestResult = this.controllerSoftware.searchByKeywords(keywords);
+		System.out.println(requestResult);
+		System.out.println(">> ");
+		int choice = sc.nextInt();
+		if (choice == 1)
+			this.controllerHistory.saveRequest(requestResult);
 	}
 
 	private void searchWithShadeOfGrayView() {

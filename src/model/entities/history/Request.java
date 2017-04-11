@@ -42,15 +42,22 @@ public class Request implements Serializable{
 		res += "\n|                                                |\n";
 		res += "|  SEARCH PARAMETER : " + this.searchParameter.toString();
 		res += "\n|                                                |\n";
+		res += "|------------------------------------------------|\n";
+		res += "|     *    *    *      RESULT     *    *    *    |";
+		res += "\n|                                                |\n";
 		if (this.results.isEmpty()){
-			res += "|  No result found !                             |\n\n";
-			res += "\n|                                                |\n";
+			res += "|  No result found !                             |";
 		}
-		else
+		else{
 			for (int i = 0; i < this.results.size(); i++){
 				res += "|   [" + (i+1) + "]  " + this.results.get(i).toString() + "\n";
 			}
-		res += "==================================================\n\n";
+		}
+		res += "\n|                                                |\n";
+		res += "|------------------------------------------------|\n";
+		res += "|  1  -  SAVE REQUEST                            |\n";
+		res += "|  0  -  EXIT                                    |\n";
+		res += "==================================================\n";
 		return res;
 	}
 
