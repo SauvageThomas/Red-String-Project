@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import src.model.entities.ColorParameter;
 import src.model.entities.SearchParameter;
 
 public class History implements Serializable {
@@ -47,7 +48,6 @@ public class History implements Serializable {
 			History output = (History) in.readObject();
 			in.close();
 			fileIn.close();
-			System.out.println(output.serialVersionUID);
 			return output;
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -66,7 +66,6 @@ public class History implements Serializable {
 			out.writeObject(this);
 			out.close();
 			fileOut.close();
-			System.out.println("Saved !");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -74,7 +73,10 @@ public class History implements Serializable {
 
 	public static void main(String[] args) {
 		History h = History.getInstance();
-		h.addRequest(new Request(new SearchParameter() {
-		}));
+		Request r = new Request(new ColorParameter(127));
+		r.addResult("Image1.png");
+		r.addResult("Image6.png");
+		r.addResult("Image42.png");
+		h.addRequest(r);
 	}
 }

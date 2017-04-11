@@ -2,7 +2,7 @@ package src.model.entities;
 
 import java.util.Map;
 
-public abstract class SearchEngine {
+public abstract class SearchEngine implements SearchEngineInterface{
 	
 	private SearchEngineSetting settings;
 	
