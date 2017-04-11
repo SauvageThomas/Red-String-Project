@@ -1,7 +1,7 @@
 package src.model.entities;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 public interface SearchEngineInterface {
 
@@ -23,22 +23,22 @@ public interface SearchEngineInterface {
 	/**
 	 * TODO comment
 	 **/
-	public abstract ArrayList<String> searchByKeywords(ArrayList<KeyWord> keyWords);
+	public abstract List<String> searchByKeywords(List<Keyword> keyWords);
 
 	/**
 	 * TODO comment
 	 **/
-	public abstract ArrayList<String> searchByColor(int r, int g, int b);
+	public abstract List<String> searchByColor(int r, int g, int b);
 
 	/**
 	 * TODO comment
 	 **/
-	public abstract ArrayList<String> searchByShadeOfGrey(int shadeOfGrey);
+	public abstract List<String> searchByShadeOfGrey(int shadeOfGrey);
 
 	/**
 	 * TODO comment
 	 **/
-	public abstract ArrayList<String> searchByFile(String filePath);
+	public abstract List<String> searchByFile(String filePath);
 
 	/**
 	 * TODO comment

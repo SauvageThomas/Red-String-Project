@@ -2,12 +2,17 @@ package src.model.entities;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import src.model.entities.history.Request;
+import src.model.entities.history.Result;
 
 public class QTILSoftware {
 
 	private static QTILSoftware software;
 	private Map<String, SearchEngine> engines;
+	private AdminManagement adminManagement;
 
 	private QTILSoftware() {
 		this.engines = new HashMap<String, SearchEngine>();
@@ -30,10 +35,28 @@ public class QTILSoftware {
 		return this.engines;
 	}
 
-	public void searchByKeywords(String keywords) {
-		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
+	public Request searchByKeywords(String keywords) {
+		String[] words = keywords.split(" ");
+		KeywordsParameter keywordsParameter = new KeywordsParameter();
+		for(String word : words){
+			word.replace(" ", "");
+			if (word.length() > 3){
+				if (word.charAt(0) == '-')
+					keywordsParameter.addKeyword(new Keyword(word.replaceFirst("-", ""), false));
+				else
+					keywordsParameter.addKeyword(new Keyword(word, true));
+			}
+		}
+		Request request = new Request(keywordsParameter);
+		
+		for (String key : this.engines.keySet()){
+			List<String> results = this.engines.get(key).searchByKeywords(keywordsParameter.getKeywords());
+			for (int i = 0; i < results.size(); i++){
+				Result result = new Result(results.get(i), results.size() - i);
+				request.addResult(result);
+			}
+		}
+		return request;
 	}
 
 	public void searchByShadeOfGray(int gray) {
@@ -55,9 +78,7 @@ public class QTILSoftware {
 	}
 
 	public boolean loginAsAdmin(String password) {
-		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
+		// TODO open/check password in file .pass
 		return true;
 	}
 }

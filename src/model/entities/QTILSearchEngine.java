@@ -1,7 +1,7 @@
 package src.model.entities;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 public class QTILSearchEngine extends SearchEngine {
 
@@ -28,25 +28,25 @@ public class QTILSearchEngine extends SearchEngine {
 	}
 
 	@Override
-	public ArrayList<String> searchByKeywords(ArrayList<KeyWord> keyWords) {
+	public List<String> searchByKeywords(List<Keyword> keyWords) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<String> searchByColor(int r, int g, int b) {
+	public List<String> searchByColor(int r, int g, int b) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<String> searchByShadeOfGrey(int shadeOfGrey) {
+	public List<String> searchByShadeOfGrey(int shadeOfGrey) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<String> searchByFile(String filePath) {
+	public List<String> searchByFile(String filePath) {
 		// TODO Auto-generated method stub
 		return null;
 	}

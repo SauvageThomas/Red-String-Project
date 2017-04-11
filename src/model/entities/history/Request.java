@@ -2,6 +2,7 @@ package src.model.entities.history;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import src.model.entities.SearchParameter;
@@ -9,25 +10,33 @@ import src.model.entities.SearchParameter;
 public class Request implements Serializable{
 
 	private static final long serialVersionUID = -1953258854190134665L;
-	
+
 	private SearchParameter searchParameter;
-	private List<String> results;
-	
+	private List<Result> results;
+
 	public Request(SearchParameter searchParameter) {
 		this.searchParameter = searchParameter;
-		this.results = new ArrayList<String>();
+		this.results = new ArrayList<Result>();
 	}
-	
+
 	public String getSearchParameter() {
 		return this.searchParameter.toString();
 	}
-	
-	public void addResult(String result){
-		this.results.add(result);
+
+	public void addResult(Result result){
+		if (this.results.contains(result))
+			this.results.get(this.results.indexOf(result)).addScore(result.getScore());
+		else
+			this.results.add(result);
 	}
 	
+	public List<Result> getResults() {
+		return this.results;
+	}
+
 	@Override
 	public String toString() {
+		Collections.sort(this.results);
 		String res = "==================================================\n";
 		res += "|     *    *    *     REQUEST     *    *    *    |";
 		res += "\n|                                                |\n";
@@ -39,7 +48,7 @@ public class Request implements Serializable{
 		}
 		else
 			for (int i = 0; i < this.results.size(); i++){
-				res += "|   [" + (i+1) + "]  " + this.results.get(i) + "\n";
+				res += "|   [" + (i+1) + "]  " + this.results.get(i).toString() + "\n";
 			}
 		res += "==================================================\n\n";
 		return res;

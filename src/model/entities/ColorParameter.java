@@ -24,8 +24,8 @@ public class ColorParameter extends SearchParameter{
 	@Override
 	public String toString() {
 		if (this.isGray)
-			return "Shade of Gray : " + this.r;
-		return "RGB Color : " + this.r + ", " + this.g + ", " + this.b;
+			return "Shade of Gray (" + this.r + ")";
+		return "RGB Color (" + this.r + ", " + this.g + ", " + this.b + ")";
 	}
 
 }
