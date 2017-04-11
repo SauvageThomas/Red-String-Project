@@ -32,4 +32,8 @@ public class ControllerSoftware {
 	public void searchByFile(String filePath) {
 		this.software.searchByFile(filePath);
 	}
+
+	public boolean loginAsAdmin(String password) {
+		return this.software.loginAsAdmin(password);
+	}
 }

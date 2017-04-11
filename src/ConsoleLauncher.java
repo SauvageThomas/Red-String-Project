@@ -1,18 +1,20 @@
 package src;
 
+import src.controller.ControllerHistory;
 import src.controller.ControllerSoftware;
 import src.view.console.ViewMainMenu;
 
 public class ConsoleLauncher {
 
 	private ViewMainMenu menu;
-	
+
 	public ConsoleLauncher() {
 		ControllerSoftware controllerSoftware = new ControllerSoftware();
-		this.menu = new ViewMainMenu(controllerSoftware);
+		ControllerHistory controllerHistory = new ControllerHistory();
+		this.menu = new ViewMainMenu(controllerSoftware, controllerHistory);
 	}
-	
-	public void start(){
+
+	public void start() {
 		this.menu.showView();
 	}
 
