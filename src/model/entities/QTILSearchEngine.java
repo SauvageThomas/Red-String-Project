@@ -36,20 +36,20 @@ public class QTILSearchEngine extends SearchEngine {
 
 	@Override
 	public List<String> searchByColor(int r, int g, int b) {
-		// TODO Auto-generated method stub
-		return null;
+		List<String> results = new ArrayList<>();
+		return results;
 	}
 
 	@Override
 	public List<String> searchByShadeOfGrey(int shadeOfGrey) {
-		// TODO Auto-generated method stub
-		return null;
+		List<String> results = new ArrayList<>();
+		return results;
 	}
 
 	@Override
 	public List<String> searchByFile(String filePath) {
-		// TODO Auto-generated method stub
-		return null;
+		List<String> results = new ArrayList<>();
+		return results;
 	}
 
 	@Override

@@ -22,16 +22,16 @@ public class ControllerSoftware {
 		return this.software.searchByKeywords(keywords);
 	}
 
-	public void searchByShadeOfGray(int gray) {
-		this.software.searchByShadeOfGray(gray);
+	public Request searchByShadeOfGray(int gray) {
+		return this.software.searchByShadeOfGray(gray);
 	}
 
-	public void searchByColor(int red, int green, int blue) {
-		this.software.searchByColor(red, green, blue);
+	public Request searchByColor(int red, int green, int blue) {
+		return this.software.searchByColor(red, green, blue);
 	}
 
-	public void searchByFile(String filePath) {
-		this.software.searchByFile(filePath);
+	public Request searchByFile(String filePath) {
+		return this.software.searchByFile(filePath);
 	}
 
 	public boolean loginAsAdmin(String password) {

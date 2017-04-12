@@ -17,6 +17,7 @@ public class KeywordsParameter extends SearchParameter{
 		if (!this.keywords.contains(keyword)){
 			this.keywords.add(keyword);
 		}
+		Collections.sort(this.keywords);
 	}
 
 	public List<Keyword> getKeywords() {
@@ -24,16 +25,16 @@ public class KeywordsParameter extends SearchParameter{
 	}
 
 	@Override
-	public String toString() {
-		Collections.sort(this.keywords);
-		String res = this.keywords.size() + " Keywords";
+	public String getString() {
+		String res = this.keywords.size() + " Keyword";
+		if (this.keywords.size() > 1)
+			res += "s";
 		for (Keyword keyword : this.keywords){
 			if (keyword.isPositive())
-				res += "\n|  +  " + keyword.getWord();
+				res += "\n|    +  " + keyword.getWord();
 			else
-				res += "\n|  -  " + keyword.getWord();
+				res += "\n|    -  " + keyword.getWord();
 		}
 		return res;
-		
 	}
 }

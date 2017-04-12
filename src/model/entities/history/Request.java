@@ -20,7 +20,7 @@ public class Request implements Serializable{
 	}
 
 	public String getSearchParameter() {
-		return this.searchParameter.toString();
+		return this.searchParameter.getString();
 	}
 
 	public void addResult(Result result){
@@ -28,37 +28,11 @@ public class Request implements Serializable{
 			this.results.get(this.results.indexOf(result)).addScore(result.getScore());
 		else
 			this.results.add(result);
+		Collections.sort(this.results);
 	}
 	
 	public List<Result> getResults() {
 		return this.results;
-	}
-
-	@Override
-	public String toString() {
-		Collections.sort(this.results);
-		String res = "==================================================\n";
-		res += "|     *    *    *     REQUEST     *    *    *    |";
-		res += "\n|                                                |\n";
-		res += "|  SEARCH PARAMETER : " + this.searchParameter.toString();
-		res += "\n|                                                |\n";
-		res += "|------------------------------------------------|\n";
-		res += "|     *    *    *      RESULT     *    *    *    |";
-		res += "\n|                                                |\n";
-		if (this.results.isEmpty()){
-			res += "|  No result found !                             |";
-		}
-		else{
-			for (int i = 0; i < this.results.size(); i++){
-				res += "|   [" + (i+1) + "]  " + this.results.get(i).toString() + "\n";
-			}
-		}
-		res += "\n|                                                |\n";
-		res += "|------------------------------------------------|\n";
-		res += "|  1  -  SAVE REQUEST                            |\n";
-		res += "|  0  -  EXIT                                    |\n";
-		res += "==================================================\n";
-		return res;
 	}
 
 }

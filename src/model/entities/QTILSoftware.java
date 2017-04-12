@@ -60,22 +60,43 @@ public class QTILSoftware {
 		return request;
 	}
 
-	public void searchByShadeOfGray(int gray) {
-		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
+	public Request searchByShadeOfGray(int gray) {
+		ColorParameter colorParameter = new ColorParameter(gray);
+		Request request = new Request(colorParameter);
+		for (String key : this.engines.keySet()){
+			List<String> results = this.engines.get(key).searchByShadeOfGrey(gray);
+			for (int i = 0; i < results.size(); i++){
+				Result result = new Result(results.get(i), results.size() - i);
+				request.addResult(result);
+			}
+		}
+		return request;
 	}
 
-	public void searchByColor(int red, int green, int blue) {
-		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
+	public Request searchByColor(int red, int green, int blue) {
+		ColorParameter colorParameter = new ColorParameter(red, green, blue);
+		Request request = new Request(colorParameter);
+		for (String key : this.engines.keySet()){
+			List<String> results = this.engines.get(key).searchByColor(red, green, blue);
+			for (int i = 0; i < results.size(); i++){
+				Result result = new Result(results.get(i), results.size() - i);
+				request.addResult(result);
+			}
+		}
+		return request;
 	}
 
-	public void searchByFile(String filePath) {
-		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
+	public Request searchByFile(String filePath) {
+		PathParameter pathParameter = new PathParameter(filePath);
+		Request request = new Request(pathParameter);
+		for (String key : this.engines.keySet()){
+			List<String> results = this.engines.get(key).searchByFile(filePath);
+			for (int i = 0; i < results.size(); i++){
+				Result result = new Result(results.get(i), results.size() - i);
+				request.addResult(result);
+			}
+		}
+		return request;
 	}
 
 	public boolean loginAsAdmin(String password) {

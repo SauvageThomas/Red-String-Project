@@ -1,10 +1,12 @@
 package src.view.console;
 
+import java.util.List;
 import java.util.Scanner;
 
 import src.controller.ControllerHistory;
 import src.controller.ControllerSoftware;
 import src.model.entities.history.Request;
+import src.model.entities.history.Result;
 
 public class ViewSearchMenu extends ViewMenu{
 
@@ -48,8 +50,31 @@ public class ViewSearchMenu extends ViewMenu{
 		System.out.println(">> ");
 		String keywords = sc.nextLine();
 		Request requestResult = this.controllerSoftware.searchByKeywords(keywords);
-		System.out.println(requestResult);
-		System.out.println(">> ");
+		this.showRequestResult(requestResult, sc);
+	}
+
+	private void showRequestResult(Request requestResult, Scanner sc) {
+		System.out.println("==================================================");
+		System.out.println("|     *    *    *     REQUEST     *    *    *    |");
+		System.out.println("|  SEARCH PARAMETER : " + requestResult.getSearchParameter());
+		System.out.println("|------------------------------------------------|");
+		System.out.println("|     *    *    *      RESULT     *    *    *    |");
+		System.out.println("|                                                |");
+		List<Result> results = requestResult.getResults();
+		if (results.isEmpty()){
+			System.out.println("|  No result found !                             |");
+		}
+		else{
+			for (int i = 0; i < results.size(); i++){
+				System.out.println("|   [" + (i+1) + "]  " + results.get(i).toString());
+			}
+		}
+		System.out.println("|                                                |");
+		System.out.println("|------------------------------------------------|");
+		System.out.println("|  1  -  SAVE REQUEST                            |");
+		System.out.println("|  0  -  EXIT                                    |");
+		System.out.println("==================================================");
+		System.out.println("\n>> ");
 		int choice = sc.nextInt();
 		if (choice == 1)
 			this.controllerHistory.saveRequest(requestResult);
@@ -60,7 +85,8 @@ public class ViewSearchMenu extends ViewMenu{
 		System.out.println("Please, enter your gray value (0 - 255) :");
 		System.out.println(">> ");
 		int gray = sc.nextInt();
-		this.controllerSoftware.searchByShadeOfGray(gray);
+		Request requestResult = this.controllerSoftware.searchByShadeOfGray(gray);
+		this.showRequestResult(requestResult, sc);
 	}
 
 	private void searchWithColorView() {
@@ -74,7 +100,8 @@ public class ViewSearchMenu extends ViewMenu{
 		System.out.println("Please, enter your blue value (0 - 255) :");
 		System.out.println(">> ");
 		int blue = sc.nextInt();
-		this.controllerSoftware.searchByColor(red, green, blue);		
+		Request requestResult = this.controllerSoftware.searchByColor(red, green, blue);
+		this.showRequestResult(requestResult, sc);
 	}
 
 	private void searchWithFileView() {
@@ -82,7 +109,8 @@ public class ViewSearchMenu extends ViewMenu{
 		System.out.println("Please, enter your file path :");
 		System.out.println(">> ");
 		String filePath = sc.nextLine();
-		this.controllerSoftware.searchByFile(filePath);
+		Request requestResult = this.controllerSoftware.searchByFile(filePath);
+		this.showRequestResult(requestResult, sc);
 	}
 
 }
