@@ -1,6 +1,5 @@
 package src.model.entities;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,17 +12,16 @@ public class QTILSoftware {
 	private static QTILSoftware software;
 	private Map<String, SearchEngine> engines;
 	private AdminManagement adminManagement;
+	private DataBaseManagement dataBaseManagement;
 
 	private QTILSoftware() {
 		this.engines = new HashMap<String, SearchEngine>();
-		try {
-			QTILConfiguration settings = new QTILConfiguration(".config");
-			this.engines.put("QTIL", new QTILSearchEngine(settings));
-		} catch (IOException e) {
-			System.out.println("ERROR : " + e.getMessage());
-			System.exit(1);
-		}
 		this.adminManagement = new AdminManagement();
+		this.dataBaseManagement = new DataBaseManagement();
+	}
+	
+	public void addEngine(String name, SearchEngine engine){
+		this.engines.put(name, engine);
 	}
 
 	public static QTILSoftware getSoftware() {
