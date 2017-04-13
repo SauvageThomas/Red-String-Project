@@ -24,22 +24,11 @@ public class image_color_finder {
 	public static int errorMargin = 10;
 	public static String nameFile = "index_image";
 
-	public static List<String> search_image_by_color(Color color){
-		int red = (int)color.getRed();
-		int green = (int)color.getGreen();
-		int blue = (int)color.getBlue();
+	
+	public static List<String> searchImageColor(int red, int green, int blue) {
 		src.view.tools.Configuration config = src.view.tools.Configuration.INSTANCE;
 		String path = config.getDescriptorPath();
 		File file = new File(path + nameFile);
-		
-		if(red == green && green == blue)
-			return search_image_black_white(red, file);
-		return search_image_color(red, green, blue, file);
-	}
-
-	
-	private static List<String> search_image_color(int red, int green, int blue, File file) {
-		
 		List<String> result = new ArrayList<String>();
 		try {
 			InputStream ips=new FileInputStream(file); 
@@ -75,7 +64,10 @@ public class image_color_finder {
 	}
 
 	
-	private static List<String> search_image_black_white(int color, File file) {
+	public static List<String> searchByShadeOfGrey(int color) {
+		src.view.tools.Configuration config = src.view.tools.Configuration.INSTANCE;
+		String path = config.getDescriptorPath();
+		File file = new File(path + nameFile);
 		List<String> result = new ArrayList<String>();
 		try {
 			InputStream ips=new FileInputStream(file); 
