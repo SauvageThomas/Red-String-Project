@@ -1,4 +1,4 @@
-package src.view.console;
+package view.console;
 
 public abstract class View {
 

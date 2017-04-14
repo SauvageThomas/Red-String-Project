@@ -1,4 +1,4 @@
-package src.view.layout.fileOverview;
+package view.layout.fileOverview;
 
 import com.sun.org.apache.xerces.internal.parsers.SAXParser;
 
@@ -10,8 +10,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
-import src.model.entities.Article;
-import src.view.tools.SAXHandler;
+import model.entities.Article;
+import view.tools.SAXHandler;
 
 public class TextOverviewController extends FileOverviewController {
 

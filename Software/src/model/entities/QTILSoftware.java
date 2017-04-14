@@ -1,11 +1,11 @@
-package src.model.entities;
+package model.entities;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import src.model.entities.history.Request;
-import src.model.entities.history.Result;
+import model.entities.history.Request;
+import model.entities.history.Result;
 
 public class QTILSoftware {
 

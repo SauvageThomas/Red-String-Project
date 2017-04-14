@@ -1,8 +1,8 @@
-package src.view.console;
+package view.console;
 
 import java.util.Scanner;
 
-import src.controller.ControllerSoftware;
+import controller.ControllerSoftware;
 
 public class ViewLogin extends View{
 

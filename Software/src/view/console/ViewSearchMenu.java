@@ -1,12 +1,12 @@
-package src.view.console;
+package view.console;
 
 import java.util.List;
 import java.util.Scanner;
 
-import src.controller.ControllerHistory;
-import src.controller.ControllerSoftware;
-import src.model.entities.history.Request;
-import src.model.entities.history.Result;
+import controller.ControllerHistory;
+import controller.ControllerSoftware;
+import model.entities.history.Request;
+import model.entities.history.Result;
 
 public class ViewSearchMenu extends ViewMenu{
 

@@ -1,4 +1,4 @@
-package src.view.layout.search;
+package view.layout.search;
 
 import java.io.IOException;
 
@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
-import src.view.layout.ViewController;
+import view.layout.ViewController;
 
 public class SearchOverviewController extends ViewController {
 	

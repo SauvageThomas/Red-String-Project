@@ -1,6 +1,6 @@
-package src.view.layout;
+package view.layout;
 
-import src.DesktopLauncher;
+import view.DesktopLauncher;
 
 public abstract class ViewController {
 

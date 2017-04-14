@@ -1,4 +1,4 @@
-package src.model.entities.history;
+package model.entities.history;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,8 +10,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import src.model.entities.ColorParameter;
-import src.model.entities.SearchParameter;
+import model.entities.ColorParameter;
 
 public class History implements Serializable {
 

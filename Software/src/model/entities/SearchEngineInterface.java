@@ -1,4 +1,4 @@
-package src.model.entities;
+package model.entities;
 
 import java.io.IOException;
 import java.util.List;

@@ -1,4 +1,4 @@
-package src.view.layout;
+package view.layout;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -22,8 +22,8 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Pair;
-import src.view.layout.settings.RootSettingsOverviewController;
-import src.view.layout.settings.SettingsOverviewController;
+import view.layout.settings.RootSettingsOverviewController;
+import view.layout.settings.SettingsOverviewController;
 
 public class RootController extends ViewController {
 

@@ -1,7 +1,7 @@
-package src.view.layout.fileOverview;
+package view.layout.fileOverview;
 
 import javafx.fxml.FXML;
-import src.view.layout.ViewController;
+import view.layout.ViewController;
 
 public abstract class FileOverviewController extends ViewController {
 

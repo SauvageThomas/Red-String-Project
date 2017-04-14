@@ -1,9 +1,9 @@
-package src.view.tools;
+package view.tools;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
-import src.model.entities.Article;
+import model.entities.Article;
 
 public class SAXHandler extends DefaultHandler {
 

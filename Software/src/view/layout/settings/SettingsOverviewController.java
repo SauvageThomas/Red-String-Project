@@ -1,15 +1,13 @@
-package src.view.layout.settings;
+package view.layout.settings;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuButton;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import src.view.layout.ViewController;
-import src.view.tools.Configuration;
+import view.layout.ViewController;
+import view.tools.Configuration;
 
 public class SettingsOverviewController extends ViewController {
 

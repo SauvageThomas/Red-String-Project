@@ -9,9 +9,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import src.view.layout.RootController;
-import src.view.layout.home.HomeController;
-import src.view.tools.Configuration;
+import view.layout.RootController;
+import view.layout.home.HomeController;
+import view.tools.Configuration;
 
 public class DesktopLauncher extends Application {
 

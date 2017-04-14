@@ -1,4 +1,4 @@
-package src.view.layout.search;
+package view.layout.search;
 
 import java.io.IOException;
 
@@ -13,10 +13,9 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import src.view.layout.ViewController;
+import view.layout.ViewController;
 
 public class SearchBarController extends ViewController {
 

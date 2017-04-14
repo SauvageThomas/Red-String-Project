@@ -1,11 +1,11 @@
-package src.model.entities.history;
+package model.entities.history;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import src.model.entities.SearchParameter;
+import model.entities.SearchParameter;
 
 public class Request implements Serializable{
 

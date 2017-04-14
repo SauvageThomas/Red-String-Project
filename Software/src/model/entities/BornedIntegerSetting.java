@@ -1,4 +1,4 @@
-package src.model.entities;
+package model.entities;
 
 public class BornedIntegerSetting extends Setting {
 	/* ATTRIBUTS */

@@ -1,4 +1,4 @@
-package src.view.layout.home;
+package view.layout.home;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -18,11 +18,11 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import src.DesktopLauncher;
-import src.view.layout.ViewController;
-import src.view.layout.fileOverview.FileOverviewController;
-import src.view.layout.search.SearchBarController;
-import src.view.tools.Configuration;
+import view.DesktopLauncher;
+import view.layout.ViewController;
+import view.layout.fileOverview.FileOverviewController;
+import view.layout.search.SearchBarController;
+import view.tools.Configuration;
 
 public class HomeController extends ViewController {
 

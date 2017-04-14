@@ -1,11 +1,10 @@
-package src.view.console;
+package view.console;
 
 import java.util.Map;
 
-import src.controller.ControllerSoftware;
-import src.model.entities.QTILSoftware;
-import src.model.entities.SearchEngine;
-import src.model.entities.Setting;
+import controller.ControllerSoftware;
+import model.entities.SearchEngine;
+import model.entities.Setting;
 
 public class ViewSettings extends View{
 

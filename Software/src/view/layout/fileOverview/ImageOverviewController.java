@@ -1,4 +1,4 @@
-package src.view.layout.fileOverview;
+package view.layout.fileOverview;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
