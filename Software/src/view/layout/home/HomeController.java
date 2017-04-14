@@ -18,11 +18,11 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import model.tools.Configuration;
 import view.DesktopLauncher;
 import view.layout.ViewController;
 import view.layout.fileOverview.FileOverviewController;
 import view.layout.search.SearchBarController;
-import view.tools.Configuration;
 
 public class HomeController extends ViewController {
 

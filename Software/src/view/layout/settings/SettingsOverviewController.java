@@ -6,8 +6,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import model.tools.Configuration;
 import view.layout.ViewController;
-import view.tools.Configuration;
 
 public class SettingsOverviewController extends ViewController {
 

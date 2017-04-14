@@ -1,4 +1,4 @@
-package view.tools;
+package model.tools;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

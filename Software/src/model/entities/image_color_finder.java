@@ -16,7 +16,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import view.tools.Configuration;
+import model.tools.Configuration;
 
 public class image_color_finder {
 	

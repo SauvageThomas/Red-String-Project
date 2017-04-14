@@ -11,7 +11,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import model.entities.Article;
-import view.tools.SAXHandler;
+import model.tools.SAXHandler;
 
 public class TextOverviewController extends FileOverviewController {
 
