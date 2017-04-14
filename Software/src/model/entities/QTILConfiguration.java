@@ -4,12 +4,14 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.regex.Pattern;
 
 public class QTILConfiguration extends SearchEngineSetting{
 	// "path", "descriptors", "taille_des_fenetres", "nombre_de_barre", "quantification"
-	public QTILConfiguration(String configFilePath) throws IOException {
-		super(configFilePath);
+	
+	private final static String SETTING_PATH = "../assets/private/.config";
+	
+	public QTILConfiguration() throws IOException {
+		super(SETTING_PATH);
 	}
 
 	@Override

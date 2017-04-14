@@ -1,13 +1,14 @@
-package src.controller;
+package controller;
+
 
 import java.io.IOException;
 import java.util.Map;
 
-import src.model.entities.QTILConfiguration;
-import src.model.entities.QTILSearchEngine;
-import src.model.entities.QTILSoftware;
-import src.model.entities.SearchEngine;
-import src.model.entities.history.Request;
+import model.entities.QTILConfiguration;
+import model.entities.QTILSearchEngine;
+import model.entities.QTILSoftware;
+import model.entities.SearchEngine;
+import model.entities.history.Request;
 
 public class ControllerSoftware {
 
@@ -15,7 +16,7 @@ public class ControllerSoftware {
 	
 	public ControllerSoftware() throws IOException {
 		this.software = QTILSoftware.getSoftware();
-		this.software.addEngine("QTIL", new QTILSearchEngine(new QTILConfiguration(".config")));
+		this.software.addEngine("QTIL", new QTILSearchEngine(new QTILConfiguration()));
 	}
 
 	public Map<String, SearchEngine> getEngines() {

@@ -1,9 +1,9 @@
-package src.controller;
+package controller;
 
 import java.util.List;
 
-import src.model.entities.history.History;
-import src.model.entities.history.Request;
+import model.entities.history.History;
+import model.entities.history.Request;
 
 public class ControllerHistory {
 

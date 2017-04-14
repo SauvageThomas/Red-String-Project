@@ -1,7 +1,7 @@
-package src.view.console;
+package view.console;
 
-import src.controller.ControllerHistory;
-import src.controller.ControllerSoftware;
+import controller.ControllerHistory;
+import controller.ControllerSoftware;
 
 public class ViewMainMenu extends ViewMenu{
 	

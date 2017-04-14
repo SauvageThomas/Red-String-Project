@@ -1,4 +1,4 @@
-package src.model.jni;
+package controller;
 
 public class Controller {
 	
