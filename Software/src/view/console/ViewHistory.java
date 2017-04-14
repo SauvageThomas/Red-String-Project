@@ -1,9 +1,9 @@
-package src.view.console;
+package view.console;
 
 import java.util.List;
 
-import src.controller.ControllerHistory;
-import src.model.entities.history.Request;
+import controller.ControllerHistory;
+import model.entities.history.Request;
 
 public class ViewHistory extends ViewMenu {
 

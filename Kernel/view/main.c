@@ -10,11 +10,11 @@
 #include <stdlib.h>
 
 // Include all data
-#include "../kernel/data/constant.h"
+#include "../model/data/constant.h"
 #include "menus.h"
 
 // Include tests files
-#include "../kernel/test/test.h"
+#include "../model/test/test.h"
 
 
 int main() {

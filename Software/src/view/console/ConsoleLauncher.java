@@ -1,10 +1,9 @@
-package view;
+package view.console;
 
 import java.io.IOException;
 
 import controller.ControllerHistory;
 import controller.ControllerSoftware;
-import view.console.ViewMainMenu;
 
 public class ConsoleLauncher {
 
