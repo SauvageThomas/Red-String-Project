@@ -3,6 +3,8 @@
 const int pass_key[] = { 22, 53, 44, 71, 66, 177, 253, 122, 9548, 1215, 48421,
 		629, 314, 4784, 5102, 914, 213, 316, 145, 78 };
 
+char* PASS_PATH = "assets/private/.pass";
+
 void xor_crypt(char *password) {
 	/*
 	Crypt an input (modify the input)
@@ -20,7 +22,7 @@ void change_password() {
 	puts("Please, enter the password :");
 	get_secure_input(pass, sizeof(pass));
 
-	DataFile data_file = init_data_file(".pass");
+	DataFile data_file = init_data_file(PASS_PATH);
 
 	xor_crypt(pass);
 	write_string_in_file(data_file, pass);
@@ -32,7 +34,7 @@ int try_login(char* password) {
 	Allow a user to connect as an admin
 	*/
 	int res = 0;
-	DataFile data_file = init_data_file(".pass");
+	DataFile data_file = init_data_file(PASS_PATH);
 
 	if (data_file.length == 0) { //The file is empty or does not exist
 		strcpy(password, "admin");

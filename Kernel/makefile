@@ -11,7 +11,7 @@ CC=gcc
 JNI= -I/usr/lib/jvm/java-8-oracle/include -I/usr/lib/jvm/java-8-oracle/include/linux
 CFLAGS= $(JNI) -fPIC -c -w -Wall -g -std=gnu99 $(<) -o $(@)
 EXEC=output/Kernel
-JNI_LIB = jni/libqtil.so
+JNI_LIB = output/libqtil.so
 
 # Directories
 M=model/
@@ -164,7 +164,7 @@ $(R)functions.o : $(C)functions.c $(C)functions.h $(DATA)constant.h $(TOOL)$(dh)
 $(R)functions_wrapper.o : $(C)functions_wrapper.c
 	$(CC) $(CFLAGS)
 	
-jni/libkernel.so : $(R)functions_wrapper.o $(R)password.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(t).o $(R)functions.o $(R)config.o $(R)data_base.o $(R)image_index_generator.o
-	$(CC) -shared -o jni/libqtil.so $^
+output/libqtil.so : $(R)functions_wrapper.o $(R)password.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(t).o $(R)functions.o $(R)config.o $(R)data_base.o $(R)image_index_generator.o
+	$(CC) -shared -o output/libqtil.so $^
 	
 	
