@@ -10,6 +10,9 @@ typedef struct {
 
 Config CONFIG = {NULL, -1, -1};
 
+char* CONFIG_PATH = "assets/engines/QTIL/.config";
+char* BACKUP_PATH = "assets/engines/QTIL/.backup";
+
 void error_config_file() {
 	/*
 	* Reset de la config si elle n'est pas lisible par le programme
@@ -36,7 +39,7 @@ void reset_config() {
 	Recreate the config file with the backup file.
 	If the backup file doesn't exist, the programm with an error
 	*/
-	DataFile data_file = init_data_file(".backup");
+	DataFile data_file = init_data_file(BACKUP_PATH);
 
 	if (data_file.length == 0) {
 		puts("Major error, no backup file. Quitting ...");
@@ -44,7 +47,7 @@ void reset_config() {
 	}
 
 	char* config = read_string_from_file(data_file);
-	data_file = init_data_file(".config");
+	data_file = init_data_file(CONFIG_PATH);
 	write_string_in_file(data_file, config);
 }
 
@@ -52,7 +55,7 @@ void reset_config() {
 void init_config(){
 	char token[] = " \n";
 
-	DataFile data_file = init_data_file(".config");
+	DataFile data_file = init_data_file(CONFIG_PATH);
 	if (data_file.length == 0) {
 		reset_config();
 	}
@@ -89,8 +92,6 @@ void init_config(){
 
 		if (value == NULL) {
 			puts("Corrupted config file, default one used.");
-			//TODO: faire un fichier par d�faut et le charger � la place de NULL
-			//return CONFIG;
 		}
 		key = strtok(NULL, token);
 		value = strtok(NULL, token);
