@@ -1,0 +1,11 @@
+!/bin/bash
+clear
+make mrproper
+make
+RETVAL=$?
+if [ $RETVAL -eq 0 ]
+then
+	./release/SearchEngine.exe
+fi
+
+
