@@ -7,6 +7,6 @@
  ============================================================================
  */
 
-#include "../Search/data_manager.h"
+#include "../search/data_manager.h"
 
 void update_index_image(char *_path, char *index_path);

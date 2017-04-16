@@ -90,7 +90,7 @@ void init_config(){
 		if (value == NULL) {
 			puts("Corrupted config file, default one used.");
 			//TODO: faire un fichier par d�faut et le charger � la place de NULL
-			return CONFIG;
+			//return CONFIG;
 		}
 		key = strtok(NULL, token);
 		value = strtok(NULL, token);
