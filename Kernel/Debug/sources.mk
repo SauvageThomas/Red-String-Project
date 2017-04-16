@@ -19,5 +19,6 @@ model/descriptor \
 model/search \
 model/test \
 model/tools \
+output/objects \
 view \
 

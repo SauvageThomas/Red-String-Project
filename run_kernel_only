@@ -1,0 +1,13 @@
+!/bin/bash
+clear
+cd Kernel/
+make mrproper
+make
+RETVAL=$?
+if [ $RETVAL -eq 0 ]
+then
+    cd ../
+	./Kernel/output/Kernel
+fi
+
+

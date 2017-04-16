@@ -8,10 +8,10 @@
 #include <unistd.h>
 
 #include "../controller/functions.h"
-#include "../kernel/data/constant.h"
-#include "../kernel/data/config.h"
-#include "../kernel/data/data_base.h"
-#include "../kernel/tools/data_handler.h"
+#include "../model/data/constant.h"
+#include "../model/data/config.h"
+#include "../model/data/data_base.h"
+#include "../model/tools/data_handler.h"
 #include "console_IO.h"
 
 void show_main_menu();	

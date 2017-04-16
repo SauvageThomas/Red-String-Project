@@ -3,5 +3,6 @@
 #include "../data/data_base.h"
 #include "../search/sound_finder.h"
 #include "descriptor_generator.h"
+#include <math.h>
 
 int check_sound_descriptor(int force);

@@ -8,7 +8,8 @@
  */
 
 #include "image_index_generator.h"
-#include "../Search/data_manager.h"
+#include "../search/data_manager.h"
+#include "../data/data_base.h"
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,7 +19,7 @@ char* calculate_index_3_color(FILE* file, size_t size_x, size_t size_y){
 	size_t sum_green = 0;
 	size_t sum_blue = 0;
 	int current_val = 0;
-	int current_char ="";
+	char current_char;
 	int nb_pixel = 0;
 	while (current_char != EOF){
 		current_char = getc(file);
@@ -48,7 +49,7 @@ char* calculate_index_3_color(FILE* file, size_t size_x, size_t size_y){
 char* calculate_index_1_color(FILE* file, size_t size_x, size_t size_y){
 	size_t color = 0;
 	int current_val = 0;
-	int current_char ="";
+	char current_char;
 	int nb_pixel = 0;
 	while (current_char != EOF){
 		current_char = getc(file);
@@ -72,7 +73,7 @@ char* calculate_index(FILE* file){
 	int size_y = 0;
 	int nb_color = 0;
 	int tmp = 0;
-	int current_char ="";
+	char current_char;
 	
 	while (current_char != '\n'){
 		current_char = getc(file);
@@ -123,21 +124,18 @@ void update_index_image(char *_path, char *index_path) {
 
 	puts("Debut de l'update image index\n\n");
 
-	Directory dir = get_all_files(_path);
-	printf("Nombre d'image dans le répertoire : %d\n",dir.image_size);
+	printf("Nombre d'image dans le répertoire : %d\n",get_nb_image());
 	int nb = 0;
 	char* result = "";
 	char* tmp = "";
 
-	for (int i = 0; i < dir.image_size; i += 1) {
+	for (int i = 0; i < get_nb_image(); i += 1) {
 		tmp = (char*) malloc(strlen(result) + 150);
-		sprintf(tmp, "%s%s", result, open_image_txt(dir.image_files[i].path));
+		sprintf(tmp, "%s%s", result, open_image_txt(get_image_files()[i].path));
 		result = (char*) malloc(strlen(tmp)+1);
 		strcpy(result, tmp);
 		nb += 1;
 	}
-	//printf("%s", result);
-	 
 	
 	FILE* fileIndex = fopen(index_path, "w+");
 
@@ -145,9 +143,6 @@ void update_index_image(char *_path, char *index_path) {
 			fputs(result, fileIndex);
 	}
 	
-
-	//printf("Dossier : %s\n",_path);
-	//printf("Index : %s\n",index_path);
 	puts("INDEX FILE IMAGE UPDATED.");
 }
 

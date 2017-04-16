@@ -9,6 +9,15 @@ enum FileType {
 	TEXT, IMAGE, SOUND
 };
 
+typedef struct {
+	DataFile* txt_files;
+	size_t txt_size;
+	DataFile* audio_files;
+	size_t audio_size;
+	DataFile* image_files;
+	size_t image_size;
+} Directory;
+
 void load_data_base();
 DataFile* get_text_files();
 DataFile* get_image_files();
