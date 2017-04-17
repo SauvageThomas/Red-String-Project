@@ -83,11 +83,11 @@ char** search_data(char* file_path) {
 					moy = compare_sound_descriptors(&descriptor.p[j], &desc[i].p[j]);
 					test = compare_sound_descriptors(&descriptor.p[0], &desc[i].p[j]);
 
-					if (test == 100) {
+					if (test >= 80) {
 						int verif = 1;
 						for (k = 0; k<descriptor.p_size && verif; k++) {
-							moy2 = compare_sound_descriptors(&descriptor.p[k], &desc[i].p[k]);
-							if ( moy2 != 100) verif = 0;
+							moy2 = compare_sound_descriptors(&descriptor.p[k], &desc[i].p[j+k]);
+							if ( moy2 <= 80) verif = 0;
 
 						}
 						if (k >= descriptor.p_size){
@@ -117,17 +117,17 @@ char** search_data(char* file_path) {
 			}
 			else
 				common = compare_descriptors(descriptor, desc[i]);
-
+			printf("%d ", i);
 			add_nb_value_hash_map(&result, desc[i].file_name, common);
 		}
-
 	}
 	int max = 5;
 	if (i < max) {
 		max = i;
 	}
 	sprintf(results[0], "%d", max);
-	for (int i = 1; i <= max; i += 1) {
+	for (int i = 1; i < max; i += 1) {
+
 		char *tmp = pop_value_hash_map(&result);
 		results[i] = malloc(strlen(tmp));
 		strcpy(results[i], tmp);
@@ -225,7 +225,7 @@ char** search_by_keywords(char** keywords) {
 	/*
 	Allow the user to search a file using a keyword
 	*/
-	
+
 	char* path = get_data_from_config("descriptors");
 	char* file_path = malloc(KSIZE * 2);
 	strcpy(file_path, path);
@@ -278,6 +278,6 @@ char** search_by_keywords(char** keywords) {
 	if (!found) {
 		sprintf(results[0], "%d", -1);
 	}
-	
+
 	return results;
 }
