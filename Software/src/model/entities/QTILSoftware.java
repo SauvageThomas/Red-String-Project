@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import controller.Controller;
 import model.entities.history.Request;
 import model.entities.history.Result;
 
@@ -13,11 +14,13 @@ public class QTILSoftware {
 	private Map<String, SearchEngine> engines;
 	private AdminManagement adminManagement;
 	private DataBaseManagement dataBaseManagement;
+	private Controller controller;
 
 	private QTILSoftware() {
 		this.engines = new HashMap<String, SearchEngine>();
 		this.adminManagement = new AdminManagement();
 		this.dataBaseManagement = new DataBaseManagement();
+		this.controller = Controller.getInstance();
 	}
 	
 	public void addEngine(String name, SearchEngine engine){
@@ -97,7 +100,9 @@ public class QTILSoftware {
 		return request;
 	}
 
-	public boolean loginAsAdmin(String password) {
-		return this.adminManagement.loginAsAdmin(password);
+	public int loginAsAdmin(String password) {
+		return this.controller.updateImageDescriptors(0);
+		//return this.controller.loginAsAdmin(password);
+		//return this.adminManagement.loginAsAdmin(password);
 	}
 }

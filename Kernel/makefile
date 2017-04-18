@@ -8,7 +8,7 @@
 
 # Compilation
 CC=gcc
-JNI= -I/usr/lib/jvm/java-8-oracle/include -I/usr/lib/jvm/java-8-oracle/include/linux
+JNI= -I/usr/lib/jvm/jdk1.8.0_121/include -I/usr/lib/jvm/jdk1.8.0_121/include/linux
 CFLAGS= $(JNI) -fPIC -c -w -Wall -g -std=gnu99 $(<) -o $(@)
 EXEC=output/Kernel
 JNI_LIB = output/libqtil.so

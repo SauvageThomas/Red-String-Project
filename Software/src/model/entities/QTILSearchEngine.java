@@ -37,18 +37,21 @@ public class QTILSearchEngine extends SearchEngine {
 	@Override
 	public List<String> searchByColor(int r, int g, int b) {
 		List<String> results = new ArrayList<>();
+		//TODO: 
 		return results;
 	}
 
 	@Override
 	public List<String> searchByShadeOfGrey(int shadeOfGrey) {
 		List<String> results = new ArrayList<>();
+		//TODO: 
 		return results;
 	}
 
 	@Override
 	public List<String> searchByFile(String filePath) {
 		List<String> results = new ArrayList<>();
+		//TODO: 
 		return results;
 	}
 

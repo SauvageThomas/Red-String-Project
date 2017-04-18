@@ -1,6 +1,6 @@
-/*
+
 #include <jni.h>
-#include "../../jni/src_Controller_Controller.h"
+#include "src_Controller_Controller.h"
 #include "functions.h"
 
 JNIEXPORT jint JNICALL
@@ -36,4 +36,3 @@ JNIEXPORT jint JNICALL
 Java_src_controller_Controller_login (JNIEnv *env, jobject obj, jstring password){
 	return login(password);
 }
-*/

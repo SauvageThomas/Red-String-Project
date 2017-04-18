@@ -76,8 +76,10 @@ void update_image_descriptor_view(int force){
 	int res_image = update_image_descriptor(force);
 	if (res_image == 0)
 		printf("\n -> %d image descriptors already up-to-date !\n", get_nb_image());
-	else if (res_image == 1)
+	else if (res_image >= 1)
 		printf(" Done !\n -> %d image descriptors updated !\n", get_nb_image());
+	if (res_image == 2)
+		puts(" -> Index updated !");
 }
 
 void update_sound_descriptor_view(int force){

@@ -2,7 +2,7 @@ package controller;
 
 public class Controller {
 	
-	private static final Controller controller = new Controller();
+	private static Controller instance;
 	
 	private native int update_text_descriptors(int force);
 	private native int update_image_descriptors(int force);
@@ -11,31 +11,37 @@ public class Controller {
 	private native String[] search_by_keyword(String[] keywords);
 	private native int login(String password);
 	
-	static{
-		System.loadLibrary("kernel");
+	private Controller() {
+		System.loadLibrary("qtil");
 	}
 	
-	public static String[] searchByFile(String path){
-		return controller.search_by_file(path);
+	public static Controller getInstance(){
+		if (instance == null)
+			instance = new Controller();
+		return instance;
 	}
 	
-	public static int updateTextDescriptors(int force){
-		return controller.update_text_descriptors(force);
+	public String[] searchByFile(String path){
+		return search_by_file(path);
 	}
 	
-	public static int updateImageDescriptors(int force){
-		return controller.update_image_descriptors(force);
+	public int updateTextDescriptors(int force){
+		return update_text_descriptors(force);
 	}
 	
-	public static int updateSoundDescriptors(int force){
-		return controller.update_sound_descriptors(force);
+	public int updateImageDescriptors(int force){
+		return update_image_descriptors(force);
 	}
 	
-	public static String[] searchByKeyword(String[] keywords){
-		return controller.search_by_keyword(keywords);
+	public int updateSoundDescriptors(int force){
+		return update_sound_descriptors(force);
 	}
 	
-	public static int loginAsAdmin(String password){
-		return controller.login(password);
+	public String[] searchByKeyword(String[] keywords){
+		return search_by_keyword(keywords);
+	}
+	
+	public boolean loginAsAdmin(String password){
+		return (login(password) == 0);
 	}
 }
