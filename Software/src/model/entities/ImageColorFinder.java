@@ -18,7 +18,7 @@ import java.util.List;
 
 import model.tools.Configuration;
 
-public class image_color_finder {
+public class ImageColorFinder {
 	
 	public static int errorMargin = 10;
 	public static String nameFile = "index_image";
