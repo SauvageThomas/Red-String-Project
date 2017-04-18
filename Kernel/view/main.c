@@ -23,7 +23,6 @@ int main() {
 	 * Parameters	: None
 	 * Returns		: EXIT_SUCCESS or EXIT_FAILURE
 	 */
-	
 	// Resolve error for windows execution
 	setvbuf(stdout, NULL, _IONBF, 0);
 	setvbuf(stderr, NULL, _IONBF, 0);
