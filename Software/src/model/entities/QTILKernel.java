@@ -1,8 +1,8 @@
-package controller;
+package model.entities;
 
-public class Controller {
+public class QTILKernel {
 	
-	private static Controller instance;
+	private static QTILKernel instance;
 	
 	private native int update_text_descriptors(int force);
 	private native int update_image_descriptors(int force);
@@ -11,13 +11,13 @@ public class Controller {
 	private native String[] search_by_keyword(String[] keywords);
 	private native int login(String password);
 	
-	private Controller() {
+	private QTILKernel() {
 		System.loadLibrary("qtil");
 	}
 	
-	public static Controller getInstance(){
+	public static QTILKernel getInstance(){
 		if (instance == null)
-			instance = new Controller();
+			instance = new QTILKernel();
 		return instance;
 	}
 	

@@ -23,6 +23,12 @@ public class Keyword implements Comparable<Keyword>, Serializable{
 	}
 
 	@Override
+	public String toString() {
+		if (this.isPositive)
+			return "+" + this.word;
+		return "-" + this.word;
+	}
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
