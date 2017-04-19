@@ -7,9 +7,8 @@ public class QTILKernel {
 	private native int update_text_descriptors(int force);
 	private native int update_image_descriptors(int force);
 	private native int update_sound_descriptors(int force);
-	private native String[] search_by_file(String path);
+	private native char[][] search_by_file(String path);
 	private native String[] search_by_keyword(String[] keywords);
-	private native int login(String password);
 	
 	private QTILKernel() {
 		System.loadLibrary("qtil");
@@ -21,7 +20,7 @@ public class QTILKernel {
 		return instance;
 	}
 	
-	public String[] searchByFile(String path){
+	public char[][] searchByFile(String path){
 		return search_by_file(path);
 	}
 	
@@ -39,9 +38,5 @@ public class QTILKernel {
 	
 	public String[] searchByKeyword(String[] keywords){
 		return search_by_keyword(keywords);
-	}
-	
-	public boolean loginAsAdmin(String password){
-		return (login(password) == 0);
 	}
 }
