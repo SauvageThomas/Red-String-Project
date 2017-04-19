@@ -11,6 +11,7 @@ public class QTILSearchEngine extends SearchEngine {
 	public QTILSearchEngine(QTILConfiguration settings) {
 		super(settings);
 		this.kernel = QTILKernel.getInstance();
+		this.indexText();
 	}
 
 	@Override
@@ -58,9 +59,7 @@ public class QTILSearchEngine extends SearchEngine {
 
 	@Override
 	public List<String> searchByFile(String filePath) {
-		List<String> results = new ArrayList<>();
-		//TODO: 
-		return results;
+		return this.kernel.searchByFile(filePath);
 	}
 
 	@Override

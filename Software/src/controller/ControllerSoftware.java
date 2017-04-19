@@ -40,6 +40,6 @@ public class ControllerSoftware {
 	}
 
 	public boolean loginAsAdmin(String password) {
-		return (this.software.loginAsAdmin(password) == 0);
+		return this.software.loginAsAdmin(password);
 	}
 }

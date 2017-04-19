@@ -1,5 +1,8 @@
 package model.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class QTILKernel {
 	
 	private static QTILKernel instance;
@@ -20,8 +23,11 @@ public class QTILKernel {
 		return instance;
 	}
 	
-	public char[][] searchByFile(String path){
-		return search_by_file(path);
+	public List<String> searchByFile(String path){
+		List<String> results = new ArrayList<>();
+		char[][] res = search_by_file(path);
+		System.out.println(res.toString());
+		return results;
 	}
 	
 	public int updateTextDescriptors(int force){
