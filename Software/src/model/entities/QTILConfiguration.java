@@ -8,7 +8,7 @@ import java.io.IOException;
 public class QTILConfiguration extends SearchEngineSetting{
 	// "path", "descriptors", "taille_des_fenetres", "nombre_de_barre", "quantification"
 	
-	private final static String SETTING_PATH = "../assets/private/.config";
+	private final static String SETTING_PATH = "assets/private/.config";
 	
 	public QTILConfiguration() throws IOException {
 		super(SETTING_PATH);
