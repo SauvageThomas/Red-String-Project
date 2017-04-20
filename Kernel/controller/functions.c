@@ -134,46 +134,6 @@ char** search_data(char* file_path) {
 	}
 	return results;
 }
-		/*
-		if (i==0){
-
-			char c = tmp[0];
-
-			int count = 0;
-			char *file = malloc(strlen(tmp));
-
-			file[0] = '\0';
-			while(c != ' '){
-				c = tmp[count];
-				strncat(file, &c, 1);
-
-				count += 1;
-			}
-			//printf("\nBEST RESULT : %s\n\n", file);
-			display_rank(file, 1);
-			char* cmd = malloc(KSIZE);
-			sprintf(cmd, "%s%s%s", "xdg-open ", file, " &");
-			printf("\n>> open the best result with : %s\n", cmd);
-			system(cmd);
-		}
-
-		//Change the content of the string
-		char *final_string;
-		switch (file_type) {
-		case TEXT:
-			final_string = pretty_print_string(tmp);
-			break;
-		case IMAGE:
-			final_string = pretty_print_image(tmp);
-			break;
-		case SOUND:
-			final_string = pretty_print_sound(tmp);
-			break;
-		}
-		display_rank(final_string, i+1);
-		//printf("\n* RANK [%d] : %s", (i+1), final_string);
-	*/
-
 
 int update_text_descriptor(int force){
 	return check_text_descriptor(force);

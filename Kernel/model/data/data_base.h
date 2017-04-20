@@ -3,6 +3,7 @@
 #define DATA_DATA_BASE_H_
 
 #include "../tools/data_handler.h"
+#include "config.h"
 #include <dirent.h>
 
 enum FileType {

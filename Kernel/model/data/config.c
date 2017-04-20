@@ -10,8 +10,8 @@ typedef struct {
 
 Config CONFIG = {NULL, -1, -1};
 
-char* CONFIG_PATH = "assets/engines/QTIL/.config";
-char* BACKUP_PATH = "assets/engines/QTIL/.backup";
+char* CONFIG_PATH = "../assets/engines/QTIL/.config";
+char* BACKUP_PATH = "../assets/engines/QTIL/.backup";
 
 void error_config_file() {
 	/*

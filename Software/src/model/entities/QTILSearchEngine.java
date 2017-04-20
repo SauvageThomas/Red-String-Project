@@ -11,7 +11,12 @@ public class QTILSearchEngine extends SearchEngine {
 	public QTILSearchEngine(QTILConfiguration settings) {
 		super(settings);
 		this.kernel = QTILKernel.getInstance();
-		this.indexText();
+		int res_txt = this.indexText();
+		System.out.println("TEXT  INDEXATION : " + res_txt);
+		int res_img = this.indexImage();
+		System.out.println("IMAGE INDEXATION : " + res_img);
+		int res_sound = this.indexAudio();
+		System.out.println("SOUND INDEXATION : " + res_sound);
 	}
 
 	@Override

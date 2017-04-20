@@ -8,7 +8,7 @@ import java.io.IOException;
 public class QTILConfiguration extends SearchEngineSetting{
 	// "path", "descriptors", "taille_des_fenetres", "nombre_de_barre", "quantification"
 	
-	private final static String SETTING_PATH = "assets/private/.config";
+	private final static String SETTING_PATH = "../assets/engines/QTIL/.config";
 	
 	public QTILConfiguration() throws IOException {
 		super(SETTING_PATH);
@@ -31,7 +31,7 @@ public class QTILConfiguration extends SearchEngineSetting{
 		if (!Pattern.matches(key + " = .\n", line))
 			throw new IOException("Setting not found : " + key + " (setting file : " + this.configFilePath + ")");
 			*/
-		return line.split(" = ")[1].replace("\n\r", "");
+		return line.split(" ")[1].replace("\n\r", "");
 	}
 
 	@Override
