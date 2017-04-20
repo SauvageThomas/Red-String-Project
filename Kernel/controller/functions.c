@@ -21,17 +21,15 @@ char** search_data(char* file_path) {
 	HashMap result = NULL;
 	char** results = malloc(6 * sizeof(char*));
 	results[0] = malloc(2); //flag
-
+	puts(file_path);
 	if (!is_existing_file(df)) {
 		sprintf(results[0], "%d", -1);
 		return results;
 	}
-
 	if (is_empty_file(df)) {
 		sprintf(results[0], "%d", -2);
 		return results;
 	}
-
 	enum FileType file_type = get_data_file_extension(df.path);
 
 	char full_path[KSIZE * 2];
@@ -66,7 +64,6 @@ char** search_data(char* file_path) {
 	while (strcmp(desc[cpt].file_name, file_path)) {
 		cpt += 1;
 	}
-	puts("\n\nSame file type scores :\n");
 	Descriptor descriptor = desc[cpt];
 	int i;
 
@@ -98,7 +95,7 @@ char** search_data(char* file_path) {
 				}
 			 	if ( descriptor.p_size<desc[i].p_size){
 					int counter2 = 0;
-					for ( k; k<desc[i].p_size; k++){
+					for (;k<desc[i].p_size; k++){
 						float	moy2 = compare_sound_descriptors(&descriptor.p[counter2], &desc[i].p[k]);
 						if (moy2 == 100){
 							while (moy2 == 100){

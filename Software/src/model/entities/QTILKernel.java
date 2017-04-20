@@ -13,7 +13,7 @@ public class QTILKernel {
 	private native int update_text_descriptors(int force);
 	private native int update_image_descriptors(int force);
 	private native int update_sound_descriptors(int force);
-	private native char[][] search_by_file(String path);
+	private native String[] search_by_file(String path);
 	private native String[] search_by_keyword(String[] keywords);
 
 	private QTILKernel() {
@@ -38,8 +38,12 @@ public class QTILKernel {
 
 	public List<String> searchByFile(String path){
 		List<String> results = new ArrayList<>();
-		char[][] res = search_by_file(path);
-		System.out.println(res.toString());
+		String[] res = (String[]) search_by_file(path);
+		
+		for (String str : res){
+			results.add(str.replace("\n", ""));
+		}
+		
 		return results;
 	}
 

@@ -13,10 +13,12 @@ public class Request implements Serializable{
 
 	private SearchParameter searchParameter;
 	private List<Result> results;
+	private int flag;
 
 	public Request(SearchParameter searchParameter) {
 		this.searchParameter = searchParameter;
 		this.results = new ArrayList<Result>();
+		this.flag = 0;
 	}
 
 	public String getSearchParameter() {
@@ -31,8 +33,28 @@ public class Request implements Serializable{
 		Collections.sort(this.results);
 	}
 	
+	public void setFlag(int flag){
+		this.flag = flag;
+	}
+	
 	public List<Result> getResults() {
 		return this.results;
+	}
+
+	public boolean hasError() {
+		return (this.searchParameter.hasError() || this.flag <= 0);
+	}
+
+	public String getMessageError() {
+		if (this.flag == -1)
+			return "File does not exist !";
+		if (this.flag == -2)
+			return "File is empty !";
+		if (this.flag == -3)
+			return "File type not supported !";
+		if (this.flag == 0)
+			return "No results found !";
+		return this.searchParameter.getMessageError();
 	}
 
 }

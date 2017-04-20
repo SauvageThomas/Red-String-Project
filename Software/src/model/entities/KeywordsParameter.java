@@ -37,4 +37,16 @@ public class KeywordsParameter extends SearchParameter{
 		}
 		return res;
 	}
+
+	@Override
+	public boolean hasError() {
+		return (this.keywords.isEmpty());
+	}
+	
+	@Override
+	public String getMessageError() {
+		if (this.keywords.isEmpty())
+			return "Invalid keywords !";
+		return super.getMessageError();
+	}
 }
