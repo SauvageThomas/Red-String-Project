@@ -4,11 +4,11 @@ package controller;
 import java.io.IOException;
 import java.util.Map;
 
-import model.entities.QTILConfiguration;
-import model.entities.QTILSearchEngine;
 import model.entities.QTILSoftware;
 import model.entities.SearchEngine;
 import model.entities.history.Request;
+import model.entities.qtil.QTILConfiguration;
+import model.entities.qtil.QTILSearchEngine;
 
 public class ControllerSoftware {
 

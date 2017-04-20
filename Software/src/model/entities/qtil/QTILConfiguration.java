@@ -1,9 +1,12 @@
-package model.entities;
+package model.entities.qtil;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+
+import model.entities.PathSetting;
+import model.entities.SearchEngineSetting;
 
 public class QTILConfiguration extends SearchEngineSetting{
 	// "path", "descriptors", "taille_des_fenetres", "nombre_de_barre", "quantification"
