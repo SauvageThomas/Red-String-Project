@@ -6,9 +6,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import model.entities.PathSetting;
-import model.entities.SearchEngineSetting;
+import model.entities.Settings;
 
-public class QTILConfiguration extends SearchEngineSetting{
+public class QTILConfiguration extends Settings{
 	// "path", "descriptors", "taille_des_fenetres", "nombre_de_barre", "quantification"
 	
 	private final static String SETTING_PATH = "../assets/engines/QTIL/.config";

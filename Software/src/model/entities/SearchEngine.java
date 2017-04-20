@@ -4,9 +4,9 @@ import java.util.Map;
 
 public abstract class SearchEngine implements SearchEngineInterface{
 	
-	private SearchEngineSetting settings;
+	private Settings settings;
 	
-	public SearchEngine(SearchEngineSetting settings) {
+	public SearchEngine(Settings settings) {
 		this.settings = settings;
 	}
 
@@ -14,5 +14,7 @@ public abstract class SearchEngine implements SearchEngineInterface{
 		return this.settings.getSettings();
 	}
 	
-	
+	public void changeSetting(String key, String value){
+		this.settings.changeSetting(key, value);
+	}
 }

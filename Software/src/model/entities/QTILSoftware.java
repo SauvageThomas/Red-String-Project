@@ -13,13 +13,11 @@ public class QTILSoftware {
 	private Map<String, SearchEngine> engines;
 	private AdminManagement adminManagement;
 	private DataBaseManagement dataBaseManagement;
-	//private Controller controller;
 
 	private QTILSoftware() {
 		this.engines = new HashMap<String, SearchEngine>();
 		this.adminManagement = new AdminManagement();
-		this.dataBaseManagement = new DataBaseManagement();
-		//this.controller = Controller.getInstance();
+		this.dataBaseManagement = new DataBaseManagement("../data/FICHIER_PROJET/", true);
 	}
 	
 	public void addEngine(String name, SearchEngine engine){
