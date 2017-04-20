@@ -60,11 +60,11 @@ public class ViewSearchMenu extends ViewMenu{
 		System.out.println("|------------------------------------------------|");
 		System.out.println("|     *    *    *      RESULT     *    *    *    |");
 		System.out.println("|                                                |");
-		List<Result> results = requestResult.getResults();
-		if (results.isEmpty()){
-			System.out.println("|  No result found !                             |");
+		if (requestResult.hasError()){
+			System.out.println("|  " + requestResult.getMessageError());
 		}
 		else{
+			List<Result> results = requestResult.getResults();
 			for (int i = 0; i < results.size(); i++){
 				System.out.println("|   [" + (i+1) + "]  " + results.get(i).toString());
 			}

@@ -28,4 +28,8 @@ public class ColorParameter extends SearchParameter{
 		return "RGB Color (" + this.r + ", " + this.g + ", " + this.b + ")";
 	}
 
+	@Override
+	public boolean hasError() {
+		return false;
+	}
 }

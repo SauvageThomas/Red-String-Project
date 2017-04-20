@@ -16,7 +16,7 @@ public class History implements Serializable {
 
 	private static final long serialVersionUID = -71436115086375235L;
 	private static History instance = History.load();
-	private static final String path = ".history";
+	private static final String path = "../assets/private/.history";
 
 	private List<Request> requests;
 

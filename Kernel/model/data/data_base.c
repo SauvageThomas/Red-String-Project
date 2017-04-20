@@ -4,26 +4,32 @@
 Directory DATA_BASE = {NULL, -1, NULL, -1, NULL, -1};
 
 DataFile* get_text_files(){
+	load_data_base();
 	return DATA_BASE.txt_files;
 }
 
 DataFile* get_image_files(){
+	load_data_base();
 	return DATA_BASE.image_files;
 }
 
 DataFile* get_sound_files(){
+	load_data_base();
 	return DATA_BASE.audio_files;
 }
 
 size_t get_nb_text(){
+	load_data_base();
 	return DATA_BASE.txt_size;
 }
 
 size_t get_nb_image(){
+	load_data_base();
 	return DATA_BASE.image_size;
 }
 
 size_t get_nb_sound(){
+	load_data_base();
 	return DATA_BASE.audio_size;
 }
 
@@ -49,6 +55,10 @@ void load_data_base() {
 	Return a Directory structure containing every informations about a directory and
 	useful files
 	*/
+
+	if (DATA_BASE.txt_size != -1){
+		return;
+	}
 
 	char* path = get_data_from_config("path");
 	size_t max_size_text = 15;

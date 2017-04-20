@@ -6,8 +6,7 @@ make
 RETVAL=$?
 if [ $RETVAL -eq 0 ]
 then
-    cd ../
-	./Kernel/output/Kernel
+	./output/Kernel
 fi
 
 

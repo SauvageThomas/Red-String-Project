@@ -14,3 +14,4 @@ void reset_config();
 void init_config();
 void load_config();
 char* get_data_from_config(const char* value);
+size_t get_sizet_from_config(char* key);

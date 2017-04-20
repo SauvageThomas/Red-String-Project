@@ -15,4 +15,16 @@ public class PathParameter extends SearchParameter{
 	public String getString() {
 		return "File (" + this.filePath + ")";
 	}
+
+	@Override
+	public boolean hasError() {
+		return (this.filePath == "");
+	}
+	
+	@Override
+	public String getMessageError() {
+		if (this.filePath == "")
+			return "Empty filepath !";
+		return super.getMessageError();
+	}
 }
