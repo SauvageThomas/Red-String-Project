@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.entities.ImageColorFinder;
 import model.entities.Keyword;
+import model.entities.QTILKernel;
 import model.entities.SearchEngine;
 
 public class QTILSearchEngine extends SearchEngine {
@@ -53,16 +55,12 @@ public class QTILSearchEngine extends SearchEngine {
 
 	@Override
 	public List<String> searchByColor(int r, int g, int b) {
-		List<String> results = new ArrayList<>();
-		//TODO: 
-		return results;
+		return ImageColorFinder.searchImageColor(r, g, b);
 	}
 
 	@Override
 	public List<String> searchByShadeOfGrey(int shadeOfGrey) {
-		List<String> results = new ArrayList<>();
-		//TODO: 
-		return results;
+		return ImageColorFinder.searchByShadeOfGrey(shadeOfGrey);
 	}
 
 	@Override

@@ -51,7 +51,6 @@ public class QTILSoftware {
 		for (String key : this.engines.keySet()){
 			List<String> results = this.engines.get(key).searchByKeywords(keywordsParameter.getKeywords());
 			request.setFlag(Integer.valueOf(results.get(0)));
-			System.out.println("FLAG : " + Integer.valueOf(results.get(0)));
 			for (int i = 1; i < results.size(); i++){
 				Result result = new Result(results.get(i), results.size() - i);
 				request.addResult(result);
@@ -65,6 +64,7 @@ public class QTILSoftware {
 		Request request = new Request(colorParameter);
 		for (String key : this.engines.keySet()){
 			List<String> results = this.engines.get(key).searchByShadeOfGrey(gray);
+			request.setFlag(results.size());
 			for (int i = 0; i < results.size(); i++){
 				Result result = new Result(results.get(i), results.size() - i);
 				request.addResult(result);
@@ -78,6 +78,7 @@ public class QTILSoftware {
 		Request request = new Request(colorParameter);
 		for (String key : this.engines.keySet()){
 			List<String> results = this.engines.get(key).searchByColor(red, green, blue);
+			request.setFlag(results.size());
 			for (int i = 0; i < results.size(); i++){
 				Result result = new Result(results.get(i), results.size() - i);
 				request.addResult(result);

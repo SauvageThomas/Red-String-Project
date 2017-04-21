@@ -16,18 +16,16 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.tools.Configuration;
-
 public class ImageColorFinder {
 	
-	public static int errorMargin = 10;
-	public static String nameFile = "index_image";
+	public static int errorMargin = 20;
+	public static String nameFile = "../assets/engines/QTIL/descriptors/image_index";
 
 	
 	public static List<String> searchImageColor(int red, int green, int blue) {
-		Configuration config = Configuration.INSTANCE;
-		String path = config.getDescriptorPath();
-		File file = new File(path + nameFile);
+		//Configuration config = Configuration.INSTANCE;
+		//String path = config.getDescriptorPath();
+		File file = new File(nameFile);
 		List<String> result = new ArrayList<String>();
 		try {
 			InputStream ips=new FileInputStream(file); 
@@ -36,7 +34,6 @@ public class ImageColorFinder {
 			String nameFile;
 			String value;
 			while ((nameFile=br.readLine())!=null){
-				br.readLine();
 				value = br.readLine();
 				br.readLine();
 				if ( value.length() <= 4)
@@ -54,7 +51,8 @@ public class ImageColorFinder {
 					test = (blueTmp >= blue - errorMargin && blueTmp <= blue + errorMargin  );
 				if(test)
 					result.add(nameFile);
-			}
+				
+				}
 			br.close(); 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -64,9 +62,9 @@ public class ImageColorFinder {
 
 	
 	public static List<String> searchByShadeOfGrey(int color) {
-		Configuration config = Configuration.INSTANCE;
-		String path = config.getDescriptorPath();
-		File file = new File(path + nameFile);
+		/*Configuration config = Configuration.INSTANCE;
+		String path = config.getDescriptorPath();*/
+		File file = new File(nameFile);
 		List<String> result = new ArrayList<String>();
 		try {
 			InputStream ips=new FileInputStream(file); 
@@ -75,7 +73,6 @@ public class ImageColorFinder {
 			String nameFile;
 			String value;
 			while ((nameFile=br.readLine())!=null){
-				br.readLine();
 				value = br.readLine();
 				br.readLine();
 				if ( value.length() >= 4)

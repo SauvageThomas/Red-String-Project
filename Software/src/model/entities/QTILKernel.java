@@ -1,4 +1,4 @@
-package model.entities.qtil;
+package model.entities;
 
 import java.io.IOException;
 import java.util.ArrayList;
