@@ -18,33 +18,6 @@ public class CheckDataBase extends Thread {
 		this.run = run;
 	}
 
-	private void fillFiles() {
-		this.files.clear();
-		for(String name : this.directory.list()){
-			this.files.put(name, new File(this.directory.getPath() + "/" + name).lastModified());
-		}
-	}
-
-	private boolean hasDataBaseChanged(){
-		String[] dataFiles = this.directory.list();
-		if (this.files.size() != dataFiles.length)
-			return true;
-		for(String name : dataFiles){
-			if (!this.files.containsKey(name))
-				return true;
-			long date = new File(this.directory.getPath() + "/" + name).lastModified();
-			if (this.files.get(name) != date)
-				return true;
-		}
-		return false;
-	}
-
-	private void setDataBaseLocation(String path) throws IOException {
-		this.directory = new File(path);
-		if (!this.directory.exists())
-			throw new IOException("DATABASE location not found : " + path);
-	}
-
 	@Override
 	public void run() {
 		do {
@@ -60,6 +33,35 @@ public class CheckDataBase extends Thread {
 			}
 		} while (this.run);
 	}
+	
+	private boolean hasDataBaseChanged(){
+		String[] dataFiles = this.directory.list();
+		if (this.files.size() != dataFiles.length)
+			return true;
+		for(String name : dataFiles){
+			if (!this.files.containsKey(name))
+				return true;
+			long date = new File(this.directory.getPath() + "/" + name).lastModified();
+			if (this.files.get(name) != date)
+				return true;
+		}
+		return false;
+	}
+	
+	private void fillFiles() {
+		this.files.clear();
+		for(String name : this.directory.list()){
+			this.files.put(name, new File(this.directory.getPath() + "/" + name).lastModified());
+		}
+	}
+
+	public void setDataBaseLocation(String path) throws IOException {
+		File directory = new File(path);
+		if (!this.directory.exists())
+			throw new IOException("DATABASE location not found : " + path);
+		this.directory = directory;
+		
+	}
 
 	public void setModeOpen(boolean mode){
 		this.run = mode;
@@ -71,5 +73,12 @@ public class CheckDataBase extends Thread {
 
 	public boolean getMode() {
 		return this.run;
+	}
+
+	public File getFileFromDataBase(String filePath) throws IOException {
+		String path = this.directory.getPath() + "/" + filePath;
+		if(!this.files.containsKey(path))
+			throw new IOException("File not found : " + path);
+		return new File(path);
 	}
 }

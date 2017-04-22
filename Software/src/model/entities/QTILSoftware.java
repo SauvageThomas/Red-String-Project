@@ -1,5 +1,6 @@
 package model.entities;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -25,14 +26,22 @@ public class QTILSoftware {
 		}
 	}
 	
-	public void addEngine(String name, SearchEngine engine){
-		this.engines.put(name, engine);
-	}
-
 	public static QTILSoftware getSoftware() {
 		if (software == null)
 			software = new QTILSoftware();
 		return software;
+	}
+	
+	public void changeDataBaseLocation(String path) throws IOException{
+		this.dataBaseManagement.changeDataBaseLocation(path);
+	}
+	
+	public File getFileFromDataBase(String filePath) throws IOException{
+		return this.dataBaseManagement.getFileFromDataBase(filePath);
+	}
+
+	public void addEngine(String name, SearchEngine engine){
+		this.engines.put(name, engine);
 	}
 
 	public Map<String, SearchEngine> getEngines() {

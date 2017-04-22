@@ -10,8 +10,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.entities.ColorParameter;
-
 public class History implements Serializable {
 
 	private static final long serialVersionUID = -71436115086375235L;

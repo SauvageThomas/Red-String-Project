@@ -1,5 +1,6 @@
 package model.entities;
 
+import java.io.File;
 import java.io.IOException;
 
 public class DataBaseManagement {
@@ -29,5 +30,13 @@ public class DataBaseManagement {
 	
 	private void stopCheckDataBase(){
 		this.checkDataBase.setModeOpen(false);
+	}
+	
+	public void changeDataBaseLocation(String path) throws IOException{
+		this.checkDataBase.setDataBaseLocation(path);
+	}
+
+	public File getFileFromDataBase(String filePath) throws IOException{
+		return this.checkDataBase.getFileFromDataBase(filePath);
 	}
 }

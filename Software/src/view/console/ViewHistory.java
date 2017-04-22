@@ -1,6 +1,7 @@
 package view.console;
 
 import java.util.List;
+import java.util.Scanner;
 
 import controller.ControllerHistory;
 import model.entities.history.Request;
@@ -9,9 +10,11 @@ import model.entities.history.Result;
 public class ViewHistory extends ViewMenu {
 
 	private ControllerHistory controllerHistory;
+	private Scanner sc;
 
 	public ViewHistory(ControllerHistory controllerHistory) {
 		this.controllerHistory = controllerHistory;
+		this.sc = new Scanner(System.in);
 	}
 
 	@Override
@@ -53,7 +56,11 @@ public class ViewHistory extends ViewMenu {
 			}
 		}
 		System.out.println("|                                                |");
+		System.out.println("|------------------------------------------------|");
+		System.out.println("|  1  -  PRESS ANY KEY                           |");
 		System.out.println("==================================================");
+		System.out.println("\n>> ");
+		this.sc.nextLine();
 	}
 
 }
