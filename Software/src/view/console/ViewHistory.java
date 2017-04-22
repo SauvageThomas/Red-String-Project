@@ -4,6 +4,7 @@ import java.util.List;
 
 import controller.ControllerHistory;
 import model.entities.history.Request;
+import model.entities.history.Result;
 
 public class ViewHistory extends ViewMenu {
 
@@ -31,7 +32,28 @@ public class ViewHistory extends ViewMenu {
 
 	@Override
 	public void applyChoice(int choice) {
-		System.out.println(this.controllerHistory.getSavedRequests().get(choice-1));
+		Request request = this.controllerHistory.getSavedRequests().get(choice-1);
+		this.showRequest(request);
+	}
+
+	private void showRequest(Request request) {
+		System.out.println("==================================================");
+		System.out.println("|     *    *    *     REQUEST     *    *    *    |");
+		System.out.println("|  SEARCH PARAMETER : " + request.getSearchParameter());
+		System.out.println("|------------------------------------------------|");
+		System.out.println("|     *    *    *      RESULT     *    *    *    |");
+		System.out.println("|                                                |");
+		if (request.hasError()){
+			System.out.println("|  " + request.getMessageError());
+		}
+		else{
+			List<Result> results = request.getResults();
+			for (int i = 0; i < results.size(); i++){
+				System.out.println("|   [" + (i+1) + "]  " + results.get(i).toString());
+			}
+		}
+		System.out.println("|                                                |");
+		System.out.println("==================================================");
 	}
 
 }

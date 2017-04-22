@@ -5,6 +5,7 @@
  Description : Find image thanks to a color
  ============================================================================
  */
+
 package model.entities;
 
 import java.io.BufferedReader;
@@ -20,7 +21,6 @@ public class ImageColorFinder {
 	
 	public static int errorMargin = 20;
 	public static String nameFile = "../assets/engines/QTIL/descriptors/image_index";
-
 	
 	public static List<String> searchImageColor(int red, int green, int blue) {
 		//Configuration config = Configuration.INSTANCE;

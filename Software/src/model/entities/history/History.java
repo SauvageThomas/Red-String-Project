@@ -69,14 +69,4 @@ public class History implements Serializable {
 			e.printStackTrace();
 		}
 	}
-
-	public static void main(String[] args) {
-		History h = History.getInstance();
-		Request r = new Request(new ColorParameter(100, 120, 130));
-		r.addResult(new Result("Image1.png", 300));
-		r.addResult(new Result("Image2.png", 600));
-		r.addResult(new Result("Image3.png", -100));
-		r.addResult(new Result("Image1.png", 400));
-		h.addRequest(r);
-	}
 }
