@@ -74,26 +74,29 @@ char** search_data(char* file_path) {
 			// we need to compare every window until one of the two files doesn't have one anymore
 			if(file_type == SOUND){
 				int counter = 0;
-				int k;
+				int k = 0;
 				float test = 0.0, moy = 0.0, moy2 = 0.0;
 				for (int j = 0; j<descriptor.p_size && j<desc[i].p_size; j++ ){
 					moy = compare_sound_descriptors(&descriptor.p[j], &desc[i].p[j]);
 					test = compare_sound_descriptors(&descriptor.p[0], &desc[i].p[j]);
 
-					if (test == 100) {
+					if (test >= 70) {
 						int verif = 1;
-						for (k = 0; k<descriptor.p_size && verif; k++) {
-							moy2 = compare_sound_descriptors(&descriptor.p[k], &desc[i].p[k]);
-							if ( moy2 != 100) verif = 0;
-
-						}
-						if (k >= descriptor.p_size){
-							counter++;
+						if (k >= descriptor.p_size || k>2)
+							k--;
+						else{
+							for (k = 0; k < descriptor.p_size && verif; k++) {
+								moy2 = compare_sound_descriptors(&descriptor.p[k], &desc[i].p[j+k]);
+								if ( moy2 <= 70) verif = 0;
+							}
+							if (k >= descriptor.p_size){
+								counter++;
+							}
 						}
 					}
 					common2 = common2 + moy;
 				}
-			 	if ( descriptor.p_size<desc[i].p_size){
+			 /*	if ( descriptor.p_size<desc[i].p_size){
 					int counter2 = 0;
 					for (;k<desc[i].p_size; k++){
 						float	moy2 = compare_sound_descriptors(&descriptor.p[counter2], &desc[i].p[k]);
@@ -107,10 +110,14 @@ char** search_data(char* file_path) {
 							}
 						}
 					}
-				}
+				}*/
 				// common2 /= descriptor.p_size;
 				// else common2 /= desc[i].p_size;
+				int trans[1];
+				sprintf (trans, "%d", counter);
+				strcat(desc[i].file_name,	trans);
 				common= (int)common2;
+
 			}
 			else
 				common = compare_descriptors(descriptor, desc[i]);
@@ -119,6 +126,7 @@ char** search_data(char* file_path) {
 		}
 
 	}
+	i-=1;
 	int max = 5;
 	if (i < max) {
 		max = i;
@@ -182,7 +190,7 @@ char** search_by_keywords(char** keywords) {
 	/*
 	Allow the user to search a file using a keyword
 	*/
-	
+
 	char* path = get_data_from_config("descriptors");
 	char* file_path = malloc(KSIZE * 2);
 	strcpy(file_path, path);
@@ -235,6 +243,6 @@ char** search_by_keywords(char** keywords) {
 	if (!found) {
 		sprintf(results[0], "%d", -1);
 	}
-	
+
 	return results;
 }
