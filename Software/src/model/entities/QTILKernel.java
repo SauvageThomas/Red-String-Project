@@ -1,10 +1,7 @@
 package model.entities;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import model.tools.NativeUtils;
 
 public class QTILKernel {
 
@@ -21,12 +18,15 @@ public class QTILKernel {
 			System.loadLibrary("qtil");
 		}
 		catch(UnsatisfiedLinkError e){
+			/*
 			try {
 				NativeUtils.loadLibraryFromJar("/home/twarz/git/Red-String-Project/assets/engines/QTIL/libqtil.so");
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+			*/
+			System.out.println("Java Native Interface is Unsatisfied !");
 		}
 	}
 
