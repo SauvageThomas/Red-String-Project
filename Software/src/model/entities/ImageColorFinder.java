@@ -49,8 +49,11 @@ public class ImageColorFinder {
 					test = (greenTmp >= green - errorMargin && greenTmp <= green + errorMargin  );
 				if(test)
 					test = (blueTmp >= blue - errorMargin && blueTmp <= blue + errorMargin  );
-				if(test)
+				if(test){
+					nameFile = nameFile.substring(0, nameFile.length()-3);
+					nameFile = nameFile +"jpg";
 					result.add(nameFile);
+				}
 				
 				}
 			br.close(); 
@@ -82,8 +85,11 @@ public class ImageColorFinder {
 				value = value.trim();
 				int colorTmp = Integer.valueOf(value);
 				boolean test = (colorTmp >= color - errorMargin && colorTmp <= color + errorMargin  );
-				if(test)
+				if(test){
+					nameFile = nameFile.substring(0, nameFile.length()-3);
+					nameFile = nameFile +"jpg";
 					result.add(nameFile);
+				}
 			}
 			br.close(); 
 		} catch (IOException e) {
