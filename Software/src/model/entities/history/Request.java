@@ -20,9 +20,9 @@ public class Request implements Serializable{
 		this.results = new ArrayList<Result>();
 		this.flag = 0;
 	}
-
-	public String getSearchParameter() {
-		return this.searchParameter.getString();
+	
+	public SearchParameter getSearchParameter(){
+		return this.searchParameter;
 	}
 
 	public void addResult(Result result){

@@ -42,7 +42,7 @@ public class ViewHistory extends ViewMenu {
 	private void showRequest(Request request) {
 		System.out.println("==================================================");
 		System.out.println("|     *    *    *     REQUEST     *    *    *    |");
-		System.out.println("|  SEARCH PARAMETER : " + request.getSearchParameter());
+		System.out.println("|  SEARCH PARAMETER : " + request.getSearchParameter().getString());
 		System.out.println("|------------------------------------------------|");
 		System.out.println("|     *    *    *      RESULT     *    *    *    |");
 		System.out.println("|                                                |");

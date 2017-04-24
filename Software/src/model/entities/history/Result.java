@@ -18,6 +18,10 @@ public class Result implements Comparable<Result>, Serializable{
 		this.score += value;
 	}
 	
+	public String getFilePath() {
+		return this.filePath;
+	}
+
 	public int getScore() {
 		return this.score;
 	}

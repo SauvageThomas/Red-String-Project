@@ -56,7 +56,7 @@ public class ViewSearchMenu extends ViewMenu{
 	private void showRequestResult(Request requestResult, Scanner sc) {
 		System.out.println("==================================================");
 		System.out.println("|     *    *    *     REQUEST     *    *    *    |");
-		System.out.println("|  SEARCH PARAMETER : " + requestResult.getSearchParameter());
+		System.out.println("|  SEARCH PARAMETER : " + requestResult.getSearchParameter().getString());
 		System.out.println("|------------------------------------------------|");
 		System.out.println("|     *    *    *      RESULT     *    *    *    |");
 		System.out.println("|                                                |");
