@@ -1,4 +1,4 @@
->data/FICHIER_PROJET/05-Musique_électronique___l_élan_collectif.xml
+>../data/FICHIER_PROJET/05-Musique_électronique___l_élan_collectif.xml
 
 sacd 8
 pour 7
@@ -231,7 +231,7 @@ siclier 1
 sylvain 1
 2005 1
 
->data/FICHIER_PROJET/12-Musiques_du_monde___les.xml
+>../data/FICHIER_PROJET/12-Musiques_du_monde___les.xml
 
 raman 10
 susheela 10
@@ -508,7 +508,7 @@ labesse 1
 patrick 1
 2005 1
 
->data/FICHIER_PROJET/28-_Œdipe_à_Colone_,_la_rage.xml
+>../data/FICHIER_PROJET/28-_Œdipe_à_Colone_,_la_rage.xml
 
 �dipe 14
 colone 9
@@ -808,7 +808,7 @@ pratiques 1
 informations 1
 2005 1
 
->data/FICHIER_PROJET/05-Rock___l_Illinois_magique_de.xml
+>../data/FICHIER_PROJET/05-Rock___l_Illinois_magique_de.xml
 
 plus 7
 stevens 5
@@ -1118,7 +1118,7 @@ davet 1
 stephane 1
 2005 1
 
->data/FICHIER_PROJET/17-La_voix_envoûtante_de_Girija.xml
+>../data/FICHIER_PROJET/17-La_voix_envoûtante_de_Girija.xml
 
 devi 9
 girija 9
@@ -1428,7 +1428,7 @@ mortaigne 1
 veronique 1
 2005 1
 
->data/FICHIER_PROJET/10-Le_cyclone_Katrina_complique_le.xml
+>../data/FICHIER_PROJET/10-Le_cyclone_Katrina_complique_le.xml
 
 dans 7
 nasa 6
@@ -1745,7 +1745,7 @@ fenoglio 1
 jerome 1
 2005 1
 
->data/FICHIER_PROJET/18-Battue_par_la_Slovénie,_l_équipe.xml
+>../data/FICHIER_PROJET/18-Battue_par_la_Slovénie,_l_équipe.xml
 
 france 8
 pour 7
@@ -1966,7 +1966,7 @@ equipiers 1
 condamnee 1
 reuters 1
 
->data/FICHIER_PROJET/12-Agassi_plie_face_au_meilleur.xml
+>../data/FICHIER_PROJET/12-Agassi_plie_face_au_meilleur.xml
 
 federer 11
 roger 10
@@ -2300,7 +2300,7 @@ plie 1
 cordon 1
 adeline 1
 
->data/FICHIER_PROJET/13-Les_accidents_vasculaires_cérébraux,_à.xml
+>../data/FICHIER_PROJET/13-Les_accidents_vasculaires_cérébraux,_à.xml
 
 sont 9
 dans 9
@@ -2710,7 +2710,7 @@ lisez 1
 benkimoun 1
 paul 1
 
->data/FICHIER_PROJET/14-Grippe_aviaire___l_OMS_exhorte.xml
+>../data/FICHIER_PROJET/14-Grippe_aviaire___l_OMS_exhorte.xml
 
 pays 8
 grippe 7
@@ -2912,7 +2912,7 @@ yves 1
 jean 1
 2005 1
 
->data/FICHIER_PROJET/21-La_France_se_réveille_pour.xml
+>../data/FICHIER_PROJET/21-La_France_se_réveille_pour.xml
 
 pour 8
 champions 6
@@ -3146,7 +3146,7 @@ friconnet 1
 fabien 1
 2005 1
 
->data/FICHIER_PROJET/12-Jean-Marie_Sevestre,_libraire_et_PDG.xml
+>../data/FICHIER_PROJET/12-Jean-Marie_Sevestre,_libraire_et_PDG.xml
 
 marie 11
 avec 10
@@ -3592,7 +3592,7 @@ passionne 1
 bedarida 1
 catherine 1
 
->data/FICHIER_PROJET/05-Le_théâtre_de_texte_confronté.xml
+>../data/FICHIER_PROJET/05-Le_théâtre_de_texte_confronté.xml
 
 theatre 33
 dans 19
@@ -4103,7 +4103,7 @@ recueillis 1
 propos 1
 2005 1
 
->data/FICHIER_PROJET/15-Lille_s_incline_dans_les.xml
+>../data/FICHIER_PROJET/15-Lille_s_incline_dans_les.xml
 
 dans 9
 groupe 7
@@ -4392,7 +4392,7 @@ avec 1
 prevel 1
 mathieu 1
 
->data/FICHIER_PROJET/13-Ligue_des_champions____Si.xml
+>../data/FICHIER_PROJET/13-Ligue_des_champions____Si.xml
 
 nous 11
 pour 10
@@ -4701,7 +4701,7 @@ recueillis 1
 propos 1
 2005 1
 
->data/FICHIER_PROJET/05-L_apnéiste_français_Guillaume_Néry_plonge.xml
+>../data/FICHIER_PROJET/05-L_apnéiste_français_Guillaume_Néry_plonge.xml
 
 pour 13
 metres 8
@@ -5044,7 +5044,7 @@ louis 1
 jean 1
 2005 1
 
->data/FICHIER_PROJET/28-Danse___Robyn_Orlin_et.xml
+>../data/FICHIER_PROJET/28-Danse___Robyn_Orlin_et.xml
 
 nous 9
 pour 8
@@ -5330,7 +5330,7 @@ boisseau 1
 rosita 1
 2005 1
 
->data/FICHIER_PROJET/27-A_Lens,_le_Louvre_sera.xml
+>../data/FICHIER_PROJET/27-A_Lens,_le_Louvre_sera.xml
 
 lens 10
 louvre 9
@@ -5701,7 +5701,7 @@ roux 1
 emmanuel 1
 2005 1
 
->data/FICHIER_PROJET/12-Succès_sur_les_tatamis,_polémique.xml
+>../data/FICHIER_PROJET/12-Succès_sur_les_tatamis,_polémique.xml
 
 plus 7
 equipe 6
@@ -5981,7 +5981,7 @@ tatamis 1
 succes 1
 2005 1
 
->data/FICHIER_PROJET/17-De_la_difficulté_d_anticiper_les.xml
+>../data/FICHIER_PROJET/17-De_la_difficulté_d_anticiper_les.xml
 
 france 9
 prevision 9
@@ -6271,7 +6271,7 @@ anticiper 1
 morin 1
 herve 1
 
->data/FICHIER_PROJET/11-La_troposphère_paie,_au_prix.xml
+>../data/FICHIER_PROJET/11-La_troposphère_paie,_au_prix.xml
 
 pour 7
 dans 7
@@ -6537,7 +6537,7 @@ foucart 1
 stephane 1
 2005 1
 
->data/FICHIER_PROJET/09-Miracle___le_cricket_est.xml
+>../data/FICHIER_PROJET/09-Miracle___le_cricket_est.xml
 
 pour 5
 angleterre 5
@@ -6756,7 +6756,7 @@ roche 1
 marc 1
 2005 1
 
->data/FICHIER_PROJET/08-Théâtre___l_échappée_belle,_peu.xml
+>../data/FICHIER_PROJET/08-Théâtre___l_échappée_belle,_peu.xml
 
 sans 5
 comme 5
@@ -6966,7 +6966,7 @@ cournot 1
 michel 1
 2005 1
 
->data/FICHIER_PROJET/05-Jean-Christophe_Bette_a_dû_attendre.xml
+>../data/FICHIER_PROJET/05-Jean-Christophe_Bette_a_dû_attendre.xml
 
 pour 10
 christophe 6
@@ -7274,7 +7274,7 @@ attendre 1
 miquel 1
 paul 1
 
->data/FICHIER_PROJET/05-La_circoncision_pourrait_réduire_le.xml
+>../data/FICHIER_PROJET/05-La_circoncision_pourrait_réduire_le.xml
 
 pour 12
 circoncision 11
@@ -7674,7 +7674,7 @@ benkimoun 1
 paul 1
 2005 1
 
->data/FICHIER_PROJET/15-Capturer_et_emprisonner_le_CO2,.xml
+>../data/FICHIER_PROJET/15-Capturer_et_emprisonner_le_CO2,.xml
 
 dans 17
 pour 7
@@ -8076,7 +8076,7 @@ morin 1
 herve 1
 2005 1
 
->data/FICHIER_PROJET/12-Fernando_Alonso_n_est_plus_qu_à.xml
+>../data/FICHIER_PROJET/12-Fernando_Alonso_n_est_plus_qu_à.xml
 
 pour 9
 michelin 6
@@ -8334,7 +8334,7 @@ jacques 1
 jean 1
 2005 1
 
->data/FICHIER_PROJET/06-La_contamination_du_maïs_par.xml
+>../data/FICHIER_PROJET/06-La_contamination_du_maïs_par.xml
 
 dans 14
 ma�s 9
@@ -8707,7 +8707,7 @@ entre 1
 evolution 1
 2005 1
 
->data/FICHIER_PROJET/13-L_inattendue_lévitation_de_la_goutte.xml
+>../data/FICHIER_PROJET/13-L_inattendue_lévitation_de_la_goutte.xml
 
 goutte 5
 plus 4
@@ -8862,7 +8862,7 @@ morin 1
 herve 1
 2005 1
 
->data/FICHIER_PROJET/27-Le_Stade_de_France_s_ouvre.xml
+>../data/FICHIER_PROJET/27-Le_Stade_de_France_s_ouvre.xml
 
 pour 27
 stade 25
@@ -9253,7 +9253,7 @@ prevel 1
 mathieu 1
 2005 1
 
->data/FICHIER_PROJET/16-Une_sonde_japonaise_va_tenter.xml
+>../data/FICHIER_PROJET/16-Une_sonde_japonaise_va_tenter.xml
 
 dans 11
 plus 11
@@ -9717,7 +9717,7 @@ fenoglio 1
 jerome 1
 2005 1
 
->data/FICHIER_PROJET/05-Edition___les_mots_et.xml
+>../data/FICHIER_PROJET/05-Edition___les_mots_et.xml
 
 plus 7
 pour 6
@@ -9910,7 +9910,7 @@ edition 1
 mathieu 1
 benedicte 1
 
->data/FICHIER_PROJET/22-Ted_Stanger,_l_Américain_de_service.xml
+>../data/FICHIER_PROJET/22-Ted_Stanger,_l_Américain_de_service.xml
 
 france 13
 avec 12
@@ -10368,7 +10368,7 @@ journaliste 1
 abellard 1
 alain 1
 
->data/FICHIER_PROJET/26-Jazz___Manu_Katché,_haut.xml
+>../data/FICHIER_PROJET/26-Jazz___Manu_Katché,_haut.xml
 
 jazz 8
 katche 7
@@ -10540,7 +10540,7 @@ siclier 1
 sylvain 1
 2005 1
 
->data/FICHIER_PROJET/07-Un_député_UMP_lance_une.xml
+>../data/FICHIER_PROJET/07-Un_député_UMP_lance_une.xml
 
 delattre 7
 francis 7
@@ -10753,7 +10753,7 @@ aragon 1
 louis 1
 2005 1
 
->data/FICHIER_PROJET/18-L_équipe_de_France_de_tennis.xml
+>../data/FICHIER_PROJET/18-L_équipe_de_France_de_tennis.xml
 
 pour 3
 frames 2
@@ -10780,7 +10780,7 @@ france 1
 equipe 1
 2005 1
 
->data/FICHIER_PROJET/10-La_réalité_virtuelle_et_l_informatique.xml
+>../data/FICHIER_PROJET/10-La_réalité_virtuelle_et_l_informatique.xml
 
 pour 6
 virtuelle 6
@@ -11117,7 +11117,7 @@ foucart 1
 stephane 1
 2005 1
 
->data/FICHIER_PROJET/15-_Si_on_veut_aller_trop.xml
+>../data/FICHIER_PROJET/15-_Si_on_veut_aller_trop.xml
 
 nous 15
 pour 10
@@ -11426,7 +11426,7 @@ guillaume 1
 recueillis 1
 propos 1
 
->data/FICHIER_PROJET/13-Des_astronomes_détectent_l_explosion_cosmique.xml
+>../data/FICHIER_PROJET/13-Des_astronomes_détectent_l_explosion_cosmique.xml
 
 plus 8
 dans 6
@@ -11670,7 +11670,7 @@ fenoglio 1
 jerome 1
 2005 1
 
->data/FICHIER_PROJET/18-Les_22e_Journées_du_Patrimoine.xml
+>../data/FICHIER_PROJET/18-Les_22e_Journées_du_Patrimoine.xml
 
 visiteurs 5
 journees 4
@@ -11768,7 +11768,7 @@ pratiques 1
 informations 1
 2005 1
 
->data/FICHIER_PROJET/22-Sursaut_des_Monégasques_après_le.xml
+>../data/FICHIER_PROJET/22-Sursaut_des_Monégasques_après_le.xml
 
 leur 4
 dans 3
@@ -11912,7 +11912,7 @@ integralite 1
 lisez 1
 2005 1
 
->data/FICHIER_PROJET/26-Tom_Boonen_sacré_champion_du.xml
+>../data/FICHIER_PROJET/26-Tom_Boonen_sacré_champion_du.xml
 
 tour 5
 avait 5
@@ -12111,7 +12111,7 @@ sacre 1
 zilbertin 1
 olivier 1
 
->data/FICHIER_PROJET/08-L_équipe_de_France_victime_d_un.xml
+>../data/FICHIER_PROJET/08-L_équipe_de_France_victime_d_un.xml
 
 pour 7
 france 6
@@ -12253,7 +12253,7 @@ telephonique 1
 victime 1
 2005 1
 
->data/FICHIER_PROJET/22-Grippe_aviaire___la_course.xml
+>../data/FICHIER_PROJET/22-Grippe_aviaire___la_course.xml
 
 virus 12
 contre 9
@@ -12650,7 +12650,7 @@ yves 1
 jean 1
 2005 1
 
->data/FICHIER_PROJET/22-Danse___quarante_jeunes_de.xml
+>../data/FICHIER_PROJET/22-Danse___quarante_jeunes_de.xml
 
 paulo 7
 dans 6
@@ -12956,7 +12956,7 @@ rythment 1
 mortaigne 1
 veronique 1
 
->data/FICHIER_PROJET/27-Martin_Scorsese_inaugure_la_Cinémathèque.xml
+>../data/FICHIER_PROJET/27-Martin_Scorsese_inaugure_la_Cinémathèque.xml
 
 cinematheque 5
 film 4
@@ -13097,7 +13097,7 @@ inaugure 1
 mandelbaum 1
 2005 1
 
->data/FICHIER_PROJET/28-Festival___Ososphère,_un_week-end.xml
+>../data/FICHIER_PROJET/28-Festival___Ososphère,_un_week-end.xml
 
 ososphere 9
 octobre 6
@@ -13329,7 +13329,7 @@ plas 1
 odile 1
 2005 1
 
->data/FICHIER_PROJET/22-Dominique_Noël____Les_architectes.xml
+>../data/FICHIER_PROJET/22-Dominique_Noël____Les_architectes.xml
 
 architectes 14
 dans 11
@@ -13677,7 +13677,7 @@ gregoire 1
 recueillis 1
 propos 1
 
->data/FICHIER_PROJET/17-Anouk_Aimée_et_Philippe_Noiret.xml
+>../data/FICHIER_PROJET/17-Anouk_Aimée_et_Philippe_Noiret.xml
 
 plus 8
 elle 7
@@ -13882,7 +13882,7 @@ cournot 1
 michel 1
 2005 1
 
->data/FICHIER_PROJET/08-La_mission_Deep_Impact_permet.xml
+>../data/FICHIER_PROJET/08-La_mission_Deep_Impact_permet.xml
 
 comete 11
 tempel 8
@@ -14340,7 +14340,7 @@ fenoglio 1
 jerome 1
 2005 1
 
->data/FICHIER_PROJET/06-Sensibiliser_à_la_vaccination_grippale.xml
+>../data/FICHIER_PROJET/06-Sensibiliser_à_la_vaccination_grippale.xml
 
 virus 11
 personnes 11
@@ -14741,7 +14741,7 @@ nouvelle 1
 yves 1
 jean 1
 
->data/FICHIER_PROJET/15-Un_quasar_solitaire_bouleverse_les.xml
+>../data/FICHIER_PROJET/15-Un_quasar_solitaire_bouleverse_les.xml
 
 comme 9
 quasar 7
@@ -14975,7 +14975,7 @@ fenoglio 1
 jerome 1
 2005 1
 
->data/FICHIER_PROJET/15-Le_Théâtre_des_Champs-Elysées_s_offre.xml
+>../data/FICHIER_PROJET/15-Le_Théâtre_des_Champs-Elysées_s_offre.xml
 
 theatre 7
 acoustique 6
@@ -15201,7 +15201,7 @@ offre 1
 machart 1
 renaud 1
 
->data/FICHIER_PROJET/08-US_Open___Pierce_élimine.xml
+>../data/FICHIER_PROJET/08-US_Open___Pierce_élimine.xml
 
 pour 3
 finale 3
@@ -15241,7 +15241,7 @@ mary 1
 elimine 1
 2005 1
 
->data/FICHIER_PROJET/24-Canicules_et_sécheresses_menacent_de.xml
+>../data/FICHIER_PROJET/24-Canicules_et_sécheresses_menacent_de.xml
 
 dans 10
 effet 8
@@ -15600,7 +15600,7 @@ canicules 1
 pierre 1
 2005 1
 
->data/FICHIER_PROJET/26-Grippe_aviaire___une_sixième.xml
+>../data/FICHIER_PROJET/26-Grippe_aviaire___une_sixième.xml
 
 aviaire 5
 grippe 5
@@ -15741,7 +15741,7 @@ septembre 1
 confirme 1
 2005 1
 
->data/FICHIER_PROJET/22-Exposition___les_métamorphoses_picturales.xml
+>../data/FICHIER_PROJET/22-Exposition___les_métamorphoses_picturales.xml
 
 girodet 16
 dans 11
@@ -16254,7 +16254,7 @@ dagen 1
 philippe 1
 2005 1
 
->data/FICHIER_PROJET/08-Carlos_do_Carmo____Le.xml
+>../data/FICHIER_PROJET/08-Carlos_do_Carmo____Le.xml
 
 fado 28
 carmo 6
@@ -16652,7 +16652,7 @@ recueillis 1
 propos 1
 2005 1
 
->data/FICHIER_PROJET/29-Forte_réduction_de_la_calotte.xml
+>../data/FICHIER_PROJET/29-Forte_réduction_de_la_calotte.xml
 
 arctique 10
 plus 8
@@ -16821,7 +16821,7 @@ rechauffement 1
 lesquels 1
 forte 1
 
->data/FICHIER_PROJET/05-Le_Colombien_Juan_Pablo_Montoya.xml
+>../data/FICHIER_PROJET/05-Le_Colombien_Juan_Pablo_Montoya.xml
 
 pour 13
 mclaren 12
@@ -17209,7 +17209,7 @@ jacques 1
 jean 1
 2005 1
 
->data/FICHIER_PROJET/toto.xml
+>../data/FICHIER_PROJET/toto.xml
 
 dans 8
 pour 6
@@ -17442,7 +17442,7 @@ resultats 1
 analyses 1
 2005 1
 
->data/FICHIER_PROJET/26-Lyon_prend_ses_aises_en.xml
+>../data/FICHIER_PROJET/26-Lyon_prend_ses_aises_en.xml
 
 mais 6
 tete 5
@@ -17672,7 +17672,7 @@ lepidi 1
 pierre 1
 2005 1
 
->data/FICHIER_PROJET/05-Au_stade_d_Abidjan,_la_défaite.xml
+>../data/FICHIER_PROJET/05-Au_stade_d_Abidjan,_la_défaite.xml
 
 dans 6
 pour 6
@@ -17875,7 +17875,7 @@ philippe 1
 jean 1
 2005 1
 
->data/FICHIER_PROJET/05-Tours_d_honneur_pour_les_athlètes.xml
+>../data/FICHIER_PROJET/05-Tours_d_honneur_pour_les_athlètes.xml
 
 pour 10
 dans 7
@@ -18204,7 +18204,7 @@ jaxel 1
 pierre 1
 2005 1
 
->data/FICHIER_PROJET/15-La_mort_de_Robert_Wise,.xml
+>../data/FICHIER_PROJET/15-La_mort_de_Robert_Wise,.xml
 
 avec 18
 robert 15
@@ -18568,7 +18568,7 @@ sotinel 1
 thomas 1
 2005 1
 
->data/FICHIER_PROJET/29-Ligue_des_champions___Lyon.xml
+>../data/FICHIER_PROJET/29-Ligue_des_champions___Lyon.xml
 
 avoir 3
 frames 2
@@ -18605,7 +18605,7 @@ voie 1
 bonne 1
 2005 1
 
->data/FICHIER_PROJET/03-Des_chercheurs_parviennent_à_régénérer.xml
+>../data/FICHIER_PROJET/03-Des_chercheurs_parviennent_à_régénérer.xml
 
 cellules 22
 souches 10
@@ -18844,7 +18844,7 @@ yves 1
 jean 1
 2005 1
 
->data/FICHIER_PROJET/05-Prague_inaugure_les_Journées_européennes.xml
+>../data/FICHIER_PROJET/05-Prague_inaugure_les_Journées_européennes.xml
 
 patrimoine 8
 palais 6
@@ -19149,7 +19149,7 @@ inaugure 1
 plichta 1
 martin 1
 
->data/FICHIER_PROJET/22-Des_laboureurs,_des_OGM..._et.xml
+>../data/FICHIER_PROJET/22-Des_laboureurs,_des_OGM..._et.xml
 
 pour 10
 mais 7
@@ -19618,7 +19618,7 @@ entre 1
 evolution 1
 2005 1
 
->data/FICHIER_PROJET/03-Mimer_un_signal_nerveux_pour.xml
+>../data/FICHIER_PROJET/03-Mimer_un_signal_nerveux_pour.xml
 
 dans 8
 pour 6
@@ -19851,7 +19851,7 @@ resultats 1
 analyses 1
 2005 1
 
->data/FICHIER_PROJET/28-A_Hossegor,_Kelly_Slater_peut.xml
+>../data/FICHIER_PROJET/28-A_Hossegor,_Kelly_Slater_peut.xml
 
 avait 7
 etait 6
@@ -20082,7 +20082,7 @@ connan 1
 fanny 1
 2005 1
 
->data/FICHIER_PROJET/27-Voyager_1_s_aventure_dans_l_au-delà.xml
+>../data/FICHIER_PROJET/27-Voyager_1_s_aventure_dans_l_au-delà.xml
 
 plus 15
 voyager 13
@@ -20600,7 +20600,7 @@ fenoglio 1
 jerome 1
 2005 1
 
->data/FICHIER_PROJET/06-US_Open___Mauresmo_et.xml
+>../data/FICHIER_PROJET/06-US_Open___Mauresmo_et.xml
 
 pour 3
 frames 2
@@ -20623,7 +20623,7 @@ mauresmo 1
 open 1
 2005 1
 
->data/FICHIER_PROJET/21-Matières_plastiques_et_pesticides_pourraient.xml
+>../data/FICHIER_PROJET/21-Matières_plastiques_et_pesticides_pourraient.xml
 
 dans 11
 sont 9
@@ -20818,7 +20818,7 @@ foucart 1
 stephane 1
 2005 1
 
->data/FICHIER_PROJET/12-Musique_classique___un__Oberon_.xml
+>../data/FICHIER_PROJET/12-Musique_classique___un__Oberon_.xml
 
 oberon 7
 pour 4
@@ -21029,7 +21029,7 @@ aude 1
 marie 1
 2005 1
 
->data/FICHIER_PROJET/15-Danse___Preljocaj_emmène_l_Opéra.xml
+>../data/FICHIER_PROJET/15-Danse___Preljocaj_emmène_l_Opéra.xml
 
 preljocaj 5
 ballet 4
@@ -21234,7 +21234,7 @@ boisseau 1
 rosita 1
 2005 1
 
->data/FICHIER_PROJET/1.xml
+>../data/FICHIER_PROJET/1.xml
 
 pour 3
 finale 3
@@ -21274,7 +21274,7 @@ mary 1
 elimine 1
 2005 1
 
->data/FICHIER_PROJET/15-Capturer_et_emprisonner_le_CO.xml
+>../data/FICHIER_PROJET/15-Capturer_et_emprisonner_le_CO.xml
 
 dans 17
 pour 7
@@ -21676,7 +21676,7 @@ morin 1
 herve 1
 2005 1
 
->data/FICHIER_PROJET/17-Une_équipe_française_a_réussi.xml
+>../data/FICHIER_PROJET/17-Une_équipe_française_a_réussi.xml
 
 cellules 30
 souches 16
@@ -22061,7 +22061,7 @@ benkimoun 1
 paul 1
 2005 1
 
->data/FICHIER_PROJET/23-Les_Bleus,_tombeurs_de_la.xml
+>../data/FICHIER_PROJET/23-Les_Bleus,_tombeurs_de_la.xml
 
 points 6
 dans 5
@@ -22249,7 +22249,7 @@ joueront 1
 tombeurs 1
 2005 1
 
->data/FICHIER_PROJET/08-Sous_l_effet_du_réchauffement,_les.xml
+>../data/FICHIER_PROJET/08-Sous_l_effet_du_réchauffement,_les.xml
 
 dans 20
 carbone 18
@@ -22675,7 +22675,7 @@ foucart 1
 stephane 1
 2005 1
 
->data/FICHIER_PROJET/22-Les_clubs_de_football_anglais.xml
+>../data/FICHIER_PROJET/22-Les_clubs_de_football_anglais.xml
 
 saison 12
 pour 12
@@ -23013,7 +23013,7 @@ leurs 1
 voir 1
 inquietent 1
 
->data/FICHIER_PROJET/06-Les_mauvais_comptes_d_une_élimination.xml
+>../data/FICHIER_PROJET/06-Les_mauvais_comptes_d_une_élimination.xml
 
 pour 21
 france 20
@@ -23410,7 +23410,7 @@ mauvais 1
 mandard 1
 stephane 1
 
->data/FICHIER_PROJET/18-Ligue_1___Lyon_a.xml
+>../data/FICHIER_PROJET/18-Ligue_1___Lyon_a.xml
 
 frames 2
 affiche 2
@@ -23458,7 +23458,7 @@ lyon 1
 ligue 1
 2005 1
 
->data/FICHIER_PROJET/08-Pavé,_tour_ou_silo,_cinq.xml
+>../data/FICHIER_PROJET/08-Pavé,_tour_ou_silo,_cinq.xml
 
 dans 6
 paysagiste 5
@@ -23662,7 +23662,7 @@ programmation 1
 agenda 1
 2005 1
 
->data/FICHIER_PROJET/05-Photographie___Philip_Blenkinsop_a.xml
+>../data/FICHIER_PROJET/05-Photographie___Philip_Blenkinsop_a.xml
 
 pour 9
 visa 6
