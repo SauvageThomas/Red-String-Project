@@ -14,20 +14,7 @@ public class QTILKernel {
 	private native String[] search_by_keyword(String[] keywords);
 
 	private QTILKernel() {
-		try{
-			System.loadLibrary("qtil");
-		}
-		catch(UnsatisfiedLinkError e){
-			/*
-			try {
-				NativeUtils.loadLibraryFromJar("/home/twarz/git/Red-String-Project/assets/engines/QTIL/libqtil.so");
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			*/
-			System.out.println("Java Native Interface is Unsatisfied !");
-		}
+		System.loadLibrary("qtil");
 	}
 
 	public static QTILKernel getInstance(){
@@ -39,11 +26,11 @@ public class QTILKernel {
 	public List<String> searchByFile(String path){
 		List<String> results = new ArrayList<>();
 		String[] res = (String[]) search_by_file(path);
-		
+
 		for (String str : res){
 			results.add(str.replace("\n", ""));
 		}
-		
+
 		return results;
 	}
 

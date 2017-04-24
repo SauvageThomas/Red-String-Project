@@ -22,7 +22,7 @@ public class ViewMainMenu extends ViewMenu{
 	@Override
 	public void showMenuItems() {
 		System.out.println("|  1  -  SEARCH                                  |");
-		System.out.println("|  2  -  HISTORY                                 |");
+		System.out.println("|  2  -  HISTORY                                 |");  
 		if (this.controllerSoftware.isAdmin())
 			System.out.println("|  3  -  SETTINGS                                |");
 		else

@@ -1,14 +1,42 @@
 package model.entities;
 
-public class PathParameter extends SearchParameter{
+public class PathParameter extends SearchParameter {
 
 	private static final long serialVersionUID = 3508585461188370035L;
-	
+
 	private String filePath;
+	private FileType type;
 
 	public PathParameter(String filePath) {
 		super();
 		this.filePath = filePath;
+		this.type = this.setFileType();
+	}
+	
+	public FileType getType(){
+		return this.type;
+	}
+
+	private FileType setFileType() {
+		FileType type = FileType.NONE;
+		if(!this.filePath.contains("."))
+			return type;
+		String extension = this.filePath.split(".")[1];
+		switch(extension){
+		case "xml" :
+			type = FileType.TEXT;
+			break;
+		case "jpg" :
+			type = FileType.IMAGE;
+			break;
+		case "bmp" :
+			type = FileType.IMAGE;
+			break;
+		case "wav" :
+			type = FileType.TEXT;
+			break;
+		}
+		return type;
 	}
 
 	@Override
@@ -20,7 +48,7 @@ public class PathParameter extends SearchParameter{
 	public boolean hasError() {
 		return (this.filePath == "");
 	}
-	
+
 	@Override
 	public String getMessageError() {
 		if (this.filePath == "")
