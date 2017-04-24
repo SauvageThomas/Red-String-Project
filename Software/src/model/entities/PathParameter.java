@@ -12,30 +12,31 @@ public class PathParameter extends SearchParameter {
 		this.filePath = filePath;
 		this.type = this.setFileType();
 	}
-	
+
 	public FileType getType(){
 		return this.type;
 	}
 
 	private FileType setFileType() {
 		FileType type = FileType.NONE;
-		if(!this.filePath.contains("."))
-			return type;
-		String extension = this.filePath.split(".")[1];
+		String copy = new String(this.filePath);
+		String extension = copy.substring(copy.length() - 4);
+		System.out.println(extension);
 		switch(extension){
-		case "xml" :
+		case ".xml" :
 			type = FileType.TEXT;
 			break;
-		case "jpg" :
+		case ".jpg" :
 			type = FileType.IMAGE;
 			break;
-		case "bmp" :
+		case ".bmp" :
 			type = FileType.IMAGE;
 			break;
-		case "wav" :
+		case ".wav" :
 			type = FileType.TEXT;
 			break;
 		}
+		System.out.println(type);
 		return type;
 	}
 
