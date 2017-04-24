@@ -59,7 +59,9 @@ public class QTILKernel {
 		return update_sound_descriptors(force);
 	}
 
-	public String[] searchByKeyword(String[] keywords){
-		return search_by_keyword(keywords);
+	public List<String> searchByKeyword(String[] keywords){
+		List<String> results = new ArrayList<>();
+		return results;
+		//return search_by_keyword(keywords);
 	}
 }

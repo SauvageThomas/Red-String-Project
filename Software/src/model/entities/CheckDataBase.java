@@ -57,7 +57,7 @@ public class CheckDataBase extends Thread {
 
 	public void setDataBaseLocation(String path) throws IOException {
 		File directory = new File(path);
-		if (!this.directory.exists())
+		if (!directory.exists())
 			throw new IOException("DATABASE location not found : " + path);
 		this.directory = directory;
 		

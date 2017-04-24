@@ -18,7 +18,7 @@ public class Password {
 	private final int pass_key[] = { 147, 6479, 12345, 7842, 66, 177, 253, 122, 9548, 1215, 48421, 629, 314, 4784, 5102,
 			914, 213, 316, 145, 78 };
 
-	private final String passFile = "../bin/.pass";
+	private final String passFile = "../assets/private/.pass";
 	private String password;
 	private final String defaultPassword = "admin";
 

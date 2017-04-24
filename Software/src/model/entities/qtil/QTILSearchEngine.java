@@ -1,7 +1,6 @@
 package model.entities.qtil;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import model.entities.ImageColorFinder;
@@ -41,15 +40,11 @@ public class QTILSearchEngine extends SearchEngine {
 
 	@Override
 	public List<String> searchByKeywords(List<Keyword> keywords) {
-		List<String> results = new ArrayList<>();
 		String[] arrayKeywords = new String[keywords.size()];
 		for (int i = 0; i < keywords.size(); i++){
 			arrayKeywords[i] = keywords.get(i).toString();
 		}
-		String[] arrayResults = this.kernel.searchByKeyword(arrayKeywords);
-		for (String result : arrayResults){
-			results.add(result);
-		}
+		List<String> results = this.kernel.searchByKeyword(arrayKeywords);
 		return results;
 	}
 
