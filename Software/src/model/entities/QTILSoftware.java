@@ -32,6 +32,10 @@ public class QTILSoftware {
 		return software;
 	}
 	
+	public boolean isAdmin(){
+		return this.adminManagement.isAdmin();
+	}
+	
 	public void changeDataBaseLocation(String path) throws IOException{
 		this.dataBaseManagement.changeDataBaseLocation(path);
 	}

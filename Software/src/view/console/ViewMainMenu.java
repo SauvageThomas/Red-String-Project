@@ -9,20 +9,24 @@ public class ViewMainMenu extends ViewMenu{
 	private ViewHistory viewHistory;
 	private ViewSettings viewSettings;
 	private ViewLogin viewLogin;
+	private ControllerSoftware controllerSoftware;
 	
 	public ViewMainMenu(ControllerSoftware controllerSoftware, ControllerHistory controllerHistory) {
 		this.viewSearchMenu = new ViewSearchMenu(controllerSoftware, controllerHistory);
 		this.viewHistory = new ViewHistory(controllerHistory);
 		this.viewSettings = new ViewSettings(controllerSoftware);
 		this.viewLogin = new ViewLogin(controllerSoftware);
+		this.controllerSoftware = controllerSoftware;
 	}
 
 	@Override
 	public void showMenuItems() {
 		System.out.println("|  1  -  SEARCH                                  |");
 		System.out.println("|  2  -  HISTORY                                 |");
-		System.out.println("|  3  -  SETTINGS                                |");
-		System.out.println("|  4  -  LOGIN AS ADMIN                          |");
+		if (this.controllerSoftware.isAdmin())
+			System.out.println("|  3  -  SETTINGS                                |");
+		else
+			System.out.println("|  3  -  LOGIN AS ADMIN                          |");
 	}
 	
 	@Override
@@ -36,10 +40,10 @@ public class ViewMainMenu extends ViewMenu{
 			this.viewHistory.showView();
 			break;
 		case 3 :
-			this.viewSettings.showView();
-			break;
-		case 4 :
-			this.viewLogin.showView();
+			if (this.controllerSoftware.isAdmin())
+				this.viewSettings.showView();
+			else
+				this.viewLogin.showView();
 			break;
 		}
 	}

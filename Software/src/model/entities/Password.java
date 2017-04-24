@@ -58,7 +58,6 @@ public class Password {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		System.out.println(out);
 		return this.xor(out);
 
 	}
@@ -80,12 +79,5 @@ public class Password {
 
 	public boolean compare(String password) {
 		return this.password.equals(password);
-	}
-
-	public static void main(String[] args) {
-		Password password = new Password();
-		System.out.println(password.xor("admin"));
-		password.change("cgbregd");
-		System.out.println(password.password);
 	}
 }

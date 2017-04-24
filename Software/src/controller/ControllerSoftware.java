@@ -42,4 +42,8 @@ public class ControllerSoftware {
 	public boolean loginAsAdmin(String password) {
 		return this.software.loginAsAdmin(password);
 	}
+
+	public boolean isAdmin() {
+		return this.software.isAdmin();
+	}
 }
