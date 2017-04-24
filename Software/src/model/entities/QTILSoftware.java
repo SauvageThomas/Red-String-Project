@@ -64,7 +64,8 @@ public class QTILSoftware {
 		
 		for (String key : this.engines.keySet()){
 			List<String> results = this.engines.get(key).searchByKeywords(keywordsParameter.getKeywords());
-			request.setFlag(Integer.valueOf(results.get(0)));
+			if (results.size() > 0)
+				request.setFlag(Integer.valueOf(results.get(0)));
 			for (int i = 1; i < results.size(); i++){
 				Result result = new Result(results.get(i), results.size() - i);
 				request.addResult(result);
