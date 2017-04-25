@@ -11,16 +11,24 @@ import model.entities.SearchEngine;
 public class QTILSearchEngine extends SearchEngine {
 
 	private QTILKernel kernel;
+	private KeywordSearcher keywordSearcher;
 	
 	public QTILSearchEngine(QTILConfiguration settings) {
 		super(settings);
 		this.kernel = QTILKernel.getInstance();
+		this.keywordSearcher = new KeywordSearcher();
+		
+		System.out.print("TEXT  INDEXATION...");
 		int res_txt = this.indexText();
-		System.out.println("TEXT  INDEXATION : " + res_txt);
+		System.out.println("  Done ! (flag = " + res_txt + ")");
+		
+		System.out.print("IMAGE INDEXATION...");
 		int res_img = this.indexImage();
-		System.out.println("IMAGE INDEXATION : " + res_img);
+		System.out.println("  Done ! (flag = " + res_img + ")");
+		
+		System.out.print("SOUND  INDEXATION...");
 		int res_sound = this.indexAudio();
-		System.out.println("SOUND INDEXATION : " + res_sound);
+		System.out.println("  Done ! (flag = " + res_sound + ")");
 	}
 
 	@Override
@@ -40,12 +48,7 @@ public class QTILSearchEngine extends SearchEngine {
 
 	@Override
 	public List<String> searchByKeywords(List<Keyword> keywords) {
-		String[] arrayKeywords = new String[keywords.size()];
-		for (int i = 0; i < keywords.size(); i++){
-			arrayKeywords[i] = keywords.get(i).toString();
-		}
-		List<String> results = this.kernel.searchByKeyword(arrayKeywords);
-		return results;
+		return this.keywordSearcher.searchByKeyword(keywords);
 	}
 
 	@Override

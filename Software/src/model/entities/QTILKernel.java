@@ -11,7 +11,6 @@ public class QTILKernel {
 	private native int update_image_descriptors(int force);
 	private native int update_sound_descriptors(int force);
 	private native String[] search_by_file(String path);
-	private native String[] search_by_keyword(String[] keywords);
 
 	private QTILKernel() {
 		System.loadLibrary("qtil");
@@ -44,11 +43,5 @@ public class QTILKernel {
 
 	public int updateSoundDescriptors(int force){
 		return update_sound_descriptors(force);
-	}
-
-	public List<String> searchByKeyword(String[] keywords){
-		List<String> results = new ArrayList<>();
-		return results;
-		//return search_by_keyword(keywords);
 	}
 }
