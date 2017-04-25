@@ -21,7 +21,6 @@ public class PathParameter extends SearchParameter {
 		FileType type = FileType.NONE;
 		String copy = new String(this.filePath);
 		String extension = copy.substring(copy.length() - 4);
-		System.out.println(extension);
 		switch(extension){
 		case ".xml" :
 			type = FileType.TEXT;
@@ -33,10 +32,9 @@ public class PathParameter extends SearchParameter {
 			type = FileType.IMAGE;
 			break;
 		case ".wav" :
-			type = FileType.TEXT;
+			type = FileType.AUDIO;
 			break;
 		}
-		System.out.println(type);
 		return type;
 	}
 

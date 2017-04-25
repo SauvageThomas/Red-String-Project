@@ -4,8 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Observable;
 
-public class CheckDataBase extends Thread {
+public class CheckDataBase extends Observable implements Runnable {
 
 	private boolean run;
 	private File directory;
@@ -67,8 +68,8 @@ public class CheckDataBase extends Thread {
 		this.run = mode;
 	}
 	public void alertDataBaseHasChanged(){
-		//TODO : Observer to respect MVC
-		System.out.println("[WARNING] : data base has changed !");
+		this.setChanged();
+		this.notifyObservers();
 	}
 
 	public boolean getMode() {

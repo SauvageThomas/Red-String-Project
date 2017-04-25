@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Observer;
 
 import model.entities.history.Request;
 import model.entities.history.Result;
@@ -42,6 +43,10 @@ public class QTILSoftware {
 	
 	public File getFileFromDataBase(String filePath) throws IOException{
 		return this.dataBaseManagement.getFileFromDataBase(filePath);
+	}
+	
+	public void stop(){
+		this.dataBaseManagement.updateMode(false);
 	}
 
 	public void addEngine(String name, SearchEngine engine){
@@ -124,5 +129,9 @@ public class QTILSoftware {
 
 	public boolean loginAsAdmin(String password) {
 		return this.adminManagement.loginAsAdmin(password);
+	}
+
+	public void setObserver(Observer o) {
+		this.dataBaseManagement.setObserver(o);
 	}
 }

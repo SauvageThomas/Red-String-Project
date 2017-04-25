@@ -3,6 +3,7 @@ package controller;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.Observer;
 
 import model.entities.QTILSoftware;
 import model.entities.SearchEngine;
@@ -18,7 +19,7 @@ public class ControllerSoftware {
 		this.software = QTILSoftware.getSoftware();
 		this.software.addEngine("QTIL", new QTILSearchEngine(new QTILConfiguration()));
 	}
-
+	
 	public Map<String, SearchEngine> getEngines() {
 		return this.software.getEngines();
 	}
@@ -45,5 +46,13 @@ public class ControllerSoftware {
 
 	public boolean isAdmin() {
 		return this.software.isAdmin();
+	}
+
+	public void setObserver(Observer o) {
+		this.software.setObserver(o);
+	}
+	
+	public void stop(){
+		this.software.stop();
 	}
 }

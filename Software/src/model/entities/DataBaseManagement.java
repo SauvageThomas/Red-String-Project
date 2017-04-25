@@ -2,16 +2,23 @@ package model.entities;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Observer;
 
 public class DataBaseManagement {
 
-	private CheckDataBase checkDataBase; 
+	private CheckDataBase checkDataBase;
+	private Thread thread;
 	
 	public DataBaseManagement(String dataBasePath, boolean mode) throws IOException {
 		this.checkDataBase = new CheckDataBase(dataBasePath, mode);
+		this.thread = new Thread(this.checkDataBase);
 		if (mode){
 			this.runCheckDataBase();
 		}
+	}
+	
+	public void setObserver(Observer o){
+		this.checkDataBase.addObserver(o);
 	}
 	
 	public void updateMode(boolean mode){
@@ -25,7 +32,7 @@ public class DataBaseManagement {
 	
 	private void runCheckDataBase() {
 		this.checkDataBase.setModeOpen(true);
-		this.checkDataBase.start();
+		this.thread.start();
 	}
 	
 	private void stopCheckDataBase(){

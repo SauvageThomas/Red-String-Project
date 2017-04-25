@@ -10,9 +10,7 @@ public abstract class ViewMenu extends View{
 		do{
 			this.showMenu();
 			choice = this.getChoice();
-			if (choice != 0){
-				this.applyChoice(choice);
-			}
+			this.applyChoice(choice);
 		}while(choice != 0);
 	}
 	

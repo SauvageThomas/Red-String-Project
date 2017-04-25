@@ -21,7 +21,6 @@ char** search_data(char* file_path) {
 	HashMap result = NULL;
 	char** results = malloc(6 * sizeof(char*));
 	results[0] = malloc(2); //flag
-	puts(file_path);
 	if (!is_existing_file(df)) {
 		sprintf(results[0], "%d", -1);
 		return results;
@@ -61,6 +60,8 @@ char** search_data(char* file_path) {
 	else
 		desc = extract_all_descriptor(content, &size_desc);
 	int cpt = 0;
+
+	// HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEeee
 	while (strcmp(desc[cpt].file_name, file_path)) {
 		cpt += 1;
 	}
@@ -96,26 +97,10 @@ char** search_data(char* file_path) {
 					}
 					common2 = common2 + moy;
 				}
-			 /*	if ( descriptor.p_size<desc[i].p_size){
-					int counter2 = 0;
-					for (;k<desc[i].p_size; k++){
-						float	moy2 = compare_sound_descriptors(&descriptor.p[counter2], &desc[i].p[k]);
-						if (moy2 == 100){
-							while (moy2 == 100){
-								counter2++;
-								moy2 = compare_sound_descriptors(&descriptor.p[counter2], &desc[i].p[k]);
-							}
-							if (counter2 >= descriptor.p_size){
-								counter++;
-							}
-						}
-					}
-				}*/
-				// common2 /= descriptor.p_size;
-				// else common2 /= desc[i].p_size;
 				int trans[1];
+				puts("OK !!!");
 				sprintf (trans, "%d", counter);
-				strcat(desc[i].file_name,	trans);
+				strcat(desc[i].file_name, trans);
 				common= (int)common2;
 
 			}
@@ -132,6 +117,7 @@ char** search_data(char* file_path) {
 		max = i;
 	}
 	sprintf(results[0], "%d", max);
+	puts(results[0]);
 	for (int i = 1; i <= max; i += 1) {
 		char *tmp = pop_value_hash_map(&result);
 		results[i] = malloc(strlen(tmp));

@@ -29,6 +29,7 @@ int compare_descriptors(Descriptor desc1, Descriptor desc2);
 float compare_sound_descriptors( pile* desc1, pile * desc2);
 Descriptor *extract_all_descriptor(char *content, int *size_desc);
 void AFFICHE_PILE( pile *p);
+Descriptor *extract_all_descriptors(char *content, int *size_desc, enum FileType file_type);
 
 
 #endif /* DESCRIPTOR_DESCRIPTOR_GENERATOR_H_ */
