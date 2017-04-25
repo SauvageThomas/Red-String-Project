@@ -111,6 +111,8 @@ public class QTILSoftware {
 		Request request = new Request(pathParameter);
 		for (String key : this.engines.keySet()){
 			List<String> results = this.engines.get(key).searchByFile(filePath);
+			if (results.size() > 0)
+				request.setFlag(Integer.valueOf(results.get(0)));
 			request.setFlag(Integer.valueOf(results.get(0)));
 			for (int i = 1; i < results.size(); i++){
 				Result result = new Result(results.get(i), results.size() - i);

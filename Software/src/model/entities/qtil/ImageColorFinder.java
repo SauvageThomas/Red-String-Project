@@ -6,7 +6,7 @@
  ============================================================================
  */
 
-package model.entities;
+package model.entities.qtil;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -21,7 +21,7 @@ import java.util.Map;
 
 public class ImageColorFinder {
 
-	public static int errorMargin = 50;
+	public static int errorMargin = 20;
 	public static String nameFile = "../assets/engines/QTIL/descriptors/image_index";
 
 	public static List<String> searchImageColor(int red, int green, int blue) {
