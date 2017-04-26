@@ -52,6 +52,14 @@ public class ViewMainMenu extends ViewMenu implements Observer{
 			break;
 		case 0 :
 			this.controllerSoftware.stop();
+			System.out.println("QTIL SOftware is shutting down, please wait...");
+			try {
+				Thread.sleep(5000);
+				System.out.println("Good bye ! :)");
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 		}
 	}
