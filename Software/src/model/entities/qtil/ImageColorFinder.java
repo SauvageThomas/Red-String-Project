@@ -21,7 +21,7 @@ import java.util.Map;
 
 public class ImageColorFinder {
 
-	public static int errorMargin = 20;
+	public static int errorMargin = 30;
 	public static String nameFile = "../assets/engines/QTIL/descriptors/image_index";
 
 	public static List<String> searchImageColor(int red, int green, int blue) {
