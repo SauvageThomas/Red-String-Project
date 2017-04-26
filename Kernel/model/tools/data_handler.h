@@ -19,6 +19,7 @@ typedef struct etDataFile {
 } DataFile;
 
 DataFile init_data_file(char* path);
+void free_data_file(DataFile df);
 int is_existing_file(DataFile data_file);
 int is_empty_file(DataFile data_file);
 void set_data_file_length(DataFile* data_file);
@@ -29,5 +30,6 @@ void append_string_in_file(DataFile data_file, char *string);
 void purge_buffer();
 int get_secure_input(char* buffer, size_t size);
 char* strcat_path(char* path, char* file_name);
-
+char *remove_path(char *in);
+time_t chrono();
 #endif /* TOOLS_DATA_HANDLER_H_ */

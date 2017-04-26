@@ -114,8 +114,8 @@ char** search_data(char* file_path) {
 					}
 					common2 = common2 + moy;
 				}
-				int trans[1];
-				sprintf (trans, "%d", counter);
+				int trans[2];
+				sprintf (trans, " %d", counter);
 				strcat(desc[i].file_name, trans);
 				common= (int)common2;
 
