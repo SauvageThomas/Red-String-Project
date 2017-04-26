@@ -114,13 +114,12 @@ Descriptor *extract_all_descriptors(char *content, int *size_desc, enum FileType
 
 					descriptors[i].p = realloc(descriptors[i].p, sizeof(pile) * size2);
 				}
-				INIT_PILE( descriptors[i].p[j]);
+				INITIALISATION_PILE( &descriptors[i].p[j]);
 				int n;
 				while (content[cpt] != '\n') {
 					sscanf(&content[cpt], "%d", &n);
 					while (content[cpt]!= ' ') cpt++;
 					EMPILE(&descriptors[i].p[j], n);
-
 					cpt ++;
 				}
 				cpt ++;
@@ -315,7 +314,7 @@ float compare_sound_descriptors( pile* desc1, pile* desc2){// (not tested yet, w
 
 
 
-void INIT_PILE(pile* p)
+void INITIALISATION_PILE(pile *p)
 {
 	p=NULL;
 }
@@ -341,10 +340,4 @@ void EMPILE ( pile *p, int val)
 	tmp->element=val;
 	tmp->suivant=p->tete;
 	p->tete=tmp;
-}
-
-int DEPILE (pile *p)
-{
-	int val;
-	cellule * tmp=p->tete;
 }

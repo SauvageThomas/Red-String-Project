@@ -78,7 +78,6 @@ void load_data_base() {
 	DIR *dp;
 	struct dirent *ep;
 	dp = opendir(path);
-
 	if (dp != NULL) {
 		while (ep = readdir(dp)) {
 			strcpy(full_path, path);
