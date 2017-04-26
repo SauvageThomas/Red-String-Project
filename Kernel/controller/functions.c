@@ -16,7 +16,7 @@ int login(char* password){
 char** search_data(char* file_path) {
 	/*
 	Read the configuration config and search the closer result with the file file_path
-	*/
+	 */
 	DataFile df = init_data_file(file_path);
 	HashMap result = NULL;
 	char** results = malloc(6 * sizeof(char*));
@@ -61,10 +61,27 @@ char** search_data(char* file_path) {
 		desc = extract_all_descriptor(content, &size_desc);
 	int cpt = 0;
 
-	// HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEeee
-	while (strcmp(desc[cpt].file_name, file_path)) {
+
+
+
+
+	// HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+	while (cpt < size_desc && strcmp(desc[cpt].file_name, file_path)) {
+		printf("%d = %s\n", cpt, desc[cpt].file_name);
 		cpt += 1;
 	}
+
+
+	if (cpt == size_desc){
+		sprintf(results[0], "%d", -1);
+		return results;
+	}
+
+	// HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+
+
+
+
 	Descriptor descriptor = desc[cpt];
 	int i;
 
@@ -98,7 +115,6 @@ char** search_data(char* file_path) {
 					common2 = common2 + moy;
 				}
 				int trans[1];
-				puts("OK !!!");
 				sprintf (trans, "%d", counter);
 				strcat(desc[i].file_name, trans);
 				common= (int)common2;
@@ -175,7 +191,7 @@ void search_by_keywords_view(){
 char** search_by_keywords(char** keywords) {
 	/*
 	Allow the user to search a file using a keyword
-	*/
+	 */
 
 	char* path = get_data_from_config("descriptors");
 	char* file_path = malloc(KSIZE * 2);
