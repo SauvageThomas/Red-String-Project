@@ -1,7 +1,5 @@
 package model.entities;
 
-import java.util.Map;
-
 public abstract class SearchEngine implements SearchEngineInterface{
 	
 	private Settings settings;
@@ -10,8 +8,8 @@ public abstract class SearchEngine implements SearchEngineInterface{
 		this.settings = settings;
 	}
 
-	public Map<String, Setting> getSettings() {
-		return this.settings.getSettings();
+	public Settings getSettings() {
+		return this.settings;
 	}
 	
 	public void changeSetting(String key, String value){

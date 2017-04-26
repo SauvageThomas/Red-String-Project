@@ -5,9 +5,9 @@ public class AdminManagement {
 	private boolean isAdmin;
 	private Password password;
 	
-	public AdminManagement() {
+	public AdminManagement(String path) {
 		this.isAdmin = false;
-		this.password = new Password();
+		this.password = new Password(path);
 	}
 	
 	public boolean isAdmin(){

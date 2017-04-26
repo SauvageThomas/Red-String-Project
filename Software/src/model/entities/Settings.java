@@ -9,11 +9,13 @@ import java.util.Map;
 public abstract class Settings {
 	/* ATTRIBUTS */
 	
+	private String name;
 	protected Map<String, Setting> settings;
 	protected String configFilePath;
 	
 	/* CONSTRUCTORS */
-	public Settings(String configFilePath) throws IOException {
+	public Settings(String configFilePath, String name) throws IOException {
+		this.name = name;
 		this.configFilePath = configFilePath;
 		this.settings = new HashMap<String, Setting>();
 		this.fillSettings();
@@ -59,4 +61,14 @@ public abstract class Settings {
 	public Map<String, Setting> getSettings() {
 		return this.settings;
 	}
+	
+	public String getSettingValue(String name) {
+		return this.settings.get(name).getValue();
+	}
+
+	public String getName() {
+		return this.name;
+	}
+	
+	
 }

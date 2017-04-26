@@ -2,6 +2,7 @@ package model.entities;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,7 @@ import java.util.Observer;
 
 import model.entities.history.Request;
 import model.entities.history.Result;
+import model.tools.Path;
 
 public class QTILSoftware {
 
@@ -16,35 +18,41 @@ public class QTILSoftware {
 	private Map<String, SearchEngine> engines;
 	private AdminManagement adminManagement;
 	private DataBaseManagement dataBaseManagement;
+	private SoftwareSettings settings;
 
-	private QTILSoftware() {
+	private QTILSoftware() throws IOException {
 		this.engines = new HashMap<String, SearchEngine>();
-		this.adminManagement = new AdminManagement();
-		try {
-			this.dataBaseManagement = new DataBaseManagement("../data/FICHIER_PROJET/", true);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		this.settings = new SoftwareSettings(Path.SOFTWARE_SETTINGS, "Global");
+		this.adminManagement = new AdminManagement(Path.PASSWORD);
+		this.dataBaseManagement = new DataBaseManagement(this.getDataBaseLocation(), true);
 	}
-	
-	public static QTILSoftware getSoftware() {
+
+	public static QTILSoftware getSoftware() throws IOException {
 		if (software == null)
 			software = new QTILSoftware();
 		return software;
 	}
-	
+
+	public List<Settings> getAllSettings(){
+		List<Settings> res = new ArrayList<>();
+		res.add(this.settings);
+		for (String key : this.engines.keySet()){
+			res.add(this.engines.get(key).getSettings());
+		}
+		return res;
+	}
 	public boolean isAdmin(){
 		return this.adminManagement.isAdmin();
 	}
-	
+
 	public void changeDataBaseLocation(String path) throws IOException{
 		this.dataBaseManagement.changeDataBaseLocation(path);
 	}
-	
+
 	public File getFileFromDataBase(String filePath) throws IOException{
 		return this.dataBaseManagement.getFileFromDataBase(filePath);
 	}
-	
+
 	public void stop(){
 		this.dataBaseManagement.updateMode(false);
 	}
@@ -70,7 +78,7 @@ public class QTILSoftware {
 			}
 		}
 		Request request = new Request(keywordsParameter);
-		
+
 		for (String key : this.engines.keySet()){
 			List<String> results = this.engines.get(key).searchByKeywords(keywordsParameter.getKeywords());
 			if (results.size() > 0)
@@ -133,5 +141,9 @@ public class QTILSoftware {
 
 	public void setObserver(Observer o) {
 		this.dataBaseManagement.setObserver(o);
+	}
+
+	public String getDataBaseLocation() {
+		return this.settings.getSettingValue("DATA BASE");
 	}
 }

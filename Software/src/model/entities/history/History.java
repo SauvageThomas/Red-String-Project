@@ -10,11 +10,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.tools.Path;
+
 public class History implements Serializable {
 
 	private static final long serialVersionUID = -71436115086375235L;
 	private static History instance = History.load();
-	private static final String path = "../assets/private/.history";
 
 	private List<Request> requests;
 
@@ -39,7 +40,7 @@ public class History implements Serializable {
 	private static History load() {
 		FileInputStream fileIn;
 		try {
-			fileIn = new FileInputStream(History.path);
+			fileIn = new FileInputStream(Path.HISTORY);
 
 			ObjectInputStream in = new ObjectInputStream(fileIn);
 			History output = (History) in.readObject();
@@ -58,7 +59,7 @@ public class History implements Serializable {
 
 	public void save() {
 		try {
-			FileOutputStream fileOut = new FileOutputStream(History.path);
+			FileOutputStream fileOut = new FileOutputStream(Path.HISTORY);
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			out.writeObject(this);
 			out.close();

@@ -108,10 +108,8 @@ public class ViewSearchMenu extends ViewMenu{
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Please, enter your file path :");
 		System.out.println(">> ");
-		//String filePath = sc.nextLine();
-		//Request requestResult = this.controllerSoftware.searchByFile(filePath);
-		Request requestResult = this.controllerSoftware.searchByFile("/home/twarz/git/Red-String-Project/data/FICHIER_PROJET/jingle_m6.wav");
-		//Request requestResult = this.controllerSoftware.searchByFile("../data/FICHIER_PROJET/jingle_m6.wav");
+		String filePath = sc.nextLine();
+		Request requestResult = this.controllerSoftware.searchByFile(filePath);
 		this.showRequestResult(requestResult, sc);
 	}
 

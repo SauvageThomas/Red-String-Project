@@ -18,11 +18,12 @@ public class Password {
 	private final int pass_key[] = { 147, 6479, 12345, 7842, 66, 177, 253, 122, 9548, 1215, 48421, 629, 314, 4784, 5102,
 			914, 213, 316, 145, 78 };
 
-	private final String passFile = "../assets/private/.pass";
+	private final String passFile;
 	private String password;
 	private final String defaultPassword = "admin";
 
-	public Password() {
+	public Password(String path) {
+		this.passFile = path;
 		this.password = this.load();
 	}
 
@@ -51,12 +52,12 @@ public class Password {
 
 			in.close();
 		} catch (UnsupportedEncodingException e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		} catch (IOException e) {
 			this.reset();
 			out = this.password;
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 		return this.xor(out);
 
