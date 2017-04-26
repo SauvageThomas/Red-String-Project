@@ -31,12 +31,10 @@ void generate_text_descriptors(DataFile df){
 	*/
 	DataFile* text_files = get_text_files();
 	size_t nb_txt = get_nb_text();
-
 	write_string_in_file(df, ""); //Reset the file
 	for (int i = 0; i < nb_txt; i += 1) {
 		Descriptor desc = generate_text_descriptor(text_files[i]);
 		descriptor_to_file(desc, df);
-		
 	}
 }
 
