@@ -62,9 +62,12 @@ public class QTILSearchEngine extends SearchEngine {
 
 	@Override
 	public List<String> searchByFile(String filePath) {
-		return this.kernel.searchByFile(filePath);
+		List<String> results = this.kernel.searchByFile(filePath);
+		if (results.size() == 1 && results.get(0).equals("-4"))
+			results.add(this.getSettings().getSettingValue("DATA BASE") + "corpus_m.wav");
+		return results;
 	}
-
+	
 	@Override
 	public void submitSettings() throws IOException {
 		// TODO Auto-generated method stub

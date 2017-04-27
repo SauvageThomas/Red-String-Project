@@ -5,12 +5,8 @@
  */
 package view.controller;
 
-import com.jfoenix.controls.JFXScrollPane;
-
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -25,13 +21,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
-import javafx.stage.FileChooser;
 import model.entities.history.History;
 import model.entities.history.Request;
 import model.entities.history.Result;
@@ -104,11 +94,9 @@ public class ControllerTextResults extends AnchorPane{
 				Document doc = dBuilder.parse(fXmlFile);
 				this.search.getChildren().add(new ControllerTextElement(doc.getElementsByTagName("titre").item(0).getTextContent(), doc.getElementsByTagName("resume").item(0).getTextContent()));
 			} catch (ParserConfigurationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println("ERROR PASING XML");
 			} catch (SAXException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				System.out.println("ERROR PASING XML");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

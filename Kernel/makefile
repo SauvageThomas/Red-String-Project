@@ -57,7 +57,7 @@ mrproper: clean
 
 
 $(EXEC): $(R)console_IO.o $(R)menus.o $(R)functions_view.o $(R)password.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(t).o $(R)main.o $(R)functions.o $(R)config.o $(R)data_base.o  $(R)image_index_generator.o
-	$(CC)   $^ -lm -o $@ 
+	$(CC)   $^ -lm -o $@
 
 
 #####################
@@ -67,7 +67,7 @@ $(EXEC): $(R)console_IO.o $(R)menus.o $(R)functions_view.o $(R)password.o $(R)$(
 $(R)$(gen).o : $(DESC)$(gen).c $(DESC)$(gen).h
 	$(CC) $(CFLAGS)
 
-$(R)$(tgen).o : $(DESC)$(tgen).c $(DESC)$(tgen).h $(DESC)$(gen).h 
+$(R)$(tgen).o : $(DESC)$(tgen).c $(DESC)$(tgen).h $(DESC)$(gen).h
 	$(CC) $(CFLAGS)
 
 $(R)$(imgen).o : $(DESC)$(imgen).c $(DESC)$(imgen).h $(DESC)$(gen).h
@@ -77,7 +77,7 @@ $(R)$(sgen).o : $(DESC)$(sgen).c $(DESC)$(sgen).h $(DESC)$(gen).h
 	$(CC) $(CFLAGS)
 
 $(R)$(igen).o : $(DESC)$(igen).c $(DESC)$(igen).h
-	$(CC) $(CFLAGS) 
+	$(CC) $(CFLAGS)
 
 #ligne à revoir !
 $(R)image_index_generator.o : $(DESC)/image_index_generator.c $(DESC)/image_index_generator.h
@@ -160,12 +160,9 @@ $(R)main.o : $(V)main.c $(TEST)$(t).h $(TEST)minunit.h $(DATA)constant.h
 
 $(R)functions.o : $(C)functions.c $(C)functions.h $(DATA)constant.h $(TOOL)$(dh).h $(SEARCH)$(dm).h $(SEARCH)$(tf).h $(SEARCH)$(if).h $(SEARCH)$(sf).h
 	$(CC) $(CFLAGS)
-	
+
 $(R)functions_wrapper.o : $(C)functions_wrapper.c
 	$(CC) $(CFLAGS)
-	
+
 output/libqtil.so : $(R)functions_wrapper.o $(R)password.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(t).o $(R)functions.o $(R)config.o $(R)data_base.o $(R)image_index_generator.o
 	$(CC) -shared -o output/libqtil.so $^
-	cp output/libqtil.so ../assets/engines/QTIL/
-	
-	

@@ -20,6 +20,8 @@ public class PathParameter extends SearchParameter {
 	private FileType setFileType() {
 		FileType type = FileType.NONE;
 		String copy = new String(this.filePath);
+		if (copy.isEmpty())
+			return type;
 		String extension = copy.substring(copy.length() - 4);
 		switch(extension){
 		case ".xml" :

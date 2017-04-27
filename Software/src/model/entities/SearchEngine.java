@@ -15,4 +15,8 @@ public abstract class SearchEngine implements SearchEngineInterface{
 	public void changeSetting(String key, String value){
 		this.settings.changeSetting(key, value);
 	}
+
+	public void changeDataBaseLocation(String path){
+		this.getSettings().changeDataBaseLocation(path);
+	}
 }

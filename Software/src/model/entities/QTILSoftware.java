@@ -47,6 +47,7 @@ public class QTILSoftware {
 
 	public void changeDataBaseLocation(String path) throws IOException{
 		this.dataBaseManagement.changeDataBaseLocation(path);
+		this.engines.get("QTIL").changeDataBaseLocation(path);
 	}
 
 	public File getFileFromDataBase(String filePath) throws IOException{
@@ -145,5 +146,12 @@ public class QTILSoftware {
 
 	public String getDataBaseLocation() {
 		return this.settings.getSettingValue("DATA BASE");
+	}
+
+	public void changeSetting(String key, String value) throws IOException {
+		if (key.equals("DATA BASE"))
+			this.changeDataBaseLocation(value);
+		this.settings.changeSetting(key, value);
+		
 	}
 }

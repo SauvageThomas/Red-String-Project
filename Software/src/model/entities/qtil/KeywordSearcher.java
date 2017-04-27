@@ -51,14 +51,6 @@ public class KeywordSearcher {
 							String[] values = value.split(" ");
 							int score = Integer.valueOf(values[1]);
 
-							// Extract the file
-							String[] tmp = values[0].split("/");
-							values[0] = tmp[tmp.length - 1];
-
-							// Remove the extension
-							tmp = values[0].split("\\.");
-							values[0] = tmp[0];
-
 							// If negative substract 10 to the total
 							if (!keyword.isPositive()) {
 								score = -score * 2;
@@ -78,8 +70,7 @@ public class KeywordSearcher {
 			br.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-		;
+		}		;
 		// Add every key with a score > 0 in order to sort it later
 		List<String> sortedResults = new ArrayList<>();
 		for (Entry<String, Integer> entry : results.entrySet()) {
@@ -98,10 +89,6 @@ public class KeywordSearcher {
 				}
 			}
 		}
-		/*
-		for (String c : sortedResults) {
-			System.out.println(c + " | " + results.get(c));
-		}*/
 
 		length = sortedResults.size();
 		sortedResults.add(0, String.valueOf(length));

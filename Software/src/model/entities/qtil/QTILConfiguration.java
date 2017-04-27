@@ -17,14 +17,20 @@ public class QTILConfiguration extends Settings{
 	public QTILConfiguration(String dataPath) throws IOException {
 		super(Path.QTIL_SETTINGS, "QTIL");
 		this.DATA_BASE_PATH = dataPath;
+		this.fillSettings();
 	}
 
+	@Override
+	public void changeDataBaseLocation(String path){
+		this.DATA_BASE_PATH = path;
+	}
+	
 	@Override
 	public void fillSettings() throws IOException {
 		FileReader fr = new FileReader(new File(this.configFilePath));
 		BufferedReader br = new BufferedReader(fr);
 		String line = br.readLine();
-		//this.addSetting("DATA BASE", new PathSetting(this.extractSettingValue(line, "path")));
+		this.addSetting("DATA BASE", new PathSetting(this.DATA_BASE_PATH));
 		line = br.readLine();
 		this.addSetting("DESCRIPTORS", new PathSetting(this.extractSettingValue(line, "descriptors")));
 		line = br.readLine();

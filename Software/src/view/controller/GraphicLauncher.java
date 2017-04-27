@@ -5,9 +5,6 @@
  */
 package view.controller;
 
-import java.util.Collection;
-import java.util.List;
-
 import javax.swing.event.EventListenerList;
 
 import javafx.application.Application;

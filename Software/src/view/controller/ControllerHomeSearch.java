@@ -5,18 +5,15 @@
  */
 package view.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXColorPicker;
 import com.jfoenix.controls.JFXRadioButton;
 
 import controller.ControllerSoftware;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -28,10 +25,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import model.entities.PathParameter;
 import model.entities.history.Request;
@@ -177,6 +172,7 @@ public class ControllerHomeSearch extends VBox {
 							/*ControllerAudioResults fileAudioResults = new ControllerAudioResults(fileRequest.getResults());
 							fileAudioResults.setPrefSize(3840, 2160);
 	                        search.searchWindow.getChildren().addAll(fileAudioResults);*/
+							System.out.println(fileRequest.getResults().get(0).getFilePath());
 	                        break;
 						default:
 							ControllerImageResults noResults = new ControllerImageResults(new ArrayList<Result>());
