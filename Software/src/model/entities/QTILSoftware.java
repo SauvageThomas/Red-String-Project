@@ -152,6 +152,12 @@ public class QTILSoftware {
 		if (key.equals("DATA BASE"))
 			this.changeDataBaseLocation(value);
 		this.settings.changeSetting(key, value);
-		
+	}
+	
+	public void submitSettings() throws IOException{
+		this.settings.submitSettings();
+		for (String name : this.engines.keySet()){
+			this.engines.get(name).submitSettings();
+		}
 	}
 }

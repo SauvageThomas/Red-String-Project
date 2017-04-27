@@ -17,7 +17,9 @@ public class ControllerSoftware {
 	
 	public ControllerSoftware() throws IOException {
 		this.software = QTILSoftware.getSoftware();
-		this.software.addEngine("QTIL", new QTILSearchEngine(new QTILConfiguration(this.software.getDataBaseLocation())));
+		QTILConfiguration config = new QTILConfiguration(this.software.getDataBaseLocation());
+		this.software.addEngine("QTIL", new QTILSearchEngine(config));
+		//this.software.addEngine("QTIL2", new QTILSearchEngine(config));
 	}
 	
 	public List<Settings> getAllSettings() {
