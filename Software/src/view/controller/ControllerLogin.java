@@ -45,6 +45,7 @@ public class ControllerLogin extends AnchorPane{
 					stage.close();
 					controllerSideManu.login.setText("Connecté");
 					controllerSideManu.login.setDisable(true);
+					controllerSideManu.settings.setDisable(false);
 				} else {
 					passwdField.clear();
 					passwdField.setPromptText("Wrong password");

@@ -5,6 +5,9 @@
  */
 package view.controller;
 
+import java.util.Collection;
+import java.util.List;
+
 import javax.swing.event.EventListenerList;
 
 import javafx.application.Application;
@@ -13,9 +16,6 @@ import javafx.beans.Observable;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
 /**
@@ -54,7 +54,6 @@ public class GraphicLauncher extends Application {
         stage.show();
         stage.setWidth(800);
         stage.setHeight(600);
-        
         
         scene.widthProperty().addListener(new InvalidationListener(){
 			@Override
