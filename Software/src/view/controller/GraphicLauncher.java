@@ -45,7 +45,9 @@ public class GraphicLauncher extends Application {
     public void start(Stage stage) throws Exception {
         final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLBase.fxml"));
         ControllerSoftware controllerSoftware = new ControllerSoftware();
-        fxmlLoader.setController(new ControllerBase(controllerSoftware));
+        ControllerBase baseController = new ControllerBase(controllerSoftware);
+        controllerSoftware.setObserver(baseController);
+        fxmlLoader.setController(baseController);
         final Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);

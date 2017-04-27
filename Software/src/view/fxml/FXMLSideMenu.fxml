@@ -29,6 +29,5 @@
             <Font size="16.0" />
          </font>
       </JFXButton>
-      <JFXTextField alignment="TOP_LEFT" maxWidth="-Infinity" prefHeight="0.0" />
    </children>
 </fx:root>

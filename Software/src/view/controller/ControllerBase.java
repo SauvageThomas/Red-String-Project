@@ -7,6 +7,8 @@ package view.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,22 +21,31 @@ import com.jfoenix.transitions.hamburger.HamburgerBasicCloseTransition;
 
 import controller.ControllerHistory;
 import controller.ControllerSoftware;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import model.entities.CheckDataBase;
 
 /**
  *
  * @author mathieu
  */
-public class ControllerBase implements Initializable, TabListener {
+public class ControllerBase implements Initializable, TabListener, Observer {
 
     @FXML
     private JFXHamburger ham;
@@ -127,6 +138,9 @@ public class ControllerBase implements Initializable, TabListener {
 			    GraphicSearch newSearch = new GraphicSearch(group, controllerSoftware);
 			    newSearch.searchTab.setTabListener(ControllerBase.this);
 			    group.addSearch(newSearch);
+			    if (drawer.isShown()) {
+		            drawer.close();
+		        }
 			}
 		});
 		
@@ -143,6 +157,9 @@ public class ControllerBase implements Initializable, TabListener {
 						search.searchWindow.getChildren().clear();
 						search.searchWindow.getChildren().add(new ControllerHomeSearch(search, controllerSoftware));
 						search.searchTab.setTabText("New Tab");
+						if (drawer.isShown()) {
+				            drawer.close();
+				        }
 					}
 				}
 		    }
@@ -154,6 +171,18 @@ public class ControllerBase implements Initializable, TabListener {
 		    	for (GraphicSearch search : group.searchList) {
 					if (search.active && search.currentRequest != null && search.currentRequest.getResults().size() != 0) {
 						controllerHistory.saveRequest(search.currentRequest);
+						
+						Stage newStage = new Stage();
+						newStage.setTitle("Warning");
+						BorderPane s = new BorderPane();
+						s.setPrefSize(200, 50);
+						Text text = new Text("Tab saved.");
+						text.setFont(Font.font ("Helvetica", 20));
+				        text.setFill(Color.web("#00BAB5"));
+						s.setCenter(text);
+						Scene newScene = new Scene((Parent) s);
+						newStage.setScene(newScene);
+						newStage.show();
 					}
 				}
 		    }
@@ -176,5 +205,27 @@ public class ControllerBase implements Initializable, TabListener {
             group.getSearchList().get(0).setActive(true);
         }
     }
+
+	@Override
+	public void update(Observable o, Object arg) {
+		if (o instanceof CheckDataBase){
+			Platform.runLater(new Runnable(){
+				@Override
+				public void run() {
+					Stage newStage = new Stage();
+					newStage.setTitle("Warning");
+					BorderPane s = new BorderPane();
+					s.setPrefSize(200, 50);
+					Text text = new Text("Warning : Database changed.");
+					text.setFont(Font.font ("Helvetica", 20));
+			        text.setFill(Color.web("#00BAB5"));
+					s.setCenter(text);
+					Scene newScene = new Scene((Parent) s);
+					newStage.setScene(newScene);
+					newStage.show();
+				}
+				});
+		}
+	}
 
 }
