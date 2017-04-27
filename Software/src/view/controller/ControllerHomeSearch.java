@@ -73,7 +73,7 @@ public class ControllerHomeSearch extends VBox {
         fxmlLoader.setController(this);
 
         final FileChooser fileChooser = new FileChooser();
-        //fileChooser.setInitialDirectory(new File("file:../data/FICHIER_PROJET/")); 
+        //fileChooser.setInitialDirectory(new File(controllerSoftware.getAllSettings().get(0).getSettingValue("DATABASE"))); 
 
         try {
             fxmlLoader.load();
@@ -164,18 +164,18 @@ public class ControllerHomeSearch extends VBox {
 	                        search.searchWindow.getChildren().addAll(fileTextResults);
 							break;
 						case IMAGE:
-							ControllerImageResults fileImageResults = new ControllerImageResults(fileRequest.getResults());
+							ControllerImageResults fileImageResults = new ControllerImageResults(fileRequest.getResults(), false);
 							fileImageResults.setPrefSize(3840, 2160);
 	                        search.searchWindow.getChildren().addAll(fileImageResults);
 	                        break;
 						case AUDIO:
-							/*ControllerAudioResults fileAudioResults = new ControllerAudioResults(fileRequest.getResults());
+							ControllerImageResults fileAudioResults = new ControllerImageResults(fileRequest.getResults(), true);
 							fileAudioResults.setPrefSize(3840, 2160);
-	                        search.searchWindow.getChildren().addAll(fileAudioResults);*/
+	                        search.searchWindow.getChildren().addAll(fileAudioResults);
 							System.out.println(fileRequest.getResults().get(0).getFilePath());
 	                        break;
 						default:
-							ControllerImageResults noResults = new ControllerImageResults(new ArrayList<Result>());
+							ControllerImageResults noResults = new ControllerImageResults(new ArrayList<Result>(), false);
 							noResults.setPrefSize(3840, 2160);
 	                        search.searchWindow.getChildren().addAll(noResults);
 							break;
@@ -195,7 +195,7 @@ public class ControllerHomeSearch extends VBox {
                     	search.currentRequest = colorRequest;
                     	
                     	search.searchWindow.getChildren().clear();
-                    	ControllerImageResults colorResults = new ControllerImageResults(colorRequest.getResults());
+                    	ControllerImageResults colorResults = new ControllerImageResults(colorRequest.getResults(), false);
                     	colorResults.setPrefSize(3840, 2160);
                         search.searchWindow.getChildren().addAll(colorResults);
                         break;

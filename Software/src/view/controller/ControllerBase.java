@@ -183,6 +183,13 @@ public class ControllerBase implements Initializable, TabListener, Observer {
 						Scene newScene = new Scene((Parent) s);
 						newStage.setScene(newScene);
 						newStage.show();
+						/*try {
+							Thread.sleep(1000);
+							newStage.close();
+						} catch (InterruptedException e2) {
+							// TODO Auto-generated catch block
+							e2.printStackTrace();
+						}*/
 					}
 				}
 		    }
@@ -223,6 +230,13 @@ public class ControllerBase implements Initializable, TabListener, Observer {
 					Scene newScene = new Scene((Parent) s);
 					newStage.setScene(newScene);
 					newStage.show();
+					/*try {
+						Thread.sleep(1000);
+						newStage.close();
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}*/
 				}
 				});
 		}

@@ -27,7 +27,7 @@ public class ControllerImageResults extends AnchorPane{
     @FXML
     private VBox search;
 
-    public ControllerImageResults(List<Result> results) {
+    public ControllerImageResults(List<Result> results, boolean audioTest) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "/view/fxml/FXMLImageResults.fxml"));
         fxmlLoader.setRoot(this);
@@ -49,7 +49,7 @@ public class ControllerImageResults extends AnchorPane{
 		}
         
         for (Result result : results) {
-            search.getChildren().add(new ControllerImageElement(result.getFilePath()));
+            search.getChildren().add(new ControllerImageElement(result.getFilePath(), audioTest));
         }
     }
 }

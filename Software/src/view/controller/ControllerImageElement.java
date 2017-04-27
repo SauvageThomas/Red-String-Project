@@ -28,7 +28,7 @@ public class ControllerImageElement extends AnchorPane{
     @FXML
     private HBox imageElement;
 
-    public ControllerImageElement(String url) {
+    public ControllerImageElement(String url, boolean audioTest) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "/view/fxml/FXMLImageElement.fxml"));
         fxmlLoader.setRoot(this);
@@ -58,10 +58,12 @@ public class ControllerImageElement extends AnchorPane{
         titleDisplay.setFill(Color.web("#00BAB5"));
         imageInfos.getChildren().add(titleDisplay);
         
-        Text contentDisplay = new Text("Taille de l'image : " + (int) test.getImage().getWidth() + "x" + (int) test.getImage().getHeight());
-        contentDisplay.setFont(Font.font ("Helvetica", 20));
-        contentDisplay.setFill(Color.DARKGRAY);
-        imageInfos.getChildren().add(contentDisplay);
+        if (!audioTest) {
+        	Text contentDisplay = new Text("Taille de l'image : " + (int) test.getImage().getWidth() + "x" + (int) test.getImage().getHeight());
+            contentDisplay.setFont(Font.font ("Helvetica", 20));
+            contentDisplay.setFill(Color.DARKGRAY);
+            imageInfos.getChildren().add(contentDisplay);
+		}
         
         imageInfos.setPadding(new Insets(0,0,0,10));
         imageElement.getChildren().add(imageInfos);
