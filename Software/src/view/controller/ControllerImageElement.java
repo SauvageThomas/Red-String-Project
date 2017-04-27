@@ -50,7 +50,7 @@ public class ControllerImageElement extends AnchorPane{
         test.setSmooth(true);
         test.setCache(true);
         
-        //MediaView test2 = new MediaView(new MediaPlayer(new Media("file:../assets/sounds/epic.wav")));
+        //MediaView test2 = new MediaView(new MediaPlayer(new Media("file:../data/epic.wav")));
         
         imageElement.getChildren().add(test);
         

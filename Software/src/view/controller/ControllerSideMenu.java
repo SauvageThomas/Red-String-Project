@@ -44,6 +44,8 @@ public class ControllerSideMenu extends VBox{
 		
         final ControllerSideMenu memory = this;
         
+        settings.setDisable(true);
+        
 		login.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {

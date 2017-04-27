@@ -30,6 +30,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import model.entities.PathParameter;
@@ -83,7 +84,11 @@ public class ControllerHomeSearch extends VBox {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-
+        
+        for (int i = 0; i <= 255; i+=5) {
+        	colorPicker.getCustomColors().add(Color.grayRgb(i));
+		}
+        
         textFieldSearch.setVisible(true);
         colorPicker.setVisible(false);
         browse.setVisible(false);
@@ -181,8 +186,15 @@ public class ControllerHomeSearch extends VBox {
                         break;
                     case "color":
                     	search.searchTab.setTabText("#".concat(colorPicker.getValue().toString().toUpperCase().substring(2, colorPicker.getValue().toString().length()-2)));
-                    	
-                    	Request colorRequest = controllerSoftware.searchByColor((int) (colorPicker.getValue().getRed()*255), (int) (colorPicker.getValue().getGreen()*255), (int) (colorPicker.getValue().getBlue()*255));
+                    	Request colorRequest;
+                    	int redValue = (int) (colorPicker.getValue().getRed()*255);
+                    	int greenValue = (int) (colorPicker.getValue().getGreen()*255);
+                    	int blueValue = (int) (colorPicker.getValue().getBlue()*255);
+                    	if (redValue == greenValue && greenValue == blueValue) {
+                    		colorRequest = controllerSoftware.searchByShadeOfGray(redValue);
+						} else {
+							colorRequest = controllerSoftware.searchByColor(redValue, greenValue, blueValue);
+						}
                     	search.currentRequest = colorRequest;
                     	
                     	search.searchWindow.getChildren().clear();
