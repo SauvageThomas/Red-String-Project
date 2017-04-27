@@ -171,6 +171,7 @@ public class ControllerHomeSearch extends VBox {
 							/*ControllerAudioResults fileAudioResults = new ControllerAudioResults(fileRequest.getResults());
 							fileAudioResults.setPrefSize(3840, 2160);
 	                        search.searchWindow.getChildren().addAll(fileAudioResults);*/
+							System.out.println(fileRequest.getResults().get(0).getFilePath());
 	                        break;
 						default:
 							ControllerImageResults noResults = new ControllerImageResults(new ArrayList<Result>());

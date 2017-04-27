@@ -42,8 +42,11 @@ char** search_data(char* file_path) {
 		strcat(full_path, "image_descriptors");
 		break;
 	case SOUND:
-		strcat(full_path, "sound_descriptors");
-		break;
+		// TODO : Activate Sound
+		//strcat(full_path, "sound_descriptors");
+		sprintf(results[0], "%d", -4);
+		return results;
+		//break;
 
 	default:
 		sprintf(results[0], "%d", -3);

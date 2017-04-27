@@ -18,7 +18,6 @@ public abstract class Settings {
 		this.name = name;
 		this.configFilePath = configFilePath;
 		this.settings = new HashMap<String, Setting>();
-		this.fillSettings();
 	}
 	
 	/* METHODS */

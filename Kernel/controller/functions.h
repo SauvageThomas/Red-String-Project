@@ -15,6 +15,7 @@
 #include <errno.h>
 
 #include "../model/tools/data_handler.h"
+#include "../model/tools/hash_map.h"
 #include "../model/data/password.h"
 #include "../model/data/constant.h"
 #include "../model/data/config.h"

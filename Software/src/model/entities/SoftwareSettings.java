@@ -9,6 +9,7 @@ public class SoftwareSettings extends Settings {
 
 	public SoftwareSettings(String path, String name) throws IOException {
 		super(path, name);
+		this.fillSettings();
 	}
 
 	@Override
