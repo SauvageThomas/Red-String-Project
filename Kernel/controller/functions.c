@@ -61,24 +61,9 @@ char** search_data(char* file_path) {
 		desc = extract_all_descriptor(content, &size_desc);
 	int cpt = 0;
 
-
-
-
-
-	// HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 	while (cpt < size_desc && strcmp(desc[cpt].file_name, file_path)) {
-		printf("%d = %s\n", cpt, desc[cpt].file_name);
 		cpt += 1;
 	}
-
-
-	if (cpt == size_desc){
-		sprintf(results[0], "%d", -1);
-		return results;
-	}
-
-	// HEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-
 
 
 
@@ -133,7 +118,6 @@ char** search_data(char* file_path) {
 		max = i;
 	}
 	sprintf(results[0], "%d", max);
-	puts(results[0]);
 	for (int i = 1; i <= max; i += 1) {
 		char *tmp = pop_value_hash_map(&result);
 		results[i] = malloc(strlen(tmp));

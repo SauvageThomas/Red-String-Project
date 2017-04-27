@@ -64,7 +64,7 @@ public class QTILSearchEngine extends SearchEngine {
 	public List<String> searchByFile(String filePath) {
 		return this.kernel.searchByFile(filePath);
 	}
-
+	
 	@Override
 	public void submitSettings() throws IOException {
 		// TODO Auto-generated method stub

@@ -30,8 +30,14 @@ public class SoftwareSettings extends Settings {
 	
 	@Override
 	public String getConfigText() {
-		// TODO Auto-generated method stub
-		return null;
+		String res = "path " + this.getSettingValue("DATA BASE");
+		res += "\nmode " + this.getSettingValue("MODE");
+		return res;
+	}
+
+	@Override
+	public void changeDataBaseLocation(String path) {
+		this.changeSetting("DATA BASE", path);
 	}
 
 }

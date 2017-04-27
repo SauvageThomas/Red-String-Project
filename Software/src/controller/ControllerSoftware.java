@@ -55,4 +55,8 @@ public class ControllerSoftware {
 	public void stop(){
 		this.software.stop();
 	}
+	
+	public void changeSetting(String key, String value) throws IOException{
+		this.software.changeSetting(key, value);
+	}
 }

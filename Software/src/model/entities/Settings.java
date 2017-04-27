@@ -69,6 +69,8 @@ public abstract class Settings {
 	public String getName() {
 		return this.name;
 	}
+
+	public abstract void changeDataBaseLocation(String path);
 	
 	
 }

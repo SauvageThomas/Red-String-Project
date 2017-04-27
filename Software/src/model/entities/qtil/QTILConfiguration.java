@@ -20,6 +20,11 @@ public class QTILConfiguration extends Settings{
 	}
 
 	@Override
+	public void changeDataBaseLocation(String path){
+		this.DATA_BASE_PATH = path;
+	}
+	
+	@Override
 	public void fillSettings() throws IOException {
 		FileReader fr = new FileReader(new File(this.configFilePath));
 		BufferedReader br = new BufferedReader(fr);
