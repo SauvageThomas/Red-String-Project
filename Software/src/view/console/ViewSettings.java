@@ -1,10 +1,7 @@
 package view.console;
 
-import java.util.Map;
-
 import controller.ControllerSoftware;
-import model.entities.SearchEngine;
-import model.entities.Setting;
+import model.entities.Settings;
 
 public class ViewSettings extends View{
 
@@ -16,13 +13,11 @@ public class ViewSettings extends View{
 	
 	@Override
 	public void showView() {
-		Map<String, SearchEngine> engines = this.controllerSoftware.getEngines();
-		for(String engineName : engines.keySet()){
+		for(Settings settings : this.controllerSoftware.getAllSettings()){
 			System.out.println("\n--------------------------------------------------");
-			System.out.println(engineName + " settings :");
-			Map<String, Setting> settings = engines.get(engineName).getSettings();
-			for (String settingName : settings.keySet()){
-				System.out.println("  -> " + settingName + " = " + settings.get(settingName).getValue());
+			System.out.println(settings.getName() + " settings :");
+			for (String settingName : settings.getSettings().keySet()){
+				System.out.println("  -> " + settingName + " = " + settings.getSettings().get(settingName).getValue());
 			}
 		}
 		System.out.println("\n\n");

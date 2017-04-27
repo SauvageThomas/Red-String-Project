@@ -109,7 +109,7 @@ char* open_image_txt(char* image_file_path){
 	file = fopen(text_path, "r");
 	if (file != NULL){
 		char* result = (char*) malloc(strlen(text_path) + 3 + sizeof(char)*14);
-   		sprintf(result, ">%s\n\n%s", text_path, calculate_index(file));
+   		sprintf(result, ">%s\n%s", text_path, calculate_index(file));
 		//printf("%s",result);
 		return result;
 	}else	
@@ -122,9 +122,6 @@ void update_index_image(char *_path, char *index_path) {
 	 * CREATE OR UPDATE THE INDEX FILE IMAGE
 	 */
 
-	puts("Debut de l'update image index\n\n");
-
-	printf("Nombre d'image dans le répertoire : %d\n",get_nb_image());
 	int nb = 0;
 	char* result = "";
 	char* tmp = "";
@@ -137,13 +134,9 @@ void update_index_image(char *_path, char *index_path) {
 		nb += 1;
 	}
 	
-	FILE* fileIndex = fopen(index_path, "w+");
+	DataFile df = init_data_file(index_path);
+	write_string_in_file(df, result);
 
-	if (fileIndex != NULL) {
-			fputs(result, fileIndex);
-	}
-	
-	puts("INDEX FILE IMAGE UPDATED.");
 }
 
 

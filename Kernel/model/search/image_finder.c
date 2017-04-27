@@ -5,8 +5,8 @@ void find_image(char *quantif, DataFile df) {
 	 Quantify a file df with the quantification quantif
 	 */
 	size_t n = (size_t) strtol(quantif, (char **) NULL, 10);
-	size_t size;
-	int *quant_array = quantify_file(n, df, size);
+	size_t * size = 0;
+	size_t *quant_array = quantify_file(n, df, size);
 }
 
 size_t *quantify_file(size_t n, DataFile df, size_t *size) {

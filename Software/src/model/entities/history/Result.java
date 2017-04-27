@@ -10,7 +10,7 @@ public class Result implements Comparable<Result>, Serializable{
 	private int score;
 	
 	public Result(String filePath, int score) {
-		this.filePath = filePath;
+		this.filePath = filePath.split(" ")[0];
 		this.score = score;
 	}
 
@@ -18,6 +18,10 @@ public class Result implements Comparable<Result>, Serializable{
 		this.score += value;
 	}
 	
+	public String getFilePath() {
+		return this.filePath;
+	}
+
 	public int getScore() {
 		return this.score;
 	}

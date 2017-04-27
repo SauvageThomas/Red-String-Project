@@ -15,6 +15,8 @@
 #include <errno.h>
 
 #include "../model/tools/data_handler.h"
+#include "../model/tools/hash_map.h"
+#include "../model/data/password.h"
 #include "../model/data/constant.h"
 #include "../model/data/config.h"
 #include "../model/search/data_manager.h"
@@ -25,8 +27,9 @@
 #include "../model/descriptor/image_descriptor_generator.h"
 #include "../model/descriptor/sound_descriptor_generator.h"
 #include "../model/descriptor/descriptor_generator.h"
+#include "../view/console_IO.h"
 
-
+int login(char* password);
 char** search_data(char* file_path);
 char** search_by_keywords(char** keywords);
 int update_text_descriptor(int force);

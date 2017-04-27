@@ -20,7 +20,7 @@
 #include "../data/constant.h"
 #include "../data/data_base.h"
 #include "../tools/map_of_map.h"
-
+#include "../tools/hash_map.h"
 
 int check_descriptor(DataFile df, DataFile *data_files, size_t size);
 void descriptor_to_file(Descriptor descriptor, DataFile df);
@@ -29,6 +29,8 @@ int compare_descriptors(Descriptor desc1, Descriptor desc2);
 float compare_sound_descriptors( pile* desc1, pile * desc2);
 Descriptor *extract_all_descriptor(char *content, int *size_desc);
 void AFFICHE_PILE( pile *p);
-
+Descriptor *extract_all_descriptors(char *content, int *size_desc, enum FileType file_type);
+void INITIALISATION_PILE(pile *p);
+void EMPILE ( pile *p, int val);
 
 #endif /* DESCRIPTOR_DESCRIPTOR_GENERATOR_H_ */

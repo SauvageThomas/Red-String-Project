@@ -2,13 +2,13 @@ package model.entities;
 
 import java.io.Serializable;
 
-public class Keyword implements Comparable<Keyword>, Serializable{
+public class Keyword implements Comparable<Keyword>, Serializable {
 
 	private static final long serialVersionUID = -6627808384967036984L;
-	
+
 	private String word;
 	private boolean isPositive;
-	
+
 	public Keyword(String word, boolean isPositive) {
 		this.word = word;
 		this.isPositive = isPositive;
@@ -17,13 +17,23 @@ public class Keyword implements Comparable<Keyword>, Serializable{
 	public String getWord() {
 		return this.word;
 	}
-	
-	public boolean isPositive(){
+
+	public boolean isPositive() {
 		return this.isPositive;
 	}
 
 	@Override
+	public String toString() {
+		if (this.isPositive)
+			return "+" + this.word;
+		return "-" + this.word;
+	}
+
+	@Override
 	public boolean equals(Object obj) {
+		//System.out.println(word + " | " +obj);
+		if (obj instanceof String && this.word.equals(obj.toString()))
+			return true;
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -47,8 +57,7 @@ public class Keyword implements Comparable<Keyword>, Serializable{
 			return -1;
 		if (!this.isPositive && o.isPositive)
 			return 1;
-		return this.word.compareTo(o.word);			
+		return this.word.compareTo(o.word);
 	}
 
-	
 }

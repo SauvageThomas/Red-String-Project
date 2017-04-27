@@ -1,33 +1,42 @@
 package view.console;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import controller.ControllerHistory;
 import controller.ControllerSoftware;
+import model.entities.CheckDataBase;
 
-public class ViewMainMenu extends ViewMenu{
-	
+public class ViewMainMenu extends ViewMenu implements Observer{
+
 	private ViewSearchMenu viewSearchMenu;
 	private ViewHistory viewHistory;
 	private ViewSettings viewSettings;
 	private ViewLogin viewLogin;
-	
+	private ControllerSoftware controllerSoftware;
+
 	public ViewMainMenu(ControllerSoftware controllerSoftware, ControllerHistory controllerHistory) {
 		this.viewSearchMenu = new ViewSearchMenu(controllerSoftware, controllerHistory);
 		this.viewHistory = new ViewHistory(controllerHistory);
 		this.viewSettings = new ViewSettings(controllerSoftware);
 		this.viewLogin = new ViewLogin(controllerSoftware);
+		this.controllerSoftware = controllerSoftware;
+		this.controllerSoftware.setObserver(this);
 	}
 
 	@Override
 	public void showMenuItems() {
 		System.out.println("|  1  -  SEARCH                                  |");
-		System.out.println("|  2  -  HISTORY                                 |");
-		System.out.println("|  3  -  SETTINGS                                |");
-		System.out.println("|  4  -  LOGIN AS ADMIN                          |");
+		System.out.println("|  2  -  HISTORY                                 |");  
+		if (this.controllerSoftware.isAdmin())
+			System.out.println("|  3  -  SETTINGS                                |");
+		else
+			System.out.println("|  3  -  LOGIN AS ADMIN                          |");
 	}
-	
+
 	@Override
 	public void applyChoice(int choice){
-		
+
 		switch (choice){
 		case 1 :
 			this.viewSearchMenu.showView();
@@ -36,11 +45,28 @@ public class ViewMainMenu extends ViewMenu{
 			this.viewHistory.showView();
 			break;
 		case 3 :
-			this.viewSettings.showView();
+			if (this.controllerSoftware.isAdmin())
+				this.viewSettings.showView();
+			else
+				this.viewLogin.showView();
 			break;
-		case 4 :
-			this.viewLogin.showView();
+		case 0 :
+			this.controllerSoftware.stop();
+			System.out.println("QTIL SOftware is shutting down, please wait...");
+			try {
+				Thread.sleep(5000);
+				System.out.println("Good bye ! :)");
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 		}
+	}
+
+	@Override
+	public void update(Observable from, Object obj) {
+		if (from instanceof CheckDataBase)
+			System.out.println("[WARNING] : data base has changed !");
 	}
 }

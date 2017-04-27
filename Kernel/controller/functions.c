@@ -16,22 +16,19 @@ int login(char* password){
 char** search_data(char* file_path) {
 	/*
 	Read the configuration config and search the closer result with the file file_path
-	*/
+	 */
 	DataFile df = init_data_file(file_path);
 	HashMap result = NULL;
 	char** results = malloc(6 * sizeof(char*));
 	results[0] = malloc(2); //flag
-
 	if (!is_existing_file(df)) {
 		sprintf(results[0], "%d", -1);
 		return results;
 	}
-
 	if (is_empty_file(df)) {
 		sprintf(results[0], "%d", -2);
 		return results;
 	}
-
 	enum FileType file_type = get_data_file_extension(df.path);
 
 	char full_path[KSIZE * 2];
@@ -45,8 +42,11 @@ char** search_data(char* file_path) {
 		strcat(full_path, "image_descriptors");
 		break;
 	case SOUND:
-		strcat(full_path, "sound_descriptors");
-		break;
+		// TODO : Activate Sound
+		//strcat(full_path, "sound_descriptors");
+		sprintf(results[0], "%d", -4);
+		return results;
+		//break;
 
 	default:
 		sprintf(results[0], "%d", -3);
@@ -63,10 +63,13 @@ char** search_data(char* file_path) {
 	else
 		desc = extract_all_descriptor(content, &size_desc);
 	int cpt = 0;
-	while (strcmp(desc[cpt].file_name, file_path)) {
+
+	while (cpt < size_desc && strcmp(desc[cpt].file_name, file_path)) {
 		cpt += 1;
 	}
-	puts("\n\nSame file type scores :\n");
+
+
+
 	Descriptor descriptor = desc[cpt];
 	int i;
 
@@ -77,14 +80,19 @@ char** search_data(char* file_path) {
 			// we need to compare every window until one of the two files doesn't have one anymore
 			if(file_type == SOUND){
 				int counter = 0;
-				int k;
+				int k = 0;
 				float test = 0.0, moy = 0.0, moy2 = 0.0;
 				for (int j = 0; j<descriptor.p_size && j<desc[i].p_size; j++ ){
 					moy = compare_sound_descriptors(&descriptor.p[j], &desc[i].p[j]);
 					test = compare_sound_descriptors(&descriptor.p[0], &desc[i].p[j]);
 
+<<<<<<< HEAD
 					if (test >= 80) {
+=======
+					if (test >= 70) {
+>>>>>>> refs/heads/dev
 						int verif = 1;
+<<<<<<< HEAD
 						for (k = 0; k<descriptor.p_size && verif; k++) {
 							moy2 = compare_sound_descriptors(&descriptor.p[k], &desc[i].p[j+k]);
 							if ( moy2 <= 80) verif = 0;
@@ -104,16 +112,27 @@ char** search_data(char* file_path) {
 							while (moy2 == 100){
 								counter2++;
 								moy2 = compare_sound_descriptors(&descriptor.p[counter2], &desc[i].p[k]);
+=======
+						if (k >= descriptor.p_size || k>2)
+							k--;
+						else{
+							for (k = 0; k < descriptor.p_size && verif; k++) {
+								moy2 = compare_sound_descriptors(&descriptor.p[k], &desc[i].p[j+k]);
+								if ( moy2 <= 70) verif = 0;
+>>>>>>> refs/heads/dev
 							}
-							if (counter2 >= descriptor.p_size){
+							if (k >= descriptor.p_size){
 								counter++;
 							}
 						}
 					}
+					common2 = common2 + moy;
 				}
-				// common2 /= descriptor.p_size;
-				// else common2 /= desc[i].p_size;
+				int trans[2];
+				sprintf (trans, " %d", counter);
+				strcat(desc[i].file_name, trans);
 				common= (int)common2;
+
 			}
 			else
 				common = compare_descriptors(descriptor, desc[i]);
@@ -121,6 +140,7 @@ char** search_data(char* file_path) {
 			add_nb_value_hash_map(&result, desc[i].file_name, common);
 		}
 	}
+	i-=1;
 	int max = 5;
 	if (i < max) {
 		max = i;
@@ -134,46 +154,6 @@ char** search_data(char* file_path) {
 	}
 	return results;
 }
-		/*
-		if (i==0){
-
-			char c = tmp[0];
-
-			int count = 0;
-			char *file = malloc(strlen(tmp));
-
-			file[0] = '\0';
-			while(c != ' '){
-				c = tmp[count];
-				strncat(file, &c, 1);
-
-				count += 1;
-			}
-			//printf("\nBEST RESULT : %s\n\n", file);
-			display_rank(file, 1);
-			char* cmd = malloc(KSIZE);
-			sprintf(cmd, "%s%s%s", "xdg-open ", file, " &");
-			printf("\n>> open the best result with : %s\n", cmd);
-			system(cmd);
-		}
-
-		//Change the content of the string
-		char *final_string;
-		switch (file_type) {
-		case TEXT:
-			final_string = pretty_print_string(tmp);
-			break;
-		case IMAGE:
-			final_string = pretty_print_image(tmp);
-			break;
-		case SOUND:
-			final_string = pretty_print_sound(tmp);
-			break;
-		}
-		display_rank(final_string, i+1);
-		//printf("\n* RANK [%d] : %s", (i+1), final_string);
-	*/
-
 
 int update_text_descriptor(int force){
 	return check_text_descriptor(force);
@@ -224,7 +204,7 @@ void search_by_keywords_view(){
 char** search_by_keywords(char** keywords) {
 	/*
 	Allow the user to search a file using a keyword
-	*/
+	 */
 
 	char* path = get_data_from_config("descriptors");
 	char* file_path = malloc(KSIZE * 2);

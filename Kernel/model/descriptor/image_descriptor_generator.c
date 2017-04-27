@@ -44,9 +44,16 @@ int check_image_descriptor(int force) {
 	*/
 	char* path = get_data_from_config("descriptors");
 	char* full_path = strcat_path(path, "image_descriptors");
+	char* index_path = strcat_path(path, "image_index");
 	DataFile df = init_data_file(full_path);
+	DataFile idx = init_data_file(index_path);
 	if (DEBUG || force || check_descriptor(df, get_image_files(), get_nb_image())) {
 		generate_image_descriptors(df);
+		update_index_image(path, index_path);
+		return 2;
+	}
+	if (!is_existing_file(idx)){
+		update_index_image(path, index_path);
 		return 1;
 	}
 	return 0;

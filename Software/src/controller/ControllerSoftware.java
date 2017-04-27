@@ -2,13 +2,14 @@ package controller;
 
 
 import java.io.IOException;
-import java.util.Map;
+import java.util.List;
+import java.util.Observer;
 
-import model.entities.QTILConfiguration;
-import model.entities.QTILSearchEngine;
 import model.entities.QTILSoftware;
-import model.entities.SearchEngine;
+import model.entities.Settings;
 import model.entities.history.Request;
+import model.entities.qtil.QTILConfiguration;
+import model.entities.qtil.QTILSearchEngine;
 
 public class ControllerSoftware {
 
@@ -16,11 +17,11 @@ public class ControllerSoftware {
 	
 	public ControllerSoftware() throws IOException {
 		this.software = QTILSoftware.getSoftware();
-		this.software.addEngine("QTIL", new QTILSearchEngine(new QTILConfiguration()));
+		this.software.addEngine("QTIL", new QTILSearchEngine(new QTILConfiguration(this.software.getDataBaseLocation())));
 	}
-
-	public Map<String, SearchEngine> getEngines() {
-		return this.software.getEngines();
+	
+	public List<Settings> getAllSettings() {
+		return this.software.getAllSettings();
 	}
 
 	public Request searchByKeywords(String keywords) {
@@ -41,5 +42,21 @@ public class ControllerSoftware {
 
 	public boolean loginAsAdmin(String password) {
 		return this.software.loginAsAdmin(password);
+	}
+
+	public boolean isAdmin() {
+		return this.software.isAdmin();
+	}
+
+	public void setObserver(Observer o) {
+		this.software.setObserver(o);
+	}
+	
+	public void stop(){
+		this.software.stop();
+	}
+	
+	public void changeSetting(String key, String value) throws IOException{
+		this.software.changeSetting(key, value);
 	}
 }

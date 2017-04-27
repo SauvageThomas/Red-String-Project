@@ -10,13 +10,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.entities.ColorParameter;
+import model.tools.Path;
 
 public class History implements Serializable {
 
 	private static final long serialVersionUID = -71436115086375235L;
 	private static History instance = History.load();
-	private static final String path = ".history";
 
 	private List<Request> requests;
 
@@ -41,7 +40,7 @@ public class History implements Serializable {
 	private static History load() {
 		FileInputStream fileIn;
 		try {
-			fileIn = new FileInputStream(History.path);
+			fileIn = new FileInputStream(Path.HISTORY);
 
 			ObjectInputStream in = new ObjectInputStream(fileIn);
 			History output = (History) in.readObject();
@@ -60,7 +59,7 @@ public class History implements Serializable {
 
 	public void save() {
 		try {
-			FileOutputStream fileOut = new FileOutputStream(History.path);
+			FileOutputStream fileOut = new FileOutputStream(Path.HISTORY);
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			out.writeObject(this);
 			out.close();
@@ -68,15 +67,5 @@ public class History implements Serializable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-	public static void main(String[] args) {
-		History h = History.getInstance();
-		Request r = new Request(new ColorParameter(100, 120, 130));
-		r.addResult(new Result("Image1.png", 300));
-		r.addResult(new Result("Image2.png", 600));
-		r.addResult(new Result("Image3.png", -100));
-		r.addResult(new Result("Image1.png", 400));
-		h.addRequest(r);
 	}
 }
