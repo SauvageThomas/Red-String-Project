@@ -86,51 +86,29 @@ char** search_data(char* file_path) {
 					moy = compare_sound_descriptors(&descriptor.p[j], &desc[i].p[j]);
 					test = compare_sound_descriptors(&descriptor.p[0], &desc[i].p[j]);
 
-<<<<<<< HEAD
-					if (test >= 80) {
-=======
 					if (test >= 70) {
->>>>>>> refs/heads/dev
 						int verif = 1;
-<<<<<<< HEAD
-						for (k = 0; k<descriptor.p_size && verif; k++) {
-							moy2 = compare_sound_descriptors(&descriptor.p[k], &desc[i].p[j+k]);
-							if ( moy2 <= 80) verif = 0;
-
-						}
-						if (k >= descriptor.p_size){
-							counter++;
-						}
-					}
-					common2 = common2 + moy;
-				}
-			 	if ( descriptor.p_size<desc[i].p_size){
-					int counter2 = 0;
-					for ( k; k<desc[i].p_size; k++){
-						float	moy2 = compare_sound_descriptors(&descriptor.p[counter2], &desc[i].p[k]);
-						if (moy2 == 100){
-							while (moy2 == 100){
-								counter2++;
-								moy2 = compare_sound_descriptors(&descriptor.p[counter2], &desc[i].p[k]);
-=======
 						if (k >= descriptor.p_size || k>2)
 							k--;
 						else{
 							for (k = 0; k < descriptor.p_size && verif; k++) {
 								moy2 = compare_sound_descriptors(&descriptor.p[k], &desc[i].p[j+k]);
 								if ( moy2 <= 70) verif = 0;
->>>>>>> refs/heads/dev
 							}
 							if (k >= descriptor.p_size){
 								counter++;
 							}
 						}
+
+						common2 = common2 + moy;
 					}
-					common2 = common2 + moy;
+
 				}
-				int trans[2];
-				sprintf (trans, " %d", counter);
+				char trans[2];
+				sprintf (trans, "%d", counter);
+				strcat(desc[i].file_name, " ");
 				strcat(desc[i].file_name, trans);
+
 				common= (int)common2;
 
 			}
