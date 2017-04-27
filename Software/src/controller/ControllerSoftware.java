@@ -61,4 +61,8 @@ public class ControllerSoftware {
 	public void changeSetting(String key, String value) throws IOException{
 		this.software.changeSetting(key, value);
 	}
+
+	public void submitSettings(String name) throws IOException {
+		this.software.submitSettings(name);
+	}
 }

@@ -91,7 +91,7 @@ public class ImageColorFinder {
 				boolean test = (colorTmp >= color - errorMargin && colorTmp <= color + errorMargin  );
 				if(test){
 					nameFile = nameFile.substring(0, nameFile.length()-3);
-					nameFile = nameFile +"jpg";
+					nameFile = nameFile +"bmp";
 					rank=Math.abs(colorTmp-color);
 					resultTmp.put(nameFile, rank);
 				}

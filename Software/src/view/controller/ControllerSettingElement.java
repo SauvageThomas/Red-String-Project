@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXSlider;
 import com.jfoenix.controls.JFXTextField;
 
+import controller.ControllerSoftware;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -32,7 +33,7 @@ public class ControllerSettingElement extends AnchorPane{
 	@FXML
 	protected JFXButton save;
 
-	public ControllerSettingElement(final Stage stage, final Map<String, Setting> settings, String name){
+	public ControllerSettingElement(final Stage stage, final Map<String, Setting> settings, String name, ControllerSoftware controllerSoftware){
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
 				"/view/fxml/FXMLSettingElement.fxml"));
 		fxmlLoader.setRoot(this);
@@ -69,7 +70,11 @@ public class ControllerSettingElement extends AnchorPane{
 				settings.get("DESCRIPTORS").setValue(descPath.getText());
 				
 				System.out.println((int) pixelSlider.getValue()+"\n"+pixelSlider.getValue());
-				//controllerSoftware.submitSettings(name);
+				try {
+					controllerSoftware.submitSettings(name);
+				} catch (IOException e1) {
+					System.out.println("ERROR SUBMIT SETTINGS");
+				}
 				stage.close();
 			}
 		});

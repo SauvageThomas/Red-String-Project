@@ -52,7 +52,7 @@ public class ControllerSettingsMenu extends HBox{
 	                @Override
 	                public void handle(ActionEvent e) {
 	                	currentWindow.getChildren().clear();
-	                	currentWindow.getChildren().add(new ControllerSettingElement(stage, settings.getSettings(), settings.getName()));
+	                	currentWindow.getChildren().add(new ControllerSettingElement(stage, settings.getSettings(), settings.getName(), controllerSoftware));
 	                }
 	            });
 			} else {
@@ -61,12 +61,12 @@ public class ControllerSettingsMenu extends HBox{
 	                @Override
 	                public void handle(ActionEvent e) {
 	                	currentWindow.getChildren().clear();
-	                	currentWindow.getChildren().add(new ControllerGlobalElement(stage, settings.getSettings(), settings.getName()));
+	                	currentWindow.getChildren().add(new ControllerGlobalElement(stage, settings.getSettings(), settings.getName(), controllerSoftware));
 	                }
 	            });
 			}
 		}
 		currentWindow.getChildren().clear();
-		currentWindow.getChildren().add(new ControllerGlobalElement(stage, globalSetting.getSettings(), globalSetting.getName()));
+		currentWindow.getChildren().add(new ControllerGlobalElement(stage, globalSetting.getSettings(), globalSetting.getName(), controllerSoftware));
 	}
 }

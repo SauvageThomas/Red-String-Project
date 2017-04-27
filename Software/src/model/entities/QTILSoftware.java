@@ -153,11 +153,11 @@ public class QTILSoftware {
 			this.changeDataBaseLocation(value);
 		this.settings.changeSetting(key, value);
 	}
-	
-	public void submitSettings() throws IOException{
-		this.settings.submitSettings();
-		for (String name : this.engines.keySet()){
+
+	public void submitSettings(String name) throws IOException{
+		if (name.equals("Global"))	
+			this.settings.submitSettings();
+		else
 			this.engines.get(name).submitSettings();
-		}
 	}
 }

@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 
+import controller.ControllerSoftware;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -28,7 +29,7 @@ public class ControllerGlobalElement extends AnchorPane{
 	@FXML
 	protected JFXButton save;
 	
-	public ControllerGlobalElement(final Stage stage, final Map<String, Setting> settings, String name){
+	public ControllerGlobalElement(final Stage stage, final Map<String, Setting> settings, String name, ControllerSoftware controllerSoftware){
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "/view/fxml/FXMLSettingGlobal.fxml"));
         fxmlLoader.setRoot(this);
@@ -54,7 +55,11 @@ public class ControllerGlobalElement extends AnchorPane{
             	settings.get("DATA BASE").setValue(bdPath.getText());
             	if (openMode.isSelected()) settings.get("MODE").setValue("open");	
 				else settings.get("MODE").setValue("close");	
-            	//controllerSoftware.submitSettings(name);
+            	try {
+					controllerSoftware.submitSettings(name);
+				} catch (IOException e1) {
+					System.out.println("ERROR SUBMIT SETTINGS");
+				}
             	stage.close();
             }
         });
