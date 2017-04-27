@@ -5,8 +5,6 @@
  */
 package view.controller;
 
-import view.controller.GraphicSearch;
-
 /**
  *
  * @author mathieu

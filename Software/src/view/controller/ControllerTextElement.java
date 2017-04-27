@@ -6,11 +6,11 @@
 package view.controller;
 
 import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -47,13 +47,13 @@ public class ControllerTextElement extends AnchorPane implements ResizeListener{
         titleDisplay = new Text(title);
         titleDisplay.setFont(Font.font ("Helvetica", 20));
         titleDisplay.setFill(Color.web("#00BAB5"));
-        titleDisplay.setWrappingWidth(700-5);
+        titleDisplay.setWrappingWidth(700-30);
         textElement.getChildren().add(titleDisplay);
         
         contentDisplay = new Text(content);
         contentDisplay.setFont(Font.font ("Helvetica", 11));
         contentDisplay.setFill(Color.DARKGRAY);
-        contentDisplay.setWrappingWidth(700-5);
+        contentDisplay.setWrappingWidth(700-30);
         textElement.getChildren().add(contentDisplay);
         
         textElement.setPadding(new Insets(2,0,0,5));
