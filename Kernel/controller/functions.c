@@ -12,7 +12,6 @@ int login(char* password){
 	return try_login(password);
 }
 
-
 char** search_data(char* file_path) {
 	/*
 	Read the configuration config and search the closer result with the file file_path
