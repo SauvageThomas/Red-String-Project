@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<fx:root type="AnchorPane" id="AnchorPane" minWidth="-Infinity" prefHeight="300.0" prefWidth="197.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <JFXTextField fx:id="bdPath" layoutX="171.0" layoutY="199.0" prefHeight="24.0" prefWidth="130.0" promptText="Chemin BD" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="2.0" />
+      <JFXButton fx:id="bdButton" style="-fx-background-color: #FFFFFF;" layoutX="304.0" layoutY="198.0" text="Browse" AnchorPane.bottomAnchor="76.0" AnchorPane.rightAnchor="2.0" />
+      <JFXToggleButton fx:id="openMode" layoutX="20.0" layoutY="92.0" text="Open Mode" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="92.0" />
+      <JFXButton fx:id="save" buttonType="RAISED" style="-fx-background-color: #FFFFFF;" layoutX="10.0" layoutY="10.0" text="Sauver" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="66.0" />
+   </children>
+</fx:root>

@@ -45,6 +45,18 @@ public class ControllerSideMenu extends VBox{
         
         settings.setDisable(true);
         
+        settings.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+            	Stage stage = new Stage();
+				ControllerSettingsMenu controllerSettings = new ControllerSettingsMenu(controllerSoftware, stage);
+				stage.setTitle("Préférences");
+				Scene newScene = new Scene((Parent) controllerSettings);
+				stage.setScene(newScene);
+				stage.show();
+            }
+        });
+        
 		login.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {

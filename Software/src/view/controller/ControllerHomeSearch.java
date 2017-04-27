@@ -73,6 +73,7 @@ public class ControllerHomeSearch extends VBox {
         fxmlLoader.setController(this);
 
         final FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File("file:../data/FICHIER_PROJET/")); 
 
         try {
             fxmlLoader.load();

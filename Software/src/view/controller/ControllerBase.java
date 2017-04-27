@@ -20,10 +20,12 @@ import com.jfoenix.transitions.hamburger.HamburgerBasicCloseTransition;
 import controller.ControllerHistory;
 import controller.ControllerSoftware;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -126,6 +128,10 @@ public class ControllerBase implements Initializable, TabListener {
 				    group.addSearch(newSearch);
 				}
 			});
+            
+            Event.fireEvent(newTabButton, new MouseEvent(MouseEvent.MOUSE_CLICKED, 0,
+                    0, 0, 0, MouseButton.PRIMARY, 1, true, true, true, true,
+                    true, true, true, true, true, true, null));
             
             homeButton.setOnAction(new EventHandler<ActionEvent>() {
                 @Override

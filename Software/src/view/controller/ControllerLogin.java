@@ -34,6 +34,7 @@ public class ControllerLogin extends AnchorPane{
             throw new RuntimeException(exception);
         }
 		
+        stage.setResizable(false);
         passwdField.setStyle("-jfx-focus-color: #00BAB5");
         
 		submit.setOnAction(new EventHandler<ActionEvent>() {
