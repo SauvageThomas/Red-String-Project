@@ -59,114 +59,105 @@ public class ControllerBase implements Initializable, TabListener {
     private ControllerSoftware controllerSoftware;
     
     private ControllerHistory controllerHistory;
+    
+    public ControllerBase(ControllerSoftware controllerSoftware){
+    	this.controllerSoftware = controllerSoftware;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        try {
+        controllerHistory = new ControllerHistory();
+		
+		group = new GraphicSearchGroup();
+		group.setTabListener(this);
 
-        	controllerSoftware = new ControllerSoftware();
-        	controllerHistory = new ControllerHistory();
-        	
-            group = new GraphicSearchGroup();
-            group.setTabListener(this);
+		final HamburgerBasicCloseTransition burgerTask = new HamburgerBasicCloseTransition(ham);
+		burgerTask.setRate(-1);
 
-            final HamburgerBasicCloseTransition burgerTask = new HamburgerBasicCloseTransition(ham);
-            burgerTask.setRate(-1);
+		drawer.setSidePane(new ControllerSideMenu(controllerSoftware, group, ControllerBase.this, drawer));
 
-            drawer.setSidePane(new ControllerSideMenu(controllerSoftware, group, ControllerBase.this, drawer));
+		/*TranslateTransition tt = new TranslateTransition(Duration.millis(2000), text);
+		tt.setByX(200f);
+		tt.setCycleCount(1);
+		tt.setAutoReverse(true);*/
+		ham.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
+		    @Override
+		    public void handle(MouseEvent e) {
+		        ham.requestFocus();
+		        //burgerTask.setRate(burgerTask.getRate()*-1);
+		        if (drawer.isShown()) {
+		            drawer.close();
+		        } else {
+		            drawer.open();
+		        }
+		        //burgerTask.play();
 
-            /*TranslateTransition tt = new TranslateTransition(Duration.millis(2000), text);
-            tt.setByX(200f);
-            tt.setCycleCount(1);
-            tt.setAutoReverse(true);*/
-            ham.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent e) {
-                    ham.requestFocus();
-                    //burgerTask.setRate(burgerTask.getRate()*-1);
-                    if (drawer.isShown()) {
-                        drawer.close();
-                    } else {
-                        drawer.open();
-                    }
-                    //burgerTask.play();
+		        /*tt.play();
+			    tt.setByX(tt.getByX()*-1);*/
+		    }
+		});
 
-                    /*tt.play();
-				    tt.setByX(tt.getByX()*-1);*/
-                }
-            });
+		drawer.setOnDrawerClosing(new EventHandler<JFXDrawerEvent>() {
+		    @Override
+		    public void handle(JFXDrawerEvent e) {
+		        burgerTask.setRate(-1);
+		        currentWindow.toFront();
+		        burgerTask.play();
+		    }
+		});
 
-            drawer.setOnDrawerClosing(new EventHandler<JFXDrawerEvent>() {
-                @Override
-                public void handle(JFXDrawerEvent e) {
-                    burgerTask.setRate(-1);
-                    currentWindow.toFront();
-                    burgerTask.play();
-                }
-            });
+		drawer.setOnDrawerOpening(new EventHandler<JFXDrawerEvent>() {
+		    @Override
+		    public void handle(JFXDrawerEvent e) {
+		        burgerTask.setRate(1);
+		        currentWindow.toBack();
+		        burgerTask.play();
+		    }
+		});
 
-            drawer.setOnDrawerOpening(new EventHandler<JFXDrawerEvent>() {
-                @Override
-                public void handle(JFXDrawerEvent e) {
-                    burgerTask.setRate(1);
-                    currentWindow.toBack();
-                    burgerTask.play();
-                }
-            });
+		ControllerTab newTabButton = new ControllerTab(true, null);
+		header.getChildren().add(newTabButton);
+		//header.setMargin(ham, new Insets(0, -50, 0, 0));
+		header.setMargin(newTabButton, new Insets(0, 40, 0, 0));
 
-            ControllerTab newTabButton = new ControllerTab(true, null);
-            header.getChildren().add(newTabButton);
-            //header.setMargin(ham, new Insets(0, -50, 0, 0));
-            header.setMargin(newTabButton, new Insets(0, 40, 0, 0));
-
-            newTabButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
-				@Override
-				public void handle(MouseEvent event) {
-				    GraphicSearch newSearch = new GraphicSearch(group, controllerSoftware);
-				    newSearch.searchTab.setTabListener(ControllerBase.this);
-				    group.addSearch(newSearch);
+		newTabButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+			    GraphicSearch newSearch = new GraphicSearch(group, controllerSoftware);
+			    newSearch.searchTab.setTabListener(ControllerBase.this);
+			    group.addSearch(newSearch);
+			}
+		});
+		
+		Event.fireEvent(newTabButton, new MouseEvent(MouseEvent.MOUSE_CLICKED, 0,
+		        0, 0, 0, MouseButton.PRIMARY, 1, true, true, true, true,
+		        true, true, true, true, true, true, null));
+		
+		homeButton.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override
+		    public void handle(ActionEvent e) {
+		    	for (GraphicSearch search : group.searchList) {
+					if (search.active && search.currentRequest != null) {
+						search.currentRequest = null;
+						search.searchWindow.getChildren().clear();
+						search.searchWindow.getChildren().add(new ControllerHomeSearch(search, controllerSoftware));
+						search.searchTab.setTabText("New Tab");
+					}
 				}
-			});
-            
-            Event.fireEvent(newTabButton, new MouseEvent(MouseEvent.MOUSE_CLICKED, 0,
-                    0, 0, 0, MouseButton.PRIMARY, 1, true, true, true, true,
-                    true, true, true, true, true, true, null));
-            
-            homeButton.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent e) {
-                	for (GraphicSearch search : group.searchList) {
-						if (search.active && search.currentRequest != null) {
-							search.currentRequest = null;
-							search.searchWindow.getChildren().clear();
-							search.searchWindow.getChildren().add(new ControllerHomeSearch(search, controllerSoftware));
-							search.searchTab.setTabText("New Tab");
-						}
+		    }
+		});
+		
+		saveButton.setOnAction(new EventHandler<ActionEvent>() {
+		    @Override
+		    public void handle(ActionEvent e) {
+		    	for (GraphicSearch search : group.searchList) {
+					if (search.active && search.currentRequest != null && search.currentRequest.getResults().size() != 0) {
+						controllerHistory.saveRequest(search.currentRequest);
 					}
-                }
-            });
-            
-            saveButton.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent e) {
-                	for (GraphicSearch search : group.searchList) {
-						if (search.active && search.currentRequest != null && search.currentRequest.getResults().size() != 0) {
-							controllerHistory.saveRequest(search.currentRequest);
-						}
-					}
-                }
-            });
-
-            //ControllerHomeSearch newSearch = new ControllerHomeSearch();
-            /*ArrayList<String> test = new ArrayList<>();
-            test.add("test1");
-            test.add("test2");
-            ControllerTextSearch newSearch = new ControllerTextSearch(test);*/
-            //currentWindow.getChildren().add(newSearch);
-        } catch (IOException ex) {
-            Logger.getLogger(ControllerBase.class.getName()).log(Level.SEVERE, null, ex);
-        }
+				}
+		    }
+		});
     }
 
     @Override

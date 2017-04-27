@@ -5,15 +5,20 @@
  */
 package view.controller;
 
+import java.io.IOException;
+
 import javax.swing.event.EventListenerList;
 
+import controller.ControllerSoftware;
 import javafx.application.Application;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  *
@@ -39,7 +44,8 @@ public class GraphicLauncher extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLBase.fxml"));
-        fxmlLoader.setController(new ControllerBase());
+        ControllerSoftware controllerSoftware = new ControllerSoftware();
+        fxmlLoader.setController(new ControllerBase(controllerSoftware));
         final Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);
@@ -51,6 +57,12 @@ public class GraphicLauncher extends Application {
         stage.show();
         stage.setWidth(800);
         stage.setHeight(600);
+        
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            public void handle(WindowEvent t) {
+                controllerSoftware.stop();
+            }
+        });
         
         scene.widthProperty().addListener(new InvalidationListener(){
 			@Override
