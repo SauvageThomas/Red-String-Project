@@ -29,7 +29,7 @@ public class ControllerGlobalElement extends AnchorPane{
 	@FXML
 	protected JFXButton save;
 	
-	public ControllerGlobalElement(final Stage stage, final Map<String, Setting> settings, String name, ControllerSoftware controllerSoftware){
+	public ControllerGlobalElement(final Stage stage, final Map<String, Setting> settings, final String name, final ControllerSoftware controllerSoftware){
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "/view/fxml/FXMLSettingGlobal.fxml"));
         fxmlLoader.setRoot(this);

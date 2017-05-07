@@ -7,15 +7,19 @@ package view.controller;
 
 import java.io.IOException;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Cursor;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import model.entities.history.Request;
 
 /**
  *
@@ -30,7 +34,7 @@ public class ControllerTextElement extends AnchorPane implements ResizeListener{
     
     private Text contentDisplay;
 
-    public ControllerTextElement(String title, String content) {
+    public ControllerTextElement(String title, String content, final String path) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "/view/fxml/FXMLTextElement.fxml"));
         fxmlLoader.setRoot(this);
@@ -58,6 +62,35 @@ public class ControllerTextElement extends AnchorPane implements ResizeListener{
         
         textElement.setPadding(new Insets(2,0,0,5));
         this.setEffect(new DropShadow(5,3,3, Color.LIGHTGRAY));
+        
+        textElement.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+			    try {
+			    	if (path != null) {
+			    		Runtime.getRuntime().exec("xdg-open "+path);
+					}
+				} catch (IOException e) {}
+			}
+		});
+        
+        textElement.setOnMouseEntered(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				if (path != null) {
+		        	GraphicLauncher.getInstance().getScene().setCursor(Cursor.HAND);
+				}
+			}
+		});
+        
+        textElement.setOnMouseExited(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				if (path != null) {
+		        	GraphicLauncher.getInstance().getScene().setCursor(Cursor.DEFAULT);
+				}
+			}
+		});
     }
 
 	@Override

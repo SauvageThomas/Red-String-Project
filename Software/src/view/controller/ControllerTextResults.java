@@ -56,11 +56,11 @@ public class ControllerTextResults extends AnchorPane{
         this.scroll.setVbarPolicy(ScrollBarPolicy.AS_NEEDED);
         
         if (history.getRequests().size() == 0) {
-        	this.search.getChildren().add(new ControllerTextElement("Aucun résultat", "Aucun document ne correspond aux termes de recherche spécifiés"));
+        	this.search.getChildren().add(new ControllerTextElement("Aucun résultat", "Aucun document ne correspond aux termes de recherche spécifiés", null));
 		}
         
         for (Request request : history.getRequests()) {
-        	this.search.getChildren().add(new ControllerTextElement("Recherche sauvegardée", request.getSearchParameter().getString()));
+        	this.search.getChildren().add(new ControllerTextElement("Recherche sauvegardée", request.getSearchParameter().getString(), null));
 		}
     }
     
@@ -82,7 +82,7 @@ public class ControllerTextResults extends AnchorPane{
         this.scroll.setVbarPolicy(ScrollBarPolicy.AS_NEEDED);
         
         if (results.size() == 0) {
-        	this.search.getChildren().add(new ControllerTextElement("Aucun résultat", "Aucun document ne correspond aux termes de recherche spécifiés"));
+        	this.search.getChildren().add(new ControllerTextElement("Aucun résultat", "Aucun document ne correspond aux termes de recherche spécifiés", null));
 		}
         
         for (Result result : results) {
@@ -92,7 +92,7 @@ public class ControllerTextResults extends AnchorPane{
 			try {
 				dBuilder = dbFactory.newDocumentBuilder();
 				Document doc = dBuilder.parse(fXmlFile);
-				this.search.getChildren().add(new ControllerTextElement(doc.getElementsByTagName("titre").item(0).getTextContent(), doc.getElementsByTagName("resume").item(0).getTextContent()));
+				this.search.getChildren().add(new ControllerTextElement(doc.getElementsByTagName("titre").item(0).getTextContent(), doc.getElementsByTagName("resume").item(0).getTextContent(), result.getFilePath()));
 			} catch (ParserConfigurationException e) {
 				System.out.println("ERROR PASING XML");
 			} catch (SAXException e) {

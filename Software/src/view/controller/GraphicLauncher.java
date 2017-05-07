@@ -29,6 +29,7 @@ public class GraphicLauncher extends Application {
 	private final EventListenerList listeners = new EventListenerList();
 	
 	private static GraphicLauncher graphicLauncher;
+	private Scene scene;
 	
 	public GraphicLauncher(){
 		graphicLauncher = this;
@@ -44,13 +45,13 @@ public class GraphicLauncher extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLBase.fxml"));
-        ControllerSoftware controllerSoftware = new ControllerSoftware();
+        final ControllerSoftware controllerSoftware = new ControllerSoftware();
         ControllerBase baseController = new ControllerBase(controllerSoftware);
         controllerSoftware.setObserver(baseController);
         fxmlLoader.setController(baseController);
         final Parent root = fxmlLoader.load();
 
-        Scene scene = new Scene(root);
+        scene = new Scene(root);
         
         stage.setScene(scene);
         stage.setMinWidth(800);
@@ -78,6 +79,10 @@ public class GraphicLauncher extends Application {
     
     public void setResizeListener (ResizeListener listener) {
         listeners.add(ResizeListener.class, listener);
+    }
+    
+    public Scene getScene(){
+    	return scene;
     }
 
     /**

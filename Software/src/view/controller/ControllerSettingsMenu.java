@@ -25,7 +25,7 @@ public class ControllerSettingsMenu extends HBox{
 	@FXML
 	protected StackPane currentWindow;
 	
-	public ControllerSettingsMenu(ControllerSoftware controllerSoftware, final Stage stage){
+	public ControllerSettingsMenu(final ControllerSoftware controllerSoftware, final Stage stage){
 		
 		Settings globalSetting = null;
 		

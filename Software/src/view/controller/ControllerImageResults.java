@@ -45,7 +45,7 @@ public class ControllerImageResults extends AnchorPane{
         this.scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         
         if (results.size() == 0) {
-        	this.search.getChildren().add(new ControllerTextElement("Aucun résultat", "Aucun document ne correspond aux termes de recherche spécifiés"));
+        	this.search.getChildren().add(new ControllerTextElement("Aucun résultat", "Aucun document ne correspond aux termes de recherche spécifiés", null));
 		}
         
         for (Result result : results) {

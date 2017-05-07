@@ -7,11 +7,14 @@ package view.controller;
 
 import java.io.IOException;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Cursor;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -28,7 +31,7 @@ public class ControllerImageElement extends AnchorPane{
     @FXML
     private HBox imageElement;
 
-    public ControllerImageElement(String url, boolean audioTest) {
+    public ControllerImageElement(final String url, boolean audioTest) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "/view/fxml/FXMLImageElement.fxml"));
         fxmlLoader.setRoot(this);
@@ -70,6 +73,33 @@ public class ControllerImageElement extends AnchorPane{
         
         imageElement.setPadding(new Insets(5,0,5,5));
         this.setEffect(new DropShadow(5,3,3, Color.LIGHTGRAY));
+        
+        imageElement.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+			    try {
+					Runtime.getRuntime().exec("xdg-open "+url);
+				} catch (IOException e) {}
+			}
+		});
+        
+        imageElement.setOnMouseEntered(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				if (url != null) {
+		        	GraphicLauncher.getInstance().getScene().setCursor(Cursor.HAND);
+				}
+			}
+		});
+        
+        imageElement.setOnMouseExited(new EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				if (url != null) {
+		        	GraphicLauncher.getInstance().getScene().setCursor(Cursor.DEFAULT);
+				}
+			}
+		});
     }
     
 }
