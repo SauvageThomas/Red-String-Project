@@ -15,7 +15,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.entities.Setting;
 
@@ -64,16 +63,15 @@ public class ControllerSettingElement extends AnchorPane{
 		save.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
-				settings.get("LAYER NUMBER").setValue(String.valueOf((int) audioSlider.getValue()));
-				settings.get("QUANTIFICATION").setValue(String.valueOf((int) pixelSlider.getValue()));
-				settings.get("WINDOW SIZE").setValue(String.valueOf((int) audioSlider2.getValue()));
-				settings.get("DESCRIPTORS").setValue(descPath.getText());
-				
-				System.out.println((int) pixelSlider.getValue()+"\n"+pixelSlider.getValue());
 				try {
+					controllerSoftware.changeSetting("LAYER NUMBER", String.valueOf(Math.round(audioSlider.getValue())));
+					controllerSoftware.changeSetting("QUANTIFICATION", String.valueOf(Math.round(pixelSlider.getValue())));
+					controllerSoftware.changeSetting("WINDOW SIZE", String.valueOf(Math.round(audioSlider2.getValue())));
+					controllerSoftware.changeSetting("DESCRIPTORS", descPath.getText());
 					controllerSoftware.submitSettings(name);
 				} catch (IOException e1) {
 					System.out.println("ERROR SUBMIT SETTINGS");
+					e1.printStackTrace();
 				}
 				stage.close();
 			}

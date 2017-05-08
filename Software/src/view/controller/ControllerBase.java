@@ -5,13 +5,10 @@
  */
 package view.controller;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
@@ -182,7 +179,7 @@ public class ControllerBase implements Initializable, TabListener, Observer {
 						controllerHistory.saveRequest(search.currentRequest);
 
 						Stage newStage = new Stage();
-						newStage.setTitle("Warning");
+						newStage.setTitle("Information");
 						BorderPane s = new BorderPane();
 						s.setPrefSize(200, 50);
 						Text text = new Text("Tab saved.");

@@ -148,15 +148,24 @@ public class QTILSoftware {
 		return this.settings.getSettingValue("DATA BASE");
 	}
 
+	
 	public void changeSetting(String key, String value) throws IOException {
-		if (key.equals("DATA BASE"))
+		if (key.equals("DATA BASE")){
 			this.changeDataBaseLocation(value);
+			for (String key2 : this.engines.keySet()){
+				this.engines.get(key2).changeSetting(key, value);
+			}
+		}
 		this.settings.changeSetting(key, value);
 	}
 
 	public void submitSettings(String name) throws IOException{
-		if (name.equals("Global"))	
+		if (name.equals("Global")){
 			this.settings.submitSettings();
+			for (String key : this.engines.keySet()){
+				this.engines.get(key).submitSettings();
+			}
+		}
 		else
 			this.engines.get(name).submitSettings();
 	}

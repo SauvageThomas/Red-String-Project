@@ -52,11 +52,11 @@ public class QTILConfiguration extends Settings{
 	@Override
 	public String getConfigText() {
 		String res = "path " + this.DATA_BASE_PATH;
-		res += "\ndescriptors " + this.settings.get("DESCRIPTORS");
-		res += "\ntaille_des_fenetres" + this.settings.get("WINDOW SIZE");
-		res += "\nombre_de_barre " + this.settings.get("LAYER NUMBER");
-		res += "\nquantification" + this.settings.get("QUANTIFICATION");
-		res += "\npixel_margin" + this.settings.get("PIXEL MARGIN");
+		res += "\ndescriptors " + this.settings.get("DESCRIPTORS").getValue();
+		res += "\ntaille_des_fenetres " + this.settings.get("WINDOW SIZE").getValue();
+		res += "\nnombre_de_barre " + this.settings.get("LAYER NUMBER").getValue();
+		res += "\nquantification " + this.settings.get("QUANTIFICATION").getValue();
+		res += "\npixel_margin " + this.settings.get("PIXEL MARGIN").getValue();
 		return res;
 	}
 }

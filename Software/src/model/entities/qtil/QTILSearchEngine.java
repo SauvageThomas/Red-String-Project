@@ -58,8 +58,7 @@ public class QTILSearchEngine extends SearchEngine {
 	
 	@Override
 	public void submitSettings() throws IOException {
-		// TODO Auto-generated method stub
-		
+		this.getSettings().submitSettings();
 	}
 	
 	private String getSettingValue(String key){
