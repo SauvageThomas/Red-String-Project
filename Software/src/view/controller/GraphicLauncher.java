@@ -5,8 +5,6 @@
  */
 package view.controller;
 
-import java.io.IOException;
-
 import javax.swing.event.EventListenerList;
 
 import controller.ControllerSoftware;
