@@ -41,7 +41,7 @@ public class IndexThread extends Thread{
         	progressText.setText("Indexing sound files");
         	controllerSoftware.indexSound();
         	progressBar.setProgress(1.0);
-        	progressText.setText("Database successfully indexed");
+        	progressText.setText("Database indexed");
         	stage.getScene().setCursor(Cursor.DEFAULT);
         	doneButton.setVisible(true);
 		} catch (Exception e) {

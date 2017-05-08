@@ -26,9 +26,7 @@ public class ControllerSettingElement extends AnchorPane{
 	@FXML
 	protected JFXSlider audioSlider2;
 	@FXML
-	protected JFXTextField descPath;
-	@FXML
-	protected JFXButton browseDesc;
+	protected JFXSlider pixelMarginSlider;
 	@FXML
 	protected JFXButton save;
 
@@ -43,8 +41,6 @@ public class ControllerSettingElement extends AnchorPane{
 		} catch (IOException exception) {
 			throw new RuntimeException(exception);
 		}
-		
-		descPath.setStyle("-jfx-focus-color: #00BAB5");
 
 		pixelSlider.setMin(2);
 		pixelSlider.setMax(16);
@@ -58,7 +54,9 @@ public class ControllerSettingElement extends AnchorPane{
 		audioSlider2.setMax(1000);
 		audioSlider2.setValue(Integer.valueOf(settings.get("WINDOW SIZE").getValue()));
 
-		descPath.setText(settings.get("DESCRIPTORS").getValue());
+		pixelMarginSlider.setMin(10);
+		pixelMarginSlider.setMax(120);
+		pixelMarginSlider.setValue(Integer.valueOf(settings.get("PIXEL MARGIN").getValue()));
 
 		save.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
@@ -67,23 +65,13 @@ public class ControllerSettingElement extends AnchorPane{
 					controllerSoftware.changeSetting("LAYER NUMBER", String.valueOf(Math.round(audioSlider.getValue())));
 					controllerSoftware.changeSetting("QUANTIFICATION", String.valueOf(Math.round(pixelSlider.getValue())));
 					controllerSoftware.changeSetting("WINDOW SIZE", String.valueOf(Math.round(audioSlider2.getValue())));
-					controllerSoftware.changeSetting("DESCRIPTORS", descPath.getText() + "/");
+					controllerSoftware.changeSetting("PIXEL MARGIN", String.valueOf(Math.round(pixelMarginSlider.getValue())));
 					controllerSoftware.submitSettings(name);
 				} catch (IOException e1) {
 					System.out.println("ERROR SUBMIT SETTINGS");
 					e1.printStackTrace();
 				}
 				stage.close();
-			}
-		});
-
-		final DirectoryChooser directoryChooser = new DirectoryChooser();
-
-		browseDesc.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				File directoryChosen = directoryChooser.showDialog(browseDesc.getScene().getWindow());
-				if (directoryChosen != null) descPath.setText(directoryChosen.getAbsolutePath());
 			}
 		});
 	}
