@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view.controller;
+package view;
 
 import javax.swing.event.EventListenerList;
 
@@ -18,6 +18,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import view.controller.ControllerBase;
+import view.controller.ControllerUpdateBD;
+import view.controller.ResizeListener;
 
 /**
  *
