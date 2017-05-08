@@ -30,6 +30,7 @@ public class GraphicLauncher extends Application {
 	
 	private static GraphicLauncher graphicLauncher;
 	private Scene scene;
+	private ControllerBase baseController;
 	
 	public GraphicLauncher(){
 		graphicLauncher = this;
@@ -46,7 +47,7 @@ public class GraphicLauncher extends Application {
     public void start(Stage stage) throws Exception {
         final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLBase.fxml"));
         final ControllerSoftware controllerSoftware = new ControllerSoftware();
-        ControllerBase baseController = new ControllerBase(controllerSoftware);
+        baseController = new ControllerBase(controllerSoftware);
         controllerSoftware.setObserver(baseController);
         fxmlLoader.setController(baseController);
         final Parent root = fxmlLoader.load();
@@ -84,6 +85,11 @@ public class GraphicLauncher extends Application {
     public Scene getScene(){
     	return scene;
     }
+    
+    public ControllerBase getBaseController(){
+    	return baseController;
+    }
+    
 
     /**
      * @param args the command line arguments

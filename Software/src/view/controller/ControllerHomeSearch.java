@@ -138,6 +138,9 @@ public class ControllerHomeSearch extends VBox {
         launchButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
+            	
+            	GraphicLauncher.getInstance().getBaseController().getSaveButton().setVisible(true);
+            	
                 switch (searchGroup.getSelectedToggle().getUserData().toString()) {
                     case "text":
                     	search.searchTab.setTabText(textFieldSearch.getText());
