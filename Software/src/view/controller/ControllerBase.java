@@ -23,6 +23,7 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
@@ -233,20 +234,11 @@ public class ControllerBase implements Initializable, TabListener, Observer {
 				public void run() {
 					Stage newStage = new Stage();
 					newStage.setTitle("Warning");
-					BorderPane s = new BorderPane();
-					s.setPrefSize(200, 50);
-					Text text = new Text("Warning : Database changed.");
-					text.setFont(Font.font("Helvetica", 20));
-					text.setFill(Color.web("#00BAB5"));
-					s.setCenter(text);
-					Scene newScene = new Scene((Parent) s);
+					ControllerUpdateBD controllerUpdate = new ControllerUpdateBD(controllerSoftware, newStage);
+					
+					Scene newScene = new Scene((Parent) controllerUpdate);
 					newStage.setScene(newScene);
 					newStage.show();
-					/*
-					 * try { Thread.sleep(1000); newStage.close(); } catch
-					 * (InterruptedException e) { // TODO Auto-generated catch
-					 * block e.printStackTrace(); }
-					 */
 				}
 			});
 		}

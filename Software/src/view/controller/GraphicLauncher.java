@@ -9,12 +9,17 @@ import javax.swing.event.EventListenerList;
 
 import controller.ControllerSoftware;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -43,11 +48,26 @@ public class GraphicLauncher extends Application {
 	
     @Override
     public void start(Stage stage) throws Exception {
+    	
         final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLBase.fxml"));
         final ControllerSoftware controllerSoftware = new ControllerSoftware();
         baseController = new ControllerBase(controllerSoftware);
         controllerSoftware.setObserver(baseController);
         fxmlLoader.setController(baseController);
+        
+        Platform.runLater(new Runnable() {
+			@Override
+			public void run() {
+				Stage newStage = new Stage();
+				newStage.setTitle("Warning");
+				ControllerUpdateBD controllerUpdate = new ControllerUpdateBD(controllerSoftware, newStage);
+				
+				Scene newScene = new Scene((Parent) controllerUpdate);
+				newStage.setScene(newScene);
+				newStage.show();
+			}
+		});
+        
         final Parent root = fxmlLoader.load();
 
         scene = new Scene(root);
