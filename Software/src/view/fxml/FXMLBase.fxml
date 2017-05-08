@@ -21,8 +21,8 @@
                         <JFXHamburger fx:id="ham" prefHeight="48.0" prefWidth="48.0" stylesheets="@style.css" />
                      </children>
                   </HBox>
-                  <JFXButton fx:id="saveButton" style="-fx-background-color: #00BAB5;" text="Save" textFill="WHITE" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="7.0" />
-                  <JFXButton fx:id="homeButton" style="-fx-background-color: #00BAB5;" text="Home" textFill="WHITE" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="7.0" />
+                  <JFXButton fx:id="homeButton" style="-fx-background-color: #00BAB5;" text="Home" textFill="WHITE" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="7.0" />
+                  <JFXButton fx:id="saveButton" style="-fx-background-color: #00BAB5;" text="Save" textFill="WHITE" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="7.0" />
                </children>
             </AnchorPane>
          </children>

@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
+import com.jfoenix.controls.JFXButton;
+
 /**
  *
  * @author mathieu
@@ -46,6 +48,13 @@ public class GraphicSearchGroup implements Observer{
             } else {
                 search.searchWindow.setVisible(true);
                 search.searchTab.setColorTabText(true, search.searchTab.plusButton);
+                
+                if (search.currentRequest == null) {
+					GraphicLauncher.getInstance().getBaseController().getSaveButton().setVisible(false);
+				} else {
+					GraphicLauncher.getInstance().getBaseController().getSaveButton().setVisible(true);
+				}
+                
             }
         }
     }
