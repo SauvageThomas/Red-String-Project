@@ -31,6 +31,7 @@ import javafx.stage.FileChooser;
 import model.entities.PathParameter;
 import model.entities.history.Request;
 import model.entities.history.Result;
+import view.GraphicLauncher;
 
 /**
  *

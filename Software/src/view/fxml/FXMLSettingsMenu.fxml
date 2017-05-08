@@ -13,6 +13,6 @@
             <VBox fx:id="settingsList" prefHeight="300.0" prefWidth="120.0" />
          </content>
       </ScrollPane>
-      <StackPane fx:id="currentWindow" prefHeight="300.0" prefWidth="197.0" />
+      <StackPane fx:id="currentWindow" prefHeight="300.0" prefWidth="300.0" />
    </children>
 </fx:root>
