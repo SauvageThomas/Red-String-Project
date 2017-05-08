@@ -26,6 +26,7 @@ public class ViewMainMenu extends ViewMenu implements Observer{
 	}
 
 	private void updateSoftware() {
+		
 		System.out.print("TEXT  INDEXATION...");
 		int res_txt = this.controllerSoftware.indexText();
 		System.out.println("  Done ! (file updated = " + res_txt + ")");
@@ -37,6 +38,7 @@ public class ViewMainMenu extends ViewMenu implements Observer{
 		System.out.print("SOUND INDEXATION...");
 		int res_sound =  this.controllerSoftware.indexSound();
 		System.out.println("  Done ! (file updated = " + res_sound + ")");
+		
 	}
 
 	@Override

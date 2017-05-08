@@ -39,6 +39,8 @@ public class QTILConfiguration extends Settings{
 		this.addSetting("LAYER NUMBER", new BornedIntegerSetting(this.extractSettingValue(line, "nombre_de_barre"), 50, 500));
 		line = br.readLine();
 		this.addSetting("QUANTIFICATION", new BornedIntegerSetting(this.extractSettingValue(line, "quantification"), 2, 16));
+		line = br.readLine();
+		this.addSetting("PIXEL MARGIN", new BornedIntegerSetting(this.extractSettingValue(line, "pixel_margin"), 10, 120));
 	}
 	
 	private String extractSettingValue(String line, String key) throws IOException{
@@ -54,6 +56,7 @@ public class QTILConfiguration extends Settings{
 		res += "\ntaille_des_fenetres" + this.settings.get("WINDOW SIZE");
 		res += "\nombre_de_barre " + this.settings.get("LAYER NUMBER");
 		res += "\nquantification" + this.settings.get("QUANTIFICATION");
+		res += "\npixel_margin" + this.settings.get("PIXEL MARGIN");
 		return res;
 	}
 }

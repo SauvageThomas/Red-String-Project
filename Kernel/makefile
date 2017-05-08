@@ -165,4 +165,5 @@ $(R)functions_wrapper.o : $(C)functions_wrapper.c
 	$(CC) $(CFLAGS)
 
 output/libqtil.so : $(R)functions_wrapper.o $(R)password.o $(R)$(gen).o $(R)$(igen).o $(R)$(tgen).o $(R)$(imgen).o $(R)$(sgen).o $(R)$(dm).o $(R)$(tf).o $(R)$(if).o $(R)$(sf).o $(R)$(dh).o $(R)$(mm).o $(R)$(map).o $(R)$(t).o $(R)functions.o $(R)config.o $(R)data_base.o $(R)image_index_generator.o
-	$(CC) -shared -o output/libqtil.so $^
+	$(CC) -shared -o $(JNI_LIB) $^
+	cp $(JNI_LIB) ../assets/engines/QTIL/ 

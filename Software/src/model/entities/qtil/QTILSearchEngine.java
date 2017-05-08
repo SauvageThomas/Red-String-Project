@@ -40,19 +40,19 @@ public class QTILSearchEngine extends SearchEngine {
 
 	@Override
 	public List<String> searchByColor(int r, int g, int b) {
-		return ImageColorFinder.searchImageColor(r, g, b);
+		return ImageColorFinder.searchImageColor(r, g, b, Integer.valueOf(this.getSettingValue("PIXEL MARGIN")));
 	}
 
 	@Override
 	public List<String> searchByShadeOfGrey(int shadeOfGrey) {
-		return ImageColorFinder.searchByShadeOfGrey(shadeOfGrey);
+		return ImageColorFinder.searchByShadeOfGrey(shadeOfGrey, Integer.valueOf(this.getSettingValue("PIXEL MARGIN")));
 	}
 
 	@Override
 	public List<String> searchByFile(String filePath) {
 		List<String> results = this.kernel.searchByFile(filePath);
 		if (results.size() == 1 && results.get(0).equals("-4"))
-			results.add(this.getSettings().getSettingValue("DATA BASE") + "corpus_m.wav");
+			results.add(this.getSettingValue("DATA BASE") + "corpus_m.wav");
 		return results;
 	}
 	
@@ -60,6 +60,10 @@ public class QTILSearchEngine extends SearchEngine {
 	public void submitSettings() throws IOException {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	private String getSettingValue(String key){
+		return this.getSettings().getSettingValue(key);
 	}
 
 }

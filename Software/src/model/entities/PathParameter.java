@@ -56,4 +56,9 @@ public class PathParameter extends SearchParameter {
 			return "Empty filepath !";
 		return super.getMessageError();
 	}
+
+	@Override
+	public String getStringConsole() {
+		return this.getString();
+	}
 }

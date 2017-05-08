@@ -28,15 +28,17 @@ public class ViewHistory extends ViewMenu {
 		} else {
 			for (int i = 0; i < requests.size(); i++) {
 				System.out.println("|                                                |");
-				System.out.println("|  " + (i + 1) + "  -  " + requests.get(i).getSearchParameter());
+				System.out.println("|  " + (i + 1) + "  -  " + requests.get(i).getSearchParameter().getStringConsole());
 			}
 		}
 	}
 
 	@Override
 	public void applyChoice(int choice) {
-		Request request = this.controllerHistory.getSavedRequests().get(choice-1);
-		this.showRequest(request);
+		if (choice > 0 && choice <= this.controllerHistory.getSavedRequests().size()){
+			Request request = this.controllerHistory.getSavedRequests().get(choice-1);
+			this.showRequest(request);
+		}
 	}
 
 	private void showRequest(Request request) {

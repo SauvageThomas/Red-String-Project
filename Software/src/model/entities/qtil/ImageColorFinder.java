@@ -19,15 +19,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import model.tools.Path;
+
 public class ImageColorFinder {
 
-	public static int errorMargin = 50;
-	public static String nameFile = "../assets/engines/QTIL/descriptors/image_index";
-
-	public static List<String> searchImageColor(int red, int green, int blue) {
-		//Configuration config = Configuration.INSTANCE;
-		//String path = config.getDescriptorPath();
-		File file = new File(nameFile);
+	public static List<String> searchImageColor(int red, int green, int blue, int margin) {
+		File file = new File(Path.QTIL_IMAGE_INDEX);
 		Map<String, Integer> resultTmp = new HashMap<String, Integer>();
 		int rank;
 		try {
@@ -47,11 +44,11 @@ public class ImageColorFinder {
 				int redTmp = Integer.valueOf(values[0]);
 				int greenTmp = Integer.valueOf(values[1]);
 				int blueTmp = Integer.valueOf(values[2]);
-				boolean test = (redTmp >= red - errorMargin && redTmp <= red + errorMargin  );
+				boolean test = (redTmp >= red - margin && redTmp <= red + margin  );
 				if(test)
-					test = (greenTmp >= green - errorMargin && greenTmp <= green + errorMargin  );
+					test = (greenTmp >= green - margin && greenTmp <= green + margin  );
 				if(test)
-					test = (blueTmp >= blue - errorMargin && blueTmp <= blue + errorMargin  );
+					test = (blueTmp >= blue - margin && blueTmp <= blue + margin  );
 				if(test){
 					nameFile = nameFile.substring(0, nameFile.length()-3);
 					nameFile = nameFile +"jpg";
@@ -67,10 +64,8 @@ public class ImageColorFinder {
 		return hashMapToArrayList(resultTmp);
 	}
 
-	public static List<String> searchByShadeOfGrey(int color) {
-		/*Configuration config = Configuration.INSTANCE;
-		String path = config.getDescriptorPath();*/
-		File file = new File(nameFile);
+	public static List<String> searchByShadeOfGrey(int color, int margin) {
+		File file = new File(Path.QTIL_IMAGE_INDEX);
 		Map<String, Integer> resultTmp = new HashMap<String, Integer>();
 		int rank;
 		try {
@@ -88,7 +83,7 @@ public class ImageColorFinder {
 				nameFile = nameFile.substring(1);
 				value = value.trim();
 				int colorTmp = Integer.valueOf(value);
-				boolean test = (colorTmp >= color - errorMargin && colorTmp <= color + errorMargin  );
+				boolean test = (colorTmp >= color - margin && colorTmp <= color + margin  );
 				if(test){
 					nameFile = nameFile.substring(0, nameFile.length()-3);
 					nameFile = nameFile +"bmp";

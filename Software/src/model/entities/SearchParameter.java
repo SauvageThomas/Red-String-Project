@@ -13,4 +13,6 @@ public abstract class SearchParameter implements Serializable{
 	public String getMessageError() {
 		return "Invalid parameter (unknown error) !";
 	}
+
+	public abstract String getStringConsole() ;
 }

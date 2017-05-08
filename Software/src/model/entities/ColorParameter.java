@@ -32,4 +32,9 @@ public class ColorParameter extends SearchParameter{
 	public boolean hasError() {
 		return false;
 	}
+
+	@Override
+	public String getStringConsole() {
+		return this.getString();
+	}
 }

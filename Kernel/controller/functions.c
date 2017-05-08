@@ -113,7 +113,6 @@ char** search_data(char* file_path) {
 			}
 			else
 				common = compare_descriptors(descriptor, desc[i]);
-			printf("%d ", i);
 			add_nb_value_hash_map(&result, desc[i].file_name, common);
 		}
 	}

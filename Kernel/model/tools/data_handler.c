@@ -74,7 +74,6 @@ char* read_string_from_file(DataFile data_file) {
 	set_data_file_length(&data_file);
 	data_file.file = fopen(data_file.path, "r+");
 	char* string_in_file = malloc(data_file.length + 1);
-	printf("%d", data_file.length);
 	if (string_in_file == NULL) {
 		fprintf(stderr, "Malloc in read_string_from_file failed %s\n", strerror(errno));
 	}

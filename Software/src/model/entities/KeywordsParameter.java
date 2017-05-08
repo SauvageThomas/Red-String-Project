@@ -54,4 +54,18 @@ public class KeywordsParameter extends SearchParameter{
 			return "Invalid keywords !";
 		return super.getMessageError();
 	}
+
+	@Override
+	public String getStringConsole() {
+		String res = this.keywords.size() + " Keyword";
+		if (this.keywords.size() > 1)
+			res += "s";
+		for (Keyword keyword : this.keywords){
+			if (keyword.isPositive())
+				res += "\n|        +  " + keyword.getWord();
+			else
+				res += "\n|        -  " + keyword.getWord();
+		}
+		return res;
+	}
 }
