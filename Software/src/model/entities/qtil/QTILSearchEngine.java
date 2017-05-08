@@ -16,18 +16,6 @@ public class QTILSearchEngine extends SearchEngine {
 		super(settings);
 		this.kernel = QTILKernel.getInstance();
 		this.keywordSearcher = new KeywordSearcher();
-		
-		System.out.print("TEXT  INDEXATION...");
-		int res_txt = this.indexText();
-		System.out.println("  Done ! (flag = " + res_txt + ")");
-		
-		System.out.print("IMAGE INDEXATION...");
-		int res_img = this.indexImage();
-		System.out.println("  Done ! (flag = " + res_img + ")");
-		
-		System.out.print("SOUND INDEXATION...");
-		int res_sound = this.indexAudio();
-		System.out.println("  Done ! (flag = " + res_sound + ")");
 	}
 
 	@Override
@@ -41,7 +29,7 @@ public class QTILSearchEngine extends SearchEngine {
 	}
 
 	@Override
-	public int indexAudio() {
+	public int indexSound() {
 		return this.kernel.updateSoundDescriptors(1);
 	}
 

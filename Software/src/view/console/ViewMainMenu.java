@@ -22,6 +22,21 @@ public class ViewMainMenu extends ViewMenu implements Observer{
 		this.viewLogin = new ViewLogin(controllerSoftware);
 		this.controllerSoftware = controllerSoftware;
 		this.controllerSoftware.setObserver(this);
+		this.updateSoftware();
+	}
+
+	private void updateSoftware() {
+		System.out.print("TEXT  INDEXATION...");
+		int res_txt = this.controllerSoftware.indexText();
+		System.out.println("  Done ! (file updated = " + res_txt + ")");
+		
+		System.out.print("IMAGE INDEXATION...");
+		int res_img = this.controllerSoftware.indexImage();
+		System.out.println("  Done ! (file updated = " + res_img + ")");
+		
+		System.out.print("SOUND INDEXATION...");
+		int res_sound =  this.controllerSoftware.indexSound();
+		System.out.println("  Done ! (file updated = " + res_sound + ")");
 	}
 
 	@Override

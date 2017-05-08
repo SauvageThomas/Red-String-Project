@@ -160,4 +160,28 @@ public class QTILSoftware {
 		else
 			this.engines.get(name).submitSettings();
 	}
+
+	public int indexText() {
+		int res = 0;
+		for (String key : this.engines.keySet()){
+			res += this.engines.get(key).indexText();
+		}
+		return res;
+	}
+	
+	public int indexImage() {
+		int res = 0;
+		for (String key : this.engines.keySet()){
+			res += this.engines.get(key).indexImage();
+		}
+		return res;
+	}
+	
+	public int indexSound() {
+		int res = 0;
+		for (String key : this.engines.keySet()){
+			res += this.engines.get(key).indexSound();
+		}
+		return res;
+	}
 }

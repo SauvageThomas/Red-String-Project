@@ -18,7 +18,7 @@ public interface SearchEngineInterface {
 	/**
 	 * TODO comment
 	 **/
-	public abstract int indexAudio();
+	public abstract int indexSound();
 
 	/**
 	 * TODO comment

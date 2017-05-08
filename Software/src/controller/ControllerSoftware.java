@@ -22,6 +22,19 @@ public class ControllerSoftware {
 		//this.software.addEngine("QTIL2", new QTILSearchEngine(config));
 	}
 	
+	public int indexText(){
+		return this.software.indexText();
+	}
+	
+	public int indexImage(){
+		return this.software.indexImage();
+	}
+	
+	public int indexSound(){
+		return this.software.indexSound();
+	}
+		
+	
 	public List<Settings> getAllSettings() {
 		return this.software.getAllSettings();
 	}
