@@ -67,7 +67,7 @@ public class ControllerSettingElement extends AnchorPane{
 					controllerSoftware.changeSetting("LAYER NUMBER", String.valueOf(Math.round(audioSlider.getValue())));
 					controllerSoftware.changeSetting("QUANTIFICATION", String.valueOf(Math.round(pixelSlider.getValue())));
 					controllerSoftware.changeSetting("WINDOW SIZE", String.valueOf(Math.round(audioSlider2.getValue())));
-					controllerSoftware.changeSetting("DESCRIPTORS", descPath.getText());
+					controllerSoftware.changeSetting("DESCRIPTORS", descPath.getText() + "/");
 					controllerSoftware.submitSettings(name);
 				} catch (IOException e1) {
 					System.out.println("ERROR SUBMIT SETTINGS");

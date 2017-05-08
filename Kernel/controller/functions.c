@@ -35,10 +35,10 @@ char** search_data(char* file_path) {
 
 	switch (file_type) {
 	case TEXT:
-		strcat(full_path, "text_descriptors");
+		strcat(full_path, "/text_descriptors");
 		break;
 	case IMAGE:
-		strcat(full_path, "image_descriptors");
+		strcat(full_path, "/image_descriptors");
 		break;
 	case SOUND:
 		// TODO : Activate Sound
@@ -186,7 +186,7 @@ char** search_by_keywords(char** keywords) {
 	char* file_path = malloc(KSIZE * 2);
 	strcpy(file_path, path);
 
-	strcat(file_path, "text_index");
+	strcat(file_path, "/text_index");
 
 	DataFile df = init_data_file(file_path);
 

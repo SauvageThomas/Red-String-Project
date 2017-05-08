@@ -61,7 +61,7 @@ public class ControllerGlobalElement extends AnchorPane{
 
 				try {
 					controllerSoftware.changeSetting("MODE", mode);
-					controllerSoftware.changeSetting("DATA BASE", bdPath.getText());
+					controllerSoftware.changeSetting("DATA BASE", bdPath.getText() + "/");
 					controllerSoftware.submitSettings(name);
 				} catch (IOException e1) {
 					System.out.println("ERROR SUBMIT SETTINGS");

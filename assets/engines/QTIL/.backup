@@ -1,6 +1,6 @@
-path /home/twarz/git/Red-String-Project/data/FICHIER_PROJET/
+path /home/twarz/git/Red-String-Project/DATA_BASE/
 descriptors /home/twarz/git/Red-String-Project/assets/engines/QTIL/descriptors/
-taille_des_fenetres 500
+taille_des_fenetres 314
 nombre_de_barre 250
 quantification 4
 pixel_margin 50
