@@ -52,7 +52,6 @@ public class History implements Serializable {
 		} catch (FileNotFoundException e) {
 			// First generation, no need to worry
 		} catch (IOException e) {
-			e.printStackTrace();
 		}
 		return new History();
 	}
