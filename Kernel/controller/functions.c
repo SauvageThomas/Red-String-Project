@@ -35,10 +35,10 @@ char** search_data(char* file_path) {
 
 	switch (file_type) {
 	case TEXT:
-		strcat(full_path, "/text_descriptors");
+		strcat(full_path, "text_descriptors");
 		break;
 	case IMAGE:
-		strcat(full_path, "/image_descriptors");
+		strcat(full_path, "image_descriptors");
 		break;
 	case SOUND:
 		// TODO : Activate Sound

@@ -20,17 +20,17 @@ public class QTILSearchEngine extends SearchEngine {
 
 	@Override
 	public int indexText() {
-		return this.kernel.updateTextDescriptors(1);
+		return this.kernel.updateTextDescriptors(0);
 	}
 
 	@Override
 	public int indexImage() {
-		return this.kernel.updateImageDescriptors(1);
+		return this.kernel.updateImageDescriptors(0);
 	}
 
 	@Override
 	public int indexSound() {
-		return this.kernel.updateSoundDescriptors(1);
+		return this.kernel.updateSoundDescriptors(0);
 	}
 
 	@Override

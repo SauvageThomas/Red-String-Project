@@ -20,7 +20,7 @@ JNIEXPORT jobjectArray JNICALL Java_model_entities_QTILKernel_search_1by_1file (
 	const char* path = (*env)->GetStringUTFChars(env, filepath, 0);
 	char** res = search_data(path);
 
-	int count = (atoi(res[0])) > 0 ? atoi(res[0]) + 1 : 1;
+	int count = (atoi(res[0])) > 0 ? atoi(res[0]) : 1;
 	jstring str;
 	jobjectArray result = 0;
 	result = (*env)->NewObjectArray(env, count, (*env)->FindClass(env, "java/lang/String"), 0);
