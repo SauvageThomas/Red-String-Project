@@ -44,7 +44,6 @@ public class ControllerImageElement extends AnchorPane{
             throw new RuntimeException(exception);
         }
         
-        System.out.println(url);
         ImageView test = new ImageView("file:"+url);
         String[] nameImage = url.split("/");
         test.setFitHeight(200);
