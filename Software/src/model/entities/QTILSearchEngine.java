@@ -1,11 +1,7 @@
-package model.entities.qtil;
+package model.entities;
 
 import java.io.IOException;
 import java.util.List;
-
-import model.entities.Keyword;
-import model.entities.QTILKernel;
-import model.entities.SearchEngine;
 
 public class QTILSearchEngine extends SearchEngine {
 

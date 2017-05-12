@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Scanner;
 
 import controller.ControllerHistory;
-import model.entities.history.Request;
-import model.entities.history.Result;
+import model.entities.Request;
+import model.entities.Result;
 
 public class ViewHistory extends ViewMenu {
 

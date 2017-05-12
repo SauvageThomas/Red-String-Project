@@ -1,4 +1,4 @@
-package model.entities.history;
+package model.entities;
 
 import java.io.Serializable;
 

@@ -6,7 +6,7 @@
  ============================================================================
  */
 
-package model.entities.qtil;
+package model.entities;
 
 import java.io.BufferedReader;
 import java.io.File;

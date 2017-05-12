@@ -10,7 +10,7 @@ import java.util.Observer;
 
 import controller.ControllerSoftware;
 import javafx.scene.layout.VBox;
-import model.entities.history.Request;
+import model.entities.Request;
 
 /**
  *

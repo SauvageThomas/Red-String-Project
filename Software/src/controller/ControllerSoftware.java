@@ -5,11 +5,11 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Observer;
 
+import model.entities.QTILConfiguration;
+import model.entities.QTILSearchEngine;
 import model.entities.QTILSoftware;
+import model.entities.Request;
 import model.entities.Settings;
-import model.entities.history.Request;
-import model.entities.qtil.QTILConfiguration;
-import model.entities.qtil.QTILSearchEngine;
 
 public class ControllerSoftware {
 

@@ -22,9 +22,9 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import model.entities.history.History;
-import model.entities.history.Request;
-import model.entities.history.Result;
+import model.entities.History;
+import model.entities.Request;
+import model.entities.Result;
 
 /**
  *

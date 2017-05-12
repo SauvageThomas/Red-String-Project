@@ -1,13 +1,10 @@
-package model.entities.qtil;
+package model.entities;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-import model.entities.BornedIntegerSetting;
-import model.entities.PathSetting;
-import model.entities.Settings;
 import model.tools.Path;
 
 public class QTILConfiguration extends Settings{

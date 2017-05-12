@@ -1,4 +1,4 @@
-package model.entities.qtil;
+package model.entities;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,8 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-
-import model.entities.Keyword;
 
 public class KeywordSearcher {
 

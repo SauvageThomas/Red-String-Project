@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observer;
 
-import model.entities.history.Request;
-import model.entities.history.Result;
 import model.tools.Path;
 
 public class QTILSoftware {

@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 import controller.ControllerHistory;
 import controller.ControllerSoftware;
-import model.entities.history.Request;
-import model.entities.history.Result;
+import model.entities.Request;
+import model.entities.Result;
 
 public class ViewSearchMenu extends ViewMenu{
 

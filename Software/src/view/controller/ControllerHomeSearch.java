@@ -29,8 +29,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import model.entities.PathParameter;
-import model.entities.history.Request;
-import model.entities.history.Result;
+import model.entities.Request;
+import model.entities.Result;
 import view.GraphicLauncher;
 
 /**
