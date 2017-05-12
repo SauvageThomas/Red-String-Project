@@ -18,4 +18,5 @@ public class Path {
 	public static final String QTIL = ENGINES + "QTIL/";
 	public static final String QTIL_SETTINGS = QTIL + ".config";
 	public static final String QTIL_IMAGE_INDEX = QTIL + "descriptors/image_index";
+	public static final String QTIL_TEXT_INDEX = QTIL + "descriptors/text_index";
 }

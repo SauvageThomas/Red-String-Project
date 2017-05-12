@@ -12,14 +12,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class KeywordSearcher {
+import model.tools.Path;
 
-	private final String indexPath = "../assets/engines/QTIL/descriptors/text_index"; // temporaire
+public class KeywordSearcher {
 
 	public List<String> searchByKeyword(List<Keyword> keywords) {
 		Map<String, Integer> results = new HashMap<String, Integer>();
 
-		File file = new File(this.indexPath);
+		File file = new File(Path.QTIL_TEXT_INDEX);
 		int length = 0;
 		try {
 			InputStream ips = new FileInputStream(file);
@@ -92,19 +92,4 @@ public class KeywordSearcher {
 		sortedResults.add(0, String.valueOf(length));
 		return sortedResults;
 	}
-
-	public static void main(String[] args) {
-		ArrayList<Keyword> arrayList = new ArrayList<>();
-		arrayList.add(new Keyword("musique", true));
-		arrayList.add(new Keyword("environnement", true));
-		arrayList.add(new Keyword("groupe", false));
-
-		KeywordSearcher keywordSearcher = new KeywordSearcher();
-		List<String> results = keywordSearcher.searchByKeyword(arrayList);
-
-		for(String c : results){
-			System.out.println(c);
-		}
-	}
-
 }
