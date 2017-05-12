@@ -17,11 +17,13 @@ public class QTILConfiguration extends Settings{
 		this.fillSettings();
 	}
 
+	// change le parametre du chemin de la BDD
 	@Override
 	public void changeDataBaseLocation(String path){
 		this.DATA_BASE_PATH = path;
 	}
 	
+	// Charge les parametre du fichier de config vers une Map
 	@Override
 	public void fillSettings() throws IOException {
 		FileReader fr = new FileReader(new File(this.configFilePath));
@@ -40,12 +42,14 @@ public class QTILConfiguration extends Settings{
 		this.addSetting("PIXEL MARGIN", new BornedIntegerSetting(this.extractSettingValue(line, "pixel_margin"), 10, 120));
 	}
 	
+	// Retourne la valeur du champ dans un ligne du fichier de config
 	private String extractSettingValue(String line, String key) throws IOException{
 		if (line == null)
 			throw new IOException("Empty setting file : " + this.configFilePath + " (loading setting : " + key + ")");
 		return line.split(" ")[1].replace("\n\r", "");
 	}
 
+	// Retourne la chaine de caractere à écrire dans le fichier de config
 	@Override
 	public String getConfigText() {
 		String res = "path " + this.DATA_BASE_PATH;
