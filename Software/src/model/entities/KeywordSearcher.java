@@ -15,8 +15,10 @@ import java.util.Map.Entry;
 public class KeywordSearcher {
 
 	private final String indexPath = "../assets/engines/QTIL/descriptors/text_index"; // temporaire
-
-	public List<String> searchByKeyword(List<Keyword> keywords) {
+	
+	
+	//Permet de chercher les fichiers correspondants à une liste de mots-clés (avec polarité) 
+	public List<String> searchByKeywords(List<Keyword> keywords) {
 		Map<String, Integer> results = new HashMap<String, Integer>();
 
 		File file = new File(this.indexPath);
@@ -35,11 +37,6 @@ public class KeywordSearcher {
 				if (value == null) {
 					break;
 				}
-				// cpt += 1;
-				if (cpt == 250) {
-					System.exit(0);
-				}
-				// System.out.println(value);
 				value = value.substring(1);
 				value = value.replaceAll(" ", "");
 
@@ -92,19 +89,4 @@ public class KeywordSearcher {
 		sortedResults.add(0, String.valueOf(length));
 		return sortedResults;
 	}
-
-	public static void main(String[] args) {
-		ArrayList<Keyword> arrayList = new ArrayList<>();
-		arrayList.add(new Keyword("musique", true));
-		arrayList.add(new Keyword("environnement", true));
-		arrayList.add(new Keyword("groupe", false));
-
-		KeywordSearcher keywordSearcher = new KeywordSearcher();
-		List<String> results = keywordSearcher.searchByKeyword(arrayList);
-
-		for(String c : results){
-			System.out.println(c);
-		}
-	}
-
 }

@@ -31,7 +31,7 @@ public class QTILSearchEngine extends SearchEngine {
 
 	@Override
 	public List<String> searchByKeywords(List<Keyword> keywords) {
-		return this.keywordSearcher.searchByKeyword(keywords);
+		return this.keywordSearcher.searchByKeywords(keywords);
 	}
 
 	@Override
