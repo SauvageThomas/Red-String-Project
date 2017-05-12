@@ -6,8 +6,13 @@ import java.util.List;
 public interface SearchEngineInterface {
 
 	/**
-	 * TODO comment
+	 * Interface définissant le comportement d'un moteur de recherche
+	 * dans le cadre d'un logiciel avec plusieurs moteurs
 	 **/
+	
+	
+	
+	
 	public abstract int indexText();
 
 	/**
