@@ -14,17 +14,17 @@ public class Keyword implements Comparable<Keyword>, Serializable {
 		this.isPositive = isPositive;
 	}
 
-	// Getter du mot-clé
+	// Getter du mot-cle
 	public String getWord() {
 		return this.word;
 	}
 
-	// Getter de la polarité de mot-clé
+	// Getter de la polarite de mot-cle
 	public boolean isPositive() {
 		return this.isPositive;
 	}
 
-	// Getter de la version textuelle du mot-clé
+	// Getter de la version textuelle du mot-cle
 	@Override
 	public String toString() {
 		if (this.isPositive)
@@ -32,7 +32,7 @@ public class Keyword implements Comparable<Keyword>, Serializable {
 		return "-" + this.word;
 	}
 
-	// Permet de voir si deux mots-clés sont équivalents
+	// Permet de voir si deux mots-clï¿½s sont ï¿½quivalents
 	@Override
 	public boolean equals(Object obj) {
 		// System.out.println(word + " | " +obj);
@@ -55,8 +55,8 @@ public class Keyword implements Comparable<Keyword>, Serializable {
 		return true;
 	}
 
-	// Permet de comparer deux mots clés en fonction de leur polarité et de leur
-	// ordre alphabétique
+	// Permet de comparer deux mots cles en fonction de leur polarite et de leur
+	// ordre alphabetique
 	@Override
 	public int compareTo(Keyword o) {
 		if (this.isPositive && !o.isPositive)

@@ -16,7 +16,7 @@ import model.tools.Path;
 
 public class KeywordSearcher {
 	
-	//Permet de chercher les fichiers correspondants à une liste de mots-clés (avec polarité) 
+	//Permet de chercher les fichiers correspondants a une liste de mots-cles (avec polarite) 
 	public List<String> searchByKeywords(List<Keyword> keywords) {
 		Map<String, Integer> results = new HashMap<String, Integer>();
 
