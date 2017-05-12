@@ -7,20 +7,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Settings {
-	/* ATTRIBUTS */
 	
 	private String name;
 	protected Map<String, Setting> settings;
 	protected String configFilePath;
 	
-	/* CONSTRUCTORS */
 	public Settings(String configFilePath, String name) throws IOException {
 		this.name = name;
 		this.configFilePath = configFilePath;
 		this.settings = new HashMap<String, Setting>();
 	}
 	
-	/* METHODS */
 	/**
 	 * TODO comment
 	 */
@@ -53,6 +50,7 @@ public abstract class Settings {
 	public void submitSettings() throws IOException{
 		FileWriter fw = new FileWriter(this.configFilePath);
 		BufferedWriter writer = new  BufferedWriter(fw);
+		// (template méthode)
 		writer.write(this.getConfigText());
 		writer.close();
 	}

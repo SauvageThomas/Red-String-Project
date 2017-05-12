@@ -12,6 +12,7 @@ public class SoftwareSettings extends Settings {
 		this.fillSettings();
 	}
 
+	// charge le fichier de configuration et stock chaque champ dans une Map
 	@Override
 	public void fillSettings() throws IOException {
 		FileReader fr = new FileReader(new File(this.configFilePath));
@@ -23,12 +24,14 @@ public class SoftwareSettings extends Settings {
 		this.addSetting("MODE", new RadioSetting(this.extractSettingValue(line, "mode"), choices));
 	}
 
+	// extrait la valeur d'un champ dans une ligne de fichier de configuration
 	private String extractSettingValue(String line, String key) throws IOException{
 		if (line == null)
 			throw new IOException("Empty setting file : " + this.configFilePath + " (loading setting : " + key + ")");
 		return line.split(" ")[1].replace("\n\r", "");
 	}
 	
+	// Retourne la chaine de caractere à écrire dans le fichier de config
 	@Override
 	public String getConfigText() {
 		String res = "path " + this.getSettingValue("DATA BASE");
