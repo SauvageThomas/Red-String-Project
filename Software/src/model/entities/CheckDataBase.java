@@ -19,10 +19,11 @@ public class CheckDataBase extends Observable implements Runnable {
 		this.run = run;
 	}
 
+	// Lance le thread
 	@Override
 	public void run() {
 		do {
-			if (this.hasDataBaseChanged()){
+			if (this.hasDataBaseChanged()) {
 				this.alertDataBaseHasChanged();
 				this.fillFiles();
 			}
@@ -34,12 +35,13 @@ public class CheckDataBase extends Observable implements Runnable {
 			}
 		} while (this.run);
 	}
-	
-	private boolean hasDataBaseChanged(){
+
+	// Vérifie si la base de données a changé ou pas
+	private boolean hasDataBaseChanged() {
 		String[] dataFiles = this.directory.list();
 		if (this.files.size() != dataFiles.length)
 			return true;
-		for(String name : dataFiles){
+		for (String name : dataFiles) {
 			if (!this.files.containsKey(name))
 				return true;
 			long date = new File(this.directory.getPath() + "/" + name).lastModified();
@@ -48,37 +50,44 @@ public class CheckDataBase extends Observable implements Runnable {
 		}
 		return false;
 	}
-	
+
+	// Remplis la list de fichers
 	private void fillFiles() {
 		this.files.clear();
-		for(String name : this.directory.list()){
+		for (String name : this.directory.list()) {
 			this.files.put(name, new File(this.directory.getPath() + "/" + name).lastModified());
 		}
 	}
 
+	// Setter du chemin de la base de données
 	public void setDataBaseLocation(String path) throws IOException {
 		File directory = new File(path);
 		if (!directory.exists())
 			throw new IOException("DATABASE location not found : " + path);
 		this.directory = directory;
-		
+
 	}
 
-	public void setModeOpen(boolean mode){
+	// Setter du booléen du mode ouvert/fermé
+	public void setModeOpen(boolean mode) {
 		this.run = mode;
 	}
-	public void alertDataBaseHasChanged(){
+
+	// Prévient que la base de données à changée et prévient ses observeurs
+	public void alertDataBaseHasChanged() {
 		this.setChanged();
 		this.notifyObservers();
 	}
 
+	// Getter du mode ouvert/fermé
 	public boolean getMode() {
 		return this.run;
 	}
 
+	// Permet de récupèrer le contenu d'un fichier en fonction de son chemin
 	public File getFileFromDataBase(String filePath) throws IOException {
 		String path = this.directory.getPath() + "/" + filePath;
-		if(!this.files.containsKey(path))
+		if (!this.files.containsKey(path))
 			throw new IOException("File not found : " + path);
 		return new File(path);
 	}
