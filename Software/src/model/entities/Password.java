@@ -15,6 +15,7 @@ import java.util.List;
 
 public class Password {
 
+	// Clé permettant de coder le mot de passe
 	private final int pass_key[] = { 147, 6479, 12345, 7842, 66, 177, 253, 122, 9548, 1215, 48421, 629, 314, 4784, 5102,
 			914, 213, 316, 145, 78 };
 
@@ -27,16 +28,17 @@ public class Password {
 		this.password = this.load();
 	}
 
+	// Chiffre une chaine de caractère en utilisant le codage par l'opération
+	// XOR
 	private String xor(String in) {
 		String out = "";
 		for (int i = 0; i < in.length(); i += 1) {
-
-			// System.out.println(in.charAt(i%in.length()) ^ this.pass_key[i]);
 			out += (char) (in.charAt(i) ^ this.pass_key[i]);
 		}
 		return out;
 	}
 
+	// Charge le mot de passe chiffré
 	private String load() {
 		String out = null;
 		String line = null;
@@ -63,6 +65,7 @@ public class Password {
 
 	}
 
+	// Change le mot de passe
 	public void change(String password) {
 		this.password = password;
 		List<String> lines = Arrays.asList(this.xor(password));
@@ -74,10 +77,12 @@ public class Password {
 		}
 	}
 
+	// Reset le mot de passe à sa valeur par défaut
 	public void reset() {
 		this.change(this.defaultPassword);
 	}
 
+	// Compare un mot de passe à un autre
 	public boolean compare(String password) {
 		return this.password.equals(password);
 	}

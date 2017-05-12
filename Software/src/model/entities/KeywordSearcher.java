@@ -15,8 +15,9 @@ import java.util.Map.Entry;
 import model.tools.Path;
 
 public class KeywordSearcher {
-
-	public List<String> searchByKeyword(List<Keyword> keywords) {
+	
+	//Permet de chercher les fichiers correspondants à une liste de mots-clés (avec polarité) 
+	public List<String> searchByKeywords(List<Keyword> keywords) {
 		Map<String, Integer> results = new HashMap<String, Integer>();
 
 		File file = new File(Path.QTIL_TEXT_INDEX);
@@ -35,11 +36,6 @@ public class KeywordSearcher {
 				if (value == null) {
 					break;
 				}
-				// cpt += 1;
-				if (cpt == 250) {
-					System.exit(0);
-				}
-				// System.out.println(value);
 				value = value.substring(1);
 				value = value.replaceAll(" ", "");
 
