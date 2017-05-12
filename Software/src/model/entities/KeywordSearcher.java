@@ -27,7 +27,6 @@ public class KeywordSearcher {
 			InputStreamReader ipsr = new InputStreamReader(ips);
 			BufferedReader br = new BufferedReader(ipsr);
 			String value = null;
-			int cpt = 0;
 			while ((value = br.readLine()) != null) {
 				while (value != null && !value.startsWith(">")) {
 					value = br.readLine();
