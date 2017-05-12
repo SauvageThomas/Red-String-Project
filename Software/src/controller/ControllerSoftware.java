@@ -16,10 +16,12 @@ public class ControllerSoftware {
 	private QTILSoftware software;
 	
 	public ControllerSoftware() throws IOException {
+		// on récupère l'instance unique du logiciel (QTILSoftware.java)
 		this.software = QTILSoftware.getSoftware();
+		// on charge la configuration du moteur QTIL
 		QTILConfiguration config = new QTILConfiguration(this.software.getDataBaseLocation());
+		// on créé et ajoute le moteur QTIL au logiciel
 		this.software.addEngine("QTIL", new QTILSearchEngine(config));
-		//this.software.addEngine("QTIL2", new QTILSearchEngine(config));
 	}
 	
 	public int indexText(){

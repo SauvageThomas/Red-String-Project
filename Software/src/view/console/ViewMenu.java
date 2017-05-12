@@ -4,12 +4,18 @@ import java.util.Scanner;
 
 public abstract class ViewMenu extends View{
 
+	/*
+	 * Class générale d'un menu console
+	 */
+	
 	@Override
 	public void showView(){
+		// méthode générale d'affichage d'un menu et de l'application du choix
 		int choice = 0;
 		do{
 			this.showMenu();
 			choice = this.getChoice();
+			// méthode déléguée à la classe fille (template méthode)
 			this.applyChoice(choice);
 		}while(choice != 0);
 	}

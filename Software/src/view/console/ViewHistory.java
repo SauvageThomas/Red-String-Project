@@ -36,6 +36,7 @@ public class ViewHistory extends ViewMenu {
 	@Override
 	public void applyChoice(int choice) {
 		if (choice > 0 && choice <= this.controllerHistory.getSavedRequests().size()){
+			// affiche la requete demandée
 			Request request = this.controllerHistory.getSavedRequests().get(choice-1);
 			this.showRequest(request);
 		}
@@ -54,6 +55,7 @@ public class ViewHistory extends ViewMenu {
 		else{
 			List<Result> results = request.getResults();
 			for (int i = 0; i < results.size(); i++){
+				// afiche la liste des requetes
 				System.out.println("|   [" + (i+1) + "]  " + results.get(i).toString());
 			}
 		}

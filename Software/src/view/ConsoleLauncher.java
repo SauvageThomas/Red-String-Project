@@ -23,9 +23,9 @@ public class ConsoleLauncher {
 	public static void main(String[] args) {
 		try {
 			ConsoleLauncher console = new ConsoleLauncher();
+			// affiche le premier menu
 			console.start();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
 	}

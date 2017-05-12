@@ -44,15 +44,6 @@ public class ViewSearchMenu extends ViewMenu{
 		}
 	}
 
-	private void searchWithKeywordsView() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Please, enter your keywords :");
-		System.out.println(">> ");
-		String keywords = sc.nextLine();
-		Request requestResult = this.controllerSoftware.searchByKeywords(keywords);
-		this.showRequestResult(requestResult, sc);
-	}
-
 	private void showRequestResult(Request requestResult, Scanner sc) {
 		System.out.println("==================================================");
 		System.out.println("|     *    *    *     REQUEST     *    *    *    |");
@@ -61,11 +52,13 @@ public class ViewSearchMenu extends ViewMenu{
 		System.out.println("|     *    *    *      RESULT     *    *    *    |");
 		System.out.println("|                                                |");
 		if (requestResult.hasError()){
+			// affiche un message d'erreur éventuel
 			System.out.println("|  " + requestResult.getMessageError());
 		}
 		else{
 			List<Result> results = requestResult.getResults();
 			for (int i = 0; i < results.size(); i++){
+				// affiche l'ensemble des résultats
 				System.out.println("|   [" + (i+1) + "]  " + results.get(i).toString());
 			}
 		}
@@ -76,10 +69,27 @@ public class ViewSearchMenu extends ViewMenu{
 		System.out.println("==================================================");
 		System.out.println("\n>> ");
 		int choice = sc.nextInt();
+		// sauvegarde une requete (History.java)
 		if (choice == 1)
 			this.controllerHistory.saveRequest(requestResult);
 	}
 
+	/**
+	 * Recherche par mots-clés (KeywordSearcher)
+	 */
+	private void searchWithKeywordsView() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please, enter your keywords :");
+		System.out.println(">> ");
+		String keywords = sc.nextLine();
+		Request requestResult = this.controllerSoftware.searchByKeywords(keywords);
+		this.showRequestResult(requestResult, sc);
+	}
+	
+	
+	/**
+	 * Recherche par niveau de gris (ImageColorFinder.java)
+	 */
 	private void searchWithShadeOfGrayView() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Please, enter your gray value (0 - 255) :");
@@ -89,6 +99,9 @@ public class ViewSearchMenu extends ViewMenu{
 		this.showRequestResult(requestResult, sc);
 	}
 
+	/**
+	 * Recherche par couleur (ImageColorFinder.java)
+	 */
 	private void searchWithColorView() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Please, enter your red value (0 - 255) :");
@@ -104,6 +117,9 @@ public class ViewSearchMenu extends ViewMenu{
 		this.showRequestResult(requestResult, sc);
 	}
 
+	/**
+	 * Recherche par fichier (Phase 1 : projet Kernel + JNI)
+	 */
 	private void searchWithFileView() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Please, enter your file path :");
