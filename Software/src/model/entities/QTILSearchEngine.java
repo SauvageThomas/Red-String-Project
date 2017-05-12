@@ -3,15 +3,19 @@ package model.entities;
 import java.io.IOException;
 import java.util.List;
 
+import model.tools.Path;
+
 public class QTILSearchEngine extends SearchEngine {
 
 	private QTILKernel kernel; // Wrapper des fonctions du noyau C (JNI)
 	private KeywordSearcher keywordSearcher;
+	private ImageColorFinder colorSearcher;
 	
 	public QTILSearchEngine(QTILConfiguration settings) {
 		super(settings);
 		this.kernel = QTILKernel.getInstance();
 		this.keywordSearcher = new KeywordSearcher();
+		this.colorSearcher = new ImageColorFinder(Path.QTIL_IMAGE_INDEX);
 	}
 
 	// Index les fichiers textes (JNI)
@@ -41,13 +45,13 @@ public class QTILSearchEngine extends SearchEngine {
 	// Recherche par couleur
 	@Override
 	public List<String> searchByColor(int r, int g, int b) {
-		return ImageColorFinder.searchImageColor(r, g, b, Integer.valueOf(this.getSettingValue("PIXEL MARGIN")));
+		return this.colorSearcher.searchImageColor(r, g, b, Integer.valueOf(this.getSettingValue("PIXEL MARGIN")));
 	}
 
 	// Recherche par gris
 	@Override
 	public List<String> searchByShadeOfGrey(int shadeOfGrey) {
-		return ImageColorFinder.searchByShadeOfGrey(shadeOfGrey, Integer.valueOf(this.getSettingValue("PIXEL MARGIN")));
+		return this.colorSearcher.searchByShadeOfGrey(shadeOfGrey, Integer.valueOf(this.getSettingValue("PIXEL MARGIN")));
 	}
 
 	// Recherche par fichier (JNI)

@@ -19,12 +19,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import model.tools.Path;
-
 public class ImageColorFinder {
 
-	public static List<String> searchImageColor(int red, int green, int blue, int margin) {
-		File file = new File(Path.QTIL_IMAGE_INDEX);
+	private String imageIndexPath;
+
+	public ImageColorFinder(String imageIndexPath) {
+		this.imageIndexPath = imageIndexPath;
+	}
+	public List<String> searchImageColor(int red, int green, int blue, int margin) {
+		File file = new File(this.imageIndexPath);
 		Map<String, Integer> resultTmp = new HashMap<String, Integer>();
 		int rank;
 		try {
@@ -64,8 +67,8 @@ public class ImageColorFinder {
 		return hashMapToArrayList(resultTmp);
 	}
 
-	public static List<String> searchByShadeOfGrey(int color, int margin) {
-		File file = new File(Path.QTIL_IMAGE_INDEX);
+	public List<String> searchByShadeOfGrey(int color, int margin) {
+		File file = new File(this.imageIndexPath);
 		Map<String, Integer> resultTmp = new HashMap<String, Integer>();
 		int rank;
 		try {
