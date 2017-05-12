@@ -19,7 +19,14 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+*
+* @author mathieu
+* 
+* Controller for "Update DB" window
+*/
 public class ControllerUpdateBD extends AnchorPane {
+	// FXML components
 	@FXML
 	private JFXButton updateButton;
 	@FXML
@@ -34,6 +41,7 @@ public class ControllerUpdateBD extends AnchorPane {
 	private JFXProgressBar progressBar;
 
 	public ControllerUpdateBD(final ControllerSoftware controllerSoftware, final Stage stage) {
+		//Loading and binding corresponding FXML file
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLUpdateDB.fxml"));
 		fxmlLoader.setRoot(this);
 		fxmlLoader.setController(this);
@@ -44,6 +52,7 @@ public class ControllerUpdateBD extends AnchorPane {
 			throw new RuntimeException(exception);
 		}
 
+		// Creating new thread to process the actual method to keep fluid UI
 		final IndexThread indexThread = new IndexThread(controllerSoftware, progressBar, progressText, doneButton, stage);
 
 		stage.setResizable(false);
@@ -58,6 +67,7 @@ public class ControllerUpdateBD extends AnchorPane {
 		progressText.setFont(Font.font("Helvetica", 15));
 		progressText.setFill(Color.web("#00BAB5"));
 
+		// Starting the indexing thread on click
 		updateButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
@@ -72,6 +82,8 @@ public class ControllerUpdateBD extends AnchorPane {
 			}
 		});
 
+		
+		// Closing window when done or if user doesn't want to update
 		cancelButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {

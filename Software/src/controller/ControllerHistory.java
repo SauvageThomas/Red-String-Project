@@ -2,8 +2,8 @@ package controller;
 
 import java.util.List;
 
-import model.entities.history.History;
-import model.entities.history.Request;
+import model.entities.History;
+import model.entities.Request;
 
 public class ControllerHistory {
 

@@ -12,6 +12,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+
+/**
+*
+* @author mathieu
+* 
+* Independent thread to run when indexing while keeping fluid and responsive UI
+*/
 public class IndexThread extends Thread{
 	
 	private ControllerSoftware controllerSoftware;
@@ -29,6 +36,7 @@ public class IndexThread extends Thread{
 		this.doneButton = doneButton;
 	}
 	
+	// Calling the indexing methods by type, + setting graphic infos
 	@Override
 	public synchronized void run() {
 		try {

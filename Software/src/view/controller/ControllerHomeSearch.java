@@ -29,16 +29,18 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import model.entities.PathParameter;
-import model.entities.history.Request;
-import model.entities.history.Result;
+import model.entities.Request;
+import model.entities.Result;
 import view.GraphicLauncher;
 
 /**
  *
  * @author mathieu
+ * 
+ * Standard layout for each new tab/window
  */
 public class ControllerHomeSearch extends VBox {
-
+	// FXML components
     @FXML
     private JFXRadioButton textSearch;
 
@@ -67,14 +69,13 @@ public class ControllerHomeSearch extends VBox {
     private JFXButton launchButton;
 
     public ControllerHomeSearch(final GraphicSearch search, final ControllerSoftware controllerSoftware) {
-    	
+    	//Loading and binding corresponding FXML file
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "/view/fxml/FXMLHomeSearch.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
         final FileChooser fileChooser = new FileChooser();
-        //fileChooser.setInitialDirectory(new File(controllerSoftware.getAllSettings().get(0).getSettingValue("DATABASE"))); 
 
         try {
             fxmlLoader.load();
@@ -82,10 +83,13 @@ public class ControllerHomeSearch extends VBox {
             throw new RuntimeException(exception);
         }
         
+        
+        // Adding gray colors to the color picker
         for (int i = 0; i <= 255; i+=5) {
         	colorPicker.getCustomColors().add(Color.grayRgb(i));
 		}
         
+        //Creating and managing the toggle group for the 3 different searches available
         textFieldSearch.setVisible(true);
         colorPicker.setVisible(false);
         browse.setVisible(false);
@@ -102,6 +106,7 @@ public class ControllerHomeSearch extends VBox {
         colorSearch.setUserData("color");
         colorSearch.setToggleGroup(searchGroup);
 
+        // Binding the radio buttons to their panels
         searchGroup.selectedToggleProperty().addListener(
                 new ChangeListener<Toggle>() {
             @Override
@@ -128,6 +133,7 @@ public class ControllerHomeSearch extends VBox {
             }
         });
 
+        //Binding a file picker to the browse button
         browseButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
@@ -136,12 +142,14 @@ public class ControllerHomeSearch extends VBox {
             }
         });
 
+        // Sending the search request to the controller on launch
         launchButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
             	
             	GraphicLauncher.getInstance().getBaseController().getSaveButton().setVisible(true);
             	
+            	// 3 different methods to call whether the search is by keyword, file or color
                 switch (searchGroup.getSelectedToggle().getUserData().toString()) {
                     case "text":
                     	search.searchTab.setTabText(textFieldSearch.getText());
@@ -151,6 +159,7 @@ public class ControllerHomeSearch extends VBox {
                     	
                         search.searchWindow.getChildren().clear();
                         ControllerTextResults textResults = new ControllerTextResults(textRequest.getResults());
+                        // Setting the reusult window large enough to take all available space (max 4K, should be enough)
                         textResults.setPrefSize(3840, 2160);
                         search.searchWindow.getChildren().addAll(textResults);
                         break;
@@ -161,6 +170,7 @@ public class ControllerHomeSearch extends VBox {
                     	search.currentRequest = fileRequest;
                     	
                         search.searchWindow.getChildren().clear();
+                        // Within the first switch, we have to check the type of file given
                         switch (((PathParameter) fileRequest.getSearchParameter()).getType()) {
 						case TEXT:
 							ControllerTextResults fileTextResults = new ControllerTextResults(fileRequest.getResults());
@@ -173,12 +183,14 @@ public class ControllerHomeSearch extends VBox {
 	                        search.searchWindow.getChildren().addAll(fileImageResults);
 	                        break;
 						case AUDIO:
+							// Since we couldn't use javafx media player, the sound result is displayed as an image result without any pitcure to render
 							ControllerImageResults fileAudioResults = new ControllerImageResults(fileRequest.getResults(), true);
 							fileAudioResults.setPrefSize(3840, 2160);
 	                        search.searchWindow.getChildren().addAll(fileAudioResults);
 							System.out.println(fileRequest.getResults().get(0).getFilePath());
 	                        break;
 						default:
+							// Managing any unknown type (result will say no match for this request)
 							ControllerImageResults noResults = new ControllerImageResults(new ArrayList<Result>(), false);
 							noResults.setPrefSize(3840, 2160);
 	                        search.searchWindow.getChildren().addAll(noResults);
@@ -188,6 +200,7 @@ public class ControllerHomeSearch extends VBox {
                     case "color":
                     	search.searchTab.setTabText("#".concat(colorPicker.getValue().toString().toUpperCase().substring(2, colorPicker.getValue().toString().length()-2)));
                     	Request colorRequest;
+                    	// Casting the given type to an easier one to process
                     	int redValue = (int) (colorPicker.getValue().getRed()*255);
                     	int greenValue = (int) (colorPicker.getValue().getGreen()*255);
                     	int blueValue = (int) (colorPicker.getValue().getBlue()*255);

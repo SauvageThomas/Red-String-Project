@@ -13,14 +13,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import model.entities.history.Result;
+import model.entities.Result;
 
 /**
  *
  * @author mathieu
+ * 
+ * Controller for a picture request
  */
 public class ControllerImageResults extends AnchorPane{
-    
+    // FXML components
     @FXML
     private ScrollPane scroll;
     
@@ -28,6 +30,7 @@ public class ControllerImageResults extends AnchorPane{
     private VBox search;
 
     public ControllerImageResults(List<Result> results, boolean audioTest) {
+    	//Loading and binding corresponding FXML file
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "/view/fxml/FXMLImageResults.fxml"));
         fxmlLoader.setRoot(this);
@@ -43,6 +46,8 @@ public class ControllerImageResults extends AnchorPane{
         this.scroll.setFitToWidth(true);
         this.scroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         this.scroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        
+        // Creating and adding the results for the request, if request list empty, adding fitting response
         
         if (results.size() == 0) {
         	this.search.getChildren().add(new ControllerTextElement("Aucun résultat", "Aucun document ne correspond aux termes de recherche spécifiés", null));

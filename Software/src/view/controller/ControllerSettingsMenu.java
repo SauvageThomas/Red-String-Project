@@ -15,7 +15,14 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.entities.Settings;
 
+/**
+*
+* @author mathieu
+* 
+* Controller for the general window of settings
+*/
 public class ControllerSettingsMenu extends HBox{
+	//FXML components
 	@FXML
 	protected VBox settingsList;
 	
@@ -25,7 +32,7 @@ public class ControllerSettingsMenu extends HBox{
 	public ControllerSettingsMenu(final ControllerSoftware controllerSoftware, final Stage stage){
 		
 		Settings globalSetting = null;
-		
+		//Loading and binding corresponding FXML file
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "/view/fxml/FXMLSettingsMenu.fxml"));
         fxmlLoader.setRoot(this);
@@ -44,6 +51,7 @@ public class ControllerSettingsMenu extends HBox{
 			button.setStyle("-fx-background-color: #FFFFFF");
 			button.setPrefSize(120, 60);
 			settingsList.getChildren().add(button);
+			//Depending on the name of the button, creating specific window of settings
 			if (!settings.getName().equals("Global")) {
 				button.setOnAction(new EventHandler<ActionEvent>() {
 	                @Override
@@ -63,6 +71,7 @@ public class ControllerSettingsMenu extends HBox{
 	            });
 			}
 		}
+		// Clearing the window then adding requested layout
 		currentWindow.getChildren().clear();
 		currentWindow.getChildren().add(new ControllerGlobalElement(stage, globalSetting.getSettings(), globalSetting.getName(), controllerSoftware));
 	}

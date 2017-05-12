@@ -24,9 +24,11 @@ import view.GraphicLauncher;
 /**
  *
  * @author mathieu
+ * 
+ * Controller for each text element (within a text result)
  */
 public class ControllerTextElement extends AnchorPane implements ResizeListener{
-    
+    //FXML components
     @FXML
     private VBox textElement;
     
@@ -35,7 +37,8 @@ public class ControllerTextElement extends AnchorPane implements ResizeListener{
     private Text contentDisplay;
 
     public ControllerTextElement(String title, String content, final String path) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
+    	//Loading and binding corresponding FXML file
+    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "/view/fxml/FXMLTextElement.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -93,6 +96,8 @@ public class ControllerTextElement extends AnchorPane implements ResizeListener{
 		});
     }
 
+    
+    //Method from resizeListener, manages resizing of the window (doesn't work w/ fullscreen)
 	@Override
 	public void onResize() {
 		titleDisplay.setWrappingWidth(textElement.getWidth()-5);

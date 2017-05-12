@@ -13,8 +13,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+
+/**
+*
+* @author mathieu
+* 
+* Controller for the login window
+*/
 public class ControllerLogin extends AnchorPane{
-	
+	// FXML components
 	@FXML
 	private JFXTextField passwdField;
 	
@@ -22,7 +29,7 @@ public class ControllerLogin extends AnchorPane{
 	private JFXButton submit;
 	
 	public ControllerLogin(final ControllerSoftware controller, final Stage stage, final ControllerSideMenu controllerSideManu){
-		
+		//Loading and binding corresponding FXML file
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "/view/fxml/FXMLLoginMenu.fxml"));
         fxmlLoader.setRoot(this);
@@ -34,9 +41,13 @@ public class ControllerLogin extends AnchorPane{
             throw new RuntimeException(exception);
         }
 		
+        
+        // Window non-resizable
         stage.setResizable(false);
         passwdField.setStyle("-jfx-focus-color: #00BAB5");
         
+        
+        // Checking with the controller whether the given password is OK or not
 		submit.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {

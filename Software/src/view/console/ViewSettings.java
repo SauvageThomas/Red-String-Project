@@ -13,9 +13,11 @@ public class ViewSettings extends View{
 	
 	@Override
 	public void showView() {
+		// parcours chaque type de parametre (Globaux + 1 par moteur de recherche)
 		for(Settings settings : this.controllerSoftware.getAllSettings()){
 			System.out.println("\n--------------------------------------------------");
 			System.out.println(settings.getName() + " settings :");
+			// Pour chaque type de parametre, on affiche tous les champs
 			for (String settingName : settings.getSettings().keySet()){
 				System.out.println("  -> " + settingName + " = " + settings.getSettings().get(settingName).getValue());
 			}

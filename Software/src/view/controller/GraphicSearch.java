@@ -10,11 +10,13 @@ import java.util.Observer;
 
 import controller.ControllerSoftware;
 import javafx.scene.layout.VBox;
-import model.entities.history.Request;
+import model.entities.Request;
 
 /**
  *
  * @author mathieu
+ * 
+ * All elements forming an actual reasearch are stored here
  */
 public class GraphicSearch extends Observable{
     protected VBox searchWindow;
@@ -29,6 +31,7 @@ public class GraphicSearch extends Observable{
         setActive(true);
     }
 
+    // Setting the research active on demand
     public void setActive(boolean active) {
         this.active = active;
         this.setChanged();

@@ -25,11 +25,14 @@ import view.controller.ResizeListener;
 /**
  *
  * @author mathieu
+ * 
+ * Class created as a kind of singleton, helps any graphic class to get to the top of the chain
  */
 public class GraphicLauncher extends Application {
 	
 	private final EventListenerList listeners = new EventListenerList();
 	
+	// Singleton
 	private static GraphicLauncher graphicLauncher;
 	private Scene scene;
 	private ControllerBase baseController;
@@ -47,13 +50,15 @@ public class GraphicLauncher extends Application {
 	
     @Override
     public void start(Stage stage) throws Exception {
-    	
+    	//Loading and binding corresponding FXML file
         final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/fxml/FXMLBase.fxml"));
         final ControllerSoftware controllerSoftware = new ControllerSoftware();
         baseController = new ControllerBase(controllerSoftware);
         controllerSoftware.setObserver(baseController);
         fxmlLoader.setController(baseController);
         
+        
+        // Creating the update pop-up
         Platform.runLater(new Runnable() {
 			@Override
 			public void run() {
@@ -79,12 +84,14 @@ public class GraphicLauncher extends Application {
         stage.setWidth(800);
         stage.setHeight(600);
         
+        // Stopping the app on clicking close button
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             public void handle(WindowEvent t) {
                 controllerSoftware.stop();
             }
         });
         
+        // Calling the resize listener when changing the size of the window
         scene.widthProperty().addListener(new InvalidationListener(){
 			@Override
 			public void invalidated(Observable observable) {

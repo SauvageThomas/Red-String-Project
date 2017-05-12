@@ -8,6 +8,8 @@ package view.controller;
 /**
  *
  * @author mathieu
+ * 
+ * Manages closing and creating windows
  */
 public interface TabListener {
     void onNewTab(GraphicSearch newSearch);
