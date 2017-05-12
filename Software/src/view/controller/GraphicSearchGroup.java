@@ -15,6 +15,8 @@ import view.GraphicLauncher;
 /**
  *
  * @author mathieu
+ * 
+ * Keeping all the GraphicSearch(es) together
  */
 public class GraphicSearchGroup implements Observer{
     protected List<GraphicSearch> searchList;
@@ -28,6 +30,7 @@ public class GraphicSearchGroup implements Observer{
         return searchList;
     }
     
+    // Add new search to the group
     public void addSearch(GraphicSearch search){
         if (listener != null) listener.onNewTab(search);
         searchList.add(search);
@@ -37,6 +40,7 @@ public class GraphicSearchGroup implements Observer{
         this.listener = listener;
     }
 
+    // On opening tab (or closing), or just requesting focus, focusing the right stuff
     @Override
     public void update(Observable o, Object arg) {
         GraphicSearch activeSearch = (GraphicSearch) arg;

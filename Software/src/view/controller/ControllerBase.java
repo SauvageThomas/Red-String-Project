@@ -43,9 +43,13 @@ import view.GraphicLauncher;
 /**
  *
  * @author mathieu
+ * 
+ * Graphic controller for the base layout (header, side menu)
  */
 public class ControllerBase implements Initializable, TabListener, Observer {
 
+	// FXML components
+	
 	@FXML
 	private JFXHamburger ham;
 
@@ -86,31 +90,22 @@ public class ControllerBase implements Initializable, TabListener, Observer {
 		group = new GraphicSearchGroup();
 		group.setTabListener(this);
 
+		// Animation for the side panel
 		final HamburgerBasicCloseTransition burgerTask = new HamburgerBasicCloseTransition(ham);
 		burgerTask.setRate(-1);
 
 		drawer.setSidePane(new ControllerSideMenu(controllerSoftware, group, ControllerBase.this, drawer));
 
-		/*
-		 * TranslateTransition tt = new
-		 * TranslateTransition(Duration.millis(2000), text); tt.setByX(200f);
-		 * tt.setCycleCount(1); tt.setAutoReverse(true);
-		 */
+		// Binding the side menu and the hamburger button
 		ham.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent e) {
 				ham.requestFocus();
-				// burgerTask.setRate(burgerTask.getRate()*-1);
 				if (drawer.isShown()) {
 					drawer.close();
 				} else {
 					drawer.open();
 				}
-				// burgerTask.play();
-
-				/*
-				 * tt.play(); tt.setByX(tt.getByX()*-1);
-				 */
 			}
 		});
 
@@ -132,9 +127,9 @@ public class ControllerBase implements Initializable, TabListener, Observer {
 			}
 		});
 
+		// Creating the specific tab button used by final user to create tabs
 		ControllerTab newTabButton = new ControllerTab(true, null);
 		header.getChildren().add(newTabButton);
-		// header.setMargin(ham, new Insets(0, -50, 0, 0));
 		header.setMargin(newTabButton, new Insets(0, 40, 0, 0));
 
 		newTabButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -149,9 +144,11 @@ public class ControllerBase implements Initializable, TabListener, Observer {
 			}
 		});
 
+		// Firing this button at launch to create a first window when opening the app
 		Event.fireEvent(newTabButton, new MouseEvent(MouseEvent.MOUSE_CLICKED, 0, 0, 0, 0, MouseButton.PRIMARY, 1, true,
 				true, true, true, true, true, true, true, true, true, null));
 
+		// Binding the home button to its action
 		homeButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
@@ -172,6 +169,7 @@ public class ControllerBase implements Initializable, TabListener, Observer {
 
 		saveButton.setVisible(false);
 
+		// Binding the save button to its action
 		saveButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
@@ -191,17 +189,18 @@ public class ControllerBase implements Initializable, TabListener, Observer {
 						Scene newScene = new Scene((Parent) s);
 						newStage.setScene(newScene);
 						newStage.show();
-						/*
-						 * try { Thread.sleep(1000); newStage.close(); } catch
-						 * (InterruptedException e2) { // TODO Auto-generated
-						 * catch block e2.printStackTrace(); }
-						 */
 					}
 				}
 			}
 		});
 	}
 
+	
+	/*
+	 * Methods from TabListener
+	 * onNewTab adds new search to its group and requests focus for it
+	 * onCloseTab removes the search and gives focus to the first window
+	 */
 	@Override
 	public void onNewTab(GraphicSearch newSearch) {
 		header.getChildren().add(newSearch.searchTab);
@@ -227,6 +226,8 @@ public class ControllerBase implements Initializable, TabListener, Observer {
 		}
 	}
 
+	
+	// Update from Observer, watches database updates
 	@Override
 	public void update(Observable o, Object arg) {
 		if (o instanceof CheckDataBase) {

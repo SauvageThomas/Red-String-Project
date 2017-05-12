@@ -29,6 +29,8 @@ import model.entities.Result;
 /**
  *
  * @author mathieu
+ * 
+ * Controller for a text request
  */
 public class ControllerTextResults extends AnchorPane{
 
@@ -39,6 +41,7 @@ public class ControllerTextResults extends AnchorPane{
     private ScrollPane scroll;
     
     public ControllerTextResults(History history){
+    	//Loading and binding corresponding FXML file
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "/view/fxml/FXMLTextResults.fxml"));
         fxmlLoader.setRoot(this);
@@ -54,6 +57,8 @@ public class ControllerTextResults extends AnchorPane{
         this.scroll.setFitToWidth(true);
         this.scroll.setHbarPolicy(ScrollBarPolicy.NEVER);
         this.scroll.setVbarPolicy(ScrollBarPolicy.AS_NEEDED);
+        
+        // Creating and adding the results for the request, if request list empty, adding fitting response
         
         if (history.getRequests().size() == 0) {
         	this.search.getChildren().add(new ControllerTextElement("Aucun résultat", "Aucun document ne correspond aux termes de recherche spécifiés", null));

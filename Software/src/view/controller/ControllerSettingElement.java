@@ -18,7 +18,15 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import model.entities.Setting;
 
+
+/**
+*
+* @author mathieu
+* 
+* Controller for the QTIL page of settings
+*/
 public class ControllerSettingElement extends AnchorPane{
+	//FXML components
 	@FXML
 	protected JFXSlider pixelSlider;
 	@FXML
@@ -31,6 +39,7 @@ public class ControllerSettingElement extends AnchorPane{
 	protected JFXButton save;
 
 	public ControllerSettingElement(final Stage stage, final Map<String, Setting> settings, final String name, final ControllerSoftware controllerSoftware){
+		//Loading and binding corresponding FXML file
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
 				"/view/fxml/FXMLSettingElement.fxml"));
 		fxmlLoader.setRoot(this);
@@ -42,6 +51,7 @@ public class ControllerSettingElement extends AnchorPane{
 			throw new RuntimeException(exception);
 		}
 
+		// Setting min, max and current value of every slider
 		pixelSlider.setMin(2);
 		pixelSlider.setMax(16);
 		pixelSlider.setValue(Integer.valueOf(settings.get("QUANTIFICATION").getValue()));
@@ -58,6 +68,8 @@ public class ControllerSettingElement extends AnchorPane{
 		pixelMarginSlider.setMax(120);
 		pixelMarginSlider.setValue(Integer.valueOf(settings.get("PIXEL MARGIN").getValue()));
 
+		
+		// Getting and passing new values on saving
 		save.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {

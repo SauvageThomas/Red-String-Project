@@ -26,13 +26,16 @@ import view.GraphicLauncher;
 /**
  *
  * @author mathieu
+ * 
+ * Controller for each image element (within an image result)
  */
 public class ControllerImageElement extends AnchorPane{
-    
+	// FXML component
     @FXML
     private HBox imageElement;
 
     public ControllerImageElement(final String url, boolean audioTest) {
+    	//Loading and binding corresponding FXML file
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "/view/fxml/FXMLImageElement.fxml"));
         fxmlLoader.setRoot(this);
@@ -44,14 +47,14 @@ public class ControllerImageElement extends AnchorPane{
             throw new RuntimeException(exception);
         }
         
+        
+        // Creating the display (title, thumbnail)
         ImageView test = new ImageView("file:"+url);
         String[] nameImage = url.split("/");
         test.setFitHeight(200);
         test.setPreserveRatio(true);
         test.setSmooth(true);
         test.setCache(true);
-        
-        //MediaView test2 = new MediaView(new MediaPlayer(new Media("file:../data/epic.wav")));
         
         imageElement.getChildren().add(test);
         
@@ -61,6 +64,7 @@ public class ControllerImageElement extends AnchorPane{
         titleDisplay.setFill(Color.web("#00BAB5"));
         imageInfos.getChildren().add(titleDisplay);
         
+        // Adding the size of the picture
         if (!audioTest) {
         	Text contentDisplay = new Text("Taille de l'image : " + (int) test.getImage().getWidth() + "x" + (int) test.getImage().getHeight());
             contentDisplay.setFont(Font.font ("Helvetica", 20));
@@ -74,6 +78,7 @@ public class ControllerImageElement extends AnchorPane{
         imageElement.setPadding(new Insets(5,0,5,5));
         this.setEffect(new DropShadow(5,3,3, Color.LIGHTGRAY));
         
+        // Opening the file with standard app on click (works on most of Linux distros)
         imageElement.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
@@ -83,6 +88,7 @@ public class ControllerImageElement extends AnchorPane{
 			}
 		});
         
+        // Setting cursor type
         imageElement.setOnMouseEntered(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {

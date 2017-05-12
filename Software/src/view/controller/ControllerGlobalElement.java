@@ -18,7 +18,14 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import model.entities.Setting;
 
+/**
+*
+* @author mathieu
+* 
+* Graphic controller for the general settings of the app
+*/
 public class ControllerGlobalElement extends AnchorPane{
+	// FXML components
 	@FXML
 	protected JFXTextField bdPath;
 	@FXML
@@ -29,6 +36,7 @@ public class ControllerGlobalElement extends AnchorPane{
 	protected JFXButton save;
 
 	public ControllerGlobalElement(final Stage stage, final Map<String, Setting> settings, final String name, final ControllerSoftware controllerSoftware){
+		//Loading and binding corresponding FXML file
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
 				"/view/fxml/FXMLSettingGlobal.fxml"));
 		fxmlLoader.setRoot(this);
@@ -40,6 +48,8 @@ public class ControllerGlobalElement extends AnchorPane{
 			throw new RuntimeException(exception);
 		}
 
+		
+		// Setting color and values for graphic components
 		bdPath.setStyle("-jfx-focus-color: #00BAB5");
 
 		bdPath.setText(settings.get("DATA BASE").getValue());
@@ -50,6 +60,7 @@ public class ControllerGlobalElement extends AnchorPane{
 			select = false;
 		openMode.setSelected(select);
 
+		// Sending informations from the components to the software controller on saving
 		save.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
@@ -71,6 +82,8 @@ public class ControllerGlobalElement extends AnchorPane{
 			}
 		});
 
+		
+		// Binding a directory chooser to the Browse button
 		final DirectoryChooser directoryChooser = new DirectoryChooser();
 
 		bdButton.setOnAction(new EventHandler<ActionEvent>() {

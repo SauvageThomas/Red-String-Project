@@ -23,15 +23,19 @@ import javafx.scene.text.Text;
 /**
  *
  * @author mathieu
+ * 
+ * Controller for each tab displayed in the top part of the window (header)
  */
 public class ControllerTab extends StackPane {
-
+	// Components dynamically created, w/o FXML
     protected Polygon parallelogram;
     private TabListener listener;
     protected Text tabLabel;
     protected JFXButton closeTab;
     protected boolean plusButton;
     
+    
+    // Setting listener
     public void setTabListener (TabListener listener) {
         this.listener = listener;
     }
@@ -74,6 +78,7 @@ public class ControllerTab extends StackPane {
             throw new RuntimeException(exception);
         }
 
+        //Giving form to the parallelogram
         parallelogram = new Polygon();
         if (plusButton) {
             parallelogram.getPoints().addAll(10.0, 0.0,

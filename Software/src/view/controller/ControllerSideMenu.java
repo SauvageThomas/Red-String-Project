@@ -17,8 +17,15 @@ import javafx.stage.Stage;
 import model.entities.History;
 import model.entities.Request;
 
+
+/**
+*
+* @author mathieu
+* 
+* Controller for the side menu
+*/
 public class ControllerSideMenu extends VBox{
-	
+	// FXML components
 	@FXML
 	protected JFXButton settings;
 	
@@ -29,7 +36,7 @@ public class ControllerSideMenu extends VBox{
 	protected JFXButton history;
 	
 	public ControllerSideMenu(final ControllerSoftware controllerSoftware, final GraphicSearchGroup group, final ControllerBase controllerBase, final JFXDrawer drawer){
-		
+		//Loading and binding corresponding FXML file
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
                 "/view/fxml/FXMLSideMenu.fxml"));
         fxmlLoader.setRoot(this);
@@ -43,6 +50,8 @@ public class ControllerSideMenu extends VBox{
 		
         final ControllerSideMenu memory = this;
         
+        
+        // Binding all of the buttons to their corresponding windows and disabling settings until admin logged in
         settings.setDisable(true);
         
         settings.setOnAction(new EventHandler<ActionEvent>() {
