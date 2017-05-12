@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Request implements Serializable{
+public class Request implements Serializable {
 
 	private static final long serialVersionUID = -1953258854190134665L;
 
@@ -18,31 +18,37 @@ public class Request implements Serializable{
 		this.results = new ArrayList<Result>();
 		this.flag = 0;
 	}
-	
-	public SearchParameter getSearchParameter(){
+
+	// Getter du paramètre de recherche
+	public SearchParameter getSearchParameter() {
 		return this.searchParameter;
 	}
 
-	public void addResult(Result result){
+	// Ajoute un résultat à la requête
+	public void addResult(Result result) {
 		if (this.results.contains(result))
 			this.results.get(this.results.indexOf(result)).addScore(result.getScore());
 		else
 			this.results.add(result);
 		Collections.sort(this.results);
 	}
-	
-	public void setFlag(int flag){
+
+	// Setter du flag d'erreur
+	public void setFlag(int flag) {
 		this.flag = flag;
 	}
-	
+
+	// Getter des résultats
 	public List<Result> getResults() {
 		return this.results;
 	}
 
+	// Permet de savoir si une erreur a eue lieu
 	public boolean hasError() {
 		return (this.searchParameter.hasError() || this.flag <= 0);
 	}
 
+	// Récupère le message d'erreur en fonction du flag
 	public String getMessageError() {
 		if (this.flag == -1)
 			return "File does not exist !";

@@ -24,19 +24,23 @@ public class History implements Serializable {
 		this.save();
 	}
 
+	// Ajoute une requette à l'historique
 	public void addRequest(Request request) {
 		this.requests.add(request);
 		this.save();
 	}
 
+	// Getter des requêtes
 	public List<Request> getRequests() {
 		return this.requests;
 	}
 
+	// Implémentation du singleton
 	public static History getInstance() {
 		return History.instance;
 	}
 
+	// Charge l'historique à partir du fichier .history
 	private static History load() {
 		FileInputStream fileIn;
 		try {
@@ -56,6 +60,7 @@ public class History implements Serializable {
 		return new History();
 	}
 
+	// Sauvegarde l'historique dans le fichier .history
 	public void save() {
 		try {
 			FileOutputStream fileOut = new FileOutputStream(Path.HISTORY);
