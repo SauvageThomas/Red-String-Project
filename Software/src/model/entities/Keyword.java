@@ -54,7 +54,8 @@ public class Keyword implements Comparable<Keyword>, Serializable {
 			return false;
 		return true;
 	}
-
+	
+	
 	// Permet de comparer deux mots cles en fonction de leur polarite et de leur
 	// ordre alphabetique
 	@Override
