@@ -21,11 +21,18 @@ import java.util.Map;
 
 public class ImageColorFinder {
 
-	private String imageIndexPath;
+	private String imageIndexPath;//Renseigne l'adresse à laquelle l'index image va être généré
 
+	/*Constructeur qui permet d'initialiser l'adresse de l'index image*/
 	public ImageColorFinder(String imageIndexPath) {
 		this.imageIndexPath = imageIndexPath;
 	}
+
+	/*Renvoie une liste de String, chaque String correspond au nom d'un fichier image en RGB qui est résultat de la recherche
+		La recherche est basée sur une valeur de rouge, une de verte, une de bleue et une marge d'erreur
+		Tous les résultats trouvés auront une valeur de rouge comprise entre le paramètre rouge - la marge et le paramètre rouge + la marge
+		De même pour chaque couleur
+	*/
 	public List<String> searchImageColor(int red, int green, int blue, int margin) {
 		File file = new File(this.imageIndexPath);
 		Map<String, Integer> resultTmp = new HashMap<String, Integer>();
@@ -66,7 +73,9 @@ public class ImageColorFinder {
 		};
 		return hashMapToArrayList(resultTmp);
 	}
-
+	/* Même principe que la méthode du dessus mais pour les images en nuances de gris 
+		Les paramètres d'entré sont le niveau de gris et la marge d'erreur
+	*/
 	public List<String> searchByShadeOfGrey(int color, int margin) {
 		File file = new File(this.imageIndexPath);
 		Map<String, Integer> resultTmp = new HashMap<String, Integer>();
@@ -101,6 +110,10 @@ public class ImageColorFinder {
 		return hashMapToArrayList(resultTmp);
 	}
 	
+
+	/*Cette méthode convertit une Map (paramètre d'entrée) en une liste triée (ArrayList en sortie)
+		Le fait que la liste soit triée en sortie permet au moteur d'afficher les résultats par ordre de pertinance
+	*/
 	private static  ArrayList<String> hashMapToArrayList(Map<String, Integer> map){
 		ArrayList<String> result = new ArrayList<String>();
 		int min;
